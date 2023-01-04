@@ -1,0 +1,10 @@
+*~
+meeting
+MeetingNotes.org
+MeetingNotes.org~
+README.org
+.token
+my_env/
+/Thesis/ltximg/
+*/*/*/__pycache__/
+*/*/.backup/
