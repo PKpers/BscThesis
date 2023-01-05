@@ -1,0 +1,62 @@
+#+STARTUP: latexpreview
+* Matter-Particle interactions
+When a particle travels through matter it interacts with it leaving detectable traces we can follow. Thus most of the particle detector are based on the interactions of the particle with materiel.
+
+On a fundamental level, particles traveling through matter, they loose energy, mostly thorough  ionization and excitation of matter's atoms.  The rate of energy loss per distance travelled inside the metterial can be aproximated by the Bethe-Bloch relation:
+\[
+\frac{dE}{dx} = \frac{4\pi N_{0} z^{2} e^{4}}{mv^{2}}\frac{Z}{A}\left[ \ln{\left (\frac{2mv^{2}}{I(1-\beta^{2})} \right)} - \beta^{2} \right]
+\]
+
+- m is electrons mass
+- z is particle's charge
+- v is particle's velocity in plank units and thus \(\beta = \frac{v}{c}\)
+- No is Avocadro's number
+- Z  is the atomic number of material's atoms 
+- A mass number of material's atoms
+- x is the distance travelled inside the material in units of (g/cm^{2} of kg/m^{2})
+- I is an approximation for the average ionization active potential
+
+  Observing the above equation we see that first of all the rate of  energy loss is not related to the mass of the particle that is loosing the energy.
+** Ionization
+Most of the lost energy ionizes the matterial. This happens in two stages.
+*** Primary ionization
+The first stage of matter ionization occurs directly from the travelling particle. As it travells through the matterial, it interacts with matter in the atomic level losing energy. This energy ionizes the atoms and thus electrons are emitted.
+*** Secondary ionization
+The energy lost by the particle is distributed to the electronses emmited from the ionized atoms. Now out of those electrons the ones with large enough energies are able to ionize the atom again.
+
+Finally the total amount of of electron-ion pairs is 3 to 4 times larger than the amount of pairs produced by the primary ionization. The total number of pairs is also propotional to the energy loss of the incident particle 
+** Coulomb scattering
+One of the primary scattering mechanisms of particles in matter is coulomb scattering. As we have seen, the rate of energy loss per distance travelled inside the matterial, is inverse proportional to the material's mass. Thus the energy lost from scattering due to nuclei  coulomb potential is small compared to the energy lost due to electron coulomb potential. On the other hand, the mass of the nucleus is larger and therefore the scattering in the transverse plane is more significant.
+The active cross per solid angle is given by the Rutherford equation:
+
+\[
+\frac{d\sigma(\theta)}{d\Omega} = \frac{1}{4} \left( \frac{Zze^{2}}{pv} \right)^{2} \frac{1}{\sin^{4}(\theta/2)}
+\]
+
+The total(of final) scattering angle, is a product of multiple, independent from each other coulomb scattering. Thus the final scattering angle, follows the Gaussian distribution.
+
+Coulomb scattering is an important procedure as it sets a boundary on the precision on the estimation of a particle's direction inside a detector.
+***  Energy loss due to radiation
+Through coulomb scattering a moving(charged) particle can loose energy via two procedures. Either it can either lose its energy by ionizing the atoms or by radiation emission. The second mechanism more dominant at higher energies.
+Its usually moving electrons that are slowed down by the nucleus potential loosing energy this way. The energy they loose is emitted as photon and, approximately, the energy E'  is distributed as \(\frac{E'}{dE'}\). Thus the energy that one electron looses(or the energy of the photons emitted) when it has travelled distance dx inside the material will be:
+
+\[
+\frac{dE}{dx} =- \frac{E}{X_0}
+\]
+
+Therefore the average energy that a beam of electrons with initial energy Eo looses as a function of x is:
+\[
+<E> = E_{0}\exp(-\frac{x}{X_{0}})
+\]
+Xo is the length that one electron must travel such that its energy is decreases by a factor of e.
+** Absorption of γ rays
+γ rays can be absorbed from mater in three ways. Compton scattering, photo-electric absorption and pair production.
+For higher energies(E>10 MeV), pair production dominates, as the other two are decreasing like \(1/E\) and \(1/E^{3}\) respectively.
+
+Pair production inside matter is closely related with electron loosing energy through radiation emission.(makes sense, as the electrons emit high energy photons).
+A photon beam at energies around 10GeV, looses energy due to absorption at travelled length x inside matter as:
+
+
+\[
+I = I_{0}\exp\left( - \frac{7x}{9X_{0}} \right)
+\]

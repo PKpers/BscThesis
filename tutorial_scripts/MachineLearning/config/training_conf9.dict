@@ -1,0 +1,23 @@
+* With !str keys
+
+[max_depth]
+value=!int "5"
+#
+[subsample]
+value=!float "0.8"
+#
+[n_estimators]
+value=!int "1500"
+#
+[learning_rate]
+value=!float "0.1"
+#
+[gamma]
+val=!int "0"
+#
+[objective]
+val=!str "binary:logistic"
+#
+[seed]
+value=!int "27"
+#

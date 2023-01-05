@@ -1,0 +1,307 @@
+* Clein-Gordon equation
+To have a quantum theory consistent with special relativity the associated wave equation has to be lorenz invariant.
+Begining by the energy-momentum relation of special relativity:
+\[E^{2} = \textbf{p}^{2} + m^{2}\]
+Replace energy and momentum with their corresponding quantum mechanics operators:
+\[\hat{E} = i\frac{\partial}{\partial{t}}, \hat{\textbf{p}} = -i\vec{\nabla}\]
+Thus the new lorentz invariant wave function has the form
+\[ (\frac{ \partial^{2}}{\partial{t^{2}}} - \nabla^{2} - m)\psi = 0\], or in tensor lorentz product notation:
+#+begin_src
+\[(\partial^{\mu} \partial_{\mu} - m^{2})\psi = 0\]
+where
+\[\partial^{\mu} \partial_{\mu} = \frac{\partial^{2}}{\partial{t^{2}}} - \nabla^{2}\]
+#+end_src
+This is the clein gordon equation.
+- The solutions are plane waves \(\psi(\vec{x}, t) = N\cdot \exp(i(\vec{p} \cdot \vec{x} - Et))\).
+- The energy of a particle described by the above solution is related to its momentum by the obvious relation:
+  \[E = \pm \sqrt{p^{2} + m^{2}} \]
+  To aquire a complete set of eigen states, we shall not discard the negative enrgy part.
+- The probability density and current are
+  \[\rho = 2|N^{2}| E\] and \[\vec{j} = 2|N^{2}|\vec{p}\]
+  We see that probability density is propotional to energy. This leads to unphisical negative PDFs for negative energy solutions. This seems to be a fatal flaw for the clein-gordon equation since it fails to consistently describe a relativistic quntum particle. So for the formulation of a relativistic quantum theory we need another equation...
+
+* The Dirac equation
+Having in mind that a relativistic quantum theory should be described by a lorentz invariant wave equation, we set to find a 1st order wave equation constraining the solutions to solve the clein gordon equation as well
+\[\hat{E}\psi = [\vec{a}\cdot \hat{p} + b\cdot m]\psi\]
+\(\hat{E}\) and \(\hat{p}\) operators are the same as before.
+we are now looking for the conditions that a and b should satisfly for ψ to solve the CG equation as well:
+
+
+\[-\partial^{2}_{t} \psi = (a_{i}(-i\partial{xi}) + bm) \cdot (a_{i}(-i\partial{xi}) + bm) \psi \Rightarrow\]
+\[-\partial^{2}_{t} \psi = [a^{2}_{i}\partial^{2}_{xi} + a_{i}a_{j}\partial^{2}_{xixj} + im(a_{j}b + ba_{j})\partial_{xj} - (bm)^{2}]\psi \]
+
+So we reach to the equation:
+\[(\partial^{2}_{t} - a^{2}_{i}\partial^{2}_{xi} + (bm)^{2})\psi = [im[a_{i}, b]_{+ } \partial_{xj} + [a_{i}, a_{j}]_{ + }\partial^{2}_{xixj} ]\psi\]
+
+For the above equation to be lorentz invariant, the following constrains should be set for a and b:
+1. \(a^{2}_{i} = b^{2} = I \forall i\), where I represents unity
+2. \([a_{i}, b]_{+} = 0 \forall i\)
+3. \([a_{i}, a_{j}]_{+} = 0 \forall i\ne j\)
+ 
+We see that the simplest objects that can satisfy the comutation relations are matrices.
+We can get more information about a and b if we look at the eigen values of a:
+\[ a\cdot \vec{x} = \lambda \vec{x} \Rightarrow a^{2}\cdot \vec{x} = \lambda a\cdot \vec{x} = \vec{x} = \lambda^{2} \vec{x}\]
+\[\therefore \lambda = \pm  1\]
+
+Finally we can look at the trace of a and b, using the conditions for a and b :
+\[Tr(a) = Tr(a\cdot bb) = Tr(b\cdot a\cdot b) = -Tr(bb\cdot a) = -Tr(a)\]
+This holds true only if
+\(Tr(a) = 0\), and for b as well \(Tr(b) = 0\).
+
+Given that the trace is the sum of eigen values, the dimention of a has to be even. Moreover a has the same dimention b so the b has to have an even number of eigen values as well.
+There are only 3 2x2 traceless arrays. We need 4 so the smallest number of dimentions that for a and b has to be 4.
+
+Finally we can write the Dirac's Hamiltonian:
+#+begin_src
+\[\hat{H} = a\cdot \hat{p} + b\cdot m\]
+#+end_src
+Obviusly H has to be hermitian, therefore a and b haveto be hermitian as well:
+\(a_{i} = a^{\dag}\), \(b = b^{\dag}\)
+Lastly given that ai and b are 4x4 matrices, the dirac's hamiltonian is a \(4\times 4\) matrix of  operators that must act on a four component wave function known as dirac's spinor:
+\[\psi = \begin{pmatrix}
+\psi_{1}\\
+\psi_{2}\\
+\psi_{3}\\
+\psi_{4}\\
+\end{pmatrix}\]
+
+_For masless particles_, m = 0 the hamiltonian operator takes the form \(\hat{H} = \vec{a}\cdot \hat{p}\) , which has only 3 components. Therefore in this case a can be represented by \(2\times 2\) matrices such as paoli matrices.
+
+The physics of the dirac's equation is defined by the algebra satisfied by a_{i} and b.
+
+Probability density and current, occuring from dirac's equation, are :
+\[\rho = \psi^{\dag}\psi\] and \[\vec{j} = \psi^{\dag} \vec{a}\psi \]
+
+* Co variant form of the Dirac equation
+A better way of writing Dirac's equation is such that it's covariance is obvious. Multiplying Dirac's equation with \beta we get:
+\[i\beta \frac{\partial \psi}{\partial t} = (-i\beta \vec{a} \cdot \vec{\nabla} + \beta^{2} m)\psi \Rightarrow
+i\beta(\frac{\partial \psi}{\partial t} + i\beta \vec{a} \cdot \vec{\nabla}\psi) - m\psi = 0\]
+Now we define the Dirac \gamma-matrices as :
+\[\gamma^{0} = \beta\]
+\[\gamma^{i} = \beta a^{i}\], i = 1,2,3
+We also define the co variant four-derivative as:
+\[\partial_{\mu} = (\partial_{i})\], i = 1,2,3,4
+We then, reach to the co variant form of dirac's equation:
+\[(i\gamma^{\mu}\partial_{\mu} - m )\psi = 0\]
+
+The algebra of the γ-matrices can be derived by the algebra of a and b matrices. 
+note that the gamma matrices are not 4vectors. They are marely 4x4 *constant* matrices that remain invariant under lorentz transformations.
+The current and probability density form a four-vector:
+\[j^{\mu} = (\rho, \vec{j}) = \psi^{\dag}\gamma^{0}\gamma^{\mu}\psi\]
+Defining the adjoint spinor as :
+\[\bar{\psi} = \psi^{\dag}\gamma^{0}\]
+We can write the current 4vector as:
+\[j^{\mu} = \bar{\psi}\gamma^{\mu}\psi\]
+The conservation of particle probability can be written as :
+\[\partial_{\mu}j^{\mu} = 0\] 
+
+* Solutions of dirac's equation
+The ultimate goal, eventualy, is to solve the mighty dirac's equation. Let's assume a free particle. It make sense to look for plane wave solutions, so we assume functions of the form:
+\[\psi(\vec{x}, t) = u(E, \vec{p}) \exp{i(\vec{p}\cdot{\vec{x}} - Et})\]
+u function doesn't depend on x or t, therefore, the derivative \(\partial_{\mu}\psi\) will leave it as is, so the equation will take form:
+\[(\gamma^{\mu}p_{\mu} - m)u = 0 \]
+** Particle at rest
+A particle at rest has no momentum, \(\vec{p} = \vec{0}\), therefore, the above equation becomes:
+\[(\gamma^{0}p_{0} - m)u = 0 \Rightarrow (E \gamma^{0} - m)u = 0 \]
+At this point we can use the pauli-dirac representation of the gamma matrix leading to a simple matrix equation for the components of the dirac spinor u:
+\[E \begin{pmatrix}
+1 & 0 & 0& 0\\
+0 & 1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -1
+\end{pmatrix} \cdot
+\begin{pmatrix}
+\phi_{1} \\
+\phi_{2} \\
+\phi_{3} \\
+\phi_{4} \\
+\end{pmatrix} = m
+\begin{pmatrix}
+\phi_{1} \\
+\phi_{2} \\
+\phi_{3} \\
+\phi_{4} \\
+\end{pmatrix}\]
+gamma matrice is diagonal therefore, we have 4 orthogonal solutions.
+The first two are:
+\[u_{1}(E,0) = N
+\begin{pmatrix}
+1\\
+0\\
+0\\
+0\\
+\end{pmatrix},
+u_{2}(E,0) = N
+\begin{pmatrix}
+1\\
+0\\
+0\\
+0\\
+\end{pmatrix}\]
+Their energy eigenvalue is positive E = m. They represent spin up and spin down particle with positive energy.
+The other two are 
+\[u_{3}(E,0) = N
+\begin{pmatrix}
+0\\
+0\\
+1\\
+0\\
+\end{pmatrix},
+u_{4}(E,0) = N
+\begin{pmatrix}
+1\\
+0\\
+0\\
+1\\
+\end{pmatrix}\]
+They have negative energy eigen values E = -m. They represent spin up and spin down particles with negative energy.
+** Moving particle
+One elegant way to dirac's equation for a moving particle, is by considering a frame \(\Sigma\) where particle is at rest. This problem is already solved. The next step is to consider a Lorentz boost to a frame \(\Sigma'\) where the particle is in motion. The lorentz transformations properties of the Dirac spinor are not trivial, so let's derive them
+Dirac's equation in Σ, is :
+
+\[i\gamma^{\mu}\partial_{\mu}\psi = m\psi\]
+
+Now in Σ', we expect it to be of the same form:
+
+
+\[i\gamma^{\nu}\partial'_{\nu}\psi' = m\psi'\]
+
+The partial four derivative is transformed according to the general lorentz transformation:
+
+\[\partial'_{\nu} = \Lambda^{\mu}_{\nu}\partial_{\mu}\]
+
+The dirac spinor in Σ' is related to the dirac spinor in Σ by the following transformation:
+
+\[\psi' = \hat{S}\psi\]
+
+So for the dirac's equation in Σ' we have
+
+\[i\gamma^{\mu}\Lambda^{\mu}_{\nu}\partial_{\mu}\hat{S}\psi = m\hat{S}\psi\]
+
+S is constant 4x4 matrix, therefore:
+
+k
+\[i\gamma^{\mu}\Lambda^{\mu}_{\nu}\hat{S}\partial_{\mu}\psi = m\hat{S}\psi\]
+
+Comparing the above equation with the equation in Σ multiplied by S we reach to the conclution that the Dirac equation will be convariant if a matrix S can be fount such that
+
+\[\hat{S}\gamma^{\mu} = \gamma^{\mu}\Lambda^{\mu}_{\nu}\hat{S}\]
+
+In the case where Σ' is traveling along the z axis with velocity \(\vec{v} = +v\hat{z}\), the lorentz transformation is of the form
+\[\Lambda^{\mu}_{\nu} = \begin{pmatrix}
+\gamma & 0 &  0 & \beta \gamma\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+\beta \gamma & 0 & 0 & \gamma \\
+\end{pmatrix}\]
+where β and γ are the common lorentz factors as we know from special relativity.
+With this lorentz transformation the S matrix that transforms dirac's spinor is of the form
+\[\hat{S} = aI - b\gamma^{0}\gamma^{3}\] where a and b are
+
+\[a= \sqrt{\frac{1}{2}(\gamma +1)} \text{ and } b = \sqrt{\frac{1}{2}(\gamma -1)}\]
+
+Finally, knowing the solution of a particle at rest, we can find the solution of a moving particle,  moving along the z direction, by transforming ψ as we found before using the S transformation we just derived. For this case it comes handy to use the pauli-dirac representation of γ matrices so S transformation becomes:
+
+\[\hat{S} = \begin{pmatrix}
+a & 0 & -b &  0\\
+0 & a & 0 & b\\
+-b & 0 & a & 0\\
+0 & b & 0 & a\\
+\end{pmatrix}\]
+So the dirac spinor in Σ' is:
+\[u'(p') = \hat{S}u(p) = \sqrt{2m}
+\begin{pmatrix}
+a\\
+0\\
+-b\\
+0\\
+\end{pmatrix} = \sqrt{E' + m}
+\begin{pmatrix}
+1\\
+0\\
+-b/a \\
+0\\
+\end{pmatrix} = \sqrt{E' + m}
+\begin{pmatrix}
+1\\
+0\\
+\frac{p'_{z}}{E'+m} \\
+0\\
+\end{pmatrix} \]
+_exercise:_ solved 
+Prove that b/a = pz' / (E'+m)
+
+In the general case, where a particle is moving in 3d space, the most general independed solutions are the following 4
+
+\[u_{1}(E,\vec{p}) = N
+\begin{pmatrix}
+1\\
+0\\
+\frac{p_{z}}{E+m}\\
+\frac{p_{x} + ip_{y}}{E+m}\\
+\end{pmatrix},
+u_{2}(E,\vec{p}) = N
+\begin{pmatrix}
+0\\
+1\\
+\frac{p_{x} - ip_{y}}{E+m}\\
+\frac{-p_{z}}{E+m}\\
+\end{pmatrix}\]
+
+with positive energy \(E = |\sqrt{p^{2} + m^{2}}|\)
+
+and 
+
+\[u_{3}(E,\vec{p}) = N
+\begin{pmatrix}
+\frac{p_{z}}{E+m}\\
+\frac{p_{x} + ip_{y}}{E+m}\\
+1 \\
+0 \\
+\end{pmatrix},
+u_{4}(E,\vec{p}) = N
+\begin{pmatrix}
+\frac{p_{x} - ip_{y}}{E+m}\\
+\frac{-p_{z}}{E+m}\\
+0 \\
+1\\
+\end{pmatrix}\]
+
+with negative energy \(E = -|\sqrt{p^{2} + m^{2}}|\)
+* Antiparticles
+Solving dirac's equation, solutions with negative energies occured. Quantum mechanics propose that we need a complete set of eigenstates thus, one cannot disregard the negative energy solutions as unphysical. So what happens then?
+Looking at solutions, we see that they are symmetric under time and energy inversion (E -> -E, t -> -t):
+\[\exp(-iEt) = \exp(-i (-E)(-t))\]
+This means that the negative energy solutions, describe particles, that propagate backward in time, or *antiparticles* that propagate forward in time. Those antiparticles have positive energy but the opposite charge. In the above equation, the LHS describes an antiparticle,with positive energy,  propagating forward in time and the RHS an particle with negative energy propagating backward in time. 
+** Antiparticle spinors
+In theory, one can work with spinors u3 and u4 as derived before. Though, they should keep in mind that the energy they are working with is the negative of the physical(positive) energy. Also given that time is reversed the momentum is the negative of the physical. With these two things in mind one can transform negative energy particle spinors u3 and u4 to positive energy anti-particle spinors v1 and v2 :
+\[v_{1}(E, p)\exp[−i(\vec{p}·\vec{x} - Et)] = u_{4}(-E, -p)\exp[i(-p·x−(-E)t)]\]
+\[v_{2}(E, p)\exp[−i(\vec{p}·\vec{x} - Et)] = u_{3}(-E, -p)\exp[i(-p·x−(-E)t)]\]
+
+_exercise_: solved
+Normalize dirac's spinors
+** Antiparticle operators
+What happens when a quantum mechanical operator, acts on an anti particle spinor
+\(\psi = u{E, P}\exp{[-i(\vec{p}\vec{x} - Et)]}\)
+Let's see the action of the hamiltonian for example:
+\[
+\hat{H}\psi = i\frac{\partial\psi}{\partial t} = -E\psi
+\]
+We see that the result it is not the physical energy but the negative energy instead.
+The same holds true for the rest of the operators, that represent observables. To get the physical observables of the anti particle the sign of the operators has to change, therefore:
+\[
+\hat{H} \rightarrow -\hat{H}
+\]
+
+\[
+\hat{p} \rightarrow -\hat{p}
+\]
+
+\[
+\hat{L} \rightarrow-\hat{L}
+\]
+
+\[\hat{S} \rightarrow \hat{S}\]
+* Helicity
+In general, Spin operator does not commute with the hamiltonian operator. Though there are some special cases, where hamiltonian eigen states are also eigen states of the spin operator. This is for a particle at rest or, for a particle travelling along the z direction, with a constant velocity.
+For the later case(which is the most general case for a particle to have simultaneus spin and hamiltonian eigen states), the dirac spinors are

@@ -1,0 +1,19 @@
+* With !str keys
+
+[General]
+num_elements=!int "4"
+num_data=!int "2"
+num_events=!int "100000"
+#
+[Type]
+type=!str "dist"
+#
+[Args]
+mu_a=!int "6"
+mu_b=!int "9"
+sigma=!float "0.2"
+#
+[Output]
+outpath=!str "/home/kpapad/UG_thesis/tutorial_scripts/MachineLearning/RFiles/"
+outname=!str "69s2"
+#

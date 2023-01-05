@@ -1,0 +1,42 @@
+#+STARTUP: inlineimages
+#+STARTUP: latexpreview
+#+STARTUP: entitiespretty
+* PtEtaPhi set
+- Optimized the training
+** Before
+[[/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/S10B13_rest500kConf10BDTplot.jpg]]
+** After 
+[[/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/S10B13_rest500kConf1BDTplot.jpg]]
+** Feature importance 
+[[/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/S10B13_rest500kConf1BDTplot_FeatureImportance.jpg]]
+The most important feature is Pt as expected. Eta plays a rather minor role in the classification. Phi is not needed. Obviously, only the coordinates of one particle are needed 
+** Relationship between Pt and eta
+[[/home/kpapad/UG_thesis/Thesis/Sim/out/PLots/S10B13_restDataPtEta.jpg]]
+* PxPyPz
+The only difference is the coordinate system. All the other settings are the same as before
+Training was done with the optimized configuration
+
+Size: 250K events for signal and 250K events for background
+
+** Plot of the dataset
+[[/home/kpapad/UG_thesis/Thesis/Sim/out/PLots/S10B13_restPxyzDataPLot.jpg]]
+
+** Results
+One would expect that the performance would drop since the in the Px Py Pz coordinate system, there is no variable that could potentially  "give off" the discriminative features
+** Feature importance  
+[[/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/S10B13_restPxyz500kConf1BDTplot_FeatureImportance.jpg]]
+Indeed all features play a role on the classification.
+** Training results
+ [[/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/S10B13_restPxyz500kConf1BDTplot.jpg]]
+ There is better performance now!
+ Why?
+** Mabe we are using too much data
+Let's do it again with less data lets have 50k events for signal and 50k for background
+** Training less data
+[[/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/S10B13_restPxyz50kConf1BDTplot.jpg]]
+The training size seems to have no impact in the performance
+...or a sample size of 50K evetns for signal and 50k for background is sufficient to have performance near 100% ! 
+** Training with less data and a different configuration
+Lets use a configuration that was suboptimal, in the case of PtEtaPhi coordinates
+[[/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/S10B13_restPxyz50kConf10BDTplot.jpg]]
+The performance drops, but its still on the high end.

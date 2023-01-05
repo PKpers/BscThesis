@@ -1,0 +1,29 @@
+Particle Physics Study Plan
+I will be using the  Modern Particle Phyics book
+I can stay in every chapter up to 2 weeks 
+* Chapter 4
+** DONE 4.1
+CLOSED: [2022-09-14 Wed 12:50]
+** DONE 42
+CLOSED: [2022-09-14 Wed 12:50]
+** DONE 4.3
+CLOSED: [2022-09-14 Wed 12:50]
+** TODO 4.4
+** TODO 4.5
+** TODO 4.6
+** TODO 4.7
+** TODO problems
+* Chapter 5
+Everything
+* Chapter 6
+Everything
+* Chapter 9
+Everything
+* Chapter 10
+everything
+* Chapter 11
+Everything
+* Chapter 15
+Everything
+* Chapter 17
+Everything

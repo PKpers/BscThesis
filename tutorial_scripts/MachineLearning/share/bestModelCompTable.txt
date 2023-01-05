@@ -1,0 +1,17 @@
+Training data\Testing data | 29s2  | 39s2  | 49s2  | 59s2  | 69s2 
+===========================+=======+=======+=======+=======+======
+           49s2            | 1.000 | 1.000 | 1.000 | 0.998 | 0.987
+           59s2            |  n/a  |  n/a  |  n/a  |  n/a  |  n/a 
+                           |       |       |       |       |      
+           69s2            |  n/a  |  n/a  |  n/a  |  n/a  |  n/a 
+                           |       |       |       |       |      
+           29s2            |  n/a  |  n/a  |  n/a  |  n/a  |  n/a 
+                           |       |       |       |       |      
+           39s2            |  n/a  |  n/a  |  n/a  |  n/a  |  n/a 
+                           |       |       |       |       |      
+
+Notes on the preformance of the model trained with 49s2 set.
+
+The model trained  was able to separate the background better when the signal was close to the background. So for sets 59s2, 69s2
+
+The model was able to separate the signal better when the background and the signal where far away 

@@ -1,0 +1,38 @@
+#+STARTUP: inlineimages
+#+STARTUP: latexpreview
+* Particle at rest decays to two photons
+[[/home/kpapad/UG_thesis/Thesis/Figures/pair_production.jpg]]
+
+Since the parent particle is at rest, conservation of momentum yields:
+\[
+\vec{|P_{1}|} = \vec{|P_{2}|} \equiv P
+\]
+Meanwhile from conservation of energy we get:
+\[
+E_{1} + E_{2} = MC^{2} \Rightarrow P_{1}+P_{2} = M \Rightarrow 2P = M
+\]
+Thus the total momentum of each particle will be
+\[
+P = \frac{M}{2}
+\]
+The momentum , vector of each photon can be expressed in terms of the coordinates\(\rho, \phi, \theta\), as:
+\begin{matrix}
+P1_{x} = \frac{M}{2}\cos{\phi}\sin{\theta}\\
+\\
+P1_{y} = \frac{M}{2}\sin{\phi}\sin{\theta}\\
+\\
+P1_{z} = \frac{M}{2}\cos{\theta}
+\end{matrix}
+
+The second photon, will have the same momentum but its vector momentum direction will be antidiametrical to its brother. Thus the angle \(\theta\) of the momentum of the second photon will be shifted by π rads. Knowing that
+\(\sin{\theta+\pi} = -\sin{\theta}\) and  \(\cos{\theta+\pi}=-\cos{\theta}\)
+we get
+\begin{matrix}
+P2_{x} = -\frac{M}{2}\cos{\phi}\sin{\theta}\\
+\\
+P2_{y} = -\frac{M}{2}\sin{\phi}\sin{\theta}\\
+\\
+P2_{z} = -\frac{M}{2}\cos{\theta}
+\end{matrix}
+* Moving particle decays to two photons
+

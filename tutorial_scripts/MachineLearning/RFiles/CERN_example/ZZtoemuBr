@@ -1,0 +1,134 @@
+******************************************************************************
+*Tree    :Events    : Events                                                 *
+*Entries :  1497445 : Total =       334252436 bytes  File  Size =  173158636 *
+*        :          : Tree compression factor =   1.93                       *
+******************************************************************************
+*Br    0 :run       : run/I                                                  *
+*Entries :  1497445 : Total  Size=    5992009 bytes  File Size  =      31885 *
+*Baskets :       21 : Basket Size=     513024 bytes  Compression= 187.90     *
+*............................................................................*
+*Br    1 :luminosityBlock : luminosityBlock/i                                *
+*Entries :  1497445 : Total  Size=    5992309 bytes  File Size  =      73190 *
+*Baskets :       21 : Basket Size=     513024 bytes  Compression=  81.86     *
+*............................................................................*
+*Br    2 :event     : event/l                                                *
+*Entries :  1497445 : Total  Size=   11983727 bytes  File Size  =    2719352 *
+*Baskets :       41 : Basket Size=     513024 bytes  Compression=   4.41     *
+*............................................................................*
+*Br    3 :PV_npvs   : PV_npvs/I                                              *
+*Entries :  1497445 : Total  Size=    5992109 bytes  File Size  =    1538273 *
+*Baskets :       21 : Basket Size=     513024 bytes  Compression=   3.89     *
+*............................................................................*
+*Br    4 :PV_x      : PV_x/F                                                 *
+*Entries :  1497445 : Total  Size=    5992034 bytes  File Size  =    4683412 *
+*Baskets :       21 : Basket Size=     513024 bytes  Compression=   1.28     *
+*............................................................................*
+*Br    5 :PV_y      : PV_y/F                                                 *
+*Entries :  1497445 : Total  Size=    5992034 bytes  File Size  =    4520375 *
+*Baskets :       21 : Basket Size=     513024 bytes  Compression=   1.33     *
+*............................................................................*
+*Br    6 :PV_z      : PV_z/F                                                 *
+*Entries :  1497445 : Total  Size=    5992034 bytes  File Size  =    5580395 *
+*Baskets :       21 : Basket Size=     513024 bytes  Compression=   1.07     *
+*............................................................................*
+*Br    7 :nMuon     : nMuon/i                                                *
+*Entries :  1497445 : Total  Size=    5992059 bytes  File Size  =     904362 *
+*Baskets :       21 : Basket Size=     513024 bytes  Compression=   6.62     *
+*............................................................................*
+*Br    8 :Muon_pt   : Muon_pt[nMuon]/F                                       *
+*Entries :  1497445 : Total  Size=   13219332 bytes  File Size  =    8432249 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   1.57     *
+*............................................................................*
+*Br    9 :Muon_eta  : Muon_eta[nMuon]/F                                      *
+*Entries :  1497445 : Total  Size=   13219357 bytes  File Size  =    8596043 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   1.54     *
+*............................................................................*
+*Br   10 :Muon_phi  : Muon_phi[nMuon]/F                                      *
+*Entries :  1497445 : Total  Size=   13219357 bytes  File Size  =    8598587 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   1.54     *
+*............................................................................*
+*Br   11 :Muon_mass : Muon_mass[nMuon]/F                                     *
+*Entries :  1497445 : Total  Size=   13219382 bytes  File Size  =    1939026 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   6.82     *
+*............................................................................*
+*Br   12 :Muon_charge : Muon_charge[nMuon]/I                                 *
+*Entries :  1497445 : Total  Size=   13219425 bytes  File Size  =    2658022 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   4.97     *
+*............................................................................*
+*Br   13 :Muon_pfRelIso03_all : Muon_pfRelIso03_all[nMuon]/F                 *
+*Entries :  1497445 : Total  Size=   13219632 bytes  File Size  =    6800948 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   1.94     *
+*............................................................................*
+*Br   14 :Muon_pfRelIso04_all : Muon_pfRelIso04_all[nMuon]/F                 *
+*Entries :  1497445 : Total  Size=   13219632 bytes  File Size  =    7572891 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   1.75     *
+*............................................................................*
+*Br   15 :Muon_dxy  : Muon_dxy[nMuon]/F                                      *
+*Entries :  1497445 : Total  Size=   13219357 bytes  File Size  =    8233672 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   1.61     *
+*............................................................................*
+*Br   16 :Muon_dxyErr : Muon_dxyErr[nMuon]/F                                 *
+*Entries :  1497445 : Total  Size=   13219432 bytes  File Size  =    7954853 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   1.66     *
+*............................................................................*
+*Br   17 :Muon_dz   : Muon_dz[nMuon]/F                                       *
+*Entries :  1497445 : Total  Size=   13219332 bytes  File Size  =    8266854 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   1.60     *
+*............................................................................*
+*Br   18 :Muon_dzErr : Muon_dzErr[nMuon]/F                                   *
+*Entries :  1497445 : Total  Size=   13219407 bytes  File Size  =    7943547 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   1.66     *
+*............................................................................*
+*Br   19 :nElectron : nElectron/i                                            *
+*Entries :  1497445 : Total  Size=    5992159 bytes  File Size  =     866881 *
+*Baskets :       21 : Basket Size=     513024 bytes  Compression=   6.91     *
+*............................................................................*
+*Br   20 :Electron_pt : Electron_pt[nElectron]/F                             *
+*Entries :  1497445 : Total  Size=   11693460 bytes  File Size  =    6820128 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   1.71     *
+*............................................................................*
+*Br   21 :Electron_eta : Electron_eta[nElectron]/F                           *
+*Entries :  1497445 : Total  Size=   11693485 bytes  File Size  =    6983627 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   1.67     *
+*............................................................................*
+*Br   22 :Electron_phi : Electron_phi[nElectron]/F                           *
+*Entries :  1497445 : Total  Size=   11693485 bytes  File Size  =    6971142 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   1.68     *
+*............................................................................*
+*Br   23 :Electron_mass : Electron_mass[nElectron]/F                         *
+*Entries :  1497445 : Total  Size=   11693510 bytes  File Size  =    7017504 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   1.67     *
+*............................................................................*
+*Br   24 :Electron_charge : Electron_charge[nElectron]/I                     *
+*Entries :  1497445 : Total  Size=   11693553 bytes  File Size  =    2311236 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   5.06     *
+*............................................................................*
+*Br   25 :Electron_pfRelIso03_all : Electron_pfRelIso03_all[nElectron]/F     *
+*Entries :  1497445 : Total  Size=   11693760 bytes  File Size  =    6467095 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   1.81     *
+*............................................................................*
+*Br   26 :Electron_dxy : Electron_dxy[nElectron]/F                           *
+*Entries :  1497445 : Total  Size=   11693485 bytes  File Size  =    7054690 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   1.66     *
+*............................................................................*
+*Br   27 :Electron_dxyErr : Electron_dxyErr[nElectron]/F                     *
+*Entries :  1497445 : Total  Size=   11693560 bytes  File Size  =    6788173 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   1.72     *
+*............................................................................*
+*Br   28 :Electron_dz : Electron_dz[nElectron]/F                             *
+*Entries :  1497445 : Total  Size=   11693460 bytes  File Size  =    7088958 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   1.65     *
+*............................................................................*
+*Br   29 :Electron_dzErr : Electron_dzErr[nElectron]/F                       *
+*Entries :  1497445 : Total  Size=   11693535 bytes  File Size  =    6803572 *
+*Baskets :       21 : Basket Size=    1101824 bytes  Compression=   1.72     *
+*............................................................................*
+*Br   30 :MET_pt    : MET_pt/F                                               *
+*Entries :  1497445 : Total  Size=    5992084 bytes  File Size  =    5375432 *
+*Baskets :       21 : Basket Size=     513024 bytes  Compression=   1.11     *
+*............................................................................*
+*Br   31 :MET_phi   : MET_phi/F                                              *
+*Entries :  1497445 : Total  Size=    5992109 bytes  File Size  =    5553769 *
+*Baskets :       21 : Basket Size=     513024 bytes  Compression=   1.08     *
+*............................................................................*
+[0mroot [6] [0m

@@ -1,0 +1,14 @@
+* With !str keys
+
+[max_depth]
+value=!int "5"
+#
+[subsample]
+value=!float "0.6"
+#
+[n_estimators]
+value=!int "700"
+#
+[learning_rate]
+value=!float "0.5"
+#

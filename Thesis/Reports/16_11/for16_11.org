@@ -1,0 +1,96 @@
+#+STARTUP: inlineimages
+#+STARTUP: latexpreview
+#+STARTUP: entitiespretty
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:nil title:t toc:nil todo:nil |:t
+#+title: For 16/11
+#+date:  
+#+author: Kostas Papadimos
+#+email: dinogreco2000@gmail.com
+#+latex_header: \mode<beamer>{\usetheme{Madrid}}
+#+latex_header: \mode<beamer>{\usepackage{amsmath}}
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 28.2 (Org mode 9.5.5)
+#+cite_export:
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger]
+#+OPTIONS: H:2
+#+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
+
+* 1st attempt
+** Simulation
+| 500 \times 10^{3} Events for training and Testing |
+| Signal parent mass: 10 Gev                |
+| Background parent mass: 13 Gev            |
+| Pt Eta Phi coordinates                    |
+ 
+** Output
+#+ATTR_LaTeX: :width \textwidth
+[[file:/home/kpapad/UG_thesis/Thesis/Sim/out/PLots/S10B13_restDataPlot.jpeg]]
+
+** Training
+| *Params*                |          *Config* |
+| max depth             |               9 |
+| sub sample            |             0.3 |
+| n estimators          |            1000 |
+| learning rate         |             0.5 |
+| gamma                 |               5 |
+| objective             | binary:logistic |
+| early stopping rounds |              50 |
+| eval metric           |             auc |
+
+** Results
+[[file:/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/S10B13_rest500kConf10BDTplot.jpeg]]
+* 2nd attempt
+** Simulation
+This time, I din't produce new data. I used less data points 200K training events and 200K testing simply bu importing the first 200k events from each data set.
+** Training
+Same as before 
+** Results
+#+ATTR_LaTeX: :width \textwidth
+[[file:/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/S10B13_rest200kConf10BDTplot.jpeg]]
+* 3d attempt
+** Simulation
+Instead of generating 1M events and then splitting them in half(for training and testing), I created different sets of 500k events for testing and training,
+| 500 \times 10^{3} Events for training and Testing |
+| Signal parent mass: 10 Gev                |
+| Background parent mass: 13 Gev            |
+| Pt Eta Phi coordinates                    |
+** Output
+#+ATTR_LaTeX: :width \textwidth
+[[file:/home/kpapad/UG_thesis/Thesis/Sim/out/PLots/S10B13_rest2DataPlot.jpeg]]
+** Training
+Same as before
+** Results
+#+ATTR_LaTeX: :width \textwidth
+[[file:/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/S10B13_rest500k_2Conf10BDTplot.jpeg]]
+*  4th attempt
+** Simulation
+This time, I used 3d attempt's data set, and only Pt1 Ph1 Eta1
+the settings where the same as ed attempt
+** Training
+I tried two different training configurations 
+| *Params*                |         *Config1* |        *Config2* |
+| max depth             |               9 |              5 |
+| sub sample            |             0.3 |            0.8 |
+| n estimators          |            1000 |           1500 |
+| learning rate         |             0.5 |            0.1 |
+| gamma                 |               5 |              0 |
+| objective             | binary:logistic | bnary:logistic |
+| early stopping rounds |              50 |             50 |
+| eval metric           |             auc |       log loss |
+** Results
+** 1st configuration
+#+ATTR_LaTeX: :width \textwidth
+[[/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/S10B13_rest500k_1VecConf10BDTplot.jpeg]]
+
+** 2nd configuration
+#+ATTR_LaTeX: :width \textwidth
+[[/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/S10B13_rest500k_1VecConf9BDTplot.jpeg]]
+

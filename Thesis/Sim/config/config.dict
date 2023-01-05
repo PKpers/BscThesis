@@ -1,0 +1,14 @@
+* With !str keys
+
+[general]
+num_events=!int "50000"
+coordinate_sys=!str "PxPyPz"
+#
+[decay_params]
+sig_parent_mass=!int "10"
+bkg_parrent_mass=!float "10.5"
+#
+[output]
+oupath=!str "~/UG_thesis/Thesis/Sim/out/Data/"
+outname=!str "S10B10p5_restPxyz_2_50K"
+#

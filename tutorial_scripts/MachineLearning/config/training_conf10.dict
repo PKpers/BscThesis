@@ -1,0 +1,26 @@
+* With !str keys
+
+[max_depth]
+value=!int "9"
+#
+[subsample]
+value=!float "0.3"
+#
+[n_estimators]
+value=!int "1000"
+#
+[learning_rate]
+value=!float "0.5"
+#
+[gamma]
+val=!float "5"
+#
+[objective]
+value=!str "binary:logistic"
+#
+[early_stopping_rounds]
+val=!float "50"
+#
+[eval_metric]
+val=!str "auc"
+#
