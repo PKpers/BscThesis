@@ -6,5 +6,9 @@ README.org
 .token
 my_env/
 /Thesis/ltximg/
-*/*/*/__pycache__/
-*/*/.backup/
+/Thesis/*/ltximg/
+/tutorial_material/PPNotes/ltximg/
+/*/*/*/__pycache__/
+/*/*/__pycache__/
+/*/*/.backup/
+/Rfiles/
