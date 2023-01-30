@@ -4,23 +4,29 @@
 value=!int "9"
 #
 [subsample]
-value=!float "0.3"
+value=!float "0.5"
 #
 [n_estimators]
-value=!int "1000"
+value=!int "5000"
 #
 [learning_rate]
 value=!float "0.5"
 #
 [gamma]
-val=!float "5"
+val=!float "3"
+#
+[min_child_weight]
+val=!float "9"
 #
 [objective]
 value=!str "binary:logistic"
 #
-[early_stopping_rounds]
-val=!float "50"
-#
 [eval_metric]
-val=!str "auc"
+val=!str "error"
+#
+[reg_alpha]
+val=!float "3.5"
+#
+[nthread]
+val=!int "4"
 #

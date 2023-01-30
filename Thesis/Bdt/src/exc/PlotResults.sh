@@ -2,7 +2,7 @@
 plot="/home/kpapad/UG_thesis/Thesis/Bdt/src/plotResults.py"
 predictions=()
 outputs=()
-dataset="S10B10p5_restPxyz_2_50K"
+dataset="WPhi_2mu_M25M30_TrimmedPxyz"
 for (( i=9 ; i<=9 ; i++));
 do
     prediction=$dataset"PConf"$i"Pred"

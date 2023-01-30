@@ -2,7 +2,7 @@
 import ROOT
 import pickle
 import numpy as np
-from Training import load_data
+from Training import load_data 
 import sys
 from asdict import read_as_dict
 from sklearn.metrics import roc_curve, auc
@@ -28,6 +28,25 @@ infiles = [
 #
 xTest, yTest_true, wTest, _= load_data(infiles[0][0], infiles[0][1])
 xRef, yRef_true, wRef, _= load_data(infiles[1][0], infiles[1][1])
+#print(xTest[20]h
+'''
+xTest=np.delete(xTest, 18,0)
+yTest_true=np.delete(yTest_true, 18,0)
+wTest=np.delete(wTest, 18,0)
+xRef=np.delete(xRef, 18,0)
+yRef_true=np.delete(yRef_true, 18,0)
+wRef=np.delete(wRef, 18,0)
+'''
+'''
+_num_ = 300
+num2 = 21
+xTest = xTest[_num_: _num_+num2]
+yTest_true = yTest_true[_num_:_num_+num2]
+wTest = wTest[_num_:_num_+num2]
+xRef = xRef[_num_:_num_+num2]
+yRef_true = yRef_true[_num_:_num_+num2]
+wRef = wRef[_num_:_num_+num2]
+'''
 #
 # Load trained model
 model =  '/home/kpapad/UG_thesis/Thesis/Bdt/out/Models/'+ '{}.root'.format(modelName)
@@ -40,10 +59,14 @@ if (ROOT.gSystem.AccessPathName(model)) :
 bdt = ROOT.TMVA.Experimental.RBDT[""]("myBDT", model)
 #
 # Make prediction
+print('starting the bdt compute')
 y_pred = [
     bdt.Compute(x)
-    for x in (np.array(xTest, dtype='float32'), np.array(xRef, dtype='float32'))
+    for i,x in enumerate((xTest,xRef))
 ]
+#for i, x in enumerate((xTest, xRef)):
+#    print(i)
+ #   bdt.Compute(x)
 # calculate the auc score
 fpr, tpr, _ = roc_curve(yTest_true, y_pred[0], sample_weight=wTest)
 score = auc(fpr, tpr)

@@ -8,7 +8,7 @@ check_exit(){
 
 train="/home/kpapad/UG_thesis/Thesis/Bdt/src/Training.py"
 test="/home/kpapad/UG_thesis/Thesis/Bdt/src/Testing.py"
-dataset="S10B10p5_restPxyz_2_50K"
+dataset="WPhi_2mu_M25M30_TrimmedPxyz"
 #configs=("training_conf1.dict" "training_conf2.dict" "training_conf3.dict" "training_conf5.dict")
 #"training_conf10.dict" "training_conf11.dict" "training_conf12.dict" "training_conf13.dict" "training_conf14.dict" "training_conf15.dict")
 k=9

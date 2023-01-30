@@ -8,8 +8,8 @@ from sklearn.model_selection import GridSearchCV
 
 def load_data(signal_filename, background_filename):
     # Read data from ROOT files
-    data_sig = ROOT.RDataFrame("myTree", signal_filename).AsNumpy()
-    data_bkg = ROOT.RDataFrame("myTree", background_filename).AsNumpy()
+    data_sig = ROOT.RDataFrame("tree", signal_filename).AsNumpy()
+    data_bkg = ROOT.RDataFrame("tree", background_filename).AsNumpy()
     # Convert inputs to format readable by machine learning tools
     variables = []
     names=("Pt", "Eta", "Phi") 
@@ -51,6 +51,7 @@ def load_data(signal_filename, background_filename):
 if __name__ == "__main__":
     import sys
     from xgboost import XGBClassifier
+    from sklearn.model_selection import train_test_split
     from asdict import read_as_dict
     if len(sys.argv) != 3:
         print("Usage: {} {} {}".format(sys.argv[0], "training_dataset", "training_config"))
@@ -63,7 +64,6 @@ if __name__ == "__main__":
     sig_filename = inpath+ "{}_SIG_Train.root".format(dataset)
     bkg_filename = inpath+ "{}_BKG_Train.root".format(dataset)
     x, y, w, num_all= load_data(sig_filename, bkg_filename )
-    print(num_all)
     # 
     # Load the testing data
     sig_filename2 = inpath+ "{}_SIG_Test.root".format(dataset)
@@ -78,29 +78,36 @@ if __name__ == "__main__":
     param = list(
         training_config.items()
     )
-    # Fit xgboost model
     print('Training started with data from {} and {}'.format(sig_filename, bkg_filename)) 
+    # Split the data into training and validation sets
+    X_train, X_val, y_train, y_val = train_test_split(x, y, test_size=0.2, random_state=0)
+    
+    # Create the list for validation set
+    dval = [(X_val, y_val)]
+
+    # First tune two important parameters
     bdt = XGBClassifier(**training_config)
     training_set = [x, y, w]
+
     tune_params={
-        #'gamma':[i for i in range(0,5,2)]
-        #'max_depth' : [6,7,8],
-        'subsample' : [i*0.1 for i in range(6, 10, 2)]
-        #'n_estimators' : [i*100 for i in range(1, 7, 2)],
-        #'learning_rate' : [i*0.1 for i in range(3, 9, 2)]
+        'n_estimators' : [1000, 3000, 5000],
+        'learning_rate' : [0.1, 0.3, 0.5]
+        #'reg_alpha' : [1, 2, 2.5, 3, 3.5, 4]
+        #'max_depth': [8, 9, 10],
+        #'min_child_weight' : [7,8,9]
+        #'subsample': [0.1, 0.2, 0.4, 0.6, 0.8],
+        #'learning_rate': [0.4, 0.5, 0.6],
+        #'gamma': [1, 3, 5, 7, 9, 11],
+        #'colsample_bytree': [0.2, 0.4, 0.6, 0.8, 1.0],
+        #'objective': ['binary:logistic'],
+        #'early_stopping_rounds': [10],
     }
-    grid_search = GridSearchCV(
-        estimator = bdt, 
-        param_grid = tune_params,
-        scoring = 'roc_auc',
-        verbose = 2,
-        n_jobs=4
-    )
-    eval_set = [(x2, y2)]
-    grid_search.fit(x, y, eval_set=eval_set, verbose=True )
-    best_bdt = grid_search.best_estimator_
-    print('Search done, best params: ', grid_search.best_params_)
-    #bdt.fit(x, y, sample_weight=w, eval_set=eval_set, verbose=True)
+    grid = GridSearchCV(bdt, tune_params, cv=5, scoring='accuracy', n_jobs=4)
+    grid.fit(X_train, y_train, eval_set=dval, verbose=True )
+
+    best_bdt = grid.best_estimator_
+    print('Search done, best params: ', grid.best_params_)
+    
     # Save model in TMVA format
     outpath = '/home/kpapad/UG_thesis/Thesis/Bdt/out/Models/'
     modelname = sys.argv[2][13:-5]

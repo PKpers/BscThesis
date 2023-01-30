@@ -15,18 +15,18 @@ def pair_permute(__list__):
     permutations = []
     for i, xi in enumerate(__list__):
         if type(xi) is not str:
-            p = np.array([xi*xj for xj in __list__[i:]])
+            p = np.array([xi*xj for xj in __list__[i:] if xi==xj ]).astype(np.float32)
         else :
             p = np.array([xi+xj for xj in __list__[i:]])
         #
-        permutations = np.hstack((permutations, p))
+        permutations = np.hstack([permutations, p])
     #
     return permutations
 
 def load_data(signal_filename, background_filename):
     # Read data from ROOT files
-    data_sig = ROOT.RDataFrame("myTree", signal_filename).AsNumpy()
-    data_bkg = ROOT.RDataFrame("myTree", background_filename).AsNumpy()
+    data_sig = ROOT.RDataFrame("tree", signal_filename).AsNumpy()
+    data_bkg = ROOT.RDataFrame("tree", background_filename).AsNumpy()
     # create the variable names(instead of typing them one by one)
     variables = []
     names=()
@@ -40,7 +40,7 @@ def load_data(signal_filename, background_filename):
             variables.append(name+str(j))
         #
     #
-    print(variables)
+    print(pair_permute(variables))
     # Convert inputs to format readable by machine learning tools
     x_sig = np.vstack([data_sig[var] for var in variables]).T
     x_bkg = np.vstack([data_bkg[var] for var in variables]).T
@@ -52,6 +52,9 @@ def load_data(signal_filename, background_filename):
         [pair_permute(x) for x in x_bkg]
     )
     x = np.vstack([x_sig, x_bkg])
+    x = x.astype(np.float32)
+    #exit()
+
     
     # Create labels
     #number of events. After transposing , we have an object of that form [ [], [], ..., [] ]
@@ -81,7 +84,10 @@ def load_data(signal_filename, background_filename):
 if __name__ == "__main__":
     import sys
     from xgboost import XGBClassifier
+    from sklearn.model_selection import train_test_split
+    import xgboost as xgb
     from asdict import read_as_dict
+    
     if len(sys.argv) != 3:
         print("Usage: {} {} {}".format(sys.argv[0], "training_dataset", "training_config"))
         exit(-1)
@@ -108,10 +114,15 @@ if __name__ == "__main__":
         training_config.items()
     )
     # Fit xgboost model
-    eval_set = [(x2, y2)]
+    # Split the data into training and validation sets
+    X_train, X_val, y_train, y_val = train_test_split(x, y, test_size=0.20, random_state=0)
+    
+    # Create the list for validation set
+    dval = [(X_val, y_val)]
+
     print('Training started with data from {} and {}'.format(sig_filename, bkg_filename)) 
     bdt = XGBClassifier(**training_config)
-    bdt.fit(x, y, sample_weight=w, eval_set=eval_set, verbose=True)
+    bdt.fit(X_train, y_train, eval_set=dval, verbose=True)
     # Calculate feature importance
     # create again the variable names 
     variables = []
@@ -140,5 +151,4 @@ if __name__ == "__main__":
     print('Saving model at {}'.format(modelFile))
     ROOT.TMVA.Experimental.SaveXGBoost(bdt,"myBDT", modelFile ,  num_inputs=num_all)
     print('done')
-    
     

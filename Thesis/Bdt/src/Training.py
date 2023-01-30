@@ -5,11 +5,7 @@ import pickle
 from copy import copy
 from matplotlib import pyplot as plt 
 
-def load_data(signal_filename, background_filename):
-    # Read data from ROOT files
-    data_sig = ROOT.RDataFrame("myTree", signal_filename).AsNumpy()
-    data_bkg = ROOT.RDataFrame("myTree", background_filename).AsNumpy()
-    # create the variable names(instead of typing them one by one)
+def make_variable_names(signal_filename, background_filename):
     variables = []
     names=()
     if "Pxyz" in signal_filename and "Pxyz" in background_filename:
@@ -23,6 +19,25 @@ def load_data(signal_filename, background_filename):
         #
     #
     print(variables)
+    return variables
+#
+#
+#
+
+def make_bar_graph(variables, feat_imp):
+    plt.bar(variables, feat_imp)
+    plt.ylabel('Featrue importance')
+    plt.savefig("/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/feature_importance.pdf")
+    return
+
+def load_data(signal_filename, background_filename):
+    # Read data from ROOT files
+    data_sig = ROOT.RDataFrame("tree", signal_filename).AsNumpy()
+    data_bkg = ROOT.RDataFrame("tree", background_filename).AsNumpy()
+
+    # create the variable names(instead of typing them one by one)
+    variables = make_variable_names(signal_filename, signal_filename) 
+    
     # Convert inputs to format readable by machine learning tools
     x_sig = np.vstack([data_sig[var] for var in variables]).T
     x_bkg = np.vstack([data_bkg[var] for var in variables]).T
@@ -55,62 +70,54 @@ def load_data(signal_filename, background_filename):
  # ======================================================================= #
 if __name__ == "__main__":
     import sys
+    import xgboost as xgb
     from xgboost import XGBClassifier
     from asdict import read_as_dict
+    from sklearn.model_selection import train_test_split
+
     if len(sys.argv) != 3:
         print("Usage: {} {} {}".format(sys.argv[0], "training_dataset", "training_config"))
         exit(-1)
     #
     dataset = sys.argv[1]
-    # Load data
+    
+    ## Load data
     # Load the training data 
     inpath = '/home/kpapad/UG_thesis/Thesis/share/SimuData/'
     sig_filename = inpath+ "{}_SIG_Train.root".format(dataset)
     bkg_filename = inpath+ "{}_BKG_Train.root".format(dataset)
     x, y, w, num_all= load_data(sig_filename, bkg_filename )
-    # 
-    # Load the testing data
-    sig_filename2 = inpath+ "{}_SIG_Test.root".format(dataset)
-    bkg_filename2 = inpath+ "{}_BKG_Test.root".format(dataset)
-    x2, y2, w2, num_all2= load_data(sig_filename2, bkg_filename2 )
-   #
+    
     # Load training config
     config_dir="/home/kpapad/UG_thesis/Thesis/Bdt/config/"
     training_config = config_dir + sys.argv[2]
     print("loading training configuration: {}".format(training_config))
     training_config = read_as_dict(training_config)
-    param = list(
-        training_config.items()
-    )
-    # Fit xgboost model
-    eval_set = [(x2, y2)]
+    
+    ## Fit xgboost model
+    # Split the data into training and validation sets
+    X_train, X_val, y_train, y_val = train_test_split(x, y, test_size=0.20, random_state=0)
+    
+    # Create the list for validation set
+    dval = [(X_val, y_val)]
     print('Training started with data from {} and {}'.format(sig_filename, bkg_filename)) 
     bdt = XGBClassifier(**training_config)
-    bdt.fit(x, y, sample_weight=w, eval_set=eval_set, verbose=True)
-    # Calculate feature importance
+    bdt.fit(X_train, y_train, eval_set=dval, verbose=True)
+    
+    ## Calculate feature importance
     # create again the variable names 
-    variables = []
-    names=()
-    if "Pxyz" in dataset:
-        names=("Px", "Py", "Pz") 
-    else:
-        names=("Pt", "Eta", "Phi") 
-    #
-    for j in range(1, 3):
-        for name in names:
-            variables.append(name+str(j))
-        #
-    #
+    variables = make_variable_names(dataset, dataset) 
     feat_imp=bdt.feature_importances_
-    plt.bar(variables, feat_imp)
-    plt.ylabel('Featrue importance')
-    plt.savefig("/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/feature_importance.pdf")
+    make_bar_graph(variables, feat_imp)
+    
     # Save model in TMVA format
     outpath = '/home/kpapad/UG_thesis/Thesis/Bdt/out/Models/'
     modelname = sys.argv[2][13:-5]
     modelFile = outpath +"myModel{}_conf{}.root".format(dataset, modelname)
+    #
     print('Training, done')
     print('Saving model at {}'.format(modelFile))
+    #
     ROOT.TMVA.Experimental.SaveXGBoost(bdt,"myBDT", modelFile ,  num_inputs=num_all)
     print('done')
     
