@@ -9,7 +9,7 @@ float ComputeInvariantMass(Vec_t& pt, Vec_t& eta, Vec_t& phi, Vec_t& M)
 
 Vec_t Couple2(float arg1, float arg2)
 {
-  Vec_t& coupled {arg1, arg2}; 
+  Vec_t& coupled {arg1, arg2};
   return coupled;
 }
 

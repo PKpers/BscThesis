@@ -3,7 +3,7 @@ To have a quantum theory consistent with special relativity the associated wave 
 Begining by the energy-momentum relation of special relativity:
 \[E^{2} = \textbf{p}^{2} + m^{2}\]
 Replace energy and momentum with their corresponding quantum mechanics operators:
-j\[\hat{E} = i\frac{\partial}{\partial{t}}, \hat{\textbf{p}} = -i\vec{\nabla}\]
+\[\hat{E} = i\frac{\partial}{\partial{t}}, \hat{\textbf{p}} = -i\vec{\nabla}\]
 Thus the new lorentz invariant wave function has the form
 \[ (\frac{ \partial^{2}}{\partial{t^{2}}} - \nabla^{2} - m)\psi = 0\], or in tensor lorentz product notation:
 #+begin_src

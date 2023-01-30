@@ -1,0 +1,141 @@
+#+STARTUP: latexpreview
+* interctions and fields in quantum mechanics
+in the classical sense, interactions between bodies are mediated by fields(eq. em field, graviational field etc.)
+in the quantum representation, interactions can be mediated by particles whose momentum and energy is equal to the change of momentum and energy of the one particle due to the other. due to the fact that those mediator particles carry energy and momentum, the conservation laws must hold for a time period indicated by heisenberg:\(\Delta E \Delta t < h\)
+This means that those particles exist only for a fractional amount of time. They are called virtual particles.
+** Yakawa theory
+Lets consider a static situation, where two or more bodies interact(not necserilly with the EM force) with each other. Lets also hypothetize that the particle-carrier of the interaction has mass m. Heisenberg's priniciple tells us that
+\[
+\Delta E \Delta t \ h \Rightarrow \Delta t \leq \frac{h}{mc^{2}}
+\]
+In a static situation, the mediator will travel a fixed distance to carry  the force from one particle to the other. Let's assume that on average, the particle travels distance R, with velcotiy c. Thus we get:
+\[
+\Delta t = \frac{R}{c} \therefore R \leq \frac{h}{mc}
+\]
+We conclude in two things:
+- The range of the static interaction is proportional to the mass of the mediator
+- The range of the static interaction is given by the Compton length of the mediator
+
+We can use Clain-Gordon equation, which describes a particle of mass m without spin, to make a more systematic theory out of this promising hypothesis. Working in spherical coordinates we write:
+\[
+\nabla^{2} \psi - (\frac{mc}{h})^{2}\psi - \frac{1}{c^{2}}\frac{\partial^{2}\psi}{\partial t^{2}} = 0
+\]
+Note that for m  = 0 the equation reduces to the familiar wave equation.
+Ignoring the time dependant term we are left with the sphericaly symmetric equation
+\[
+\nabla^{2} \psi - (\frac{mc}{h})^{2}\psi  = 0
+\]
+\(\psi\) can be interpreted is either the potential of a point in space and time or, in the massless case, the magnitude of the free particle wave.
+
+Thus, in the case where the mediator has mass m the potential(which is equivalent to the potential of the interaction), is the solution of the clein gordon equation:
+\[
+U(r) = \frac{g}{4\pi r`}\exp{(-r/R)}
+\],
+\[
+R = \frac{\hbar}{mc}
+\]
+g occurs as an integration constant and describes the source intesity. In the EM case g = Q the charge.
+
+** Time ordered perturbation theory
+The transition rate Γif between an initial and a final state(i and f) is given by Fermi's golden rule
+\[
+\Gamma_{fi} = 2\pi|T_{fi}|^{2}\rho(E_{f})
+\]
+Where Ti is the Transition matrix element given by the perturbation expansion.
+
+\[
+T_{fi} = <f|V|i> + \sum_{i\neq j}\frac{<f|V|j><j|V|i>}{E_{i} - E_{j}} +...
+\]
+
+The first term of the series can be viewed as a scattering in a potential term and the second term can be viewed as a scattering via an intermediate state j term. In first order approximation, the interaction between particles can be viewed as scattering in a potential(e.g interaction between to charged particles, can be viewed as scattering in a coulomb field.)
+Though this consideration has some flaws:
+When a particle scatters in a potential there is a transfer of momentum from one particle to another without any apparent mediating body. Furthermore, the description of forces in terms of potentials seems to imply that
+if a distant particle were moved suddenly, the potential due to that particle would change instantaneously at all points in space, seemingly in violation the special theory of relativity. So a better approximation would be to consider that interactions between particles are mediated by the exchange of other particles. The forces between particles result from the transfer of the momentum carried by the exchange particle.  
+
+Consider the interaction a + b -> c + d. In terms of a mediator we can view this as
+\[
+a + b\rightarrow c + b + x \rightarrow c + d
+\]
+We can interpret this as particle a emmited particle X and then at a later time, X is absorbed by b. The corresponding term in the perturbating series is:
+
+\[
+T^{ab}_{fi} = \frac{<f|V|j><j|V|i>}{E_{i}- E{_j}} = \frac{<d|V|X+b><c+X|V|a>}{(E_{a}+E_{b}) - (E_{c}-E_{X}-E_{b})}
+\]
+We have already seen that the energy of the intermediate state is not the same as the initial state, someting that can be only for a short perod of time. This is for the occasion where interaction between a and x happens before the interaction of b and x.
+The matrix elements are not Lorentz Invariant. In general the invariance occurs if we adopt a different normalization condition. The non invariant matrix element V is related to the invariant matrix element M bt
+\[
+V_{ji} = M_{ji}\prod_{k}(2E_{k})^{-1/2}
+\]
+Where the index k runs over tha particles involved. In this case
+\[
+V_{ji} = <c+X|Va> = \frac{M_{a\rightarrow c+X}}{(2E_{a}2E_{c}2E_{X})^{1/2}}
+\]
+Where M is the lorentz intvariant matrix element. Given that this matrix element is related to the probability of interation, the grater the probability the stronger the interaction. Thus M is refered to as the stregth of the interaction, coupling strength.
+The LI character of M restricts our choices, in terms of the mathematical structure of M. The simplest case would be for m to be a scalar thus
+\[
+g_{a} = M_{a\rightarrow c+X}
+\]
+and
+\[
+V_{ji} = <c+X|Va> = \frac{g_{a}}{(2E_{a}2E_{c}2E_{X})^{1/2}}
+\]
+Smilarly,
+\[
+V_{fj} = <d|VX+b> = \frac{g_{b}}{(2E_{b}2E_{d}2E_{X})^{1/2}}
+\]
+
+So that the second term in the perturbated series becomes:
+\[
+T^{ab}_{fi} = \frac{<d|V|X+b><c+X|V|a>}{(E_{a}+E_{b}) - (E_{c}-E_{X}-E_{b})}
+\]
+\[
+= \frac{1}{2E_{X}}\cdot \frac{1}{2E_{a}2E_{b}2E_{c}2E_{d}}\cdot \frac{g_{a}g_{b}}{(E_{a}-E_{c}-E_{X})}
+\]
+
+This term is related to its corresponding lorentz invariant term by
+\[
+M^{ab}_{fi} = (2E_{a}2E_{b}2E_{c}2E_{d})^{1/2}T^{ab}_{fi}
+\]
+
+and so
+\[
+M^{ab}_{fi} = \frac{1}{2E_{X}}\cdot \frac{g_{a}g_{b}}{(E_{a}-E_{c}-E_{X})}
+\]
+
+Now instead of particle a interacting first with X and then particle b with X it could be the case that the order is the other way arround.
+In that case, The lorentz invariant term of the perturbation serres would be 
+
+\[
+M^{ba}_{fi} = \frac{1}{2E_{X}}\cdot \frac{g_{a}g_{b}}{(E_{b}-E_{d}-E_{X})}
+\]
+
+The sum of the two terms is the total:
+\[
+M_{fi} = M^{ab}_{fi} + M^{ba}_{fi} = \frac{g_{a}g_{b}}{(E_{a}-E_{c})^{2} - E^{2}_{X}}
+\]
+
+Ex is part of particle's X  four momentum vector. Writting everything in terms of four momentums, using einseins relation, yields:
+\[
+M_{fi} = \frac{g_{a}g_{b}}{q^{2} - m_{X}^{2}}
+\]
+
+where q = pa - pc the change in the four momentum between the particles.
+The term \( (q^{2} - m_{x}^{2})^{-1} \) is refered to as the propagator and is associated with the exchanged particle
+
+** Scattering in a potential
+This way of deriving the *Yaukawa potenrial*, is equivalent to  the lower energy limit of scattering in a potential.
+
+First order perturbation theory in this case tells us that the scattering cross-section can be calculated with
+\[
+M = <\psi_{f}|V(r)|\psi_{i}> = \int\psi_{f}^{*}V(r)\psi_{i} d^{3}\vec{r}
+\]
+The form of the potential must be such that it reproduces the low energy limit of scattering with the matrix element of the from
+\[
+M_{fi} = \frac{g_{a}g_{b}}{q^{2} - m_{x}^{2}}
+\]
+
+where mx is the mass of the mediator and q the change in the momentum between the initial and final states.
+
+It occurs that the form of the potential must be that of the Yukawa.
+In this way, it is possible relate the formalism of interaction by particle exchange to the more familiar (non-relativistic) concept of scattering in a static potential. For an interaction involving the exchange of a massless particle, such as the photon, the Yukawa potential reduces to the usual 1/r form of the Coulomb potential.
+ 

@@ -55,7 +55,7 @@ hist.SetMarkerStyle(21)
 hist.SetTitle('histogram')
 hist.GetXaxis().SetTitle('bins')
 hist.GetYaxis().SetTitle('counts')
-hist.Draw('ACP')
+ist.Draw('ACP')
 c1.Update()
 
 exit()
