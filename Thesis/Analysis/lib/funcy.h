@@ -1,3 +1,6 @@
+#ifndef FUNCY_H
+#define FUNCY_H
+
 using namespace  ROOT::VecOps;
 using Vec_t = const RVec<float>;
 
@@ -29,3 +32,11 @@ float toCartesian(float Pt, float Eta, float Phi, float E, int convert)
   float transformed[3] = {px, py, pz};
   return transformed[convert];
 }
+
+float computeProduct(float p1, float p2){
+  float p = p1 * p2;
+  return p;
+}
+#endif
+    
+
