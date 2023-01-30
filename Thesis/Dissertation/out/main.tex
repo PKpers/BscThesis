@@ -1,0 +1,67 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{subfiles}
+\usepackage{algorithm}
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{gentium}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[greek, english]{babel}
+\usepackage{multicol}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage[compact]{titlesec}
+\usepackage{float}
+\usepackage{geometry} % Required for adjusting page dimensions and margins
+\geometry{
+	paper=a4paper, % Paper size, change to letterpaper for US letter size
+	top=2.5cm, % Top margin
+	bottom=3cm, % Bottom margin
+	left=2.5cm, % Left margin
+	right=2.5cm, % Right margin
+	headheight=14pt, % Header height
+	footskip=1.5cm, % Space from the bottom margin to the baseline of the footer
+	headsep=1.2cm, % Space from the top margin to the baseline of the header
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\setcounter{secnumdepth}{3}
+\author{Konstantinos Papadimos}
+\date{}
+\title{Name of the thesis}
+\hypersetup{
+ pdfauthor={Konstantinos Papadimos},
+ pdftitle={Name of the thesis},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.2 (Org mode 9.5.5)}, 
+ pdflang={English}}
+
+
+
+\begin{document}
+\maketitle
+\tableofcontents
+\subfile{Theoretical_Overview.tex}
+\subfile{detectors.tex}
+\subfile{boosted_trees.tex}
+\end{document}
