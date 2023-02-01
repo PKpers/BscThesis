@@ -10,7 +10,7 @@ Before presenting any specific method of solving classification problems It is i
 \subsubsection{Supervised learning}
 \label{sec:orgc2bcda3}
 Let us pose the following problem:
-Given a data set \(D= (\vec{X}, \vec{y})\), where \(\vec{X}\) is a matrix of the independet variables and \(\vec{y}\) is a vector of dependent variables, we want to find a model \(f(\vec{x} ; \vec{\theta})\),  that can predict an output from a set of input variables. Moreover, we  want to be able to judge the performance of the model on a given data set. To do that we need to define a cost function \(C(\vec{y}, f(\vec{X}; \vec{\theta}))\), such that the model will have to find the parameters \(\theta\) that minimize the cost function.(1803.08823)
+Given a data set \(D= (\vec{X}, \vec{y})\), where \(\vec{X}\) is a matrix of the independet variables and \(\vec{y}\) is a vector of dependent variables, we want to find a model \(f(\vec{x} ; \vec{\theta})\),  that can predict an output from a set of input variables. Moreover, we  want to be able to judge the performance of the model on a given data set. To do that we need to define a cost function \(C(\vec{y}, f(\vec{X}; \vec{\theta}))\), such that the model will have to find the parameters \(\theta\) that minimize the cost function.\cite{Mehta_2019}
 
 This the mathimatical pustulation of a supervised learning problem. I will now, in brief, discuss the role and interpretation of each of the 'ingredients' stated above.
 
@@ -43,7 +43,7 @@ The regularization term, \(\Omega(\theta)\), controls the complexity of the mode
 
 The following figure gives an example of overfitting due to a very complex and very simple model.
 \begin{center}
-\includegraphics[width=.9\linewidth]{/home/kpapad/Pictures/step_fit.png}
+\includegraphics[width=.9\linewidth]{/home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig1.png}
 \end{center}
 \end{itemize}
 
@@ -59,7 +59,7 @@ where each condition is a tuple of the form (feature, threshold, comparison oper
 
 For example, consider the decision tree of figure x that classify fruits based on color, shape, size, and taste. Let X be the input \texttt{X = \{"red", "smal", "sour"\}}. Then \texttt{f(X) = "grape"} 
 \begin{center}
-\includegraphics[width=.9\linewidth]{/home/kpapad/UG_thesis/Thesis/Dissertation/2023-01-26-214714_876x392_scrot.png}
+\includegraphics[width=.9\linewidth]{/home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig2.png}
 \end{center} 
 
 \begin{itemize}
@@ -83,7 +83,7 @@ where \(\omega(f_{i})\) is the complexity of a given tree  and l is the loss fun
 \label{sec:orgbee4670}
 
 As stated earlier, the model is beeing trained, to learn those trees \(f_{k}\) that minimize the objective. The resulting model then, will be an ensemble of those functions \(f_{k}\).
-The optimization of the objective, is a problem that cannot be solved with the traditional methods. Instead, the model is being iteratively trained in an additive manner.(1603.02754)
+The optimization of the objective, is a problem that cannot be solved with the traditional methods. Instead, the model is being iteratively trained in an additive manner.\cite{Chen_2016}
 let the prediction value at the t-th iteration be \(\hat{y}^{(t)}_{i}\). In the next iteration(t+1), the chosen function \(f_{t+1}\), is such that if added to the model, the resulting prediction \(\hat{y}^{(t+1)}_{i}\) will minimize the cost function:
 \[
 \hat{y}^{(0)}_{i} = 0 \]
@@ -119,5 +119,5 @@ g_{i} = \partial_{\hat{y}_{i}^{(t-1) }} l(y_{i}, \hat{y}_{i}^{(t-1)} )
 h_{i} = \partial^{2}_{\hat{y}_{i}^{(t-1) }} l(y_{i}, \hat{y}_{i}^{(t-1)} )
 \]
 
-This is the minimization goal for \(f_{t}\) . (xgboost-readthedocs-io-en-stable)
+This is the minimization goal for \(f_{t}\) . \cite{xgboost}
 \end{itemize}

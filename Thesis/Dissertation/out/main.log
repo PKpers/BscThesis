@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.11)  30 JAN 2023 07:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.11)  1 FEB 2023 19:47
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1346,71 +1346,296 @@ File: t1gentium.fd 2011/01/13 Font definitions for gentium.
 LaTeX Font Info:    Font shape `T1/gentium/m/n' will be
 (Font)              scaled to size 10.95pt on input line 112.
 )
+(/usr/share/texmf-dist/tex/latex/biblatex/biblatex.sty
+Package: biblatex 2022/02/02 v3.17 programmable bibliographies (PK/MW)
+
+(/usr/share/texmf-dist/tex/latex/logreq/logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count369
+
+(/usr/share/texmf-dist/tex/latex/logreq/logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+))
+\c@tabx@nest=\count370
+\c@listtotal=\count371
+\c@listcount=\count372
+\c@liststart=\count373
+\c@liststop=\count374
+\c@citecount=\count375
+\c@citetotal=\count376
+\c@multicitecount=\count377
+\c@multicitetotal=\count378
+\c@instcount=\count379
+\c@maxnames=\count380
+\c@minnames=\count381
+\c@maxitems=\count382
+\c@minitems=\count383
+\c@citecounter=\count384
+\c@maxcitecounter=\count385
+\c@savedcitecounter=\count386
+\c@uniquelist=\count387
+\c@uniquename=\count388
+\c@refsection=\count389
+\c@refsegment=\count390
+\c@maxextratitle=\count391
+\c@maxextratitleyear=\count392
+\c@maxextraname=\count393
+\c@maxextradate=\count394
+\c@maxextraalpha=\count395
+\c@abbrvpenalty=\count396
+\c@highnamepenalty=\count397
+\c@lownamepenalty=\count398
+\c@maxparens=\count399
+\c@parenlevel=\count400
+\blx@tempcnta=\count401
+\blx@tempcntb=\count402
+\blx@tempcntc=\count403
+\c@blx@maxsection=\count404
+\c@blx@maxsegment@0=\count405
+\blx@notetype=\count406
+\blx@parenlevel@text=\count407
+\blx@parenlevel@foot=\count408
+\c@blx@sectionciteorder@0=\count409
+\blx@entrysetcounter=\count410
+\blx@biblioinstance=\count411
+\labelnumberwidth=\skip136
+\labelalphawidth=\skip137
+\biblabelsep=\skip138
+\bibitemsep=\skip139
+\bibnamesep=\skip140
+\bibinitsep=\skip141
+\bibparsep=\skip142
+\bibhang=\skip143
+\blx@bcfin=\read6
+\blx@bcfout=\write6
+\blx@langwohyphens=\language88
+\c@mincomprange=\count412
+\c@maxcomprange=\count413
+\c@mincompwidth=\count414
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+
+(/usr/share/texmf-dist/tex/latex/biblatex/blx-dm.def
+File: blx-dm.def 2022/02/02 v3.17 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count415
+\c@savedafterword=\count416
+\c@annotator=\count417
+\c@savedannotator=\count418
+\c@author=\count419
+\c@savedauthor=\count420
+\c@bookauthor=\count421
+\c@savedbookauthor=\count422
+\c@commentator=\count423
+\c@savedcommentator=\count424
+\c@editor=\count425
+\c@savededitor=\count426
+\c@editora=\count427
+\c@savededitora=\count428
+\c@editorb=\count429
+\c@savededitorb=\count430
+\c@editorc=\count431
+\c@savededitorc=\count432
+\c@foreword=\count433
+\c@savedforeword=\count434
+\c@holder=\count435
+\c@savedholder=\count436
+\c@introduction=\count437
+\c@savedintroduction=\count438
+\c@namea=\count439
+\c@savednamea=\count440
+\c@nameb=\count441
+\c@savednameb=\count442
+\c@namec=\count443
+\c@savednamec=\count444
+\c@translator=\count445
+\c@savedtranslator=\count446
+\c@shortauthor=\count447
+\c@savedshortauthor=\count448
+\c@shorteditor=\count449
+\c@savedshorteditor=\count450
+\c@labelname=\count451
+\c@savedlabelname=\count452
+\c@institution=\count453
+\c@savedinstitution=\count454
+\c@lista=\count455
+\c@savedlista=\count456
+\c@listb=\count457
+\c@savedlistb=\count458
+\c@listc=\count459
+\c@savedlistc=\count460
+\c@listd=\count461
+\c@savedlistd=\count462
+\c@liste=\count463
+\c@savedliste=\count464
+\c@listf=\count465
+\c@savedlistf=\count466
+\c@location=\count467
+\c@savedlocation=\count468
+\c@organization=\count469
+\c@savedorganization=\count470
+\c@origlocation=\count471
+\c@savedoriglocation=\count472
+\c@origpublisher=\count473
+\c@savedorigpublisher=\count474
+\c@publisher=\count475
+\c@savedpublisher=\count476
+\c@language=\count477
+\c@savedlanguage=\count478
+\c@origlanguage=\count479
+\c@savedoriglanguage=\count480
+\c@pageref=\count481
+\c@savedpageref=\count482
+\shorthandwidth=\skip144
+\shortjournalwidth=\skip145
+\shortserieswidth=\skip146
+\shorttitlewidth=\skip147
+\shortauthorwidth=\skip148
+\shorteditorwidth=\skip149
+\locallabelnumberwidth=\skip150
+\locallabelalphawidth=\skip151
+\localshorthandwidth=\skip152
+\localshortjournalwidth=\skip153
+\localshortserieswidth=\skip154
+\localshorttitlewidth=\skip155
+\localshortauthorwidth=\skip156
+\localshorteditorwidth=\skip157
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+
+(/usr/share/texmf-dist/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2022/02/02 v3.17 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+
+(/usr/share/texmf-dist/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2022/02/02 v3.17 biblatex compatibility (PK/MW)
+\c@textcitecount=\count483
+\c@textcitetotal=\count484
+\c@textcitemaxnames=\count485
+\c@biburlbigbreakpenalty=\count486
+\c@biburlbreakpenalty=\count487
+\c@biburlnumpenalty=\count488
+\c@biburlucpenalty=\count489
+\c@biburllcpenalty=\count490
+\biburlbigskip=\muskip18
+\biburlnumskip=\muskip19
+\biburlucskip=\muskip20
+\biburllcskip=\muskip21
+\c@smartand=\count491
+)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+
+(/usr/share/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
+File: numeric.bbx 2022/02/02 v3.17 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+
+(/usr/share/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2022/02/02 v3.17 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count492
+\c@bbx:relatedtotal=\count493
+))
+Package biblatex Info: Trying to load citation style 'numeric'...
+Package biblatex Info: ... file 'numeric.cbx' found.
+
+(/usr/share/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
+File: numeric.cbx 2022/02/02 v3.17 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+
+(/usr/share/texmf-dist/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Document encoding is UTF8 ....
+Package biblatex Info: ... and expl3
+(biblatex)             2022-04-10 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+
+(/usr/share/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
+Package: blx-case-expl3 2022/02/02 v3.17 expl3 case changing code for biblatex
+))
 runsystem(which pygmentize && touch main.aex)...executed.
 
 runsystem(rm main.aex)...executed.
 
- (./main.aux)
+
+
+Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
+(biblatex)                Loading 'csquotes' recommended.
+
+\@quotelevel=\count494
+\@quotereset=\count495
+(./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 63.
+LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 63.
 LaTeX Font Info:    Trying to load font information for LGR+cmr on input line 6
-1.
-
-(/usr/share/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
+3.
+ (/usr/share/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
 File: lgrcmr.fd 2017/07/29 v1.2 Greek European Computer Regular
 )
-LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    ... okay on input line 63.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count369
+\scratchcounter=\count496
 \scratchdimen=\dimen306
 \scratchbox=\box134
-\nofMPsegments=\count370
-\nofMParguments=\count371
+\nofMPsegments=\count497
+\nofMParguments=\count498
 \everyMPshowfont=\toks49
-\MPscratchCnt=\count372
+\MPscratchCnt=\count499
 \MPscratchDim=\dimen307
-\MPnumerator=\count373
-\makeMPintoPDFobject=\count374
+\MPnumerator=\count500
+\makeMPintoPDFobject=\count501
 \everyMPtoPDFconversion=\toks50
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-
-(/usr/share/texmf-dist/tex/latex/grfext/grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
 
 (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 61.
+Package hyperref Info: Link coloring OFF on input line 63.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1421,15 +1646,15 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count375
+\c@section@level=\count502
 )
-LaTeX Info: Redefining \ref on input line 61.
-LaTeX Info: Redefining \pageref on input line 61.
-LaTeX Info: Redefining \nameref on input line 61.
+LaTeX Info: Redefining \ref on input line 63.
+LaTeX Info: Redefining \pageref on input line 63.
+LaTeX Info: Redefining \nameref on input line 63.
 
 (./main.out) (./main.out)
-\@outlinefile=\write6
-\openout6 = `main.out'.
+\@outlinefile=\write7
+\openout7 = `main.out'.
 
 
 (/usr/share/texmf-dist/tex/latex/greek-fontenc/puenc-greek.def
@@ -1472,31 +1697,53 @@ File: greek-fontenc.def 2020/10/30 2.0 Common Greek font encoding definitions
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+(/usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2022/02/02 v3.17 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load language 'greek'...
+Package biblatex Info: ... file 'greek.lbx' found.
+
+(/usr/share/texmf-dist/tex/latex/biblatex/lbx/greek.lbx
+File: greek.lbx 2022/02/02 v3.17 biblatex localization (PK/MW)
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout6 = `main.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'main.bbl' found.
+ (./main.bbl)
+Package biblatex Info: Reference section=0 on input line 63.
+Package biblatex Info: Reference segment=0 on input line 63.
 LaTeX Font Info:    Font shape `T1/gentium/m/n' will be
-(Font)              scaled to size 17.28pt on input line 63.
+(Font)              scaled to size 17.28pt on input line 65.
 LaTeX Font Info:    Font shape `T1/gentium/m/n' will be
-(Font)              scaled to size 12.0pt on input line 63.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 63.
+(Font)              scaled to size 12.0pt on input line 65.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 65.
+
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 63.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `T1/gentium/m/n' will be
-(Font)              scaled to size 14.4pt on input line 63.
+(Font)              scaled to size 14.4pt on input line 65.
 LaTeX Font Info:    Font shape `T1/gentium/b/n' will be
-(Font)              scaled to size 14.4pt on input line 63.
+(Font)              scaled to size 14.4pt on input line 65.
  (./main.toc
 LaTeX Font Info:    Font shape `T1/gentium/b/n' will be
 (Font)              scaled to size 10.95pt on input line 2.
 )
-\tf@toc=\write7
-\openout7 = `main.toc'.
+\tf@toc=\write8
+\openout8 = `main.toc'.
 
 
 (./Theoretical_Overview.tex
@@ -1517,11 +1764,14 @@ LaTeX Font Info:    Font shape `T1/gentium/m/n' will be
 (Font)              scaled to size 8.0pt on input line 21.
 LaTeX Font Info:    Font shape `T1/gentium/m/n' will be
 (Font)              scaled to size 6.0pt on input line 21.
-</home/kpapad/Pictures/step_fit.png, id=64, 423.38174pt x 321.6015pt>
-File: /home/kpapad/Pictures/step_fit.png Graphic file (type png)
-<use /home/kpapad/Pictures/step_fit.png>
-Package pdftex.def Info: /home/kpapad/Pictures/step_fit.png  used on input line
- 46.
+</home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig1.png,
+ id=65, 423.38174pt x 321.6015pt>
+File: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig1
+.png Graphic file (type png)
+<use /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig1.
+png>
+Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures
+/boosted_trees_fig1.png  used on input line 46.
 (pdftex.def)             Requested size: 385.07953pt x 292.5106pt.
  [2]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 5
@@ -1530,46 +1780,64 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 5
 (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-</home/kpapad/UG_thesis/Thesis/Dissertation/2023-01-26-214714_876x392_scrot.png
-, id=78, 879.285pt x 393.47pt>
-File: /home/kpapad/UG_thesis/Thesis/Dissertation/2023-01-26-214714_876x392_scro
-t.png Graphic file (type png)
-<use /home/kpapad/UG_thesis/Thesis/Dissertation/2023-01-26-214714_876x392_scrot
-.png>
-Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Dissertation/2023-01-26-
-214714_876x392_scrot.png  used on input line 62.
+</home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig2.png,
+ id=80, 879.285pt x 393.47pt>
+File: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig2
+.png Graphic file (type png)
+<use /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig2.
+png>
+Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures
+/boosted_trees_fig2.png  used on input line 62.
 (pdftex.def)             Requested size: 409.71692pt x 183.33989pt.
- [3 </home/kpapad/Pictures/step_fit.png> </home/kpapad/UG_thesis/Thesis/Dissert
-ation/2023-01-26-214714_876x392_scrot.png>]) [4] (./main.aux)
+ [3 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig1.
+png> </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig2
+.png>])
+LaTeX Font Info:    Font shape `T1/gentium/m/it' will be
+(Font)              scaled to size 10.95pt on input line 69.
+LaTeX Font Info:    Font shape `T1/gentium/m/sc' will be
+(Font)              scaled to size 10.95pt on input line 69.
+
+Overfull \hbox (5.39742pt too wide) in paragraph at lines 70--70
+\T1/gentium/m/it/10.95 Con-fer-ence on Knowl-edge Dis-cov-ery and Data Min-ing\
+T1/gentium/m/n/10.95 . ACM, Aug. 2016. \T1/gentium/m/sc/10.95 doi\T1/gentium/m/
+n/10.95 : []$\T1/cmtt/m/n/10.95 10 . 1145 / 2939672 . 2939785$[]\T1/gentium/m/n
+/10.95 .
+ []
+
+[4] [5] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 799C2171325734A5FEB37EF269E5A3E6;2173.
+Package logreq Info: Writing requests to 'main.run.xml'.
+\openout1 = `main.run.xml'.
+
  ) 
 Here is how much of TeX's memory you used:
- 28511 strings out of 478238
- 532566 string characters out of 5850455
- 862415 words of memory out of 5000000
- 46190 multiletter control sequences out of 15000+600000
- 488419 words of font info for 64 fonts, out of 8000000 for 9000
+ 35590 strings out of 478238
+ 674931 string characters out of 5850455
+ 1432271 words of memory out of 5000000
+ 53220 multiletter control sequences out of 15000+600000
+ 491511 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 109i,6n,118p,613b,602s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/t
-exmf-dist/fonts/enc/dvips/gentium-tug/gentium-ts1.enc}{/usr/share/texmf-dist/fo
-nts/enc/dvips/gentium-tug/gentium-ec.enc}</usr/share/texmf-dist/fonts/type1/pub
-lic/gentium-tug/GenBasB.pfb></usr/share/texmf-dist/fonts/type1/public/gentium-t
-ug/GentiumPlus-R.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex
-10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr
-/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/cm-supe
-r/sftt1095.pfb>
-Output written on main.pdf (4 pages, 478353 bytes).
+ 109i,6n,118p,737b,1781s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/gentium-tug/gentium-ec-sc.enc}{/usr/sh
+are/texmf-dist/fonts/enc/dvips/gentium-tug/gentium-ec.enc}{/usr/share/texmf-dis
+t/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf-dist/fonts/enc/dvi
+ps/gentium-tug/gentium-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/gentiu
+m-tug/GenBasB.pfb></usr/share/texmf-dist/fonts/type1/public/gentium-tug/Gentium
+Plus-I.pfb></usr/share/texmf-dist/fonts/type1/public/gentium-tug/GentiumPlus-R.
+pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/
+share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on main.pdf (5 pages, 695860 bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
- 119 compressed objects within 2 object streams
- 15 named destinations out of 1000 (max. 500000)
+ 182 PDF objects out of 1000 (max. 8388607)
+ 141 compressed objects within 2 object streams
+ 19 named destinations out of 1000 (max. 500000)
  103 words of extra memory for PDF output out of 10000 (max. 10000000)
 

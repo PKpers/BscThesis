@@ -1,0 +1,150 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{Chen_2016}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=48461ccdf50ba5a54e29a354aa734c0b}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Tianqi},
+           giveni={T\bibinitperiod}}}%
+        {{hash=c9ab8ac486d7f85ac914b1a8e51e512b}{%
+           family={Guestrin},
+           familyi={G\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{f79ceb030bcf791e5521f87ac6ada03b}
+      \strng{fullhash}{f79ceb030bcf791e5521f87ac6ada03b}
+      \strng{bibnamehash}{f79ceb030bcf791e5521f87ac6ada03b}
+      \strng{authorbibnamehash}{f79ceb030bcf791e5521f87ac6ada03b}
+      \strng{authornamehash}{f79ceb030bcf791e5521f87ac6ada03b}
+      \strng{authorfullhash}{f79ceb030bcf791e5521f87ac6ada03b}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 22nd {ACM} {SIGKDD} International Conference on Knowledge Discovery and Data Mining}
+      \field{month}{8}
+      \field{title}{{XGBoost}}
+      \field{year}{2016}
+      \verb{doi}
+      \verb 10.1145/2939672.2939785
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145%2F2939672.2939785
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145%2F2939672.2939785
+      \endverb
+    \endentry
+    \entry{xgboost}{online}{}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{labeltitlesource}{title}
+      \field{title}{Introdution to Boosted Trees}
+      \field{urlday}{28}
+      \field{urlmonth}{1}
+      \field{urlyear}{2022}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://xgboost.readthedocs.io/en/stable/tutorials/model.html
+      \endverb
+      \verb{url}
+      \verb https://xgboost.readthedocs.io/en/stable/tutorials/model.html
+      \endverb
+      \keyw{xgboost}
+    \endentry
+    \entry{Mehta_2019}{article}{}
+      \name{author}{7}{}{%
+        {{hash=b934ab8a06f4ab846491dbac786745f9}{%
+           family={Mehta},
+           familyi={M\bibinitperiod},
+           given={Pankaj},
+           giveni={P\bibinitperiod}}}%
+        {{hash=92b0f4441d84e9b7699803e1bf75a4a1}{%
+           family={Bukov},
+           familyi={B\bibinitperiod},
+           given={Marin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=44ea1f3f55f9c31b0baf1108b18e429e}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Ching-Hao},
+           giveni={C\bibinithyphendelim H\bibinitperiod}}}%
+        {{hash=64871300b90e5484f62a21cbc9f8097e}{%
+           family={Day},
+           familyi={D\bibinitperiod},
+           given={Alexandre\bibnamedelima G.R.},
+           giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=dfc166e5f89b55ae88e74b91a906c2c9}{%
+           family={Richardson},
+           familyi={R\bibinitperiod},
+           given={Clint},
+           giveni={C\bibinitperiod}}}%
+        {{hash=51d53f088210e076abe2c7e861e5aabc}{%
+           family={Fisher},
+           familyi={F\bibinitperiod},
+           given={Charles\bibnamedelima K.},
+           giveni={C\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=f17b3976b2fddd6a3cb0e96d85a6115b}{%
+           family={Schwab},
+           familyi={S\bibinitperiod},
+           given={David\bibnamedelima J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier {BV}}%
+      }
+      \strng{namehash}{16810074b7b78357cd8a156cb1c46ec8}
+      \strng{fullhash}{bfe2a67320d7965f0e5fd7f1d232d8a3}
+      \strng{bibnamehash}{16810074b7b78357cd8a156cb1c46ec8}
+      \strng{authorbibnamehash}{16810074b7b78357cd8a156cb1c46ec8}
+      \strng{authornamehash}{16810074b7b78357cd8a156cb1c46ec8}
+      \strng{authorfullhash}{bfe2a67320d7965f0e5fd7f1d232d8a3}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physics Reports}
+      \field{month}{5}
+      \field{title}{A high-bias, low-variance introduction to Machine Learning for physicists}
+      \field{volume}{810}
+      \field{year}{2019}
+      \field{pages}{1\bibrangedash 124}
+      \range{pages}{124}
+      \verb{doi}
+      \verb 10.1016/j.physrep.2019.03.001
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016%2Fj.physrep.2019.03.001
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016%2Fj.physrep.2019.03.001
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
