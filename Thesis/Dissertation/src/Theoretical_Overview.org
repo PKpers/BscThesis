@@ -9,7 +9,113 @@
 #+latex_class: article
 
 * Theoritical Overview
-** Special Relativity (invariant mass)
+** Units in particle physics
+Particle physics, study the properites of subatomic particles and their interactions. To describe such microscopic phenomena and quantities, an appropriate system of units must be adopted, for if the SI system of units was to be used, one would have to deal with large exponents. More over, it is more practical to utilize a system that is based on the typical length and time scales found in particle physics[modern particle phyics].
+
+The foundamental constants of the special theory of relativity, as well as quantum mechanics are \(\hbar\), c, and  GeV and they can be used as a basis to form a system of units, the Natural Units. Natural units can be further simplified by chosing:
+\[ c = \hbar = 1\]
+The table below sumarizes the relationship between natural units and S.I
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{ |p{3cm}|p{4cm}|p{3cm}|  }
+ \hline
+ \multicolumn{3}{|c|}{Relationship between natural units and S.I} \\
+ \hline
+ \hline
+Quanity & Natural units($ \hbar = c = 1 $) & S.I \\
+ \hline
+Energy & GeV & $Kg m^{2}s^{-2}$ \\
+Momentum & GeV& $ Kg m^{2}s^{-2}$ \\
+Mass & GeV & Kg\\
+Time & $GeV^{-1}$ & s\\
+Length & $GeV^{-1}$ & m\\
+ \hline
+\end{tabular}
+\caption{Some basic quantites in S.I and in Natural units .}
+\label{table:natural_units}
+\end{table}
+
+** Special Relativity
+
+*** Four-Vectors - Lorentz transformations
+
+Let S and S' be two inertial reference systems, with S' moving at (a relativistic) 2velocity \(u\) relative to S. The coordinates are chosen such that the motion is along the x-axis in both reference systems. The clocks of both S and S' are synchronized so that when \(x = x' = 0\), \(t = t' = 0\).
+For an event with coordinates (x, y, z, t) in S, the coordinates in S' are given by the Lorentz transformations:
+
+\begin{equation}
+\begin{matrix}
+(x')^{0} = \gamma(x^{0} - \beta x^{1}) \\
+(x')^{1} = \gamma(x^{1} - \beta x^{0}) \\
+(x')^{2} = x^{2} \\
+(x')^{3} = x^{3}
+\end{matrix}
+\end{equation}
+where \(\beta \equiv \frac{u}{c}\text{,   } x^{0}\equiv ct\text{,    } x^{1}\equiv x\text{,   } x^{2}\equiv y\text{,   } x^{3}\equiv z\)
+
+The elements \(x^{i}\text{, i = 0, 1, 2, 3}\) define the position four vector. Mathematicaly four vectors are 4 dimentional, rank 1 tensors that transform according to lorentz transformations
+
+With the introduction of four vectors, using Einstein's summation convention, lorentz transformations can be written as:
+\begin{equation}
+(x')^{i} = \Lambda^{i}_{j}x^{j}
+\end{equation}
+Where \(\Lambda\), is the Lorentz transformation matrix, a rank 2 tensor:
+
+\begin{equation}
+\Lambda = \begin{pmatrix}
+ \gamma & -\gamma \beta &  0 & 0 \\
+  -\gamma \beta & \gamma &   0 & 0 \\
+  0 & 0& 1 &0\\
+  0 & 0& 0 &1\\
+  \end{pmatrix}
+  \end{equation}
+
+The following quantity does not change under lorentz transformation:
+\begin{equation}
+I^{2} = -(x^{0})^{2} + (x^{1})^{2} + (x^{2})^{2} +(x^{3})^{2} = -(x'^{0})^{2} + (x'^{1})^{2} + (x'^{2})^{2} +(x'^{3})^{2}
+\end{equation}
+or written in a more compact form:
+\begin{equation}
+I = g_{\mu \nu}x^{\mu}x^{\nu} = x^{\mu}x_{\mu}
+\end{equation} 
+where \(g_{\mu\nu}\) is the Minkowski (metric) tensor:
+
+\begin{equation}
+g_{\mu \nu} = \begin{pmatrix}
+-1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+1 & 0 & 1 & 0\\
+1 & 0 & 0 & 1\\
+\end{pmatrix}
+\end{equation}
+Such a quantity as I is called *invariant*
+
+The introduction of four vectors and the metric tensor, yield the Minkowski Space Time where points need 4 coordinates to be fully described(1, time like and 3 space like ) and the distance between them is beeing defined by the Minkowski tensor. The necessity of four vectors, in order to describe non scalar quantities(such as velocity and momentum) in minkowski space time, is therefore evident.
+
+*** Energy and Momentum
+
+According to the principle of relativity, the laws of physics must be the same in all inertial reference systems. Hence, if momentum is conserved  in one inertial frame of reference, it must also be conserved in all others. It is evident that the momentum of a moving particle must be defined in an appropriate manner, to satisfy the principle of relativity \cite{gParticles}. The four momentum is therefore defined as:
+\begin{equation}
+p^{\mu} = m\eta^{\mu}
+\end{equation}
+Where \( \eta^{\mu} = \frac{dx^{\mu}}{dt'}\), the four velocity of the particle.
+
+The timelike component of four momentum, expresssed in natural units  is \(p^{0} = \gamma m\). The 3 space like components, constitue the vector momentum, \(\vec{p} = \gamma m\vec{\beta}\).
+The relativistic energy is defined as:
+\begin{equation}
+E = \gamma m = p^{0}
+\end{equation}
+Thus, the components of four momentum are:
+\begin{equation}
+p^{\mu} = (E, \vec{p})
+\end{equation}
+
+At this point we are able to calculate the invariant "interval" \(p^{\mu}p_{\mu}\) :
+\begin{equation}
+p^{\mu}p_{\mu} = E^{2} - |\vec{p}|^{2} = m^{2}
+\end{equation}
+What is invariant in the case of momentum four vector, is the particle's mass. This quantity is called *invariant mass* of a particle as all observers, in different frames of references, agree upon its value. It is the invariant mass of particles that we can(or we try to) measure, in CERN as well. 
+
 ** The standard model
 ** Collisions and resonances
 ** Maybe some elements of the theory behind our monte carlo simulations
