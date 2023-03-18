@@ -30,9 +30,13 @@ output = output_dir+outfile
 df1 = ROOT.RDataFrame(treeName, input_dir+'{}test.root'.format(infile))
 df2= ROOT.RDataFrame(treeName, input_dir+'{}train.root'.format(infile))
 sigT = df1.Filter("yTest_true == 1")
+sigT_events = sigT.Count().GetValue()
 bkgT = df1.Filter("yTest_true == 0")
+bkgT_events = bkgT.Count().GetValue()
 sigR = df2.Filter("yRef_true == 1")
+sigR_events = sigR.Count().GetValue()
 bkgR = df2.Filter("yRef_true == 0")
+bkgR_events = bkgR.Count().GetValue()
 #
 # Make the plots
 c = ROOT.TCanvas()
@@ -75,6 +79,7 @@ for i, d in enumerate(data):
             d[1], pltData, histOpts, ax_labels,
             DrawLoc, lca=lca_ 
         )
+
     elif i == 1 or i == 3:
         DrawLoc='same' 
         fs_ =  [3004, None, 1001]
@@ -88,9 +93,10 @@ for i, d in enumerate(data):
         )
     #
     h_.append(hist) 
+    hist.GetYaxis().SetRangeUser(1, 6000)
     legend_entries[d[1]] =(d[-1], legend_mark)
 #
-legend_loc = (0.7, 0.7, 0.8, 0.8)
+legend_loc = (0.4, 0.7, 0.5, 0.8)
 legend = create_legend(legend_loc, legend_entries)
 add_Header('BDT histogram')
 c.SetLogy(0)
@@ -98,7 +104,7 @@ c.SaveAs(output)
 c.SetLogy(1)
 c.SaveAs(output)
 
-# Calculate TPR and FPR and plot the roc curve 
+# Calculate TPR and FPR and plot the roc curve -----------------------------------------------------------------
 integrals = []
 for h in h_ :
     h = h.GetValue()
@@ -112,12 +118,12 @@ for h in h_ :
     #
 #
 TestingTPR,  TestingFPR = [
-    np.array(integrals[0])/250000,
-    np.array(integrals[2])/250000
+    np.array(integrals[0])/sigT_events,
+    np.array(integrals[2])/bkgT_events
 ]
 TrainingTPR,  TrainingFPR = [
-    np.array(integrals[1])/250000,
-    np.array(integrals[3])/250000 
+    np.array(integrals[1])/sigR_events,
+    np.array(integrals[3])/bkgR_events 
 ]
 
 TestingTNR = 1 -TestingFPR
@@ -211,6 +217,7 @@ for i in Range:
     training = h_[i].GetValue() 
     testing = h_[i - 1].GetValue() 
     training.Divide(testing)
+    training.GetYaxis().SetRangeUser(0, 2)
     line_attribs["mca"] = color
     set_markerstyle(training, line_attribs)
     training.GetYaxis().SetTitle('Ratio')

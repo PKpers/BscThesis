@@ -2,8 +2,9 @@
 plot="/home/kpapad/UG_thesis/Thesis/Bdt/src/plotResults.py"
 predictions=()
 outputs=()
-dataset="WPhi_2mu_M25M30_TrimmedPxyz"
-for (( i=9 ; i<=9 ; i++));
+dataset="WPhi_2mu_M50MixedDeltas"
+k=11
+for (( i=$k ; i<=$k ; i++));
 do
     prediction=$dataset"PConf"$i"Pred"
     output=$dataset"PConf"$i"BDTplot.pdf"

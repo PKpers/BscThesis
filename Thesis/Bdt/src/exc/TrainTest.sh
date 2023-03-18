@@ -6,12 +6,12 @@ check_exit(){
     fi
 }
 
-train="/home/kpapad/UG_thesis/Thesis/Bdt/src/Training.py"
+train="/home/kpapad/UG_thesis/Thesis/Bdt/src/Training_GridSearch.py"
 test="/home/kpapad/UG_thesis/Thesis/Bdt/src/Testing.py"
-dataset="WPhi_2mu_M25M30_TrimmedPxyz"
+dataset="WPhi_2mu_M50MixedDeltas"
 #configs=("training_conf1.dict" "training_conf2.dict" "training_conf3.dict" "training_conf5.dict")
 #"training_conf10.dict" "training_conf11.dict" "training_conf12.dict" "training_conf13.dict" "training_conf14.dict" "training_conf15.dict")
-k=9
+k=11
 configs=("training_conf"$k".dict")
 for config in "${configs[@]}"; do
     model="myModel"$dataset"_conf"$k
@@ -19,7 +19,7 @@ for config in "${configs[@]}"; do
     python $train $dataset $config
     ret=$?
     check_exit $ret
-    python $test $dataset $model $output 
+    python $test $dataset $model $output
     ret=$?
     check_exit $ret
     k=$(($k+1))
