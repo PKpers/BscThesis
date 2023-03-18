@@ -1,0 +1,41 @@
+* With !str keys
+
+[max_depth]
+value=!int "10"
+#
+[subsample]
+value=!float "0.8"
+#
+[n_estimators]
+value=!int "1500"
+#
+[learning_rate]
+value=!float "0.09"
+#
+[gamma]
+val=!float "6"
+#
+[min_child_weight]
+val=!float "3"
+#
+[colsample_bytree]
+val=!float "0.9"
+#
+[early_stopping_rounds]
+val=!int "0"
+#
+[reg_alpha]
+val=!float "5"
+#
+[reg_lambda]
+val=!float "1"
+#
+[objective]
+value=!str "binary:logistic"
+#
+[eval_metric]
+val=!str "error"
+#
+[nthread]
+val=!int "4"
+#
