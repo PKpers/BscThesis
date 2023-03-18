@@ -1,31 +1,37 @@
 * With !str keys
 
 [max_depth]
-value=!int "9"
+value=!int "8"
 #
 [subsample]
-value=!float "0.5"
+value=!float "0.3"
 #
 [n_estimators]
-value=!int "1500"
+value=!int "2000"
 #
 [learning_rate]
 value=!float "0.05"
 #
 [gamma]
-val=!float "7"
+val=!float "1.5"
 #
 [min_child_weight]
-val=!float "9"
+val=!float "8"
+#
+[colsample_bytree]
+val=!float "0.9"
 #
 [objective]
 value=!str "binary:logistic"
+#
+[early_stopping_rounds]
+val=!int "80"
 #
 [eval_metric]
 val=!str "error"
 #
 [reg_alpha]
-val=!float "5"
+val=!float "2"
 #
 [reg_lambda]
 val=!float "10"

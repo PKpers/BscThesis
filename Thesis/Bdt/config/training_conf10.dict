@@ -7,16 +7,19 @@ value=!int "9"
 value=!float "0.5"
 #
 [n_estimators]
-value=!int "5000"
+value=!int "1000"
 #
 [learning_rate]
-value=!float "0.5"
+value=!float "0.05"
 #
 [gamma]
-val=!float "3"
+val=!float "7"
 #
 [min_child_weight]
-val=!float "9"
+val=!float "6"
+#
+[colsample_bytree]
+val=!str "0.9"
 #
 [objective]
 value=!str "binary:logistic"
@@ -25,7 +28,7 @@ value=!str "binary:logistic"
 val=!str "error"
 #
 [reg_alpha]
-val=!float "3.5"
+val=!float "10"
 #
 [nthread]
 val=!int "4"
