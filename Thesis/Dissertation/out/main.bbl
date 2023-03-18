@@ -59,6 +59,79 @@
       \verb https://doi.org/10.1145%2F2939672.2939785
       \endverb
     \endentry
+    \entry{PatternClassification}{book}{}
+      \name{author}{3}{}{%
+        {{hash=b487da43284ea0ffefe3481b023777b0}{%
+           family={Duda},
+           familyi={D\bibinitperiod},
+           given={R.O.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=f210c04d519abdd9f97057d95d1fa766}{%
+           family={Hart},
+           familyi={H\bibinitperiod},
+           given={P.E.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=932f7629446dfa6731601a02be76801c}{%
+           family={Stork},
+           familyi={S\bibinitperiod},
+           given={D.G.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{b95de3ce12ef4837b17d7f7e0472a6f6}
+      \strng{fullhash}{b95de3ce12ef4837b17d7f7e0472a6f6}
+      \strng{bibnamehash}{b95de3ce12ef4837b17d7f7e0472a6f6}
+      \strng{authorbibnamehash}{b95de3ce12ef4837b17d7f7e0472a6f6}
+      \strng{authornamehash}{b95de3ce12ef4837b17d7f7e0472a6f6}
+      \strng{authorfullhash}{b95de3ce12ef4837b17d7f7e0472a6f6}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9788126511167}
+      \field{title}{Pattern Classification}
+      \field{year}{2006}
+      \verb{urlraw}
+      \verb https://books.google.com.cy/books?id=NR-SzW2t7WYC
+      \endverb
+      \verb{url}
+      \verb https://books.google.com.cy/books?id=NR-SzW2t7WYC
+      \endverb
+    \endentry
+    \entry{gParticles}{book}{}
+      \name{author}{1}{}{%
+        {{hash=42e8ffd37323285bb1fdb7f05e3bd4d3}{%
+           family={Griffiths},
+           familyi={G\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{42e8ffd37323285bb1fdb7f05e3bd4d3}
+      \strng{fullhash}{42e8ffd37323285bb1fdb7f05e3bd4d3}
+      \strng{bibnamehash}{42e8ffd37323285bb1fdb7f05e3bd4d3}
+      \strng{authorbibnamehash}{42e8ffd37323285bb1fdb7f05e3bd4d3}
+      \strng{authornamehash}{42e8ffd37323285bb1fdb7f05e3bd4d3}
+      \strng{authorfullhash}{42e8ffd37323285bb1fdb7f05e3bd4d3}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9783527618477}
+      \field{series}{Physics textbook}
+      \field{title}{Introduction to Elementary Particles}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb https://books.google.com.cy/books?id=Wb9DYrjcoKAC
+      \endverb
+      \verb{url}
+      \verb https://books.google.com.cy/books?id=Wb9DYrjcoKAC
+      \endverb
+    \endentry
     \entry{xgboost}{online}{}
       \field{sortinit}{I}
       \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
