@@ -34,7 +34,7 @@ def create_fnames(outpath, fileName):
     ]
     return outfiles
 
-def makeHist(_variables_, outfilename):
+def makeHist(_variables_, histRange, outfilename):
     '''
     takes as input a list of varibles
     and plots their histograms
@@ -52,7 +52,7 @@ def makeHist(_variables_, outfilename):
 
     ## Make the plot
     nbins = 50
-    histRange = (5., 35)
+    #histRange = (0., 65)
     histOpts = (nbins, histRange)
     ax_labels = ('Mass[GeV]', 'Events')
     _Lcolor = (3,2)
@@ -82,7 +82,7 @@ def makeHist(_variables_, outfilename):
         h_.append(hist) 
         legend_entries[d[1]] =(d[-1], legend_mark)
         #
-        legend_loc = (0.3, 0.7, 0.4, 0.8)
+        legend_loc = (0.6, 0.7, 0.7, 0.8)
         legend = create_legend(legend_loc, legend_entries)
         add_Header('Muon Pair Mass histogram')
         c.SetLogy(1)

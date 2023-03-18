@@ -15,12 +15,15 @@ if len(sys.argv) != 3:
 input_dir = "~/UG_thesis/Thesis/Analysis/out/Data/"
 fileName = sys.argv[1] 
 
-## Figure out the coordinate system from the dataset code ##
+## Figure out the coordinate system from the dataset name ##
 if "Pxyz" in fileName:
     branch_names = ['Px', 'Py', 'Pz']
+elif "Deltas" in fileName:
+    branch_names = ["Pt1", "Pt2", "DeltaPhi", "DeltaR", "DeltaEta"]
 else:
     branch_names = ['Pt', 'Eta', 'Phi']
 #
+
 TreeName = "tree"
 label = ("_SIG_", "_BKG_")
 infiles = [
@@ -63,9 +66,11 @@ c_nums.SaveAs(output_dir+output_fnames+str("["))
 
 ## Plots configuration
 hist_range = {
-    0: (-100, 100),
-    1: (-100,100),
-    2: (-100,100)
+    0: (0, 300),
+    1: (0, 300),
+    2: (-5, 5),
+    3: (0,10),
+    4: (-4,4)
 }
 draw_loc = {
     0: 'hist',
@@ -79,11 +84,14 @@ nbins = 50
 line_color = [1,4]
 for i, b in enumerate(branch_names):
     for j, df in enumerate(dataFrames):
-
+        nums_1 =(df, 'df'+b, b, b) 
+        '''
         nums_1 = [
             (df, 'df'+b+str(k), b+str(k), b+str(k))
             for k in (1,2)
         ]
+        '''
+        #
         # change to the wanted pad 
         cpads = j+1
         c_nums.cd(cpads)
@@ -93,6 +101,20 @@ for i, b in enumerate(branch_names):
         histOpts = (nbins, histRange) 
         ax_labels =(b, "counts")
         legend_entries = {}
+        ## Make the plots 
+        DrawLoc=draw_loc[0]
+        lca_ = (line_color[0], 1)
+        pltData = ( nums_1[0], nums_1[2])
+        hist = PlotHist(
+            nums_1[1], pltData, histOpts, ax_labels,
+            DrawLoc, lca = lca_#lca: line color attrubute
+        )
+        h_num.append(hist)
+        legend_entries[nums_1[1]] = (nums_1[-1], 'l')
+        
+        add_Header(headers[j])
+
+        '''
         for k in range(len(nums_1)):
             DrawLoc=draw_loc[k]
             lca_ = (line_color[k], 1)
@@ -105,6 +127,7 @@ for i, b in enumerate(branch_names):
             legend_entries[nums_1[k][1]] = (nums_1[k][-1], 'l')
             
         add_Header(headers[j])
+        '''
     #
     legend_loc = (0.6, 0.5, 0.9, 0.6)
     legend = create_legend(legend_loc, legend_entries)

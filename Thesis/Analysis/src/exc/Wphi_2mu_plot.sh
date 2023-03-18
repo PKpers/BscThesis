@@ -6,7 +6,7 @@ check_exit(){
     fi
 }
 
-names=('M-25' 'M-30' 'M-40' 'M-50')
+names=('M-20' 'M-60' 'M-70')
 DIR='/home/kpapad/UG_thesis/Thesis/Analysis/MC_Samples/'
 plot='/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhi_2mu_plot.py'
 for name in "${names[@]}"; do
