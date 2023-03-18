@@ -5,6 +5,22 @@ import pickle
 from copy import copy
 from matplotlib import pyplot as plt 
 
+def pair_permute(__list__):
+    '''
+    combine the items of a list
+    in pairs of two.
+    order doesn't matter
+    repetition allowed
+    '''
+    permutations = []
+    for i, xi in enumerate(__list__):
+        if type(xi) is str:
+            p = [xi+xj for xj in __list__[i:]]
+        #
+        permutations += p
+    #
+    return permutations
+
 def make_variable_names(signal_filename, background_filename):
     variables = []
     names=()
@@ -18,11 +34,15 @@ def make_variable_names(signal_filename, background_filename):
             variables.append(name+str(j))
         #
     #
+    if 'Perm' in signal_filename and 'Perm' in background_filename:
+        variables = pair_permute(variables)
+    elif 'Deltas' in signal_filename and 'Deltas' in background_filename:
+        variables = ["Pt1", "Pt2", "DeltaPhi", "DeltaR", "DeltaEta"]
+    #
     print(variables)
     return variables
 #
-#
-#
+
 
 def make_bar_graph(variables, feat_imp):
     plt.bar(variables, feat_imp)
@@ -41,8 +61,8 @@ def load_data(signal_filename, background_filename):
     # Convert inputs to format readable by machine learning tools
     x_sig = np.vstack([data_sig[var] for var in variables]).T
     x_bkg = np.vstack([data_bkg[var] for var in variables]).T
-    x = np.vstack([x_sig, x_bkg])
     
+    x = np.vstack([x_sig, x_bkg]).astype(np.float32)
     # Create labels
     #number of events. After transposing , we have an object of that form [ [], [], ..., [] ]
     # each sub array corresponds to the number of event: [ [1st event contents ], [2nd, ] ... ]
@@ -54,14 +74,16 @@ def load_data(signal_filename, background_filename):
     #from that tuple we take the 0th element which is the number of events 
     num_sig = x_sig.shape[0]#same as len(np.array) returns error
     num_bkg = x_bkg.shape[0]
-    y = np.hstack([np.ones(num_sig), np.zeros(num_bkg)])
+    y = np.hstack([np.ones(num_sig), np.zeros(num_bkg)]).astype(np.float32)
+
    # ones(n): return an array of shape n filled with 1
    #zeros(n): return an array of shape n filled with 0
    #[np.array(), np.array()] -hstack-> np.array[contents of the two arrays merged]
    
     # Compute weights balancing both classes
     num_all = num_sig + num_bkg
-    w = np.hstack([np.ones(num_sig) * num_all / num_sig, np.ones(num_bkg) * num_all / num_bkg])
+    w = np.hstack([np.ones(num_sig) * num_all / num_sig, np.ones(num_bkg) * num_all / num_bkg])\
+          .astype(np.float32)
     #asign the same weight in all sig events and the same in all bkg events. wsig != wbkg.
     #np.ones it is used to create an array of diemntion = num_bkg
     return x, y, w, num_all
@@ -86,7 +108,7 @@ if __name__ == "__main__":
     inpath = '/home/kpapad/UG_thesis/Thesis/share/SimuData/'
     sig_filename = inpath+ "{}_SIG_Train.root".format(dataset)
     bkg_filename = inpath+ "{}_BKG_Train.root".format(dataset)
-    x, y, w, num_all= load_data(sig_filename, bkg_filename )
+    x, y, w, num_all= load_data(sig_filename, bkg_filename)
     
     # Load training config
     config_dir="/home/kpapad/UG_thesis/Thesis/Bdt/config/"

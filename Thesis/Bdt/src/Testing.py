@@ -28,26 +28,6 @@ infiles = [
 #
 xTest, yTest_true, wTest, _= load_data(infiles[0][0], infiles[0][1])
 xRef, yRef_true, wRef, _= load_data(infiles[1][0], infiles[1][1])
-#print(xTest[20]h
-'''
-xTest=np.delete(xTest, 18,0)
-yTest_true=np.delete(yTest_true, 18,0)
-wTest=np.delete(wTest, 18,0)
-xRef=np.delete(xRef, 18,0)
-yRef_true=np.delete(yRef_true, 18,0)
-wRef=np.delete(wRef, 18,0)
-'''
-'''
-_num_ = 300
-num2 = 21
-xTest = xTest[_num_: _num_+num2]
-yTest_true = yTest_true[_num_:_num_+num2]
-wTest = wTest[_num_:_num_+num2]
-xRef = xRef[_num_:_num_+num2]
-yRef_true = yRef_true[_num_:_num_+num2]
-wRef = wRef[_num_:_num_+num2]
-'''
-#
 # Load trained model
 model =  '/home/kpapad/UG_thesis/Thesis/Bdt/out/Models/'+ '{}.root'.format(modelName)
 # If the file doesn't exist, raise exception and exit
@@ -62,11 +42,9 @@ bdt = ROOT.TMVA.Experimental.RBDT[""]("myBDT", model)
 print('starting the bdt compute')
 y_pred = [
     bdt.Compute(x)
-    for i,x in enumerate((xTest,xRef))
+    for i,x in enumerate((xTest, xRef))
 ]
-#for i, x in enumerate((xTest, xRef)):
-#    print(i)
- #   bdt.Compute(x)
+#print(y_pred[1].shape)
 # calculate the auc score
 fpr, tpr, _ = roc_curve(yTest_true, y_pred[0], sample_weight=wTest)
 score = auc(fpr, tpr)
@@ -86,7 +64,21 @@ df2 = ROOT.RDF.MakeNumpyDataFrame(
         "yRef_true" :        np.array(yRef_true),
     }
 ).Snapshot(TreeName, out_filename+"train.root")
-   
+
+## Export a specific region of the Pxyz Permuted data set for further analysis
+'''
+features = ['Px1Px1', 'Px1Py1', 'Px1Pz1', 'Px1Px2', 'Px1Py2', 'Px1Pz2', 'Py1Py1', 'Py1Pz1', 'Py1Px2', 'Py1Py2', 'Py1Pz2', 'Pz1Pz1', 'Pz1Px2', 'Pz1Py2', 'Pz1Pz2', 'Px2Px2', 'Px2Py2', 'Px2Pz2', 'Py2Py2', 'Py2Pz2', 'Pz2Pz2']
+df3_entries = {
+    features[i] : xi for i,xi  in enumerate(xRef.T)
+}
+df3_entries["yRef_pred"] = y_pred[1]
+
+df3 = ROOT.RDF.MakeNumpyDataFrame(df3_entries)\
+              .Snapshot(TreeName, out_filename+"ScoreData_train.root")
+'''
+
+
+
 print('done')
 print(modelName,' : ',score, )
 

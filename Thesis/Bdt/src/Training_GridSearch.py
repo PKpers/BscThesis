@@ -4,8 +4,9 @@ import numpy as np
 import pickle
 from copy import copy
 from sklearn import metrics
+from Training import pair_permute, make_variable_names, make_bar_graph, load_data
 from sklearn.model_selection import GridSearchCV
-
+'''
 def load_data(signal_filename, background_filename):
     # Read data from ROOT files
     data_sig = ROOT.RDataFrame("tree", signal_filename).AsNumpy()
@@ -45,6 +46,7 @@ def load_data(signal_filename, background_filename):
     #asign the same weight in all sig events and the same in all bkg events. wsig != wbkg.
     #np.ones it is used to create an array of diemntion = num_bkg
     return x, y, w, num_all
+'''
  # ======================================================================= #
  # ========================== MAIN FUNCTION ================================= #
  # ======================================================================= #
@@ -63,13 +65,9 @@ if __name__ == "__main__":
     inpath = '/home/kpapad/UG_thesis/Thesis/share/SimuData/'
     sig_filename = inpath+ "{}_SIG_Train.root".format(dataset)
     bkg_filename = inpath+ "{}_BKG_Train.root".format(dataset)
-    x, y, w, num_all= load_data(sig_filename, bkg_filename )
+    x, y, w, num_all= load_data(sig_filename, bkg_filename)
     # 
-    # Load the testing data
-    sig_filename2 = inpath+ "{}_SIG_Test.root".format(dataset)
-    bkg_filename2 = inpath+ "{}_BKG_Test.root".format(dataset)
-    x2, y2, w2, num_all2= load_data(sig_filename2, bkg_filename2 )
-   #
+    
     # Load training config
     config_dir="/home/kpapad/UG_thesis/Thesis/Bdt/config/"
     training_config = config_dir + sys.argv[2]
@@ -90,15 +88,16 @@ if __name__ == "__main__":
     training_set = [x, y, w]
 
     tune_params={
-        'n_estimators' : [1000, 3000, 5000],
-        'learning_rate' : [0.1, 0.3, 0.5]
-        #'reg_alpha' : [1, 2, 2.5, 3, 3.5, 4]
-        #'max_depth': [8, 9, 10],
-        #'min_child_weight' : [7,8,9]
-        #'subsample': [0.1, 0.2, 0.4, 0.6, 0.8],
+        'n_estimators' : [1000, 1500, 2000, 2500, 3000],
+        'learning_rate' : [0.01, 0.03, 0.05, 0.07, 0.09]
+        #'reg_alpha' : range(1, 10, 2), 
+        #'reg_lambda' : range(1, 10, 2) 
+        #'max_depth': [8, 10],
+        #'min_child_weight' : [4, 5]
+        #'subsample': [0.2, 0.4, 0.6, 0.8],
         #'learning_rate': [0.4, 0.5, 0.6],
-        #'gamma': [1, 3, 5, 7, 9, 11],
-        #'colsample_bytree': [0.2, 0.4, 0.6, 0.8, 1.0],
+        #'gamma': [6, 6.5, 7, 7.5, 8],
+        #'colsample_bytree': [0.2, 0.4, 0.6, 0.9],
         #'objective': ['binary:logistic'],
         #'early_stopping_rounds': [10],
     }
