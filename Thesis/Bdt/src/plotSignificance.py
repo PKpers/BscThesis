@@ -7,6 +7,117 @@ import matplotlib
 from matplotlib import pyplot as plt
 import numpy as np
 ROOT.gROOT.SetBatch(True)
+#outFile10,outFile15,outFile25,outFile50
+inPath = "/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/"
+inFiles =[
+    inPath + "WPhi_2mu_M50MixedDeltas_Application_Smeared{}.root".format(n)
+    for n in [0, 10, 15, 25, 50]
+]
+
+c = ROOT.TCanvas()
+c.cd()
+c.SetLogx(0); c.SetLogy(0)
+ROOT.gStyle.SetOptStat(0); ROOT.gStyle.SetTextFont(42)
+c.SaveAs("test.pdf[")
+def draw(_graph_, i):
+    if i == 0 :
+        _graph_.Draw("Al")
+    else :
+        _graph_.Draw("l")
+    return _graph_
+#
+graphs=list()
+bdt_cut = list()
+sign_cut = list()
+legend = ROOT.TLegend(0.4, 0.4, 0.45, 0.6)
+smear = [ "{}%".format(n) for n in (0, 10, 15, 25, 50) ]
+sig_lab = r'\frac{sig}{\sqrt{bkg}}'
+colors = [40, 41, 30, 31]
+for i, infile in enumerate(inFiles):
+    myFile = ROOT.TFile.Open(infile, "READ") 
+    graph=myFile.Get("significance")
+    myFile.Close()
+
+    graph_ = graph.GetListOfGraphs().At(0)
+    graph_.SetTitle("")
+    gname = graph_.GetName()
+    graph_.SetLineColor(i+1)
+    if i == 4 : graph_.SetLineColor(6) 
+    legend.AddEntry(graph_, '{}'.format(smear[i]), 'l')
+    draw(graph_, i)
+
+    add_Header("Significance for various cases of smearing")
+    set_axes_title(graph_, 'BDT score', '')
+    Ylabel = ROOT.TLatex()
+    Ylabel.SetTextSize(0.035)
+    Ylabel.DrawLatexNDC(0.02, 0.85, sig_lab)
+    graphs.append(graph)
+    
+
+    # Get the BDT cut 
+    cut = 0.5
+    y_val = graph_.Eval(cut)
+    sign_cut.append(y_val)
+#
+
+legend.SetFillColor(0)
+legend.SetBorderSize(0)
+legend.SetTextSize(0.03)
+legend.Draw('same')
+c.Update()
+c.SaveAs("test.pdf")
+
+
+sign_cut = np.array(sign_cut).astype(np.float64)
+x= np.array([0, 10, 15, 25, 50]).astype(np.float64)
+print(x.shape)
+print(sign_cut.shape)
+
+evol = ROOT.TGraph(x.shape[0],x, sign_cut)
+evol.SetTitle("")
+evol.GetXaxis().SetRangeUser(-1, 54 )
+evol.SetMarkerStyle(21)
+evol.Draw("AP")
+
+set_axes_title(evol, 'smearing in %', '')
+add_Header("Evolution of significance for cut at BDT score = 0.5 ")
+Ylabel = ROOT.TLatex()
+Ylabel.SetTextSize(0.035)
+Ylabel.DrawLatexNDC(0.01, 0.85, sig_lab)
+
+c.SaveAs("test.pdf")
+c.SaveAs("test.pdf]")
+
+
+exit()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 if len(sys.argv) != 3:
     print("usage: {} {} {}".format(sys.argv[0], "inp_file.root", "outfile.pdf"))
@@ -17,7 +128,6 @@ treeName = "myTree"
 infile = sys.argv[1]
 #
 # Configure output settings 
-output_dir = "/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/"
 outfile = sys.argv[2]
 if not outfile.endswith(".pdf"):
     outfile += ".pdf"
@@ -117,7 +227,7 @@ for h in h_ :
 
 # Calculate significance sig/sqrt(bkg)
 integrals = np.array(integrals)
-significance = integrals[0][:-4]/np.sqrt(integrals[1][:-4])#0: signal, 1: background
+significance = integrals[0][:-3]/np.sqrt(integrals[1][:-3])#0: signal, 1: background
 bdt_score = np.arange(0, 1, 0.02)
 
 #normalize the roc curve 
@@ -131,6 +241,7 @@ c.SetLogy(0)
 c.SetLogx(0)
 roc = ROOT.TMultiGraph('roc', 'ROC')
 roc_alt = ROOT.TMultiGraph('roc_alt', 'ROC')
+Sign = ROOT.TMultiGraph('Sign', 'Significance')
 # Testing
 TestROC = ROOT.TGraph(len(TestingTPR), TestingFPR, TestingTPR)#(n,x,y)
 TestROC.SetName('TestROC')
@@ -139,6 +250,13 @@ TestROC.SetMarkerColor(3)
 TestROC.SetMarkerStyle(21)
 TestROC.SetDrawOption( 'ACP' )
 #
+Significance = ROOT.TGraph(bdt_score.shape[0], bdt_score, significance)#(n,x,y)
+Significance.SetName('Significance')
+Significance.SetTitle( 'Testing' )
+Significance.SetMarkerColor(3)
+Significance.SetMarkerStyle(21)
+Significance.SetDrawOption( 'ACP' )
+
 #
 TestROC_alt = ROOT.TGraph(len(TestingTPR), TestingTNR, TestingTPR)
 TestROC_alt.SetName('TestROC_alt')
@@ -166,22 +284,9 @@ legend.Draw('same')
 c.SaveAs(output)
 
 # Plot the significance curve 
-outSig=ROOT.TFile(output_dir + "WPhi_2mu_M50MixedDeltas_Application_Smeared0.root", "RECREATE")   
-
-Sign = ROOT.TMultiGraph('Sign', 'Significance')
-
-Significance = ROOT.TGraph(bdt_score.shape[0], bdt_score, significance)#(n,x,y)
-Significance.SetName('Significance')
-Significance.SetTitle( 'Testing' )
-Significance.SetMarkerColor(3)
-Significance.SetMarkerStyle(21)
-Significance.SetDrawOption( 'ACP' )
-
 Sign.Add(Significance)
 sig_lab = r'\frac{sig}{\sqrt{bkg}}'
 set_axes_title(Sign, "BDT score", "")
-Sign.Write("significance")
-outSig.Close()
 Sign.Draw('ALP')
 # Draw the y axis title with the correct orientation
 Ylabel = ROOT.TLatex()

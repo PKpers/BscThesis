@@ -26,6 +26,7 @@ infiles = [
     for p in ['Test']# 'Train')
 ]
 #
+print(infiles)
 xTest, yTest_true, wTest, _= load_data(infiles[0][0], infiles[0][1])
 #xRef, yRef_true, wRef, _= load_data(infiles[1][0], infiles[1][1])
 

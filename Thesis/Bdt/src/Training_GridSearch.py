@@ -6,50 +6,7 @@ from copy import copy
 from sklearn import metrics
 from Training import pair_permute, make_variable_names, make_bar_graph, load_data
 from sklearn.model_selection import GridSearchCV
-'''
-def load_data(signal_filename, background_filename):
-    # Read data from ROOT files
-    data_sig = ROOT.RDataFrame("tree", signal_filename).AsNumpy()
-    data_bkg = ROOT.RDataFrame("tree", background_filename).AsNumpy()
-    # Convert inputs to format readable by machine learning tools
-    variables = []
-    names=("Pt", "Eta", "Phi") 
-    for j in range(1, 3):
-        for name in names:
-            variables.append(name+str(j))
-        #
-    #
-    print(variables)
-    x_sig = np.vstack([data_sig[var] for var in variables]).T
-    x_bkg = np.vstack([data_bkg[var] for var in variables]).T
-    x = np.vstack([x_sig, x_bkg])
-    
-    # Create labels
-    #number of events. After transposing , we have an object of that form [ [], [], ..., [] ]
-    # each sub array corresponds to the number of event: [ [1st event contents ], [2nd, ] ... ]
-    #spape method, returns the lentgh of each dimention of the array.
-    #In our case the array is 2 dimentional. To describe the position of an element in the array,
-    #we need one index to specify the number of the event the the element is in
-    #and another one to specify its position inside the event(eg the jth element of the ith event)
-    #so x_sig.shape is a tuple whose elements is number of events and number of elements in each event
-    #from that tuple we take the 0th element which is the number of events 
-    num_sig = x_sig.shape[0]#same as len(np.array) returns error
-    num_bkg = x_bkg.shape[0]
-    y = np.hstack([np.ones(num_sig), np.zeros(num_bkg)])
-   # ones(n): return an array of shape n filled with 1
-   #zeros(n): return an array of shape n filled with 0
-   #[np.array(), np.array()] -hstack-> np.array[contents of the two arrays merged]
-   
-    # Compute weights balancing both classes
-    num_all = num_sig + num_bkg
-    w = np.hstack([np.ones(num_sig) * num_all / num_sig, np.ones(num_bkg) * num_all / num_bkg])
-    #asign the same weight in all sig events and the same in all bkg events. wsig != wbkg.
-    #np.ones it is used to create an array of diemntion = num_bkg
-    return x, y, w, num_all
-'''
- # ======================================================================= #
- # ========================== MAIN FUNCTION ================================= #
- # ======================================================================= #
+# ======================================================================= #
 if __name__ == "__main__":
     import sys
     from xgboost import XGBClassifier
@@ -88,16 +45,19 @@ if __name__ == "__main__":
     training_set = [x, y, w]
 
     tune_params={
-        'n_estimators' : [1000, 1500, 2000, 2500, 3000],
-        'learning_rate' : [0.01, 0.03, 0.05, 0.07, 0.09]
+        #'scale_pos_weight' : [0.5, 0.8, 1, 1.1]
+        #'n_estimators' : [1000, 1500, 2000, 2500, 3000],
+        #'learning_rate' : [0.01, 0.03, 0.05, 0.07, 0.09]
         #'reg_alpha' : range(1, 10, 2), 
+        #'reg_alpha':[1e-5, 1e-2, 0.1, 1, 100],
+        #'reg_lambda': range(50, 100, 10) 
         #'reg_lambda' : range(1, 10, 2) 
-        #'max_depth': [8, 10],
-        #'min_child_weight' : [4, 5]
-        #'subsample': [0.2, 0.4, 0.6, 0.8],
+        #'max_depth': [6, 7, 8],
+        #'min_child_weight' : [6,8,9]
         #'learning_rate': [0.4, 0.5, 0.6],
-        #'gamma': [6, 6.5, 7, 7.5, 8],
-        #'colsample_bytree': [0.2, 0.4, 0.6, 0.9],
+        #'subsample':[i/10.0 for i in range(6,10)],
+        #'colsample_bytree':[i/10.0 for i in range(6,10)]
+        'gamma' : [i/10.0 for i in range(0,5)] 
         #'objective': ['binary:logistic'],
         #'early_stopping_rounds': [10],
     }

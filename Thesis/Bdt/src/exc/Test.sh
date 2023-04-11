@@ -7,18 +7,19 @@ check_exit(){
 }
 
 # Set up the testing
+num=12
 test="/home/kpapad/UG_thesis/Thesis/Bdt/src/TestSmeared.py"
-dataset="WPhi_2mu_M50MixedDeltas_Application"
+dataset="WPhi_2mu_M50MixedDeltas_Application_Smeared25"
 modelname="WPhi_2mu_M50MixedDeltas"
-model="myModel"$modelname"_conf"11
+model="myModel"$modelname"_conf"$num
 
 # Setup plotting
 plot="/home/kpapad/UG_thesis/Thesis/Bdt/src/plotResultsSmeared.py"
-prediction=$dataset"Pred"
-output_plot=$dataset"BDTplot.pdf"
+prediction=$dataset"Pred"$num
+output_plot=$dataset$num"BDTplot.pdf"
 
 # Test and plot
-output_test=$dataset"Pred"
+output_test=$dataset"Pred"$num
 python $test $dataset $model $output_test 
 ret=$?
 check_exit $ret

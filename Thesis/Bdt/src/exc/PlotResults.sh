@@ -3,7 +3,7 @@ plot="/home/kpapad/UG_thesis/Thesis/Bdt/src/plotResults.py"
 predictions=()
 outputs=()
 dataset="WPhi_2mu_M50MixedDeltas"
-k=11
+k=12
 for (( i=$k ; i<=$k ; i++));
 do
     prediction=$dataset"PConf"$i"Pred"
