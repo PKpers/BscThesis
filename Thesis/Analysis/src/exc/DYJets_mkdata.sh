@@ -15,19 +15,15 @@ get_dir(){
 	fi
     done
 }
-names=('M-200')
+
+
+#names=('M-50')
 DIR='/home/kpapad/UG_thesis/Thesis/Analysis/MC_Samples/'
-analysis='/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhi_2mu_mkdata.py'
-for name in "${names[@]}"; do
-    get_dir $DIR $name #every time this function runs the $dir_name var gets updated
-    echo 'Now working in '$dir_name
-    prefix=WPhi_2mu_M"${name#*-}"
-    indir=$dir_name
-    outName=$prefix
-   # echo input $indir
-   # echo $outName
-    python $analysis $indir $outName 
-    ret=$?
-    check_exit $ret
-done
+indir=$DIR"/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8"
+analysis='/home/kpapad/UG_thesis/Thesis/Analysis/src/DYJets_mkdata.py'
+outName="DYJets_M50"
+
+python $analysis $indir $outName 
+ret=$?
+check_exit $ret
 

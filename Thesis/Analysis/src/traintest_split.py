@@ -10,7 +10,7 @@ from WPhi_2mu_Smear import Smear, Deltas, computeMass
 np.random.seed(1)
 ## Configure input settings 
 inPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Data/"
-inName ="WPhi_2mu_M50Mixed_Deltas.root"
+inName ="WPhiJets_M60Mixed_Deltas.root"
 inFile = inPath + inName
 
 ## Load data
@@ -34,27 +34,28 @@ print("Application bkg samples {}".format(bkg_app.shape[0]))
 bkg_tt = background[ size : ]
 print("Train and Test bkg samples {}".format(bkg_tt.shape[0]))
 
-## Split the signal in 3 parts. Testing Trining Application
+## Split the signal in 3 parts. Testing Training Application
 # Application. We get the application from the MC sample
-signal_app = df_sample.Filter("Label == 1")
+signal_app = df_sample.Filter("Label == 1").Range(0, 1000, 2)
 counts_app = signal_app.Count()
 print("Application signal events: {}".format(counts_app.GetValue()))
 
 # Training and Testing. We get the train test sampe from the rest of the signal MC  
 # The first 800 events were used for the application set.
-df_sig = ROOT.RDataFrame("tree", inPath+"WPhi_2mu_M50Data.root").Range(801, 0)
+df_sig = ROOT.RDataFrame("tree", inPath+"WPhi_2mu_M60Data.root").Range(1000, 0)
 
 Vars = ['Pt1_Smeared', 'Eta1', 'Phi1', 'Pt2_Smeared', 'Eta2', 'Phi2']
-signal = Smear(df_sig, 0.17)
+signal = Smear(df_sig, 0.10)
 signal = computeMass(signal, Vars)
 signal = Deltas(signal, Vars)
 
+varNames_Smeared = ["Pt1_Smeared", "Pt2_Smeared", "DeltaPhi", "DeltaR", "DeltaEta", "PairMass"]
 num_signal = signal.Count().GetValue()
 print("Signal samples left for train test: {}".format(num_signal))
 signal = signal.AsNumpy()
 
 ## Split the data 
-signal = np.vstack([signal[var] for var in varNames]).T
+signal = np.vstack([signal[var] for var in varNames_Smeared]).T
 np.random.shuffle(signal)
 np.random.shuffle(bkg_tt)
 
@@ -69,7 +70,7 @@ SIG_BKG_TRAIN_TEST= (
     
 ## Configure output and write the splitted data to root files
 outPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Data/"
-outName = "WPhi_2mu_M50MixedDeltas"
+outName = "WPhiJets_M60MixedDeltas"
 treeName = 'tree'
 label = ('SIG', 'BKG')
 purpose = ('Train', 'Test')
@@ -104,7 +105,7 @@ for i, data in enumerate(SIG_BKG_TRAIN_TEST):
     df.Snapshot(treeName, Files[i])
     
     #plot the mass histogram 
-    hist=df.Histo1D(("hist", "; m_{\mu\mu} [GeV]", 50, 21, 119), "PairMass")
+    hist=df.Histo1D(("hist", "; m_{\mu\mu} [GeV]", 50, 20, 120), "PairMass")
     hist.SetMarkerColor(1)
     hist.SetLineColor(1)
     hist.SetMarkerStyle(8)
@@ -120,11 +121,11 @@ c.SaveAs(outHistFile+"]")
 
 ## Write the application set to root files
 outPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Data/"
-outName = "WPhi_2mu_M50MixedDeltas_Application"
+outName = "WPhiJets_M60MixedDeltas_Application"
 treeName = 'tree'
 
 #Write the app bkg
-vars_dict = define_columns(6, varNames, bkg_app)  
+vars_dict = define_columns(6, varNames, bkg_app.T)  
 df = ROOT.RDF.MakeNumpyDataFrame(vars_dict)
 df.Snapshot(treeName, outPath+outName+"_BKG_Test.root")
 
