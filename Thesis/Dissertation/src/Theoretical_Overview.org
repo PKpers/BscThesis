@@ -121,10 +121,7 @@ What is invariant in the case of momentum four vector, is the particle's mass. T
 The Standard Model (SM)of particle physics is a theoretical framework that describes the fundamental particles and their interactions through the strong, electromagnetic, and weak forces. Each force is described by a corresponding quantum field theory(QFT). Namely, electromagnetic and weak interactions are described by the electroweak theory and the strong interactions by quantum chromodynamics(QCD). The interactions between particles in each QFT, are described in terms of the exchange of a spin-1 gauge boson. The photon, is the gauge boson of QED, while the gluon, which like the photon has no mass, is the force-carrying particle in the strong interaction. The charged \(W^{+} \text{and }W^{-}\) bosons mediate the weak charged current interaction, which is responsible for \(\beta\) decay and fusion, while the weak neutral current interaction, is mediated by the electrically neutral Z boson. These interactions are also governed by the principles of symmetry and conservation, which dictate that certain properties, such as charge and energy, are conserved during particle interactions
 
 The fundamental particles that comprise all matter according to SM are the already mentioned gauge bosons, quarks, and leptons. The quarks and leptons are organized into three generations, with each generation containing two types of leptons and two types of quarks. The leptons are either negatively charged, with a charge of -1, or electrically neutral. The quarks, on the other hand, have fractional charges of either -1/3 or +2/3, and are characterized by their color, which can be blue, green, or red. Additionally, for each elementary fermion, there is a corresponding antifermion with the same mass and spin but with an opposite electric charge.
-
-Completing the picture of fundamental particles is the scalar boson, the Higgs boson, responsible for giving mass to the other particles. A brief summary of the fundamental particles is presented in Figure \ref{fig:particles}.
-
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.35 \textwidth, ext=.png type=png]{/home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/627px-Standard_Model_of_Elementary_Particles.svg.png}
 \caption{Summary of the elementary particles. All matter around us is made up by 12 fermions!}
@@ -132,8 +129,9 @@ Completing the picture of fundamental particles is the scalar boson, the Higgs b
 \end{figure}
 
 
+Completing the picture of fundamental particles is the scalar boson, the Higgs boson, responsible for giving mass to the other particles. A brief summary of the fundamental particles is presented in Figure \ref{fig:particles}.
+
 The SM has undergone extensive testing through high-energy experiments at CERN, with its predictions confirmed with a high degree of precision. However, the model has limitations, such as its inability to account for dark matter or the observed imbalance between matter and antimatter in the universe.
 
 Despite its limitations, the Standard Model remains a cornerstone of modern physics, and its continued study and refinement is essential to advancing our understanding of the universe at its most fundamental level.
 ** Collisions and resonances
-** Maybe some elements of the theory behind our monte carlo simulations
