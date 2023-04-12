@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.11)  11 APR 2023 16:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.11)  12 APR 2023 16:18
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1762,7 +1762,7 @@ LaTeX Font Info:    Font shape `T1/gentium/m/n' will be
 (Font)              scaled to size 6.0pt on input line 49.
  [2]
 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/627px-Standard_Model_of
-_Elementary_Particles.svg.png, id=119, 629.35126pt x 602.25pt>
+_Elementary_Particles.svg.png, id=124, 629.35126pt x 602.25pt>
 File: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/627px-Standard_Mod
 el_of_Elementary_Particles.svg.png Graphic file (type png)
 <use /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/627px-Standard_Mode
@@ -1784,8 +1784,8 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-</home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_detector.jpg, id=13
-7, 586.44093pt x 413.29407pt>
+</home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_detector.jpg, id=14
+2, 586.44093pt x 413.29407pt>
 File: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_detector.jpg G
 raphic file (type jpg)
 <use /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_detector.jpg>
@@ -1794,7 +1794,7 @@ Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures
 (pdftex.def)             Requested size: 364.19667pt x 256.66219pt.
  [4 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/627px-Standard_Mode
 l_of_Elementary_Particles.svg.png>]
-</home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_coords.jpg, id=146,
+</home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_coords.jpg, id=151,
  537.50812pt x 226.59656pt>
 File: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_coords.jpg Gra
 phic file (type jpg)
@@ -1803,7 +1803,7 @@ Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures
 /cms_coords.jpg  used on input line 34.
 (pdftex.def)             Requested size: 318.66948pt x 134.34082pt.
  [5 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_detector.jpg>]
-</home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_tracker.jpg, id=157
+</home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_tracker.jpg, id=162
 , 1160.335pt x 560.0925pt>
 File: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_tracker.jpg Gr
 aphic file (type jpg)
@@ -1812,18 +1812,38 @@ Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures
 /cms_tracker.jpg  used on input line 61.
 (pdftex.def)             Requested size: 409.71692pt x 197.7702pt.
  [6 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_coords.jpg> </h
-ome/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_tracker.jpg>])
-(./boosted_trees.tex
+ome/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_tracker.jpg>]
 LaTeX Font Info:    Trying to load font information for TS1+gentium on input li
-ne 18.
- (/usr/share/texmf-dist/tex/latex/gentium-tug/ts1gentium.fd
+ne 76.
+
+(/usr/share/texmf-dist/tex/latex/gentium-tug/ts1gentium.fd
 File: ts1gentium.fd 2011/01/13 Font definitions for gentium.
 )
 LaTeX Font Info:    Font shape `TS1/gentium/m/n' will be
-(Font)              scaled to size 10.95pt on input line 18.
- [7]
+(Font)              scaled to size 10.95pt on input line 76.
+</home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_ecal.jpg, id=174, 9
+98.73125pt x 520.94624pt>
+File: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_ecal.jpg Graph
+ic file (type jpg)
+<use /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_ecal.jpg>
+Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures
+/cms_ecal.jpg  used on input line 83.
+(pdftex.def)             Requested size: 409.71692pt x 213.70857pt.
+ [7 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_ecal.jpg>]
+</home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_MuonChambers.png, i
+d=183, 756.8275pt x 554.07pt>
+File: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_MuonChambers.p
+ng Graphic file (type png)
+<use /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_MuonChambers.pn
+g>
+Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures
+/cms_MuonChambers.png  used on input line 104.
+(pdftex.def)             Requested size: 409.71692pt x 299.95424pt.
+) (./boosted_trees.tex
+[8 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_MuonChambers.png
+>] [9]
 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig1.png,
- id=175, 423.38174pt x 321.6015pt>
+ id=199, 423.38174pt x 321.6015pt>
 File: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig1
 .png Graphic file (type png)
 <use /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig1.
@@ -1831,10 +1851,8 @@ png>
 Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures
 /boosted_trees_fig1.png  used on input line 47.
 (pdftex.def)             Requested size: 364.19667pt x 276.6455pt.
- [8 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig1.
-png>]
 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig2.png,
- id=184, 879.285pt x 393.47pt>
+ id=202, 879.285pt x 393.47pt>
 File: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig2
 .png Graphic file (type png)
 <use /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig2.
@@ -1842,8 +1860,13 @@ png>
 Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures
 /boosted_trees_fig2.png  used on input line 67.
 (pdftex.def)             Requested size: 364.19667pt x 162.9688pt.
- [9 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig2.
-png>])
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig1.
+png>] [11 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees
+_fig2.png>])
 LaTeX Font Info:    Font shape `T1/gentium/m/sc' will be
 (Font)              scaled to size 10.95pt on input line 69.
 
@@ -1854,18 +1877,18 @@ n/10.95 : []$\T1/cmtt/m/n/10.95 10 . 1145 / 2939672 . 2939785$[]\T1/gentium/m/n
 /10.95 .
  []
 
-[10] (./main.aux)
+[12] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1FA0F1FA92F5120B68D4445921E7D131;3233.
+(rerunfilecheck)             Checksum: 8C28087CFBF0BC5A5C535789934BF9D8;3669.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35693 strings out of 478238
- 678364 string characters out of 5850455
- 1438626 words of memory out of 5000000
- 53276 multiletter control sequences out of 15000+600000
+ 35720 strings out of 478238
+ 679639 string characters out of 5850455
+ 1439071 words of memory out of 5000000
+ 53296 multiletter control sequences out of 15000+600000
  491511 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  109i,12n,118p,1179b,1781s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1885,10 +1908,10 @@ share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist
 ublic/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.
 pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on main.pdf (10 pages, 1280345 bytes).
+Output written on main.pdf (12 pages, 1440748 bytes).
 PDF statistics:
- 303 PDF objects out of 1000 (max. 8388607)
- 249 compressed objects within 3 object streams
- 61 named destinations out of 1000 (max. 500000)
- 179 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 326 PDF objects out of 1000 (max. 8388607)
+ 268 compressed objects within 3 object streams
+ 66 named destinations out of 1000 (max. 500000)
+ 197 words of extra memory for PDF output out of 10000 (max. 10000000)
 
