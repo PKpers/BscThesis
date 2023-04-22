@@ -8,8 +8,9 @@ check_exit(){
 
 # Set up the testing
 num=12
-dataset="WPhi_2mu_M50MixedDeltas_Application"
-modelname="WPhi_2mu_M50MixedDeltas"
+dataset="WPhiJets_M200M100300Deltas_Application_Smeared50"
+#dataset="WPhiJets_M200M100300Deltas_Application"
+modelname="WPhiJets_M200M100300Deltas"
 model="myModel"$modelname"_conf"$num
 
 # Setup plotting

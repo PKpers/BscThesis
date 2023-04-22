@@ -81,7 +81,7 @@ for i, d in enumerate(data):
         )
     #
     h_.append(hist) 
-    hist.GetYaxis().SetRangeUser(1, 6000)
+    hist.GetYaxis().SetRangeUser(1, 20000)
     legend_entries[d[1]] =(d[-1], legend_mark)
 #
 legend_loc = (0.4, 0.7, 0.5, 0.8)
@@ -117,7 +117,14 @@ for h in h_ :
 
 # Calculate significance sig/sqrt(bkg)
 integrals = np.array(integrals)
-significance = integrals[0][:-4]/np.sqrt(integrals[1][:-4])#0: signal, 1: background
+p= infile.split("Smeared")[1].split(".")[0]
+#p = 0
+print("\nSmearing: ", p,
+    "\nSignal: ", integrals[0],
+    "\nBackground: ", integrals[1],
+    file=open("/home/kpapad/UG_thesis/Thesis/Bdt/out/tables.txt", "a")
+)
+significance = integrals[0]/np.sqrt(integrals[1])#0: signal, 1: background
 bdt_score = np.arange(0, 1, 0.02)
 
 #normalize the roc curve 
@@ -166,7 +173,7 @@ legend.Draw('same')
 c.SaveAs(output)
 
 # Plot the significance curve 
-outSig=ROOT.TFile(output_dir + "WPhi_2mu_M50MixedDeltas_Application_Smeared0.root", "RECREATE")   
+#outSig=ROOT.TFile(output_dir + "WPhiJets_M200M100300Deltas_Application_Smeared40.root", "RECREATE")   
 
 Sign = ROOT.TMultiGraph('Sign', 'Significance')
 
@@ -180,8 +187,8 @@ Significance.SetDrawOption( 'ACP' )
 Sign.Add(Significance)
 sig_lab = r'\frac{sig}{\sqrt{bkg}}'
 set_axes_title(Sign, "BDT score", "")
-Sign.Write("significance")
-outSig.Close()
+#Sign.Write("significance")
+#outSig.Close()
 Sign.Draw('ALP')
 # Draw the y axis title with the correct orientation
 Ylabel = ROOT.TLatex()

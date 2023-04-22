@@ -52,12 +52,12 @@ if __name__ == "__main__":
         #'reg_alpha':[1e-5, 1e-2, 0.1, 1, 100],
         #'reg_lambda': range(50, 100, 10) 
         #'reg_lambda' : range(1, 10, 2) 
-        #'max_depth': [6, 7, 8],
-        #'min_child_weight' : [6,8,9]
+        #'max_depth': [6, 7, 8, 9],
+        #'min_child_weight' : [6,7,8,9]
         #'learning_rate': [0.4, 0.5, 0.6],
         #'subsample':[i/10.0 for i in range(6,10)],
         #'colsample_bytree':[i/10.0 for i in range(6,10)]
-        'gamma' : [i/10.0 for i in range(0,5)] 
+        #'gamma' : [i/10.0 for i in range(0,5)] 
         #'objective': ['binary:logistic'],
         #'early_stopping_rounds': [10],
     }
