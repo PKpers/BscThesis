@@ -10,13 +10,13 @@ value=!float "0.8"
 value=!int "1500"
 #
 [learning_rate]
-value=!float "0.02"
+value=!float "0.05"
 #
 [gamma]
 val=!float "0.4"
 #
 [min_child_weight]
-val=!float "8"
+val=!float "9"
 #
 [colsample_bytree]
 val=!float "0.8"
