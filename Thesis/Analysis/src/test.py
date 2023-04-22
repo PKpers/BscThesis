@@ -30,92 +30,53 @@ def Smear(df, percentage, seed):
     #
     return df
 
+nPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Data/"
+sigName = "WPhiJets_M200M100300Deltas_Application_SIG_Test.root"
+bkgName = "WPhiJets_M200M100300Deltas_Application_BKG_Test.root"
+sigFile,bkgFile = [inPath + inName for inName in (sigName, bkgName)]
+#bkgFile = inPath + bkgName 
+
+## Configure the output settings
+outPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/"
+outName = "testtesttest.pdf"
+outFile = outName
 
 
 
-## Configure input settings 
-inPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Data/"
-inName = "WPhi_2mu_M50MixedDeltas_Application_SIG_Test.root"
-treeName = 'tree'
-inFile = inPath + inName
-
-## Configure output settings 
-outPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/"
-#
-outHistName = "Plots/test_small_stat.pdf"
-outHistFile = outPath + outHistName
-
-## Load data
-Vars = ['Pt1_Smeared', 'Eta1', 'Phi1', 'Pt2_Smeared', 'Eta2', 'Phi2']
-varNamesDelta = ["Pt1", "Pt2", "DeltaPhi", "DeltaR", "DeltaEta", "PairMass"]
-df = ROOT.RDataFrame(treeName, inFile)
-
-test_var = df.Display().AsString()
-print(test_var)
-bool_ = "Pt1" in test_var
-print(bool_)
-vars_original = ("Pt1", "Pt2")
-vars_alias = ("Pt1_Smeared", "Pt2_Smeared")
-
-for i, var in enumerate(vars_original):
-    df = df.Alias(vars_alias[i], var) if var in test_var else df
-#
-df_f = df.Filter("Pt1_Smeared > 3").Display().Print()
-exit()
-
-
-
-
-
-
-
-df = df.Define('testM1', 'sqrt(2 * Pt1 * Pt2* (cosh(DeltaEta) - cos(DeltaPhi)))')
-
+## Make the plot 
 c = ROOT.TCanvas()
 c.cd()
-c.SaveAs(outHistFile + "[")
+c.SetLogy(1)
+c.SaveAs(outFile+'[')
+#ROOT.gStyle.SetOptFit(11);
+df_data = ROOT.RDataFrame("tree", {sigFile, bkgFile})
+#df_data = ROOT.RDataFrame("tree", bkgFile)
+smeared_vars = ("Pt1_Smeared", "Pt2_Smeared", "PairMass_smeared")
+alias = ("Pt1", "Pt2", "PairMass")
 
-hist = df.Histo1D(("hist", "; m_{\mu\mu} [GeV]", 50, 0, 119), "testM1")
-hist.SetMarkerColor(1)
-hist.SetLineColor(1)
-hist.SetMarkerStyle(8)
-hist.SetMarkerSize(0.5)
-hist.Draw("PE")
-
-## Fit 1
-gaus1 = ROOT.TF1( 'fs', '[0]*exp(-0.5*((x-[1])/[2])**2)',  0, 119 )
-gaus1.SetParameter(1,42)
-gaus1.SetParameter(2,10)
-gaus1.SetLineColor(2)
-fit1 = hist.Fit( gaus1, 'LRS' )
-
-header = r'\phi \rightarrow \mu\mu'
-add_Header(header)
-c.SaveAs(outHistFile)
-
-## Fit2
-df2 = Smear(df, 0.5, 1)
-df2 = df2.Define('testM2', 'sqrt(2 * Pt1_Smeared * Pt2_Smeared* (cosh(DeltaEta) - cos(DeltaPhi)))')
-
-hist2 = df2.Histo1D(("hist2", "; m_{\mu\mu} [GeV]", 50, 0, 119), "testM2")
-hist2.SetMarkerColor(1)
-hist2.SetLineColor(1)
-hist2.SetMarkerStyle(8)
-hist2.SetMarkerSize(0.5)
-hist2.Draw("PE")
-
-gaus2 = ROOT.TF1( 'fs', '[0]*exp(-0.5*((x-[1])/[2])**2)',  0, 119 )
-gaus2.SetParameter(1,45)
-gaus2.SetParameter(2,10)
-gaus2.SetLineColor(2)
-fit2 = hist2.Fit( gaus2, 'LRS' )
-
-header = r'\phi \rightarrow \mu\mu'
-add_Header(header)
-c.SaveAs(outHistFile)
-
+# alias Pt_smeared and Mass_smeared with Pt and PairMass, if needed   
+df_data = aliases(df_data, smeared_vars, alias)\
+    .Define("weights", "1/(abs(300-100)/200)")\
+    .Histo1D(("df_data", "; m_{\mu\mu} [GeV]", 200, 100, 300), "PairMass", "weights")
 #
 
-c.SaveAs(outHistFile + "]")
+# normalize the hist such that integrating over the bins gives the total number of events
+binWidth = df_data.GetXaxis().GetBinWidth(1)
+print(binWidth)
+#df_data.Scale(1 / binWidth)
+df_data.SetMarkerColor(1)
+df_data.SetLineColor(1)
+df_data.SetMarkerStyle(8)
+df_data.SetMarkerSize(0.5)
+df_data.Draw("PE")
+
+
 
 exit()
+
+
+
+
+
+
+

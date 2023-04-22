@@ -30,16 +30,16 @@ def Smear(df, percentage):
 
 ## Configure input settings 
 inPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Data/"
-inName = "WPhiJets_M60MixedDeltas_Application_SIG_Test.root"
+inName = "WPhiJets_M200M100300Deltas_Application_SIG_Test.root"
 treeName = 'tree'
 inFile = inPath + inName
 
 ## Configure output settings 
 outPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/"
-outName = "Data/WPhiJets_M60MixedDeltas_Application_Smeared60_SIG_Test.root"
+outName = "Data/WPhiJets_M200M100300Deltas_Application_Smeared40_SIG_Test.root"
 outFile = outPath + outName
 #
-outHistName = "Plots/WPhiJets_M60MixedDeltas_Application_SIG_Smeared60_Hist.pdf"
+outHistName = "Plots/WPhiJets_M200M100300Deltas_Application_SIG_Smeared40_Hist.pdf"
 outHistFile = outPath + outHistName
 
 ## Smear the data and save the output
@@ -48,7 +48,7 @@ df = ROOT.RDataFrame(treeName, inFile)
 varNames = [
     "Pt1", "Pt2", "DeltaPhi", "DeltaR", "DeltaEta", "PairMass", "Label"
 ]
-df_smeared = Smear(df, 0.60)\
+df_smeared = Smear(df, 0.40)\
     .Redefine('PairMass', 'sqrt(2 * Pt1_Smeared * Pt2_Smeared* (cosh(DeltaEta) - cos(DeltaPhi)))')\
     .Redefine("Pt1", "Pt1_Smeared")\
     .Redefine("Pt2", "Pt2_Smeared")\

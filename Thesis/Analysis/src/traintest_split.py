@@ -10,7 +10,7 @@ from WPhi_2mu_Smear import Smear, Deltas, computeMass
 np.random.seed(1)
 ## Configure input settings 
 inPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Data/"
-inName ="WPhiJets_M60Mixed_Deltas.root"
+inName ="WPhiJets_M200M100300_Deltas.root"
 inFile = inPath + inName
 
 ## Load data
@@ -20,6 +20,7 @@ df_sample = ROOT.RDataFrame("tree", inFile)
 varNames = ["Pt1", "Pt2", "DeltaPhi", "DeltaR", "DeltaEta", "PairMass"]
 background = df_sample.Filter("Label == 0")
 print("Background samples: {}".format(background.Count().GetValue()))
+
 # shufle the background events
 background = background.AsNumpy()
 background = np.vstack([background[var] for var in varNames]).T
@@ -30,22 +31,22 @@ bkg_len = background.shape[0]
 size = int(bkg_len / 3) # the size of each bkg part
 
 bkg_app = background[ : size]
-print("Application bkg samples {}".format(bkg_app.shape[0]))
+#print("Application bkg samples {}".format(bkg_app.shape[0]))
 bkg_tt = background[ size : ]
 print("Train and Test bkg samples {}".format(bkg_tt.shape[0]))
 
 ## Split the signal in 3 parts. Testing Training Application
 # Application. We get the application from the MC sample
-signal_app = df_sample.Filter("Label == 1").Range(0, 1000, 2)
+signal_app = df_sample.Filter("Label == 1")#.Range(0, 10000, 2)
 counts_app = signal_app.Count()
 print("Application signal events: {}".format(counts_app.GetValue()))
 
 # Training and Testing. We get the train test sampe from the rest of the signal MC  
 # The first 800 events were used for the application set.
-df_sig = ROOT.RDataFrame("tree", inPath+"WPhi_2mu_M60Data.root").Range(1000, 0)
+df_sig = ROOT.RDataFrame("tree", inPath+"WPhi_2mu_M200Data.root").Range(6000, 0)
 
 Vars = ['Pt1_Smeared', 'Eta1', 'Phi1', 'Pt2_Smeared', 'Eta2', 'Phi2']
-signal = Smear(df_sig, 0.10)
+signal = Smear(df_sig, 0.05)
 signal = computeMass(signal, Vars)
 signal = Deltas(signal, Vars)
 
@@ -63,14 +64,14 @@ np.random.shuffle(bkg_tt)
 SIG_BKG_TRAIN_TEST= ( 
     np.array( [signal[i] for i in range(signal.shape[0]) if (i % 2) == 0 ] ), #sig_train
     np.array( [signal[i] for i in range(signal.shape[0]) if (i % 2) != 0 ] ), #sig_test
-    np.array( [bkg_tt[i] for i in range(bkg_tt.shape[0]) if (i % 2) == 0 ] ), #sig_train
-    np.array( [bkg_tt[i] for i in range(bkg_tt.shape[0]) if (i % 2) != 0 ] ), #sig_train
+    np.array( [bkg_tt[i] for i in range(signal.shape[0]) if (i % 2) == 0 ] ), #bkg_train
+    np.array( [bkg_tt[i] for i in range(signal.shape[0]) if (i % 2) != 0 ] ), #bkg_test
 )
-
     
+
 ## Configure output and write the splitted data to root files
 outPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Data/"
-outName = "WPhiJets_M60MixedDeltas"
+outName = "WPhiJets_M200M100300Deltas"
 treeName = 'tree'
 label = ('SIG', 'BKG')
 purpose = ('Train', 'Test')
@@ -121,16 +122,27 @@ c.SaveAs(outHistFile+"]")
 
 ## Write the application set to root files
 outPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Data/"
-outName = "WPhiJets_M60MixedDeltas_Application"
+outName = "WPhiJets_M200M100300Deltas_Application"
 treeName = 'tree'
 
 #Write the app bkg
+bkg_app = np.vstack([bkg_app, SIG_BKG_TRAIN_TEST[-1]]).astype(np.float32)
 vars_dict = define_columns(6, varNames, bkg_app.T)  
 df = ROOT.RDF.MakeNumpyDataFrame(vars_dict)
 df.Snapshot(treeName, outPath+outName+"_BKG_Test.root")
-
+print("application bkg evens: ", df.Count().GetValue())
 #Write the app signal
+# Include the testing events as well for larger statistics
+signal_app = signal_app.AsNumpy()
+varNames = ["Pt1", "Pt2", "DeltaPhi", "DeltaR", "DeltaEta", "PairMass"]
+signal_app = np.vstack([signal_app[var] for var in varNames]).T
+nominal_counts = signal_app.shape[0]
+
+signal_app = np.vstack([signal_app, SIG_BKG_TRAIN_TEST[1]])[:int(nominal_counts/2)].astype(np.float32)
+vars_dict = define_columns(6, varNames, signal_app.T)
+signal_app = ROOT.RDF.MakeNumpyDataFrame(vars_dict)
 signal_app.Snapshot(treeName, outPath+outName+"_SIG_Test.root")
+print("application signal evens: ", signal_app.Count().GetValue())
 
 
 

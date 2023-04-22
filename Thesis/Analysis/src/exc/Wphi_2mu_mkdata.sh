@@ -15,7 +15,7 @@ get_dir(){
 	fi
     done
 }
-names=('M-200')
+names=('M-250')
 DIR='/home/kpapad/UG_thesis/Thesis/Analysis/MC_Samples/'
 analysis='/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhi_2mu_mkdata.py'
 for name in "${names[@]}"; do
