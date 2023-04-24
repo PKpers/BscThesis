@@ -120,8 +120,8 @@ integrals = np.array(integrals)
 p= infile.split("Smeared")[1].split(".")[0]
 #p = 0
 print("\nSmearing: ", p,
-    "\nSignal: ", integrals[0],
-    "\nBackground: ", integrals[1],
+      "\nSignal: ", integrals[0][int(0.86/0.02)], integrals[0][int(0.96/0.02)],
+      "\nBackground: ", integrals[1][[int(0.86/0.02)]],integrals[1][[int(0.96/0.02)]],
     file=open("/home/kpapad/UG_thesis/Thesis/Bdt/out/tables.txt", "a")
 )
 significance = integrals[0]/np.sqrt(integrals[1])#0: signal, 1: background

@@ -75,6 +75,16 @@ legend.Draw('same')
 c.Update()
 c.SaveAs("WPhiJets_M200M100300_Significance.pdf")
 
+## Get the fit based results 
+inSigPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/"
+inSig=ROOT.TFile.Open(inSigPath + "WPhiJets_M200M100300Deltas_SigEvol.root", "READ")   
+graphSig=inSig.Get("FitSig")
+inSig.Close()
+
+inAdaPath = inSigPath
+inAda = ROOT.TFile.Open(inSigPath + "WPhiJets_M200M100300Deltas_SigEvolAda.root", "READ")   
+graphAda = inAda.Get("FitSig")
+inAda.Close()
 
 c.SetLogy(0)
 sign_cut1 = np.array(sign_cut1).astype(np.float64)
@@ -85,25 +95,40 @@ x= np.array([0, 5, 10, 15, 20, 30, 40, 50]).astype(np.float64)
 
 evol1 = ROOT.TGraph(x.shape[0],x, sign_cut1)
 evol1.SetTitle("")
-evol1.GetXaxis().SetRangeUser(-1, 65 )
-evol1.GetYaxis().SetRangeUser(80, 120 )
+evol1.GetXaxis().SetRangeUser(-5, 65 )
+evol1.GetYaxis().SetRangeUser(50, 220)
 evol1.SetMarkerStyle(21)
-evol1.Draw("AP")
+evol1.Draw("APl")
 
 evol2 = ROOT.TGraph(x.shape[0],x, sign_cut2)
 evol2.SetTitle("")
 evol2.SetMarkerStyle(21)
 evol2.SetMarkerColor(ROOT.kBlue)
-evol2.Draw("P same")
+evol2.Draw("Pl same")
+
+#GraphSig = graphSig.GetListOfGraphs().At(0)
+graphSig.SetTitle("")
+graphSig.SetMarkerStyle(21)
+graphSig.SetMarkerColor(ROOT.kGreen)
+graphSig.Draw("Pl same")
+
+graphAda.SetTitle("")
+graphAda.SetMarkerStyle(21)
+graphAda.SetMarkerColor(ROOT.kRed)
+graphAda.Draw("Pl same")
+
 
 # Plot the legend
 legend = ROOT.TLegend(0.65, 0.6, 0.75, 0.75)
 legend.AddEntry(evol1, "cut at bdt score = {}".format(cut1), "p")
 legend.AddEntry(evol2, "cut at bdt score = {}".format(cut2), "p")
+legend.AddEntry(graphSig, "Fixed 23GeV window", "p") 
+legend.AddEntry(graphAda, r"Adaptive 1.5\sigma window", "p") 
 legend.SetFillColor(0)
 legend.SetBorderSize(0)
 legend.SetTextSize(0.03)
 legend.Draw('same')
+
 
 set_axes_title(evol1, 'smearing in %', 'significance')
 add_Header("Evolution of significance ")
