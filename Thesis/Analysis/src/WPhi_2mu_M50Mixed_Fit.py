@@ -162,12 +162,14 @@ background = np.array(
 )
 signal = abs(observation - background)
 significance = signal/np.sqrt(background)
+'''
 print("\nSmearing: ", p,
     "\nsigma: ", s[2],
     "\nSignal: ", signal[2],
     "\nBackground: ", background[2],
     file=open("/home/kpapad/UG_thesis/Thesis/Analysis/out/tables.txt", "a")
 )
+'''
 #significance = np.zeros(signal.shape[0]) 
 sigma_range = np.array( [ i*0.5 for i in range(1, 7)] ) 
 #print(observation)
