@@ -10,6 +10,7 @@ do
     output=$dataset"PConf"$i"BDTplot.pdf"
     python $plot $prediction $output
 done
+exit
 # add the feature importance plot to the plots pdf
 _path="/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/"
 feat_imp=$_path"feature_importance.pdf"

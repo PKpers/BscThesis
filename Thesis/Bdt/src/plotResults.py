@@ -55,7 +55,7 @@ data = [
 nbins = 50
 histRange = (0., 1)
 histOpts = (nbins, histRange)
-ax_labels = ("bdt score", "events")
+ax_labels = ("BDT score", "Events / Bin")
 _Lcolor = (3,4,2,1)
 legend_entries = {}
 h_ = []
@@ -96,15 +96,19 @@ for i, d in enumerate(data):
     hist.GetYaxis().SetRangeUser(1, 6000)
     legend_entries[d[1]] =(d[-1], legend_mark)
 #
-legend_loc = (0.4, 0.7, 0.5, 0.8)
+legend_loc = (0.6, 0.7, 0.7, 0.8)
 legend = create_legend(legend_loc, legend_entries)
-add_Header('BDT histogram')
+#add_Header('BDT histogram')
 c.SetLogy(0)
 c.SaveAs(output)
 c.SetLogy(1)
 c.SaveAs(output)
 
 # Calculate TPR and FPR and plot the roc curve -----------------------------------------------------------------
+c.Clear()
+c.SetCanvasSize(800, 800)
+ROOT.gPad.SetLeftMargin(0.11)
+ROOT.gPad.SetBottomMargin(0.11)
 integrals = []
 for h in h_ :
     h = h.GetValue()
@@ -130,37 +134,40 @@ TestingTNR = 1 -TestingFPR
 TrainingTNR = 1 -TrainingFPR
 c.SetLogy(0)
 c.SetLogx(0)
-roc = ROOT.TMultiGraph('roc', 'ROC')
-roc_alt = ROOT.TMultiGraph('roc_alt', 'ROC')
+roc = ROOT.TMultiGraph('roc', '')
+roc_alt = ROOT.TMultiGraph('roc_alt', '')
 # Testing
 TestROC = ROOT.TGraph(len(TestingTPR), TestingFPR, TestingTPR)#(n,x,y)
 TestROC.SetName('TestROC')
 TestROC.SetTitle( 'Testing' )
-TestROC.SetMarkerColor(3)
-TestROC.SetMarkerStyle(21)
-TestROC.SetDrawOption( 'ACP' )
+TestROC.SetLineColor(3)
+TestROC.SetLineWidth(5)
+#TestROC.SetMarkerStyle(21)
+TestROC.SetDrawOption( 'Al' )
 #
 TestROC_alt = ROOT.TGraph(len(TestingTPR), TestingTNR, TestingTPR)
 TestROC_alt.SetName('TestROC_alt')
 TestROC_alt.SetTitle( 'Testing' )
-TestROC_alt.SetMarkerColor(3)
-TestROC_alt.SetMarkerStyle(21)
-TestROC_alt.SetDrawOption( 'ACP' )
+TestROC_alt.SetLineColor(3)
+#TestROC_alt.SetLinerStyle(21)
+TestROC_alt.SetDrawOption( 'Al' )
 
 # Training
 TrainROC = ROOT.TGraph(len(TrainingTPR), TrainingFPR, TrainingTPR)
 TrainROC.SetName('TrainROC')
 TrainROC.SetTitle( 'Training' )
-TrainROC.SetMarkerColor(4)
-TrainROC.SetMarkerStyle(21)
-TrainROC.SetDrawOption( 'ACP' )
+TrainROC.SetLineColor(4)
+TrainROC.SetLineWidth(5)
+#TrainROC.SetLineStyle(21)
+TrainROC.SetDrawOption( 'Al' )
 #
 TrainROC_alt = ROOT.TGraph(len(TrainingTPR), TrainingTNR, TrainingTPR)
 TrainROC_alt.SetName('TrainROC_alt')
 TrainROC_alt.SetTitle( 'Training' )
 TrainROC_alt.SetMarkerColor(4)
-TrainROC_alt.SetMarkerStyle(21)
-TrainROC_alt.SetDrawOption( 'ACP' )
+TrainROC_alt.SetLineColor(4)
+#TrainROC_alt.SetMarkerStyle(21)
+TrainROC_alt.SetDrawOption( 'Al' )
 
 # Plot the curves
 roc.Add(TestROC)
@@ -168,14 +175,20 @@ roc.Add(TrainROC)
 #
 
 set_axes_title(roc, "FPR", "TPR")
-roc.Draw('ALP')
+roc.GetYaxis().SetLabelSize(0.054)
+roc.GetYaxis().SetTitleSize(0.054)
+roc.GetYaxis().SetTitleOffset(0.9)
+roc.GetXaxis().SetLabelSize(0.05)
+roc.GetXaxis().SetTitleSize(0.05)
+
+roc.Draw('AL')
 # legend
 legend = ROOT.TLegend(0.4, 0.4, 0.6, 0.6)
 legend.AddEntry(TestROC, 'Testing', 'lp')
 legend.AddEntry(TrainROC, 'Training', 'lp')
 legend.SetFillColor(0)
 legend.SetBorderSize(0)
-legend.SetTextSize(0.03)
+legend.SetTextSize(0.057)
 legend.Draw('same')
 #c.BuildLegend()
 c.SaveAs(output)
@@ -196,8 +209,51 @@ legend.SetTextSize(0.03)
 legend.Draw('same')
 c.SaveAs(output)
 ## Plot the ratios ------------------------------------------------------------------------------------------------------
+c.Clear()
+c.SetCanvasSize(800, 800)
 c.SetLogx(0)
-c.SetLogy(0)
+c.SetLogy(1)
+c.Divide(1, 2, 0.01, 0.0001)
+
+c.cd(1).SetPad(0.0, 0.3, 1.0, 1.0)
+ROOT.gPad.SetLeftMargin(0.13)
+#ROOT.gStyle.SetLabelSize(0.06)
+#ROOT.gStyle.SetTitleSize(0.06)
+
+#ROOT.gPad.SetBottomMargin(0.01)
+ROOT.gPad.SetLogy(1)
+SigTest, SigTr, BkgTest, BkgTr  = [h_[i].GetValue() for i in range(4)]
+SigTest.GetYaxis().SetRangeUser(0.5, 6000)
+SigTest.GetXaxis().SetTitle("")
+SigTest.GetYaxis().SetLabelSize(0.07)
+SigTest.GetYaxis().SetTitleOffset(0.9)
+SigTest.GetYaxis().SetTitleSize(0.07)
+SigTest.SetLineWidth(2)
+BkgTest.SetLineWidth(2)
+SigTr.SetLineWidth(2)
+BkgTr.SetLineWidth(2)
+SigTest.Draw("E1")
+SigTr.Draw('same')
+BkgTest.Draw('E1 same')
+BkgTr.Draw('same')
+
+Legend = ROOT.TLegend(0.45, 0.67, 0.55, 0.87)
+Legend.AddEntry(SigTest.GetName(), "Signal Testing", "lEP")
+Legend.AddEntry(SigTr, "Signal Training", "l")
+Legend.AddEntry(BkgTest, "Background Testing", "lEP")
+Legend.AddEntry(BkgTr, "Background Training", "l")
+Legend.SetFillColor(0)
+Legend.SetBorderSize(0)
+Legend.SetTextSize(0.06)
+Legend.Draw('same')
+
+c.cd(2).SetPad(0.0, 0.0, 1.0, 0.365)
+ROOT.gPad.SetBottomMargin(0.3)
+ROOT.gPad.SetLeftMargin(0.13)
+#ROOT.gStyle.SetLabelSize(0.045)
+#ROOT.gStyle.SetTitleSize(0.045)
+ROOT.gPad.SetLogy(0)
+
 legend_entries = {}
 line_attribs = {
     "msz" : 0.5,
@@ -208,25 +264,35 @@ for i in Range:
     if i == 1:
         color = (3, 1)
         Type = "signal"
-        DrawLoc = "p"
+        DrawLoc = "E"
     else:
         color = (2, 1)
         Type = "background"
-        DrawLoc = "psame"
+        DrawLoc = "Esame"
     #
-    training = h_[i].GetValue() 
-    testing = h_[i - 1].GetValue() 
-    training.Divide(testing)
-    training.GetYaxis().SetRangeUser(0, 2)
+    training = h_[i].GetValue().Clone() 
+    testing = h_[i - 1].GetValue().Clone()
+    training.Divide(training, testing, 1, 1, "B")
+    training.SetLineColor(color[0])
+    training.GetYaxis().SetRangeUser(-0, 2)
+    training.GetYaxis().SetNdivisions(204, ROOT.kFALSE);
     line_attribs["mca"] = color
     set_markerstyle(training, line_attribs)
-    training.GetYaxis().SetTitle('Ratio')
+    
+    training.GetYaxis().SetTitle('Training / Testing')
+    training.GetYaxis().SetLabelSize(0.12)
+    training.GetYaxis().SetTitleSize(0.12)
+    training.GetYaxis().SetTitleOffset(0.5)
+    training.GetXaxis().SetLabelSize(0.12)
+    training.GetXaxis().SetTitleSize(0.12)
+
     training.Draw(DrawLoc)
-    legend_entries[training] = (Type, "p")
+    legend_entries[training] = (Type, "lep")
 #
-ratio_lloc = (0.7, 0.2, 0.8, 0.3)
-add_Header('Training/Testing ratios')
+ratio_lloc = (0.74, 0.73, 0.79, 0.87)
+#add_Header('Training/Testing ratios')
 legend = create_legend(ratio_lloc, legend_entries)
+legend.SetTextSize(0.08)
 c.SaveAs(output)
 c.SaveAs(output+"]")
 exit()

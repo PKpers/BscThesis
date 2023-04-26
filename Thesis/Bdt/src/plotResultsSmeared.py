@@ -39,7 +39,7 @@ print(sig_events, bkg_events)
 c = ROOT.TCanvas()
 c.cd()
 ROOT.gStyle.SetOptStat(0); ROOT.gStyle.SetTextFont(42)
-c.SaveAs(output+"[")
+#c.SaveAs(output+"[")
 #
 
 ## Plot the histograms --------------------------------------------------------------------------------------------------
@@ -90,7 +90,7 @@ add_Header('BDT histogram')
 c.SetLogy(0)
 c.SaveAs(output)
 c.SetLogy(1)
-c.SaveAs(output)
+#c.SaveAs(output)
 
 # Calculate TPR and FPR and plot the roc curve -----------------------------------------------------------------
 integrals = []
@@ -120,10 +120,10 @@ integrals = np.array(integrals)
 p= infile.split("Smeared")[1].split(".")[0]
 #p = 0
 print("\nSmearing: ", p,
-      "\nSignal: ", integrals[0][int(0.86/0.02)], integrals[0][int(0.96/0.02)],
-      "\nBackground: ", integrals[1][[int(0.86/0.02)]],integrals[1][[int(0.96/0.02)]],
-    file=open("/home/kpapad/UG_thesis/Thesis/Bdt/out/tables.txt", "a")
+      "\nSignal: ", integrals[0][int(0.86/0.02)], integrals[0][int(0.98/0.02)],
+      "\nBackground: ", integrals[1][[int(0.86/0.02)]],integrals[1][[int(0.98/0.02)]],
 )
+exit()
 significance = integrals[0]/np.sqrt(integrals[1])#0: signal, 1: background
 bdt_score = np.arange(0, 1, 0.02)
 
@@ -136,6 +136,11 @@ TestingTPR,  TestingFPR = [
 TestingTNR = 1 -TestingFPR
 c.SetLogy(0)
 c.SetLogx(0)
+
+p= infile.split("Smeared")[1].split(".")[0]
+#p = 0
+outROC=ROOT.TFile(output_dir + "WPhiJets_M200M100300Deltas_Application_Smeared"+str(p)+"ROC.root", "recreate")   
+
 roc = ROOT.TMultiGraph('roc', 'ROC')
 roc_alt = ROOT.TMultiGraph('roc_alt', 'ROC')
 # Testing
@@ -145,6 +150,13 @@ TestROC.SetTitle( 'Testing' )
 TestROC.SetMarkerColor(3)
 TestROC.SetMarkerStyle(21)
 TestROC.SetDrawOption( 'ACP' )
+roc.Add(TestROC)
+set_axes_title(roc, "FPR", "TPR")
+roc.Write("significance")
+outROC.Close()
+
+roc.Draw('ALP')
+
 #
 #
 TestROC_alt = ROOT.TGraph(len(TestingTPR), TestingTNR, TestingTPR)
@@ -155,9 +167,6 @@ TestROC_alt.SetMarkerStyle(21)
 TestROC_alt.SetDrawOption( 'ACP' )
 
 # Plot the curves
-roc.Add(TestROC)
-set_axes_title(roc, "FPR", "TPR")
-roc.Draw('ALP')
 
 # legend
 legend_sig = 'Signal efficiency: {:.1f}%'.format(efficiency[0]*100)
