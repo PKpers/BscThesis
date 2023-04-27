@@ -20,9 +20,13 @@
 \contentsline {section}{\numberline {4}Data set and analysis methods}{12}{section.4}%
 \contentsline {subsection}{\numberline {4.1}The \(Y \rightarrow XX\)channel}{12}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Energy scale uncertainties}{12}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Statistical Interpretation of the results}{13}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.3}Statistical interpretation of the results}{13}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Analysis Method I: Training a BDT Classifier}{14}{subsection.4.4}%
 \contentsline {subsubsection}{\numberline {4.4.1}The Train/Test/Application data sets}{14}{subsubsection.4.4.1}%
 \contentsline {subsubsection}{\numberline {4.4.2}Training}{14}{subsubsection.4.4.2}%
 \contentsline {subsubsection}{\numberline {4.4.3}Application}{15}{subsubsection.4.4.3}%
 \contentsline {subsection}{\numberline {4.5}Analysis Method II: Fit based analysis}{17}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Invariant mass reconstruction}{17}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}Background Fitting}{17}{subsubsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.3}Signal Fitting}{18}{subsubsection.4.5.3}%
+\contentsline {subsubsection}{\numberline {4.5.4}Signal from background separation}{18}{subsubsection.4.5.4}%
