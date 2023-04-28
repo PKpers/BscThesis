@@ -1,5 +1,3 @@
-Adaptive Window case:
-
 Smearing:  0 
 sigma: 11.644680403595869 
 Signal:  4909.21865379 
@@ -24,8 +22,6 @@ Smearing:  20
 sigma:   43.30100666025403
 Signal:  4930.45650263
 Background: 3324.67025094
-
-Fixed Window case:
 
 Smearing:  0 
 sigma:  11.526177188296618 

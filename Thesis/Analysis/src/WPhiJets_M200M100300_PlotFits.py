@@ -14,7 +14,10 @@ inFiles =[
     for p in [0, 5, 10, 15, 20]
 ]
 
+size = 0.045
 c = ROOT.TCanvas()
+c.SetCanvasSize(800, 800)
+ROOT.gPad.SetLeftMargin(0.15)
 c.cd()
 c.SetLogx(0); c.SetLogy(1)
 ROOT.gStyle.SetOptStat(0); ROOT.gStyle.SetTextFont(42)
@@ -23,24 +26,33 @@ c.SaveAs("WPhiJets_M200M100300_FitALL.pdf[")
 useless = list()
 smear = [n for n in (0, 5, 10, 15, 20) ]
 for i, infile in enumerate(inFiles):
-    legend = ROOT.TLegend(0.65, 0.6, 0.75, 0.75)
+    legend = ROOT.TLegend(0.6, 0.65, 0.7, 0.8)
     myFile = ROOT.TFile.Open(infile, "READ") 
     
     data =myFile.Get("data")
     data.GetXaxis().SetRangeUser(120, 300)
     data.GetYaxis().SetRangeUser(0.5, 1000)
+    data.GetYaxis().SetLabelSize(size)
+    data.GetYaxis().SetTitleSize(size)
+    data.GetXaxis().SetLabelSize(size)
+    data.GetXaxis().SetTitleSize(size)
+    data.GetYaxis().SetTitleOffset(1.5)
+    data.GetXaxis().SetNdivisions(204, ROOT.kFALSE);
+
     set_axes_title(data, " m_{XX} (GeV)", "Counts / Bin")
     
     data.SetMarkerColor(1)
     data.SetLineColor(1)
     data.SetMarkerStyle(8)
-    data.SetMarkerSize(0.5)
+    data.SetMarkerSize(1)
+    data.SetLineWidth(2)
     data.Draw('EP')
 
     useless.append(data)
     legend.AddEntry(data, "Data(Smearing: {}%)".format(smear[i]))
     
     fsb = myFile.Get("fsb")
+    fsb.SetLineWidth(3)
     fsb.Draw('same')
     useless.append(fsb)
 
@@ -49,6 +61,8 @@ for i, infile in enumerate(inFiles):
     fb = myFile.Get("fb")
     fb.SetLineColor(4)
     fb.SetLineStyle(2)
+    fb.SetLineWidth(3)
+    
     fb.Draw('same')
     useless.append(fb)
 
@@ -57,6 +71,7 @@ for i, infile in enumerate(inFiles):
     fs = myFile.Get("fs")
     fs.SetLineColor( 3 )
     fs.SetLineStyle(2)
+    fs.SetLineWidth(3)
     fs.Draw('Same')
     useless.append(fs)
 
@@ -73,7 +88,7 @@ for i, infile in enumerate(inFiles):
     header = r'Y(200) \rightarrow XX'
     legLabel = ROOT.TLatex()
     legLabel.SetTextSize(0.035)
-    legLabel.DrawLatexNDC(0.65, 0.77, header)
+    legLabel.DrawLatexNDC(0.60, 0.85, header)
 
 
     c.Update()
@@ -96,13 +111,20 @@ for p in (30, 40, 50):
     set_axes_title(df_data, " m_{XX} (GeV)", "Counts / Bin")
     df_data.GetXaxis().SetRangeUser(120, 300)
     df_data.GetYaxis().SetRangeUser(0.5, 1000)
+    df_data.GetYaxis().SetLabelSize(size)
+    df_data.GetYaxis().SetTitleSize(size)
+    df_data.GetXaxis().SetLabelSize(size)
+    df_data.GetXaxis().SetTitleSize(size)
+    df_data.GetYaxis().SetTitleOffset(1.5)
+    df_data.GetXaxis().SetNdivisions(204, ROOT.kFALSE);
     df_data.SetMarkerColor(1)
     df_data.SetLineColor(1)
     df_data.SetMarkerStyle(8)
-    df_data.SetMarkerSize(0.5)
+    df_data.SetMarkerSize(1)
+    df_data.SetLineWidth(3)
     df_data.Draw('EP')
 
-    legend = ROOT.TLegend(0.65, 0.7, 0.75, 0.75)
+    legend = ROOT.TLegend(0.6, 0.6, 0.7, 0.75)
     legend.AddEntry(df_data.GetValue(), "Data(Smearing: {}%)".format(p), "lp")
 
     legend.SetFillColor(0)
@@ -113,7 +135,7 @@ for p in (30, 40, 50):
     header = r'Y(200) \rightarrow XX'
     legLabel = ROOT.TLatex()
     legLabel.SetTextSize(0.035)
-    legLabel.DrawLatexNDC(0.65, 0.77, header)
+    legLabel.DrawLatexNDC(0.6, 0.75, header)
 
     c.SaveAs("WPhiJets_M200M100300_FitALL.pdf")
 #

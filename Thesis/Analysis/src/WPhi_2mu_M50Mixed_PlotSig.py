@@ -15,13 +15,15 @@ inFiles =[
 ]
 
 c = ROOT.TCanvas()
+c.SetCanvasSize(800, 800)
+ROOT.gPad.SetLeftMargin(0.13)
 c.cd()
 c.SetLogx(0); c.SetLogy(0)
 ROOT.gStyle.SetOptStat(0); ROOT.gStyle.SetTextFont(42)
-c.SaveAs("WPhiJets_M200M100300_SignificancesAda.pdf[")
+c.SaveAs("WPhiJets_M200M100300_Significance0.pdf[")
 def draw(_graph_, i):
     if i == 0 :
-        _graph_.Draw("Al")
+        _graph_.Draw("APl")
     else :
         _graph_.Draw("l")
     return _graph_
@@ -29,12 +31,14 @@ def draw(_graph_, i):
 graphs=list()
 bdt_cut = list()
 sign_cut = list()
-legend = ROOT.TLegend(0.7, 0.2, 0.8, 0.4)
+size = 0.045
+legend = ROOT.TLegend(0.6, 0.75, 0.7, 0.8)
 smear = [ "{}%".format(n) for n in (0, 5, 10, 15, 20) ]
 sig_lab = r'\frac{sig}{\sqrt{bkg}}'
 colors = [40, 41, 30, 31]
 #c.SetLogy(1)
 for i, infile in enumerate(inFiles):
+    if i > 0 : continue
     myFile = ROOT.TFile.Open(infile, "READ") 
     graph=myFile.Get("significance")
     myFile.Close()
@@ -42,15 +46,25 @@ for i, infile in enumerate(inFiles):
     graph_.SetTitle("")
     gname = graph_.GetName()
     graph_.SetLineColor(i+1)
-    graph_.GetYaxis().SetRangeUser(10, 210 )
-    legend.AddEntry(graph_, '{}'.format(smear[i]), 'l')
+    graph_.GetYaxis().SetLabelSize(size)
+    graph_.GetYaxis().SetTitleSize(size)
+    graph_.GetXaxis().SetLabelSize(size)
+    graph_.GetXaxis().SetTitleSize(size)
+    graph_.SetMarkerStyle(21)
+    graph_.SetMarkerSize(1.5)
+    graph_.GetYaxis().SetTitleOffset(1.5)
+    #graph_.SetLineWidth(3)
+
+    #graph_.GetYaxis().SetRangeUser(120, 210 )
+    legend.AddEntry(graph_, '{}'.format(smear[i]), 'p')
     draw(graph_, i)
 
-    add_Header("Significance for various cases of smearing")
-    set_axes_title(graph_, '\sigma', '')
-    Ylabel = ROOT.TLatex()
-    Ylabel.SetTextSize(0.035)
-    Ylabel.DrawLatexNDC(0.01, 0.85, sig_lab)
+    #add_Header("Significance for various cases of smearing")
+    set_axes_title(graph_, '\sigma', 'Significance')
+    title_txt = 'Smearing'
+    title = ROOT.TLatex()
+    title.SetTextSize(size)
+    title.DrawLatexNDC(0.6, 0.82, title_txt)
     graphs.append(graph)
     
 
@@ -62,12 +76,13 @@ for i, infile in enumerate(inFiles):
 
 legend.SetFillColor(0)
 legend.SetBorderSize(0)
-legend.SetTextSize(0.03)
+legend.SetTextSize(size)
 legend.Draw('same')
 c.Update()
-c.SaveAs("WPhiJets_M200M100300_SignificancesAda.pdf")
 
-
+c.SaveAs("WPhiJets_M200M100300_Significance0.pdf")
+c.SaveAs("WPhiJets_M200M100300_Significance0.pdf]")
+exit()
 
 sign_cut = np.array(sign_cut).astype(np.float64)
 x= np.array([0, 5, 10, 15, 20]).astype(np.float64)
@@ -92,5 +107,5 @@ Ylabel = ROOT.TLatex()
 Ylabel.SetTextSize(0.035)
 Ylabel.DrawLatexNDC(0.01, 0.85, sig_lab)
 
-c.SaveAs("WPhiJets_M200M100300_SignificancesAda.pdf")
-c.SaveAs("WPhiJets_M200M100300_SignificancesAda.pdf]")
+#c.SaveAs("WPhiJets_M200M100300_SignificancesAda.pdf")
+#c.SaveAs("WPhiJets_M200M100300_SignificancesAda.pdf]")
