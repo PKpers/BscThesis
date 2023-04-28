@@ -195,19 +195,87 @@ Smearing \%  & No. Sig. Events at BDT cut = 0.86 & No. Bkg.Events at BDT cut = 0
 *** Invariant mass reconstruction
 A fit-based analysis can be considered as single-feature classification(the only feature is the invariant mass), where the signal is separated from the background by fitting the mass histogram (mass spectrum) of the two components. The invariant mass of the XX pair is calculated using the features in Table \ref{table:DataSetFeatures}. The resulting spectrum is shown in Figure \ref{fig:AppMass}.
 
+\begin{figure}[h!]
+\centering
+\includegraphics[page=1,width=0.5\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300_Application_MassSpectrum.pdf}
+\caption{The invariant mass spectrum of the application set}
+\label{fig:AppMass}
+\end{figure}
+
 Events with invariant mass $m_{XX} < 120\text{GeV}$ make the background fit significantly harder without contributing significantly to the analysis. Therefore, such events are excluded from this study, and the working mass spectrum is limited to the range $[120, 300]\text{GeV}$.
 *** Background Fitting
 As discussed in previous sections, the applied smearing only affects the signal component of the application set. For this reason, and to simplify the analysis, the background shape is fitted separately and kept constant throughout the signal fits.
 
 Despite this simplification, determining the shape of the background was not a trivial process. Through trial and error, the function shown in Equation \ref{eq:bkgFitFunc} was found to be the best fit.
-
 \begin{equation}
 bkg(x) = \alpha + \beta x^{-1/2} + \gamma x^{-1} + \delta x^{3/2}
 \label{eq:bkgFitFunc}
 \end{equation}
 The parameters $\alpha$, $\beta$, $\gamma$, and $\delta$ are free parameters of the fit. The modeled background is illustrated in Figure \ref{fig:BKGfit}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[page=1,width=0.5\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300_Application_bkgFit.pdf}
+\caption{The fitted background}
+\label{fig:BKGfit}
+\end{figure}
 *** Signal Fitting
-The signal is fitted using a Gaussian function with $\sigma$ and magnitude as free parameters, and $\mu = 200\text{GeV}$ (the mass of the resonance). Figure \ref{fig:fits} shows the fitted invariant mass spectra for smearing percentages of $0\%$, $5\%$, $10\%$, $15\%$, and $20\%$. As illustrated in Figure \ref{fig:extremeSmearings}, the signal mass in the extreme cases of $40\%$ and $50\%$ smearing is indistinguishable from the background. Therefore, attempting to fit those spectra would be a pointless exercise.
+The signal is fitted using a Gaussian function with $\sigma$ and magnitude as free parameters, and $\mu = 200\text{GeV}$ (the mass of the resonance). Figure \ref{fig:fits} shows the fitted invariant mass spectra for smearing percentages of $0\%$, $5\%$, $10\%$, $15\%$, and $20\%$. As illustrated in Figure \ref{fig:extremeSmearings}, the signal mass in the extreme cases of $30\%\text{, }40\%$ and $50\%$ smearing is indistinguishable from the background. Therefore, attempting to fit those spectra would be a pointless exercise.
+\begin{figure}[htpb]
+\centering
+\begin{subfigure}{0.45\textwidth}
+\centering
+\includegraphics[page=1,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\caption{}
+\end{subfigure}
+\begin{subfigure}{0.45\textwidth}
+\centering
+\includegraphics[page=2,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\caption{}
+\end{subfigure}
+
+\begin{subfigure}{0.45\textwidth}
+\centering
+\includegraphics[page=3,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\caption{}
+\end{subfigure}
+\begin{subfigure}{0.45\textwidth}
+\centering
+\includegraphics[page=4,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\caption{}
+\label{suigure}
+\end{subfigure}
+
+\begin{subfigure}{0.45\textwidth}
+\centering
+\includegraphics[page=5,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\caption{}
+\end{subfigure}
+\caption{Fits for the following smearing cases a: $0\%$, b:$5\%$, c:$10\%$, d:$15\%$, e:$20\%$}
+\label{fig:fits}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{subfigure}{0.45\textwidth}
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\caption{}
+\end{subfigure}
+\begin{subfigure}{0.45\textwidth}
+\centering
+\includegraphics[page=7,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\caption{}
+\end{subfigure}
+
+\begin{subfigure}{0.45\textwidth}
+\centering
+\includegraphics[page=8,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\caption{}
+\end{subfigure}
+\caption{Invariant mass spectra for the extreme smearing cases of : a:$30\%$, b:$40\%$ and c:$50\%$. The signal seems indistinguishable from the background in these cases, and therefore a fit based saparation cannot work.}
+\label{fig:extremeSmearings}
+\end{figure}
 *** Signal from background separation
 After fitting the signal and background invariant mass, the observed data (in our case, the application set plays the role of the observed data) can be modeled as
 
@@ -224,6 +292,54 @@ S &= O - B
 \end{align}
 
 As with the BDT method, we want the region of interest that yields the best significance. To do so, we scan various mass windows around the center of the signal. We scanned six different regions (in the $0\%$ case), beginning from $\pm 0.5\sigma$ up to $\pm 3\sigma$ with a step of $0.5\sigma$. The results can be seen in Figure \ref{fig:Scan0}. It is evident that the region $\pm 1.5\sigma$ provides the best performance in terms of significance.
+\begin{figure}[h]
+\centering
+\includegraphics[page=1,width=0.5\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_Significance0.pdf}
+\caption{Scan of significance for various values of $\sigma$, in the $0\%$ smearing case. We see that the regrion $\pm 1.5\sigma$ around $\mu=200GeV$, gives the best significance.}
+\label{fig:Scan0}
+\end{figure}
 
-We can then study how the significance changes in the selected region for the various smearing cases in two ways, based on the interpretation of the $\pm 1.5\sigma$ region. One can interpret $\sigma$ as the Gaussian spread of the $0\%$ case and calculate every significance value in the same mass window, resulting in a fixed window study. On the other hand, one can interpret $\sigma$ as the Gaussian spread of each smearing case. That is, the significance will still be calculated at a $\pm 1.5\sigma$, but the range will be different based on the different values of $\sigma$ for every fit, resulting in an adaptive window study. For completeness, we did both studies, and the results are presented in Figure \ref{fig:AdaFixedSig}.
+We can then study how the significance changes in the selected region for the various smearing cases in two ways, based on the interpretation of the $\pm 1.5\sigma$ region. One can interpret $\sigma$ as the Gaussian spread of the $0\%$ case and calculate every significance value in the same mass window, resulting in a fixed window study. On the other hand, one can interpret $\sigma$ as the Gaussian spread of each smearing case. That is, the significance will still be calculated at a $\pm 1.5\sigma$, but the range will be different based on the different values of $\sigma$ for every fit, resulting in an adaptive window study. For completeness, we did both studies, and the results are presented in Figure \ref{fig:AdaFixedSig}. Table \ref{table:AdaSigmas}, summarizes the the values of \(\sigma\) (resulting from the fits), and the corresponding mass window for the adaptive widnow search, while table \ref{table:NumSigBkg}, summarizes the amount of signal and background events present in the region of interest of both studies(fixed and adaptive window).
+\begin{figure}[h]
+\centering
+\includegraphics[page=3,width=0.5\textwidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pdf}
+\caption{Copmarison of the significance evolution as caclulated in the fixed widow and adaptive window case.} 
+\label{fig:AdaFixedSig}
+\end{figure}
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|p{2cm}|p{2cm}|c|}
+ \hline
+Smearing \%  & $\sigma$ in GeV & Invarian Mass $\pm 1.5\sigma$ window  in GeV \\
+\hline
+0 & 7.62 & 23.01\\
+5 & 11.15 & 33.47 \\ 
+10 & 16.33 & 48.98 \\ 
+15 & 22.90 & 68.70 \\ 
+20 & 28.87 & 86.60 \\ 
+ \hline
+\end{tabular}
+\caption{Summary of the invariant mass windows used used in adapitve window study. Note that the resulting window of $0\%$ smearing corresponds to the fixed window case as well.}
+\label{table:AdaSigmas}
+\end{table}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+ \hline
+Smearing \%  & No. Sig. Events (fixed window) & No. Bkg.Events (fixed window) & No. Sig. Events (adaptive window) & No. Bkg.Events (adaptive window)  \\
+\hline
+0 & 4852 & 623 & 4852 & 623  \\
+5 & 4024 & 623  & 5012  & 953  \\
+10 & 3022 & 623 & 5078 & 1504  \\
+15 & 2237  & 623 &  5048 & 2404  \\
+20 & 1768  & 623 & 4930 & 3324  \\
+ \hline
+\end{tabular}
+\caption{Signal and background events in the 23Gev fixed window region and in the $\pm 1.5\sigma$ adaptive window region, for different smearing percentages.}
+\label{table:NumSigBkg}
+\end{table}
+
+
+
+
 
