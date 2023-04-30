@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.11)  28 APR 2023 22:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.11)  30 APR 2023 19:42
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1864,7 +1864,7 @@ LaTeX Font Info:    Font shape `T1/gentium/m/n' will be
 (Font)              scaled to size 6.0pt on input line 49.
  [2]
 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/627px-Standard_Model_of
-_Elementary_Particles.svg.png, id=189, 629.35126pt x 602.25pt>
+_Elementary_Particles.svg.png, id=207, 629.35126pt x 602.25pt>
 File: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/627px-Standard_Mod
 el_of_Elementary_Particles.svg.png Graphic file (type png)
 <use /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/627px-Standard_Mode
@@ -1872,7 +1872,8 @@ l_of_Elementary_Particles.svg.png>
 Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures
 /627px-Standard_Model_of_Elementary_Particles.svg.png  used on input line 123.
 (pdftex.def)             Requested size: 159.33821pt x 152.47356pt.
- [3]) (./detectors.tex
+ [3]) (./detectors.tex [4 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figur
+es/627px-Standard_Model_of_Elementary_Particles.svg.png>]
 Overfull \hbox (1.72156pt too wide) in paragraph at lines 10--11
 []\T1/gentium/m/n/10.95 Within the ac-cel-er-a-tor, a strong mag-netic field is
  ac-cel-er-at-ing the two coun-ter-ro-tat-ing pro-ton beams
@@ -1880,15 +1881,12 @@ Overfull \hbox (1.72156pt too wide) in paragraph at lines 10--11
 
 LaTeX Font Info:    Font shape `T1/gentium/m/it' will be
 (Font)              scaled to size 10.95pt on input line 13.
-[4 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/627px-Standard_Model
-_of_Elementary_Particles.svg.png>]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 6.
-
 (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-</home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_detector.jpg, id=21
+</home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_detector.jpg, id=23
 3, 586.44093pt x 413.29407pt>
 File: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_detector.jpg G
 raphic file (type jpg)
@@ -1897,7 +1895,7 @@ Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures
 /cms_detector.jpg  used on input line 19.
 (pdftex.def)             Requested size: 364.19667pt x 256.66219pt.
  [5 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_detector.jpg>]
-</home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_coords.jpg, id=225,
+</home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_coords.jpg, id=243,
  537.50812pt x 226.59656pt>
 File: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_coords.jpg Gra
 phic file (type jpg)
@@ -1905,7 +1903,7 @@ phic file (type jpg)
 Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures
 /cms_coords.jpg  used on input line 34.
 (pdftex.def)             Requested size: 318.66948pt x 134.34082pt.
-</home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_tracker.jpg, id=226
+</home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_tracker.jpg, id=244
 , 1160.335pt x 560.0925pt>
 File: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_tracker.jpg Gr
 aphic file (type jpg)
@@ -1922,7 +1920,7 @@ File: ts1gentium.fd 2011/01/13 Font definitions for gentium.
 )
 LaTeX Font Info:    Font shape `TS1/gentium/m/n' will be
 (Font)              scaled to size 10.95pt on input line 76.
-</home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_ecal.jpg, id=239, 9
+</home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_ecal.jpg, id=259, 9
 98.73125pt x 520.94624pt>
 File: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_ecal.jpg Graph
 ic file (type jpg)
@@ -1932,7 +1930,7 @@ Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures
 (pdftex.def)             Requested size: 409.71692pt x 213.70857pt.
  [7 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_tracker.jpg>]
 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_MuonChambers.png, i
-d=248, 756.8275pt x 554.07pt>
+d=268, 756.8275pt x 554.07pt>
 File: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_MuonChambers.p
 ng Graphic file (type png)
 <use /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_MuonChambers.pn
@@ -1940,12 +1938,12 @@ g>
 Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures
 /cms_MuonChambers.png  used on input line 104.
 (pdftex.def)             Requested size: 409.71692pt x 299.95424pt.
-) (./boosted_trees.tex [8 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figur
-es/cms_ecal.jpg>]
-[9 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_MuonChambers.png
->]
+ [8 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_ecal.jpg>] [9 <
+/home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_MuonChambers.png>]) 
+(./boosted_trees.tex
+[10]
 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig1.png,
- id=262, 423.38174pt x 321.6015pt>
+ id=289, 423.38174pt x 321.6015pt>
 File: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig1
 .png Graphic file (type png)
 <use /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig1.
@@ -1953,10 +1951,12 @@ png>
 Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures
 /boosted_trees_fig1.png  used on input line 47.
 (pdftex.def)             Requested size: 364.19667pt x 276.6455pt.
- [10 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig1
-.png>]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig2.png,
- id=272, 879.285pt x 393.47pt>
+ id=292, 879.285pt x 393.47pt>
 File: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig2
 .png Graphic file (type png)
 <use /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig2.
@@ -1964,8 +1964,11 @@ png>
 Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Dissertation/src/figures
 /boosted_trees_fig2.png  used on input line 67.
 (pdftex.def)             Requested size: 364.19667pt x 162.9688pt.
- [11 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig2
-.png>]) (./Analysis.tex
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11] [12 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_
+fig1.png>]) (./Analysis.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 3.
@@ -1974,7 +1977,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\rightarrow' on input line 3.
 
-</home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/DYJets_test2.pdf, id=286, 569
+</home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/DYJets_test2.pdf, id=315, 569
 .12625pt x 385.44pt>
 File: /home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/DYJets_test2.pdf Graphic
  file (type pdf)
@@ -1985,10 +1988,11 @@ s_test2.pdf  used on input line 34.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12] [13 </home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/DYJets_test2.pdf, pa
-ge is rotated 90 degrees>]
+[13 </home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/boosted_trees_fig2.
+png>] [14 </home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/DYJets_test2.pdf, p
+age is rotated 90 degrees>]
 </home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300Deltas_va
-rsplot.pdf, id=355, page=1, 569.12625pt x 384.43625pt>
+rsplot.pdf, id=382, page=1, 569.12625pt x 384.43625pt>
 File: /home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300Delt
 as_varsplot.pdf Graphic file (type pdf)
 <use /home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300Delta
@@ -1997,7 +2001,7 @@ Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJ
 ets_M200M100300Deltas_varsplot.pdf , page1 used on input line 121.
 (pdftex.def)             Requested size: 273.14923pt x 184.51556pt.
 </home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300Deltas_va
-rsplot.pdf, id=356, page=2, 569.12625pt x 384.43625pt>
+rsplot.pdf, id=383, page=2, 569.12625pt x 384.43625pt>
 File: /home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300Delt
 as_varsplot.pdf Graphic file (type pdf)
 <use /home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300Delta
@@ -2009,8 +2013,9 @@ ets_M200M100300Deltas_varsplot.pdf , page2 used on input line 122.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+[15]
 </home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300DeltasPConf12B
-DTplot.pdf, id=358, page=5, 569.12625pt x 569.12625pt>
+DTplot.pdf, id=392, page=5, 569.12625pt x 569.12625pt>
 File: /home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300DeltasPCo
 nf12BDTplot.pdf Graphic file (type pdf)
 <use /home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300DeltasPCon
@@ -2021,7 +2026,7 @@ Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M
 LaTeX Font Info:    Font shape `T1/gentium/m/n' will be
 (Font)              scaled to size 10.0pt on input line 135.
 </home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300DeltasPConf12B
-DTplot.pdf, id=359, page=3, 569.12625pt x 569.12625pt>
+DTplot.pdf, id=393, page=3, 569.12625pt x 569.12625pt>
 File: /home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300DeltasPCo
 nf12BDTplot.pdf Graphic file (type pdf)
 <use /home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300DeltasPCon
@@ -2029,11 +2034,11 @@ f12BDTplot.pdf, page 3>
 Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M
 200M100300DeltasPConf12BDTplot.pdf , page3 used on input line 139.
 (pdftex.def)             Requested size: 223.07211pt x 223.06992pt.
-[14]
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-</home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_ROCs.pdf, id=369, p
+</home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_ROCs.pdf, id=396, p
 age=1, 569.12625pt x 569.12625pt>
 File: /home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_ROCs.pdf Graph
 ic file (type pdf)
@@ -2043,7 +2048,7 @@ Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M10
 0300_ROCs.pdf , page1 used on input line 154.
 (pdftex.def)             Requested size: 223.07211pt x 223.06992pt.
 </home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pdf, i
-d=370, page=1, 569.12625pt x 569.12625pt>
+d=397, page=1, 569.12625pt x 569.12625pt>
 File: /home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.p
 df Graphic file (type pdf)
 <use /home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pd
@@ -2054,12 +2059,12 @@ Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M10
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[15 </home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300Delta
+[16 </home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300Delta
 s_varsplot.pdf, page is rotated 90 degrees> </home/kpapad/UG_thesis/Thesis/Anal
 ysis/out/Plots/WPhiJets_M200M100300Deltas_varsplot.pdf, page is rotated 90 degr
 ees>]
 </home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pdf, i
-d=427, page=2, 569.12625pt x 569.12625pt>
+d=454, page=2, 569.12625pt x 569.12625pt>
 File: /home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.p
 df Graphic file (type pdf)
 <use /home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pd
@@ -2076,13 +2081,13 @@ Overfull \hbox (5.4944pt too wide) in paragraph at lines 183--197
  [][] 
  []
 
-[16 </home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300DeltasPCon
+[17 </home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300DeltasPCon
 f12BDTplot.pdf, page is rotated 90 degrees> </home/kpapad/UG_thesis/Thesis/Bdt/
 out/Plots/WPhiJets_M200M100300DeltasPConf12BDTplot.pdf, page is rotated 90 degr
 ees> </home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_ROCs.pdf> </ho
 me/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pdf>]
 </home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300_Applicat
-ion_MassSpectrum.pdf, id=568, page=1, 569.12625pt x 569.12625pt>
+ion_MassSpectrum.pdf, id=595, page=1, 569.12625pt x 569.12625pt>
 File: /home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300_App
 lication_MassSpectrum.pdf Graphic file (type pdf)
 <use /home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300_Appl
@@ -2094,10 +2099,10 @@ ets_M200M100300_Application_MassSpectrum.pdf , page1 used on input line 209.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[17 </home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pd
+[18 </home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pd
 f>]
 </home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300_Applicat
-ion_bkgFit.pdf, id=577, page=1, 569.12625pt x 569.12625pt>
+ion_bkgFit.pdf, id=604, page=1, 569.12625pt x 569.12625pt>
 File: /home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300_App
 lication_bkgFit.pdf Graphic file (type pdf)
 <use /home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300_Appl
@@ -2106,7 +2111,7 @@ Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJ
 ets_M200M100300_Application_bkgFit.pdf , page1 used on input line 228.
 (pdftex.def)             Requested size: 227.62206pt x 227.6204pt.
 </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf, id
-=580, page=1, 569.12625pt x 569.12625pt>
+=607, page=1, 569.12625pt x 569.12625pt>
 File: /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pd
 f Graphic file (type pdf)
 <use /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf
@@ -2115,7 +2120,7 @@ Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M2
 00M100300_FitALL.pdf , page1 used on input line 239.
 (pdftex.def)             Requested size: 204.85846pt x 204.85924pt.
 </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf, id
-=581, page=2, 569.12625pt x 569.12625pt>
+=608, page=2, 569.12625pt x 569.12625pt>
 File: /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pd
 f Graphic file (type pdf)
 <use /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf
@@ -2124,7 +2129,7 @@ Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M2
 00M100300_FitALL.pdf , page2 used on input line 244.
 (pdftex.def)             Requested size: 204.85846pt x 204.85924pt.
 </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf, id
-=582, page=3, 569.12625pt x 569.12625pt>
+=609, page=3, 569.12625pt x 569.12625pt>
 File: /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pd
 f Graphic file (type pdf)
 <use /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf
@@ -2133,7 +2138,7 @@ Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M2
 00M100300_FitALL.pdf , page3 used on input line 250.
 (pdftex.def)             Requested size: 204.85846pt x 204.85924pt.
 </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf, id
-=583, page=4, 569.12625pt x 569.12625pt>
+=610, page=4, 569.12625pt x 569.12625pt>
 File: /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pd
 f Graphic file (type pdf)
 <use /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf
@@ -2142,7 +2147,7 @@ Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M2
 00M100300_FitALL.pdf , page4 used on input line 255.
 (pdftex.def)             Requested size: 204.85846pt x 204.85924pt.
 </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf, id
-=584, page=5, 569.12625pt x 569.12625pt>
+=611, page=5, 569.12625pt x 569.12625pt>
 File: /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pd
 f Graphic file (type pdf)
 <use /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf
@@ -2155,7 +2160,7 @@ Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M2
 LaTeX Warning: Float too large for page by 5.621pt on input line 267.
 
 </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf, id
-=585, page=6, 569.12625pt x 569.12625pt>
+=612, page=6, 569.12625pt x 569.12625pt>
 File: /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pd
 f Graphic file (type pdf)
 <use /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf
@@ -2164,7 +2169,7 @@ Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M2
 00M100300_FitALL.pdf , page6 used on input line 273.
 (pdftex.def)             Requested size: 204.85846pt x 204.85924pt.
 </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf, id
-=586, page=7, 569.12625pt x 569.12625pt>
+=613, page=7, 569.12625pt x 569.12625pt>
 File: /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pd
 f Graphic file (type pdf)
 <use /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf
@@ -2173,7 +2178,7 @@ Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M2
 00M100300_FitALL.pdf , page7 used on input line 278.
 (pdftex.def)             Requested size: 204.85846pt x 204.85924pt.
 </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf, id
-=587, page=8, 569.12625pt x 569.12625pt>
+=614, page=8, 569.12625pt x 569.12625pt>
 File: /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pd
 f Graphic file (type pdf)
 <use /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf
@@ -2181,19 +2186,19 @@ f Graphic file (type pdf)
 Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M2
 00M100300_FitALL.pdf , page8 used on input line 284.
 (pdftex.def)             Requested size: 204.85846pt x 204.85924pt.
-[18 </home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300_Appl
+[19 </home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300_Appl
 ication_MassSpectrum.pdf> </home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPh
-iJets_M200M100300_Application_bkgFit.pdf>] [19 </home/kpapad/UG_thesis/Thesis/A
+iJets_M200M100300_Application_bkgFit.pdf>] [20 </home/kpapad/UG_thesis/Thesis/A
 nalysis/src/WPhiJets_M200M100300_FitALL.pdf> </home/kpapad/UG_thesis/Thesis/Ana
 lysis/src/WPhiJets_M200M100300_FitALL.pdf> </home/kpapad/UG_thesis/Thesis/Analy
 sis/src/WPhiJets_M200M100300_FitALL.pdf> </home/kpapad/UG_thesis/Thesis/Analysi
 s/src/WPhiJets_M200M100300_FitALL.pdf> </home/kpapad/UG_thesis/Thesis/Analysis/
-src/WPhiJets_M200M100300_FitALL.pdf>] [20 </home/kpapad/UG_thesis/Thesis/Analys
+src/WPhiJets_M200M100300_FitALL.pdf>] [21 </home/kpapad/UG_thesis/Thesis/Analys
 is/src/WPhiJets_M200M100300_FitALL.pdf> </home/kpapad/UG_thesis/Thesis/Analysis
 /src/WPhiJets_M200M100300_FitALL.pdf> </home/kpapad/UG_thesis/Thesis/Analysis/s
 rc/WPhiJets_M200M100300_FitALL.pdf>]
 </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_Significance0.
-pdf, id=735, page=1, 569.12625pt x 569.12625pt>
+pdf, id=762, page=1, 569.12625pt x 569.12625pt>
 File: /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_Significa
 nce0.pdf Graphic file (type pdf)
 <use /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_Significan
@@ -2202,7 +2207,7 @@ Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M2
 00M100300_Significance0.pdf , page1 used on input line 309.
 (pdftex.def)             Requested size: 227.62206pt x 227.6204pt.
 </home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pdf, i
-d=739, page=3, 569.12625pt x 569.12625pt>
+d=766, page=3, 569.12625pt x 569.12625pt>
 File: /home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.p
 df Graphic file (type pdf)
 <use /home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pd
@@ -2252,20 +2257,23 @@ n/10.95 : []$\T1/cmtt/m/n/10.95 10 . 1145 / 2939672 . 2939785$[]\T1/gentium/m/n
 /10.95 .
  []
 
-[21 </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_Significan
-ce0.pdf>] [22 </home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Signi
-ficance.pdf>] [23] (./main.aux)
+[22 </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_Significan
+ce0.pdf>] [23 </home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Signi
+ficance.pdf>] [24] (./main.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 54CA74A0CBFCAB1456F7C41CDBEFC72B;6288.
+(rerunfilecheck)             Checksum: BC81B37AAA4BD7D52773E2861BF1517E;7178.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38249 strings out of 478238
- 733679 string characters out of 5850455
- 1477855 words of memory out of 5000000
- 55723 multiletter control sequences out of 15000+600000
+ 38268 strings out of 478238
+ 733956 string characters out of 5850455
+ 1479256 words of memory out of 5000000
+ 55734 multiletter control sequences out of 15000+600000
  493345 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  109i,13n,118p,1440b,1781s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2286,10 +2294,10 @@ ublic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
 /usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/shar
 e/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on main.pdf (23 pages, 1709621 bytes).
+Output written on main.pdf (24 pages, 1713957 bytes).
 PDF statistics:
- 958 PDF objects out of 1000 (max. 8388607)
- 611 compressed objects within 7 object streams
- 114 named destinations out of 1000 (max. 500000)
- 401 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 987 PDF objects out of 1000 (max. 8388607)
+ 639 compressed objects within 7 object streams
+ 122 named destinations out of 1000 (max. 500000)
+ 433 words of extra memory for PDF output out of 10000 (max. 10000000)
 

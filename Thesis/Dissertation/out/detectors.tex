@@ -106,4 +106,39 @@ The muon chambers consist of 250 drift tubes (DTs) and 540 cathode strip chamber
 \label{fig:muon_chambers}
 \end{figure}
 
-Figure \ref{fig:muon_chambers} illustrates the arrangement of the four different kinds of chambers. In the "barrel region," which surrounds the beam line, the DTs and square-shaped RPCs are grouped in coaxial cylinders. The CSCs, trapezoidal RPCs, and GEMs are located at the end cap region of the barrel . This arrangement allows for accurate measurements of the muons' trajectories and momenta in different regions of the detector.(\href{https://cms.cern/index.php/detector/detecting-muons}{source})
+Figure \ref{fig:muon_chambers} illustrates the arrangement of the four different kinds of chambers. In the "barrel region," which surrounds the beam line, the DTs and square-shaped RPCs are grouped in coaxial cylinders. The CSCs, trapezoidal RPCs, and GEMs are located at the end cap region of the barrel . This arrangement allows for accurate measurements of the muons' trajectories and momenta in different regions of the detector.([[\url{https://cms.cern/index.php/detector/detecting-muons}][
+\subsection{Event Reconstruction \& Detector Calibration}
+\label{sec:org3fecb86}
+\subsubsection{Event Reconstruction}
+\label{sec:orgfae79d0}
+The infrastructure described in the previous sections provides (almost) all the necessary information regarding the particle collisions taking place inside the LHC. The next step is to combine this information to reconstruct the physical objects (particles, jets, etc.) that are being produced in each collision (event).
+
+As already discussed, the trajectories and momenta of the charged particles are reconstructed using information coming from the pixel tracker, while signals coming from the calorimeters provide energy measurements of the particles. The Particle Flow algorithm is then used to combine information from all subdetectors to create a consistent set of physical objects, including electrons, photons, muons, and neutral and charged hadrons. These objects are further processed by dedicated algorithms to reconstruct composite objects such as taus and jets, and to estimate missing energy. To determine the vertices of the collisions, information from the reconstructed tracks of the particles is used. The primary vertex is defined as the vertex with the largest sum of the transverse momentum of all contributing physical objects.
+\subsubsection{Callibration of the Calorimeters}
+\label{sec:org47fa4e3}
+In order for the HCAL and ECAL at CMS to deliver high precision measurements, they need to be calibrated. This is mostly done using resonances of known invariant mass. A detailed discussion of the calibration process taking place at CMS is outside the scope of this study, although a brief overview will be given [epjconf\_chep2020\_02027][].
+\begin{itemize}
+\item ECAL callibration
+\label{sec:org8cf870c}
+The ECAL is calibrated using the following known physics signals:
+\begin{itemize}
+\item Photons from \(\pi^{0}\) and \(\eta\) decays.
+\item Electrons from W boson decay.
+\item Electron pairs from Z boson decays.
+\item Azimuthal symmetry of minimum bias events.
+\end{itemize}
+\item HCAL callibration
+\label{sec:orgda001d7}
+\end{itemize}
+
+\subsection{Energy scale uncertainties}
+\label{sec:org6d4b879}
+A typical MC simulation consists of the following steps (in simple terms):
+\begin{enumerate}
+\item Simulate the physics process in question (effectively the Feynman diagram).
+\item Simulate the detector response.
+\item Event reconstruction.
+\end{enumerate}
+To simulate the detector's response accurately, the same process of energy calibration takes place in Monte-Carlo (MC) simulations as well. Despite calibration, the simulated results usually deviate from the actual measurements. This is related to the fact that we cannot achieve infinite precision in simulating physical processes, as well as the presence of numerical errors, etc. Such deviations in the energy scale (energy scale uncertainties) have an effect on the resulting momenta and spatial coordinates of the particles, which can lead to inconsistency between the width of the resonant mass distribution, as it occurs from the MC and measurement.
+
+The arising question then is: how do the various analysis techniques that scientists have in their disposal respond to energy scale uncertainties? In other words, what is the distinctive ability of the various analysis techniques? Our work will focus on the effects that energy scale uncertainties have in a traditional fit-based analysis and a more modern Boosted Decision Tree-based analysis, using the generic diobject production process as the working example.
