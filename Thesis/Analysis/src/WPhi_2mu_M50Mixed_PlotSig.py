@@ -20,7 +20,7 @@ ROOT.gPad.SetLeftMargin(0.13)
 c.cd()
 c.SetLogx(0); c.SetLogy(0)
 ROOT.gStyle.SetOptStat(0); ROOT.gStyle.SetTextFont(42)
-c.SaveAs("WPhiJets_M200M100300_Significance0.pdf[")
+#c.SaveAs("WPhiJets_M200M100300_Significance0.pdf[")
 def draw(_graph_, i):
     if i == 0 :
         _graph_.Draw("APl")
@@ -38,7 +38,7 @@ sig_lab = r'\frac{sig}{\sqrt{bkg}}'
 colors = [40, 41, 30, 31]
 #c.SetLogy(1)
 for i, infile in enumerate(inFiles):
-    if i > 0 : continue
+    #if i > 0 : continue
     myFile = ROOT.TFile.Open(infile, "READ") 
     graph=myFile.Get("significance")
     myFile.Close()
@@ -80,9 +80,9 @@ legend.SetTextSize(size)
 legend.Draw('same')
 c.Update()
 
-c.SaveAs("WPhiJets_M200M100300_Significance0.pdf")
-c.SaveAs("WPhiJets_M200M100300_Significance0.pdf]")
-exit()
+#c.SaveAs("WPhiJets_M200M100300_Significance0.pdf")
+#c.SaveAs("WPhiJets_M200M100300_Significance0.pdf]")
+#exit()
 
 sign_cut = np.array(sign_cut).astype(np.float64)
 x= np.array([0, 5, 10, 15, 20]).astype(np.float64)
@@ -92,6 +92,7 @@ print(sign_cut.shape)
 #c.SetLogy(1)
 outPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/"
 outSig=ROOT.TFile(outPath + "WPhiJets_M200M100300Deltas_SigEvolAda.root", "recreate")   
+#outSig=ROOT.TFile(outPath + "WPhiJets_M200M100300Deltas_SigEvol.root", "recreate")   
 evol = ROOT.TGraph(x.shape[0],x, sign_cut)
 evol.SetTitle("")
 evol.GetXaxis().SetRangeUser(-1, 54 )

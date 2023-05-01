@@ -19,7 +19,7 @@ def aliases(df, original_vars, alias_vars):
 
 
 ## Load Data 
-p = 30 # smearing %
+p = 20 # smearing %
 inPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Data/"
 sigName = "WPhiJets_M200M100300Deltas_Application_Smeared"+str(p)+"_SIG_Test.root"
 #sigName = "WPhiJets_M200M100300Deltas_Application_SIG_Test.root"
@@ -29,7 +29,7 @@ sigFile,bkgFile = [inPath + inName for inName in (sigName, bkgName)]
 
 ## Configure the output settings
 outPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/"
-outName = "WPhiJets_M200M100300_Application_Smeared"+str(p)+"_Fit.pdf"
+outName = "WPhiJets_M200M100300_Application_Smeared"+str(p)+"_AdaFit.pdf"
 #outName = "WPhiJets_M200M100300_Application_bkgonly_Fit.pdf"
 outFile = outPath + outName
 
@@ -48,8 +48,8 @@ alias = ("Pt1", "Pt2", "PairMass")
 # alias Pt_smeared and Mass_smeared with Pt and PairMass, if needed   
 c.SetLogy(1)
 # Save the plots to a root file for further editting 
-outHistROOTName="WPhiJets_M200M100300Deltas_Application_Smeared"+str(p)+"HistFit.root"
-ROOTHist=ROOT.TFile(outPath + outHistROOTName , "recreate")   
+#outHistROOTName="WPhiJets_M200M100300Deltas_Application_Smeared"+str(p)+"HistFit.root"
+#ROOTHist=ROOT.TFile(outPath + outHistROOTName , "recreate")   
 
 df_data = aliases(df_data, smeared_vars, alias)\
     .Define("weights", "1")\
@@ -92,7 +92,7 @@ fsb.FixParameter(5, b3)
 fsb.SetLineColor(2)
 fit=df_data.Fit(fsb, 'R' )
 fit_ptr = ROOT.TFitResultPtr(fit)
-fsb.Write("fsb")
+#fsb.Write("fsb")
 
 fb = ROOT.TF1( 'fb',
                 '[0] + [1]/x^( 0.5 ) + [2]/x + [3]/x^1.5',  xmin, xmax)
@@ -104,7 +104,7 @@ fb.SetParameter(3,fsb.GetParameter(5))
 
 fb.SetLineColor(4)
 fb.SetLineStyle(2)
-fb.Write("fb")
+#fb.Write("fb")
 fb.Draw('same')
 
 
@@ -114,8 +114,8 @@ fs.SetParameter(1,fsb.GetParameter(1))
 #fs.SetParameter(2,fsb.GetParameter(2))
 fs.SetLineColor( 3 )
 fs.SetLineStyle(2)
-fs.Write("fs")
-ROOTHist.Close()
+#fs.Write("fs")
+#ROOTHist.Close()
 fs.Draw('Same')
 
 
@@ -150,15 +150,15 @@ sigma = fsb.GetParameter(1)
 errSigma = fsb.GetParError(1)
 
 #df_data_axis = df_data.GetXaxis()
-s = [3.8420590627655393, 7.684118125531079, 11.526177188296618, 15.368236251062157, 19.210295313827697, 23.052354376593236] # the bounds are fixed by the 0% fit
+#s = [3.8420590627655393, 7.684118125531079, 11.526177188296618, 15.368236251062157, 19.210295313827697, 23.052354376593236] # the bounds are fixed by the 0% fit
 
-#s = [ i*0.5 * sigma  for i in range(1, 7)]
+s = [ i*0.5 * sigma  for i in range(1, 7)]
 #print(s)
 observation = np.array(
-    [ fsb.Integral( (mu - si), (mu + si) ) for si in s]
+    [ fsb.Integral( (mu - si), (mu + si) )/binWidth for si in s]
 )
 background = np.array(
-    [ fb.Integral( (mu - si), (mu + si) ) for si in s]
+    [ fb.Integral( (mu - si), (mu + si) )/binWidth for si in s]
 )
 signal = abs(observation - background)
 significance = signal/np.sqrt(background)
@@ -176,7 +176,8 @@ sigma_range = np.array( [ i*0.5 for i in range(1, 7)] )
 #print(background)
 #print(significance)
 
-#outSig=ROOT.TFile(outPath + "WPhiJets_M200M100300Deltas_Application_Smeared"+str(p)+"Ada.root", "recreate")   
+outSig=ROOT.TFile(outPath + "WPhiJets_M200M100300Deltas_Application_Smeared"+str(p)+"Ada.root", "recreate")   
+#outSig=ROOT.TFile(outPath + "WPhiJets_M200M100300Deltas_Application_Smeared"+str(p)+".root", "recreate")   
 sign = ROOT.TMultiGraph("sign", "Significance")
 
 significance_plot = ROOT.TGraph( sigma_range.shape[0], sigma_range, significance )
@@ -188,8 +189,8 @@ significance_plot.SetMarkerStyle(20)
 sign.Add(significance_plot)
 set_axes_title(sign, r"\sigma", "")
 sig_lab = r'\frac{sig}{\sqrt{bkg}}'
-#sign.Write("significance")
-#outSig.Close()
+sign.Write("significance")
+outSig.Close()
 sign.Draw('AP')
 
 Ylabel = ROOT.TLatex()

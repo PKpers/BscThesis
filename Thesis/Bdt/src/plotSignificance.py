@@ -134,7 +134,7 @@ c.SaveAs("WPhiJets_M200M100300_Significance.pdf")
 
 #GraphSig = graphSig.GetListOfGraphs().At(0)
 c.Clear()
-graphSig.GetYaxis().SetRangeUser(50, 220)
+graphSig.GetYaxis().SetRangeUser(40, 160)
 graphSig.GetYaxis().SetLabelSize(size)
 graphSig.GetYaxis().SetTitleSize(size)
 graphSig.GetXaxis().SetLabelSize(size)
