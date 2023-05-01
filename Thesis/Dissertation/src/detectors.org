@@ -109,21 +109,11 @@ Figure \ref{fig:muon_chambers} illustrates the arrangement of the four different
 The infrastructure described in the previous sections provides (almost) all the necessary information regarding the particle collisions taking place inside the LHC. The next step is to combine this information to reconstruct the physical objects (particles, jets, etc.) that are being produced in each collision (event).
 
 As already discussed, the trajectories and momenta of the charged particles are reconstructed using information coming from the pixel tracker, while signals coming from the calorimeters provide energy measurements of the particles. The Particle Flow algorithm is then used to combine information from all subdetectors to create a consistent set of physical objects, including electrons, photons, muons, and neutral and charged hadrons. These objects are further processed by dedicated algorithms to reconstruct composite objects such as taus and jets, and to estimate missing energy. To determine the vertices of the collisions, information from the reconstructed tracks of the particles is used. The primary vertex is defined as the vertex with the largest sum of the transverse momentum of all contributing physical objects.
-*** Callibration of the Calorimeters
-In order for the HCAL and ECAL at CMS to deliver high precision measurements, they need to be calibrated. This is mostly done using resonances of known invariant mass. A detailed discussion of the calibration process taking place at CMS is outside the scope of this study, although a brief overview will be given [epjconf_chep2020_02027][].
-**** ECAL callibration
-The ECAL is calibrated using the following known physics signals:
-    - Photons from $\pi^{0}$ and $\eta$ decays.
-    - Electrons from W boson decay.
-    - Electron pairs from Z boson decays.
-    - Azimuthal symmetry of minimum bias events.
-**** HCAL callibration
+*** Callibration and energy scale uncertainties
+The reconstructed objects, are usually calibrated using well-known resonances, such as the Z boson or J/psi meson, whose masses and decay properties are well-measured. The calibration process involves adjusting the energy scale and resolution of the reconstructed objects such that the resonances in data and simulation appear at the correct mass values with the correct amount of smearing.
 
-** Energy scale uncertainties
-A typical MC simulation consists of the following steps (in simple terms):
-    1. Simulate the physics process in question (effectively the Feynman diagram).
-    2. Simulate the detector response.
-    3. Event reconstruction.
-To simulate the detector's response accurately, the same process of energy calibration takes place in Monte-Carlo (MC) simulations as well. Despite calibration, the simulated results usually deviate from the actual measurements. This is related to the fact that we cannot achieve infinite precision in simulating physical processes, as well as the presence of numerical errors, etc. Such deviations in the energy scale (energy scale uncertainties) have an effect on the resulting momenta and spatial coordinates of the particles, which can lead to inconsistency between the width of the resonant mass distribution, as it occurs from the MC and measurement.
+However, it is not possible to achieve a perfect agreement between data and simulation due to the complexities of the subdetectors and reconstruction algorithms used in the experiment, as well as nonlinear effects such as detector aging or radiation damage. As a result, one defines "energy scale and resolution uncertainties" that reflect the level of disagreement between data and simulation.
 
-The arising question then is: how do the various analysis techniques that scientists have in their disposal respond to energy scale uncertainties? In other words, what is the distinctive ability of the various analysis techniques? Our work will focus on the effects that energy scale uncertainties have in a traditional fit-based analysis and a more modern Boosted Decision Tree-based analysis, using the generic diobject production process as the working example.
+Such deviations in the energy scale (energy scale uncertainties) have an effect on the measured momenta and spatial coordinates of the particles, which can lead to inconsistency between the width of the resonant mass distribution, in simulations and measurement.
+
+The arising question then is: how do the various analysis techniques that scientists have in their disposal respond to energy scale uncertainties? In other words, what is the distinctive ability of the various analysis techniques? Our work will focus on the effects that energy scale uncertainties have, in a traditional fit-based analysis and a more modern Boosted Decision Tree-based analysis, using the generic diobject production process as the working example.

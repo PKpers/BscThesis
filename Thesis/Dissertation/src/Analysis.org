@@ -1,4 +1,3 @@
-#+STARTUP: latexpreview
 * Data set and analysis methods
 ** The \(Y \rightarrow XX\)channel
 The $Y \rightarrow XX$ dataset is composed of simulated events that represent the generic process of a resonance Y decaying into an XX pair, in the mass range between 100 and 300 GeV. The background consists of 50,839 events, while the signal comprises 5,946 events. The particular set is made up of miscellaneous pre-existing Monte Carlo (MC) samples, and the selected events contain only leptonic final states (one lepton and one antilepton of the same flavor). For the purpose of this study, only generator-level events were used, and given that we are not interested in any particular process, but rather in the most general case, no kinematic constraints were placed in the event selection. It should be noted that despite the fact that the parent MC samples contain lepton pairs in the final states, the resulting set can represent any diobject production in the selected mass range. The following table summarizes the features of the dataset in question:
@@ -60,12 +59,6 @@ $50\%$\\
 \label{table:Smearings}
 \end{table}
 
-** Statistical interpretation of the results
-Usually, once the signal is separated from the background, a specific region is defined (either a BDT score range in case of a BDT-based analysis or a mass range in case of a fit-based analysis), and only the signal and background events falling within the defined region are selected. The question that arises is whether the selected signal is simply a statistical fluctuation of the background or not. In other words, how statistically significant is the signal? Because measurements at CMS are Poissonian in nature, the measured signal is compared to the Poissonian deviation of the background. Therefore, the significance we are interested in is defined as follows:
-\begin{equation}
-\text{Significance} = \frac{Signal}{\sqrt{Background}}
-\end{equation}
-Were signal and background signify the number of signal and background events present in the selected region.  
 ** Analysis Method I: Training a BDT Classifier
 *** The Train/Test/Application data sets
 For the BDT training (and due to the lack of an infinite number of events), the original dataset had to be split into three parts. The training set is used to train the classifier. As the reader may have noticed, the signal events in the original dataset are much less than the background events. This class imbalance makes the training of the model much harder, and for that reason, the training set has been enriched with more (unseen) signal events, so that the two classes have the same number of events. The testing set is used to evaluate the training. For that purpose, the two signal and background classes also have the same number of events. Finally, the application set is used for the analysis. Through trial and error, we noticed that working with smaller statistics enhances the magnitude of statistical fluctuations in the analysis. To avoid such confusion, the application set contains a part of the testing set to ensure large statistics. This doesn't interfere with the training, since the BDT has never seen the testing events during training. Finally, it should be mentioned that in order to have an "apples-to-apples" comparison between the BDT-based analysis and the Fit-based analysis, the application set will be analyzed in both cases. For that reason, the smearing cases that will be discussed for the rest of this chapter will concern only the application set.
@@ -193,7 +186,7 @@ Smearing \%  & No. Sig. Events at BDT cut = 0.86 & No. Bkg.Events at BDT cut = 0
 
 ** Analysis Method II: Fit based analysis
 *** Invariant mass reconstruction
-A fit-based analysis can be considered as single-feature classification(the only feature is the invariant mass), where the signal is separated from the background by fitting the mass histogram (mass spectrum) of the two components. The invariant mass of the XX pair is calculated using the features in Table \ref{table:DataSetFeatures}. The resulting spectrum is shown in Figure \ref{fig:AppMass}.
+The invariant mass of the XX pair is calculated using the features in Table \ref{table:DataSetFeatures}. The resulting spectrum is shown in Figure \ref{fig:AppMass}.
 
 \begin{figure}[h!]
 \centering
@@ -277,20 +270,6 @@ The signal is fitted using a Gaussian function with $\sigma$ and magnitude as fr
 \label{fig:extremeSmearings}
 \end{figure}
 *** Signal from background separation
-After fitting the signal and background invariant mass, the observed data (in our case, the application set plays the role of the observed data) can be modeled as
-
-\begin{equation}
-observation(x) = sig(x) + bkg(x)\text{, }x\in [120, 300] \text{ GeV}
-\end{equation}
-
-Let $I\subset [120, 300]\text{GeV}$ be the region of interest in the invariant mass spectrum. The number of observed events, background events, and signal events in $I$ can be estimated as follows:
-
-\begin{align}
-O &= \int_{I} observation(x) dx \\
-B &= \int_{I} bkg(x) dx\\
-S &= O - B
-\end{align}
-
 As with the BDT method, we want the region of interest that yields the best significance. To do so, we scan various mass windows around the center of the signal. We scanned six different regions (in the $0\%$ case), beginning from $\pm 0.5\sigma$ up to $\pm 3\sigma$ with a step of $0.5\sigma$. The results can be seen in Figure \ref{fig:Scan0}. It is evident that the region $\pm 1.5\sigma$ provides the best performance in terms of significance.
 \begin{figure}[h]
 \centering
@@ -328,11 +307,11 @@ Smearing \%  & $\sigma$ in GeV & Invarian Mass $\pm 1.5\sigma$ window  in GeV \\
  \hline
 Smearing \%  & No. Sig. Events (fixed window) & No. Bkg.Events (fixed window) & No. Sig. Events (adaptive window) & No. Bkg.Events (adaptive window)  \\
 \hline
-0 & 4852 & 623 & 4852 & 623  \\
-5 & 4024 & 623  & 5012  & 953  \\
-10 & 3022 & 623 & 5078 & 1504  \\
-15 & 2237  & 623 &  5048 & 2404  \\
-20 & 1768  & 623 & 4930 & 3324  \\
+0 & 2426 & 311 & 2426 & 311 \\
+5 & 2012 & 311 & 2506 & 476 \\
+10 & 1511 & 311 & 2539 & 752 \\
+15 & 1118 & 311 & 2524 & 1202 \\
+20 & 884 & 311 & 2465 & 1662 \\
  \hline
 \end{tabular}
 \caption{Signal and background events in the 23Gev fixed window region and in the $\pm 1.5\sigma$ adaptive window region, for different smearing percentages.}

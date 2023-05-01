@@ -62,13 +62,6 @@ $50\%$\\
 \label{table:Smearings}
 \end{table}
 
-\subsection{Statistical interpretation of the results}
-\label{sec:org544390f}
-Usually, once the signal is separated from the background, a specific region is defined (either a BDT score range in case of a BDT-based analysis or a mass range in case of a fit-based analysis), and only the signal and background events falling within the defined region are selected. The question that arises is whether the selected signal is simply a statistical fluctuation of the background or not. In other words, how statistically significant is the signal? Because measurements at CMS are Poissonian in nature, the measured signal is compared to the Poissonian deviation of the background. Therefore, the significance we are interested in is defined as follows:
-\begin{equation}
-\text{Significance} = \frac{Signal}{\sqrt{Background}}
-\end{equation}
-Were signal and background signify the number of signal and background events present in the selected region.  
 \subsection{Analysis Method I: Training a BDT Classifier}
 \label{sec:org2ab78e2}
 \subsubsection{The Train/Test/Application data sets}
@@ -202,7 +195,7 @@ Smearing \%  & No. Sig. Events at BDT cut = 0.86 & No. Bkg.Events at BDT cut = 0
 \label{sec:org82057fb}
 \subsubsection{Invariant mass reconstruction}
 \label{sec:orge267c60}
-A fit-based analysis can be considered as single-feature classification(the only feature is the invariant mass), where the signal is separated from the background by fitting the mass histogram (mass spectrum) of the two components. The invariant mass of the XX pair is calculated using the features in Table \ref{table:DataSetFeatures}. The resulting spectrum is shown in Figure \ref{fig:AppMass}.
+The invariant mass of the XX pair is calculated using the features in Table \ref{table:DataSetFeatures}. The resulting spectrum is shown in Figure \ref{fig:AppMass}.
 
 \begin{figure}[h!]
 \centering
@@ -289,20 +282,6 @@ The signal is fitted using a Gaussian function with \(\sigma\) and magnitude as 
 \end{figure}
 \subsubsection{Signal from background separation}
 \label{sec:orgf26d5e2}
-After fitting the signal and background invariant mass, the observed data (in our case, the application set plays the role of the observed data) can be modeled as
-
-\begin{equation}
-observation(x) = sig(x) + bkg(x)\text{, }x\in [120, 300] \text{ GeV}
-\end{equation}
-
-Let \(I\subset [120, 300]\text{GeV}\) be the region of interest in the invariant mass spectrum. The number of observed events, background events, and signal events in \(I\) can be estimated as follows:
-
-\begin{align}
-O &= \int_{I} observation(x) dx \\
-B &= \int_{I} bkg(x) dx\\
-S &= O - B
-\end{align}
-
 As with the BDT method, we want the region of interest that yields the best significance. To do so, we scan various mass windows around the center of the signal. We scanned six different regions (in the \(0\%\) case), beginning from \(\pm 0.5\sigma\) up to \(\pm 3\sigma\) with a step of \(0.5\sigma\). The results can be seen in Figure \ref{fig:Scan0}. It is evident that the region \(\pm 1.5\sigma\) provides the best performance in terms of significance.
 \begin{figure}[h]
 \centering
@@ -340,11 +319,11 @@ Smearing \%  & $\sigma$ in GeV & Invarian Mass $\pm 1.5\sigma$ window  in GeV \\
  \hline
 Smearing \%  & No. Sig. Events (fixed window) & No. Bkg.Events (fixed window) & No. Sig. Events (adaptive window) & No. Bkg.Events (adaptive window)  \\
 \hline
-0 & 4852 & 623 & 4852 & 623  \\
-5 & 4024 & 623  & 5012  & 953  \\
-10 & 3022 & 623 & 5078 & 1504  \\
-15 & 2237  & 623 &  5048 & 2404  \\
-20 & 1768  & 623 & 4930 & 3324  \\
+0 & 2426 & 311 & 2426 & 311 \\
+5 & 2012 & 311 & 2506 & 476 \\
+10 & 1511 & 311 & 2539 & 752 \\
+15 & 1118 & 311 & 2524 & 1202 \\
+20 & 884 & 311 & 2465 & 1662 \\
  \hline
 \end{tabular}
 \caption{Signal and background events in the 23Gev fixed window region and in the $\pm 1.5\sigma$ adaptive window region, for different smearing percentages.}

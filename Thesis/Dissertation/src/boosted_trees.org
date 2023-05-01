@@ -8,9 +8,8 @@
 #+STARTUP:   align
 #+latex_class: article
 # ----------------------------------------------------------------------------------------------------------------------------------------------------
-* Machine Learning for Classification
-The main goal Machine Learning is set to achieve, is the development of algorythms equiped with the capabillity of learning from data automatically. In particular, an artificially intelligent system must have the ability to identify objects in its surroundings, as well as anticipate the actions of its environment, in order to make informed decisions. Due to this, machine learning techniques tend to be more oriented towards forecasting, rather than prediction.
-** Decision trees and Supervised Learning
+* Multi variate and single variate classification techniques
+** Multivariate techniqies: Decision trees and Supervised Learning
 The distinction between different particles, can be regarded as a classification problem where the target, is the prediction of a categorical output variable(i.e. lepton, boson), based on one or more input variables(i.e momenta components). Classification problems in  machine learning can be solved with supervised learning. In such procedure, a training data set is being used for the development(training) of a model that is able to perform the classification task. The output of the model is then beeing tested and evaluated on previously unseen data.
 
 Before presenting any specific method of solving classification problems It is important to present an overview of the key elements in supervised learning.
@@ -123,3 +122,30 @@ This is the minimization goal for \(f_{t}\) . \cite{xgboost}
 
 
 
+
+*** Signal from background separation using BDT
+When the trained BDT model is applied to a given dataset, it returns the probability (BDT score) for an event to be signal or background. If the returned probability of an event is less than $50\%$, then the event in question is more "background-like." The predicted results can then be visualized as a histogram, allowing us to determine the number of signal and background events for each BDT score. This information can be used to define a value of the BDT score to place a "cut" and keep all the signal and background events from that value onwards.
+** Signlevariate Techniques: Fit based classification
+A fit-based analysis can be considered as single-feature classification where, signal events  are  separated from  background events, by fitting the mass histogram (mass spectrum) of the two components. 
+
+After fitting the signal and background invariant mass, the observed data can be modeled as
+
+\begin{equation}
+observation(x) = sig(x) + bkg(x)\text{, }x\in \mathcal{M}
+\end{equation}
+Where $sig\text{ and }bkg$, are the fitted signal and background and $\mathcal{M}$ is the mass range of the dataset in question.
+
+Let $I\subseteq \mathcal{M}$ be a region of interest in the invariant mass spectrum. The number of observed events, background events, and signal events in $I$ can be estimated as follows:
+
+\begin{align}
+O &= \int_{I} observation(x) dx \\
+B &= \int_{I} bkg(x) dx\\
+S &= O - B
+\end{align}
+
+** Statistical interpretation of the results
+Usually, once the signal is separated from the background, a specific region is defined (either a BDT score range in case of a BDT-based analysis or a mass range in case of a fit-based analysis), and only the signal and background events falling within the defined region are selected. The question that arises is whether the selected signal is simply a statistical fluctuation of the background or not. In other words, how statistically significant is the signal? Because measurements at CMS are Poissonian in nature, the measured signal is compared to the Poissonian deviation of the background. Therefore, the significance we are interested in is defined as follows:
+\begin{equation}
+\text{Significance} = \frac{Signal}{\sqrt{Background}}
+\end{equation}
+Were signal and background signify the number of signal and background events present in the selected region.  
