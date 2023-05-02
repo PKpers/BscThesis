@@ -1,7 +1,9 @@
 \section{Data set and analysis methods}
 \label{sec:org65db251}
+\label{sec:Dataset_and_analysis_methods}
 \subsection{The \(Y \rightarrow XX\)channel}
 \label{sec:org0fd1492}
+\label{sec:The_YtoXX_channel}
 The \(Y \rightarrow XX\) dataset is composed of simulated events that represent the generic process of a resonance Y decaying into an XX pair, in the mass range between 100 and 300 GeV. The background consists of 50,839 events, while the signal comprises 5,946 events. The particular set is made up of miscellaneous pre-existing Monte Carlo (MC) samples, and the selected events contain only leptonic final states (one lepton and one antilepton of the same flavor). For the purpose of this study, only generator-level events were used, and given that we are not interested in any particular process, but rather in the most general case, no kinematic constraints were placed in the event selection. It should be noted that despite the fact that the parent MC samples contain lepton pairs in the final states, the resulting set can represent any diobject production in the selected mass range. The following table summarizes the features of the dataset in question:
 
 \begin{table}[h!]
@@ -38,6 +40,7 @@ The mass spectrum for the \(Y \rightarrow XX\) decay, can be seen in figure \ref
 
 \subsection{Energy scale uncertainties}
 \label{sec:org6831a0b}
+\label{sec:Energy_scale_uncertainties}
 Energy scale uncertainties have an effect on the transverse momenta \(P_t\) of the produced \(XX\) pair. Such uncertainties are modeled as random noise (Gaussian smearing) to the signal component. To smear the data by \(x\%\), we iterate over every signal event and multiply the transverse momenta by numbers sampled from a Gaussian distribution of \(\mu = 1\) and \(\sigma = x/100\), where \(x\) is the percentage of smearing (each \(P_t\) is multiplied by a different number).
 
 In the present study, we compare the performance of a Boosted Decision Tree (BDT)-based analysis and a fit-based analysis on a given dataset, for various cases of smearing (various values of \(\sigma\)). Table \ref{table:Smearings} summarizes the smearing percentages used for this analysis. The values are chosen such that we examine both cases of mild noise (\(0-5\%\)) up to extreme noise (\(50\%\)). Nevertheless, it should be noted that what is considered as an extreme case or a mild case of smearing is not defined in an absolute manner but rather is related to the mass range of the data upon which the blur is applied.
@@ -64,8 +67,10 @@ $50\%$\\
 
 \subsection{Analysis Method I: Training a BDT Classifier}
 \label{sec:org2ab78e2}
+\label{sec:Analysis_method1}
 \subsubsection{The Train/Test/Application data sets}
 \label{sec:orgbf7e2cb}
+\label{sec:Train_test_application_sets}
 For the BDT training (and due to the lack of an infinite number of events), the original dataset had to be split into three parts. The training set is used to train the classifier. As the reader may have noticed, the signal events in the original dataset are much less than the background events. This class imbalance makes the training of the model much harder, and for that reason, the training set has been enriched with more (unseen) signal events, so that the two classes have the same number of events. The testing set is used to evaluate the training. For that purpose, the two signal and background classes also have the same number of events. Finally, the application set is used for the analysis. Through trial and error, we noticed that working with smaller statistics enhances the magnitude of statistical fluctuations in the analysis. To avoid such confusion, the application set contains a part of the testing set to ensure large statistics. This doesn't interfere with the training, since the BDT has never seen the testing events during training. Finally, it should be mentioned that in order to have an "apples-to-apples" comparison between the BDT-based analysis and the Fit-based analysis, the application set will be analyzed in both cases. For that reason, the smearing cases that will be discussed for the rest of this chapter will concern only the application set.
 
 Table \ref{table:TrainTestApp} summarizes the number of events used in each dataset.
@@ -86,6 +91,7 @@ Application & 2973 & 20827 \\
 \end{table}
 \subsubsection{Training}
 \label{sec:orgf9d881c}
+\label{sec:Training}
 One of the key aspects of a successful training is the feature space that is being used. Although the Train/Test sets consist of the features described in Table \ref{table:DataSetFeatures}, those features are not optimal for the particular classification problem. The feature space that is found to be optimal for the problem in question consists of five features and is summarized in Table \ref{table:TrainFeatures} and Figure \ref{fig:TrainFeaturesPlot}.
 
 \begin{table}[h!]
@@ -138,6 +144,7 @@ Figure \ref{fig:BDTplot} displays the BDT score plot of the training and testing
 
 \subsubsection{Application}
 \label{sec:orgc469879}
+\label{sec:Application}
 The application of the model to the application set is a rather straightforward process. The data are simply "fed" to the model, and the latter performs the classification. The ROC curves for the performance of the trained model on the data for each of the smearing cases of table \ref{table:Smearings} are illustrated in figure \ref{subfig:SmearingROC}.
 
 \begin{figure}[h!]
@@ -193,8 +200,10 @@ Smearing \%  & No. Sig. Events at BDT cut = 0.86 & No. Bkg.Events at BDT cut = 0
 
 \subsection{Analysis Method II: Fit based analysis}
 \label{sec:org82057fb}
+\label{sec:Analysis_method2}
 \subsubsection{Invariant mass reconstruction}
 \label{sec:orge267c60}
+\label{sec:Invariant_mass_reconstruction}
 The invariant mass of the XX pair is calculated using the features in Table \ref{table:DataSetFeatures}. The resulting spectrum is shown in Figure \ref{fig:AppMass}.
 
 \begin{figure}[h!]
@@ -207,6 +216,7 @@ The invariant mass of the XX pair is calculated using the features in Table \ref
 Events with invariant mass \(m_{XX} < 120\text{GeV}\) make the background fit significantly harder without contributing significantly to the analysis. Therefore, such events are excluded from this study, and the working mass spectrum is limited to the range \([120, 300]\text{GeV}\).
 \subsubsection{Background Fitting}
 \label{sec:org60ef007}
+\label{sec:Background_fitting}
 As discussed in previous sections, the applied smearing only affects the signal component of the application set. For this reason, and to simplify the analysis, the background shape is fitted separately and kept constant throughout the signal fits.
 
 Despite this simplification, determining the shape of the background was not a trivial process. Through trial and error, the function shown in Equation \ref{eq:bkgFitFunc} was found to be the best fit.
@@ -224,6 +234,7 @@ The parameters \(\alpha\), \(\beta\), \(\gamma\), and \(\delta\) are free parame
 \end{figure}
 \subsubsection{Signal Fitting}
 \label{sec:org74e8cd4}
+\label{sec:Signal_fitting}
 The signal is fitted using a Gaussian function with \(\sigma\) and magnitude as free parameters, and \(\mu = 200\text{GeV}\) (the mass of the resonance). Figure \ref{fig:fits} shows the fitted invariant mass spectra for smearing percentages of \(0\%\), \(5\%\), \(10\%\), \(15\%\), and \(20\%\). As illustrated in Figure \ref{fig:extremeSmearings}, the signal mass in the extreme cases of \(30\%\text{, }40\%\) and \(50\%\) smearing is indistinguishable from the background. Therefore, attempting to fit those spectra would be a pointless exercise.
 \begin{figure}[htpb]
 \centering
@@ -282,6 +293,7 @@ The signal is fitted using a Gaussian function with \(\sigma\) and magnitude as 
 \end{figure}
 \subsubsection{Signal from background separation}
 \label{sec:orgf26d5e2}
+\label{sec:Signal_from_background_separation}
 As with the BDT method, we want the region of interest that yields the best significance. To do so, we scan various mass windows around the center of the signal. We scanned six different regions (in the \(0\%\) case), beginning from \(\pm 0.5\sigma\) up to \(\pm 3\sigma\) with a step of \(0.5\sigma\). The results can be seen in Figure \ref{fig:Scan0}. It is evident that the region \(\pm 1.5\sigma\) provides the best performance in terms of significance.
 \begin{figure}[h]
 \centering

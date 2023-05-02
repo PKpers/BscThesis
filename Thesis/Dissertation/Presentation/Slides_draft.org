@@ -1,0 +1,60 @@
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: author:t broken-links:nil c:nil creator:nil
+#+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:nil title:t toc:nil todo:nil |:t
+#+title: Presentation draft
+#+date:  
+#+author: Kostas Papadimos
+#+email: dinogreco2000@gmail.com
+#+latex_header: \mode<beamer>{\usetheme{Madrid}}
+#+latex_header: \mode<beamer>{\usepackage{amsmath}}
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 28.2 (Org mode 9.5.5)
+#+cite_export:
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger]
+#+OPTIONS: H:2
+#+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
+
+* Introductory stuff, Detectros and Particle physics
+** The CMS Experiment overview
+Mabe a photo of the CMS detecor and show where the various subdetectors are. Also explain what an event is
+** Coordinates at the CMS
+The typical Pt Eta Phi coords etc.
+** Decays & Resonances
+Explain that not every particle can be detected by the CMS detector(i.e neutrinos) and therefore, the invariant mass calculation from the detected particles of an event will not result in a peak at the mass spectrum(Non resonant proces). Even though in decays where  the poducts are detectable particles, the invariant mass calculation leads to a peak in the mass spectrum(resonant decays). In the present work we are interested in the later.
+** Callibration and energy scale uncertainties
+Talk about the fact that the detector needs to be calibrated, and that callibration is done using resonances whose peak is well known. More over talk about the fact that usually MC results of the detector repsonce usually deviates from the actual detector's responce, thus one defines energy scale uncertainties. This is a good time to officially postulate the problem assesed in  this work. Y->XX etc. 
+* Analysis techniqies
+** BDT 1 
+Explain what a bdt is. There is a nice example in XGBoost documentation. 
+** BDT 2
+Explain the train->test->Application workflow. 
+** BDT 3
+Talk about the output, explain what the BDT score is and what BDT histogram is. Discuss signal from backgroun separation using bdt
+** Fit
+Explain fit based signal from backgroun separation
+** Statistical interpretation of results
+Talk about significance.
+* Analysis
+** Energy scale uncertainties
+How we implemented the smearing in our data set. How do we proceed from that, how many smearing cases. 
+** BDT approach 1
+Train Testing application set. Summarize the number of events. Explain that in order to compare apples to apples, we will be analyzing the application set from now on.
+** BDT approach 2
+Application summarize the results 
+** Fit based approach 1
+Show the mass spectrum that will be fitted 
+** Fit based approach 2
+discuss bkg fit is kept constnat throughout the analysis. discus signal fitting, show the plots( I will probably need more than one slide) at this part talk about the fact that after $20\%$ the fit based technique fails. 
+** Fit based approach 2
+Present the significances.
+* Results
+** Results 1
+Compare the BDT and FIt in terms of significance and robustness. Comment that even though fit based achieves a higher significance in the 0 smearing case, it is not as robust as bdt, it completelly fails at extreme cases of smearing,. BDT is more robust 
+** Results 2
+Try to explain that bdt uses not only energy related features (Pts) but also geometrical ones, which do not get affected by smearing. Therefore, more stabillity to smearing. Nevertheless robustness does not mean greateer classification "power"(how many events got classified correctly and how manny didn't) -->Outlooks for better training methods in other to increase classification power.   
