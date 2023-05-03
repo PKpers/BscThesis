@@ -10,7 +10,7 @@ from WPhi_2mu_Smear import Smear, Deltas, computeMass
 np.random.seed(1)
 ## Configure input settings 
 inPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Data/"
-inName ="WPhiJets_M200M100300_Deltas.root"
+inName ="WPhiJets_M60M5080_Deltas.root"
 inFile = inPath + inName
 
 ## Load data
@@ -43,7 +43,7 @@ counts_app = signal_app.Count()
 
 # Training and Testing. We get the train test sampe from the rest of the signal MC  
 # The first 800 events were used for the application set.
-df_sig = ROOT.RDataFrame("tree", inPath+"WPhi_2mu_M200Data.root").Range(6000, 0)
+df_sig = ROOT.RDataFrame("tree", inPath+"WPhi_2mu_M200Data.root")#.Range(6000, 0)
 
 Vars = ['Pt1_Smeared', 'Eta1', 'Phi1', 'Pt2_Smeared', 'Eta2', 'Phi2']
 signal = Smear(df_sig, 0.05)

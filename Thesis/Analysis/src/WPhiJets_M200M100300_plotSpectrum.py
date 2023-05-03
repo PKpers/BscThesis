@@ -22,8 +22,8 @@ def aliases(df, original_vars, alias_vars):
 p = 30 # smearing %
 inPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Data/"
 #sigName = "WPhiJets_M200M100300Deltas_Application_Smeared"+str(p)+"_SIG_Test.root"
-sigName = "WPhiJets_M200M100300Deltas_Application_SIG_Test.root"
-bkgName = "WPhiJets_M200M100300Deltas_Application_BKG_Test.root"
+sigName = "WPhiJets_M60M5080Deltas_Application_SIG_Test.root"
+bkgName = "WPhiJets_M60M5080Deltas_Application_BKG_Test.root"
 sigFile,bkgFile = [inPath + inName for inName in (sigName, bkgName)]
 #bkgFile = inPath + bkgName 
 
@@ -31,7 +31,7 @@ sigFile,bkgFile = [inPath + inName for inName in (sigName, bkgName)]
 outPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/"
 #outName = "WPhiJets_M200M100300_Application_Smeared"+str(p)+"_Fit.pdf"
 #outName = "WPhiJets_M200M100300_Application_bkgFit.pdf"
-#outName = "WPhiJets_M200M100300_Application_MassSpectrum.pdf"
+outName = "WPhiJets_M60M5080_Application_MassSpectrum.pdf"
 outFile = outPath + outName
 
 
@@ -45,12 +45,12 @@ c.SaveAs(outFile+'[')
 df_data = ROOT.RDataFrame("tree", {sigFile, bkgFile} )
 #df_data = ROOT.RDataFrame("tree", bkgFile)
 
-c.SetLogy(1)
-df_data = df_data.Histo1D(("df_data", " ; m_{XX} (GeV)", 100, 100, 300), "PairMass")
+c.SetLogy(0)
+df_data = df_data.Histo1D(("df_data", " ; m_{XX} (GeV)", 50, 50, 80), "PairMass")
 #
 size = 0.045
 set_axes_title(df_data, " m_{XX} (GeV)", "Counts / Bin")
-df_data.GetXaxis().SetRangeUser(100, 300)
+df_data.GetXaxis().SetRangeUser(50, 80)
 #df_data.GetXaxis().SetRangeUser(120, 300)
 #df_data.GetYaxis().SetRangeUser(0.5, 1000)
 df_data.GetYaxis().SetLabelSize(size)
