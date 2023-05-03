@@ -14,11 +14,11 @@
 \mode<beamer>{\usetheme{Madrid}}
 \mode<beamer>{\usepackage{amsmath}}
 \usetheme{default}
-\author{Kostas Papadimos}
+\author{Konstantinos Papadimos}
 \date{}
 \title{Presentation draft}
 \hypersetup{
- pdfauthor={Kostas Papadimos},
+ pdfauthor={Konstantinos Papadimos},
  pdftitle={Presentation draft},
  pdfkeywords={},
  pdfsubject={},
@@ -29,62 +29,62 @@
 \maketitle
 
 \section{Introductory stuff, Detectros and Particle physics}
-\label{sec:org47999e8}
-\begin{frame}[label={sec:org8f7a5cd}]{The CMS Experiment overview}
+\label{sec:orgd9a4080}
+\begin{frame}[label={sec:org35e3fc7}]{The CMS Experiment overview}
 Mabe a photo of the CMS detecor and show where the various subdetectors are. Also explain what an event is
 \end{frame}
-\begin{frame}[label={sec:org2ecabf0}]{Coordinates at the CMS}
+\begin{frame}[label={sec:org2ebafb4}]{Coordinates at the CMS}
 The typical Pt Eta Phi coords etc.
 \end{frame}
-\begin{frame}[label={sec:orgc6be592}]{Decays \& Resonances}
-Explain that not every particle can be detected by the CMS detector(i.e neutrinos) and therefore, the invariant mass calculation from the detected particles of an event will not result in a peak at the mass spectrum(Non resonant proces). Even though in decays where  the poducts are detectable particles, the invariant mass calculation leads to a peak in the mass spectrum(resonant decays). In the present work we are interested in the later.
+\begin{frame}[label={sec:org474a9db}]{Decays \& Resonances}
+Explain that not every particle can be detected by the CMS detector(i.e neutrinos) and therefore, the invariant mass calculation from the detected particles of such events will not result in a peak at the mass spectrum(Non resonant proces). Even though in decays where  the poducts are detectable particles, the invariant mass calculation leads to a peak in the mass spectrum(resonant decays). In the present work we are interested in the later.
 \end{frame}
-\begin{frame}[label={sec:org1a8a2e2}]{Callibration and energy scale uncertainties}
+\begin{frame}[label={sec:org473c110}]{Callibration and energy scale uncertainties}
 Talk about the fact that the detector needs to be calibrated, and that callibration is done using resonances whose peak is well known. More over talk about the fact that usually MC results of the detector repsonce usually deviates from the actual detector's responce, thus one defines energy scale uncertainties. This is a good time to officially postulate the problem assesed in  this work. Y->XX etc. 
 \end{frame}
 \section{Analysis techniqies}
-\label{sec:org550f924}
-\begin{frame}[label={sec:org111c06b}]{BDT 1}
+\label{sec:orgc840f81}
+\begin{frame}[label={sec:orgf0ddcac}]{BDT 1}
 Explain what a bdt is. There is a nice example in XGBoost documentation. 
 \end{frame}
-\begin{frame}[label={sec:org7231688}]{BDT 2}
+\begin{frame}[label={sec:org7f6de4e}]{BDT 2}
 Explain the train->test->Application workflow. 
 \end{frame}
-\begin{frame}[label={sec:orgfa9383a}]{BDT 3}
+\begin{frame}[label={sec:org4ff7568}]{BDT 3}
 Talk about the output, explain what the BDT score is and what BDT histogram is. Discuss signal from backgroun separation using bdt
 \end{frame}
-\begin{frame}[label={sec:orga439f55}]{Fit}
+\begin{frame}[label={sec:org6979cbd}]{Fit}
 Explain fit based signal from backgroun separation
 \end{frame}
-\begin{frame}[label={sec:orge140f2d}]{Statistical interpretation of results}
+\begin{frame}[label={sec:org336f18e}]{Statistical interpretation of results}
 Talk about significance.
 \end{frame}
 \section{Analysis}
-\label{sec:orgde5e0f0}
-\begin{frame}[label={sec:org904e48a}]{Energy scale uncertainties}
+\label{sec:org79e0348}
+\begin{frame}[label={sec:org6cea401}]{Energy scale uncertainties}
 How we implemented the smearing in our data set. How do we proceed from that, how many smearing cases. 
 \end{frame}
-\begin{frame}[label={sec:org791cad8}]{BDT approach 1}
+\begin{frame}[label={sec:orgb5cf40e}]{BDT approach 1}
 Train Testing application set. Summarize the number of events. Explain that in order to compare apples to apples, we will be analyzing the application set from now on.
 \end{frame}
-\begin{frame}[label={sec:org69bf5d3}]{BDT approach 2}
+\begin{frame}[label={sec:org5ecd5bc}]{BDT approach 2}
 Application summarize the results 
 \end{frame}
-\begin{frame}[label={sec:org6f79138}]{Fit based approach 1}
+\begin{frame}[label={sec:org8ceef57}]{Fit based approach 1}
 Show the mass spectrum that will be fitted 
 \end{frame}
-\begin{frame}[label={sec:orgc585192}]{Fit based approach 2}
+\begin{frame}[label={sec:org9dd050f}]{Fit based approach 2}
 discuss bkg fit is kept constnat throughout the analysis. discus signal fitting, show the plots( I will probably need more than one slide) at this part talk about the fact that after \(20\%\) the fit based technique fails. 
 \end{frame}
-\begin{frame}[label={sec:org5ae82d2}]{Fit based approach 2}
+\begin{frame}[label={sec:org70f5d61}]{Fit based approach 2}
 Present the significances.
 \end{frame}
 \section{Results}
-\label{sec:org83a0279}
-\begin{frame}[label={sec:org9299336}]{Results 1}
+\label{sec:org98cca42}
+\begin{frame}[label={sec:orgd65246a}]{Results 1}
 Compare the BDT and FIt in terms of significance and robustness. Comment that even though fit based achieves a higher significance in the 0 smearing case, it is not as robust as bdt, it completelly fails at extreme cases of smearing,. BDT is more robust 
 \end{frame}
-\begin{frame}[label={sec:org5c474ee}]{Results 2}
+\begin{frame}[label={sec:orgab847b6}]{Results 2}
 Try to explain that bdt uses not only energy related features (Pts) but also geometrical ones, which do not get affected by smearing. Therefore, more stabillity to smearing. Nevertheless robustness does not mean greateer classification "power"(how many events got classified correctly and how manny didn't) -->Outlooks for better training methods in other to increase classification power.   
 \end{frame}
 \end{document}
