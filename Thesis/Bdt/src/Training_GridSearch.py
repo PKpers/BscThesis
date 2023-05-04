@@ -48,8 +48,11 @@ if __name__ == "__main__":
         #'scale_pos_weight' : [0.5, 0.8, 1, 1.1]
         #'n_estimators' : [1000, 1500, 2000, 2500, 3000],
         #'learning_rate' : [0.01, 0.03, 0.05, 0.07, 0.09]
-        #'reg_alpha' : range(1, 10, 2), 
+        #'reg_alpha' : [i/10 for i in range(1, 10, 2)], 
+        'reg_lambda' : [0.6, 0.7, 0.8],
+        'reg_alpha' : [0.0, 0.1, 0.2]
         #'reg_alpha':[1e-5, 1e-2, 0.1, 1, 100],
+        #'reg_lambda':[1e-5, 1e-2, 0.1, 1, 100],
         #'reg_lambda': range(50, 100, 10) 
         #'reg_lambda' : range(1, 10, 2) 
         #'max_depth': [6, 7, 8, 9],

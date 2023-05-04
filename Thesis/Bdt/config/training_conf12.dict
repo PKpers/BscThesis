@@ -1,22 +1,22 @@
 * With !str keys
 
 [max_depth]
-value=!int "7"
+value=!int "6"
 #
 [subsample]
 value=!float "0.8"
 #
 [n_estimators]
-value=!int "1500"
+value=!int "800"
 #
 [learning_rate]
-value=!float "0.05"
+value=!float "0.01"
 #
 [gamma]
-val=!float "0.4"
+val=!float "2"
 #
 [min_child_weight]
-val=!float "9"
+val=!float "8"
 #
 [colsample_bytree]
 val=!float "0.8"
@@ -25,10 +25,10 @@ val=!float "0.8"
 val=!int "0"
 #
 [reg_alpha]
-val=!float "5"
+val=!float "0.1"
 #
 [reg_lambda]
-val=!float "50"
+val=!float "0.7"
 #
 [scale_pos_weight]
 val=!float "1"

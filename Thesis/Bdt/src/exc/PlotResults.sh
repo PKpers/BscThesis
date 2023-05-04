@@ -2,7 +2,7 @@
 plot="/home/kpapad/UG_thesis/Thesis/Bdt/src/plotResults.py"
 predictions=()
 outputs=()
-dataset="WPhiJets_M200M100300Deltas"
+dataset="WPhiJets_M60M5080Deltas"
 k=12
 for (( i=$k ; i<=$k ; i++));
 do
