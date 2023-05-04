@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.11)  2 MAY 2023 15:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.11.11)  4 MAY 2023 19:33
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2229,7 +2229,25 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-)
+</home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pdf, i
+d=729, page=4, 569.12625pt x 569.12625pt>
+File: /home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.p
+df Graphic file (type pdf)
+<use /home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pd
+f, page 4>
+Package pdftex.def Info: /home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M10
+0300_Significance.pdf , page4 used on input line 7.
+(pdftex.def)             Requested size: 227.62206pt x 227.6204pt.
+) [20 </home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300_Ap
+plication_bkgFit.pdf>] [21 </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets
+_M200M100300_FitALL.pdf> </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M
+200M100300_FitALL.pdf> </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M20
+0M100300_FitALL.pdf> </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M
+100300_FitALL.pdf> </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M10
+0300_FitALL.pdf>] [22 </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200
+M100300_FitALL.pdf> </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M1
+00300_FitALL.pdf> </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100
+300_FitALL.pdf>]
 LaTeX Font Info:    Font shape `T1/gentium/m/sc' will be
 (Font)              scaled to size 10.95pt on input line 76.
 
@@ -2240,18 +2258,10 @@ n/10.95 : []$\T1/cmtt/m/n/10.95 10 . 1145 / 2939672 . 2939785$[]\T1/gentium/m/n
 /10.95 .
  []
 
-[20 </home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300_Appl
-ication_bkgFit.pdf>] [21 </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M
-200M100300_FitALL.pdf> </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M20
-0M100300_FitALL.pdf> </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M
-100300_FitALL.pdf> </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M10
-0300_FitALL.pdf> </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M1003
-00_FitALL.pdf>] [22 </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M1
-00300_FitALL.pdf> </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100
-300_FitALL.pdf> </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M10030
-0_FitALL.pdf>] [23 </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M10
-0300_Significance0.pdf>] [24 </home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M2
-00M100300_Significance.pdf>] (./main.aux)
+[23 </home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_Significan
+ce0.pdf>] [24 </home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Signi
+ficance.pdf>] [25 </home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_S
+ignificance.pdf>] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: B66528DB06437E27C861C606BA2AEB16;7994.
 Package logreq Info: Writing requests to 'main.run.xml'.
@@ -2259,10 +2269,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38286 strings out of 478238
- 734378 string characters out of 5850455
- 1481032 words of memory out of 5000000
- 55750 multiletter control sequences out of 15000+600000
+ 38292 strings out of 478238
+ 734694 string characters out of 5850455
+ 1481244 words of memory out of 5000000
+ 55754 multiletter control sequences out of 15000+600000
  493345 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  109i,13n,118p,1440b,1781s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2283,10 +2293,10 @@ ublic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
 /usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/shar
 e/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on main.pdf (24 pages, 1723342 bytes).
+Output written on main.pdf (25 pages, 1727475 bytes).
 PDF statistics:
- 1039 PDF objects out of 1200 (max. 8388607)
- 666 compressed objects within 7 object streams
- 121 named destinations out of 1000 (max. 500000)
- 449 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1050 PDF objects out of 1200 (max. 8388607)
+ 675 compressed objects within 7 object streams
+ 123 named destinations out of 1000 (max. 500000)
+ 454 words of extra memory for PDF output out of 10000 (max. 10000000)
 
