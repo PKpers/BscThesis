@@ -18,17 +18,69 @@
 #+LaTeX_CLASS: beamer
 #+LaTeX_CLASS_OPTIONS: [bigger]
 #+OPTIONS: H:2
-#+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
+#+COLUMNS: %45ITEM %10BEAMER_env(Env) %10BEAMER_act(Act) %4BEAMER_col(Col) %8BEAMER_opt(Opt)
 
 * Introductory stuff, Detectros and Particle physics
 ** The CMS Experiment overview
-Mabe a photo of the CMS detecor and show where the various subdetectors are. Also explain what an event is
+The CMS detector at the LHC
+\begin{figure}[hb]
+\centering
+\includegraphics[width=0.7 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_detector.jpg}
+\end{figure}
+
 ** Coordinates at the CMS
-The typical Pt Eta Phi coords etc.
+*** Text
+:PROPERTIES:
+    :BEAMER_env: ignoreheading
+    :BEAMER_col: 0.33
+    :END:
+Given the solenoid geometry of the CMS detector, it is more convenient to use a spherical type of coordinates\( \left(r, \phi, \theta \right) \).
+*** The coordinates
+:PROPERTIES:
+    :BEAMER_env: ignoreheading
+    :BEAMER_col: 0.33
+    :END:
+\begin{equation}
+\begin{matrix}
+p_{x} = P_{T}\cos{\phi} \\
+p_{y} = P_{T}\sin{\phi} \\
+p_{z} = P_{T}\sinh{\eta}\\
+|\vec{P}| = P_{T}\cosh{\eta} 
+\end{matrix}
+\end{equation}
+*** Text
+:PROPERTIES:
+    :BEAMER_env: ignoreheading
+    :BEAMER_col: 0.33
+    :END:
+\(\phi \in \left [ 0, 2\pi \right]\)the azimuthal angle, and \(\eta\in \left [ -\infty, +\infty \right ]\) is defined as:
+\begin{equation}
+\eta \equiv -\ln{\left [ \tan\left (\frac{\theta}{2} \right ) \right]  }
+\end{equation}
+
 ** Decays & Resonances
-Explain that not every particle can be detected by the CMS detector(i.e neutrinos) and therefore, the invariant mass calculation from the detected particles of such events will not result in a peak at the mass spectrum(Non resonant proces). Even though in decays where  the poducts are detectable particles, the invariant mass calculation leads to a peak in the mass spectrum(resonant decays). In the present work we are interested in the later.
+Not every particle can be detected by the CMS detector(i.e neutrinos)
+*** Resonance
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+- Detectable Decay Products \(\rightarrow\) Resonance
+#+ATTR_LaTeX: :width 0.8\textwidth
+[[/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/DYJetsM50_MassHist.pdf]]
+
+*** Not a resonance
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+#+ATTR_LaTeX: :width 0.8\textwidth
+- Non Detectable Decay Products \(\rightarrow\) Not a resonance
+[[/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/DYJetsM50_MassHist.pdf]]
+
 ** Callibration and energy scale uncertainties
-Talk about the fact that the detector needs to be calibrated, and that callibration is done using resonances whose peak is well known. More over talk about the fact that usually MC results of the detector repsonce usually deviates from the actual detector's responce, thus one defines energy scale uncertainties. This is a good time to officially postulate the problem assesed in  this work. Y->XX etc. 
+  - Calibration process adjusts energy scale and resolution to match well-known resonances (Z boson, J/psi meson) in data and simulation,
+ - Imperfect agreement due to subdetector complexities and nonlinear effects
+*** How do analysis techniques respond to energy scale uncertainties ?
+Our work will focus on the effects that energy scale uncertainties have, in a traditional fit-based analysis and a more modern Boosted Decision Tree-based analysis, using the generic diobject production process as the working example.
 * Analysis techniqies
 ** BDT 1 
 Explain what a bdt is. There is a nice example in XGBoost documentation. 
@@ -58,3 +110,7 @@ Present the significances.
 Compare the BDT and FIt in terms of significance and robustness. Comment that even though fit based achieves a higher significance in the 0 smearing case, it is not as robust as bdt, it completelly fails at extreme cases of smearing,. BDT is more robust 
 ** Results 2
 Try to explain that bdt uses not only energy related features (Pts) but also geometrical ones, which do not get affected by smearing. Therefore, more stabillity to smearing. Nevertheless robustness does not mean greateer classification "power"(how many events got classified correctly and how manny didn't) -->Outlooks for better training methods in other to increase classification power.   
+* Unused stuff
+** Resonance text
+and therefore, the invariant mass calculation from the detected particles of such events will not result in a peak at the mass spectrum(Non resonant proces). Even though in decays where  the poducts are detectable particles, the invariant mass calculation leads to a peak in the mass spectrum(resonant decays). In the present work we are interested in the later.
+
