@@ -9,10 +9,10 @@ import numpy as np
 ROOT.gROOT.SetBatch(True)
 #outFile10,outFile15,outFile25,outFile50
 inPath = "/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/"
-infile = [inPath + "WPhiJets_M200M100300Deltas_Application_Smeared0ROC.root"]
+infile = [inPath + "WPhiJets_M60M5080Deltas_Application_Smeared0ROC.root"]
 inFiles =[
-    inPath + "WPhiJets_M200M100300Deltas_Application_Smeared{}Pred12ROC.root".format(n)
-    for n in [5, 10, 15, 20, 30, 40, 50]
+    inPath + "WPhiJets_M60M5080Deltas_Application_Smeared{}Pred13ROC.root".format(n)
+    for n in [5, 7, 10, 12]
 ]
 inFiles = infile + inFiles
 
@@ -23,7 +23,7 @@ c.SetLogx(0); c.SetLogy(0)
 ROOT.gStyle.SetOptStat(0); ROOT.gStyle.SetTextFont(42)
 ROOT.gPad.SetLeftMargin(0.11)
 ROOT.gPad.SetBottomMargin(0.11)
-name = "WPhiJets_M200M100300_ROCs.pdf"
+name = "WPhiJets_M60M5080_ROCs.pdf"
 c.SaveAs(name+"[")
 
 def draw(_graph_, i):
@@ -38,7 +38,7 @@ graphs=list()
 #sgn_cut1 = list()
 #sign_cut2 = list()
 legend = ROOT.TLegend(0.5, 0.47, 0.65, 0.73)
-smear = [ "{}%".format(n) for n in (0, 5, 10, 15, 20, 30, 40, 50) ]
+smear = [ "{}%".format(n) for n in (0, 5, 7, 10, 12) ]
 colors = [40, 41, 30, 31]
 size = 0.045
 for i, infile in enumerate(inFiles):
@@ -50,6 +50,7 @@ for i, infile in enumerate(inFiles):
     graph_.SetTitle("")
     gname = graph_.GetName()
     graph_.SetLineColor(i+1)
+    graph_.SetLineStyle(10 -i)
     graph_.SetLineWidth(3)
     legend.AddEntry(graph_, '{}'.format(smear[i]), 'l')
     draw(graph_, i)

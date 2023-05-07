@@ -39,7 +39,7 @@ print(sig_events, bkg_events)
 c = ROOT.TCanvas()
 c.cd()
 ROOT.gStyle.SetOptStat(0); ROOT.gStyle.SetTextFont(42)
-#c.SaveAs(output+"[")
+c.SaveAs(output+"[")
 #
 
 ## Plot the histograms --------------------------------------------------------------------------------------------------
@@ -90,7 +90,7 @@ add_Header('BDT histogram')
 c.SetLogy(0)
 c.SaveAs(output)
 c.SetLogy(1)
-#c.SaveAs(output)
+c.SaveAs(output)
 
 # Calculate TPR and FPR and plot the roc curve -----------------------------------------------------------------
 integrals = []
@@ -118,12 +118,17 @@ for h in h_ :
 # Calculate significance sig/sqrt(bkg)
 integrals = np.array(integrals)
 p= infile.split("Smeared")[1].split(".")[0]
+print(p)
 #p = 0
+
+'''
 print("\nSmearing: ", p,
-      "\nSignal: ", integrals[0][int(0.86/0.02)], integrals[0][int(0.98/0.02)],
-      "\nBackground: ", integrals[1][[int(0.86/0.02)]],integrals[1][[int(0.98/0.02)]],
+      "\nSignal: ", integrals[0], integrals[0],
+      "\nBackground: ", integrals[1],integrals[1],
+      file = open("/home/kpapad/UG_thesis/Thesis/Bdt/out/tables_lm.txt", "a")
 )
-exit()
+'''
+
 significance = integrals[0]/np.sqrt(integrals[1])#0: signal, 1: background
 bdt_score = np.arange(0, 1, 0.02)
 
@@ -137,9 +142,10 @@ TestingTNR = 1 -TestingFPR
 c.SetLogy(0)
 c.SetLogx(0)
 
-p= infile.split("Smeared")[1].split(".")[0]
+#p= infile.split("Smeared")[1].split(".")[0]
 #p = 0
-outROC=ROOT.TFile(output_dir + "WPhiJets_M200M100300Deltas_Application_Smeared"+str(p)+"ROC.root", "recreate")   
+outROC=ROOT.TFile(
+    output_dir + "WPhiJets_M60M5080Deltas_Application_Smeared"+str(p)+"ROC.root", "recreate")   
 
 roc = ROOT.TMultiGraph('roc', 'ROC')
 roc_alt = ROOT.TMultiGraph('roc_alt', 'ROC')
@@ -182,7 +188,8 @@ legend.Draw('same')
 c.SaveAs(output)
 
 # Plot the significance curve 
-#outSig=ROOT.TFile(output_dir + "WPhiJets_M200M100300Deltas_Application_Smeared40.root", "RECREATE")   
+outSig=ROOT.TFile(
+    output_dir + "WPhiJets_M60M5080Deltas_Application_Smeared"+str(p)+".root", "RECREATE")   
 
 Sign = ROOT.TMultiGraph('Sign', 'Significance')
 
@@ -196,8 +203,8 @@ Significance.SetDrawOption( 'ACP' )
 Sign.Add(Significance)
 sig_lab = r'\frac{sig}{\sqrt{bkg}}'
 set_axes_title(Sign, "BDT score", "")
-#Sign.Write("significance")
-#outSig.Close()
+Sign.Write("significance")
+outSig.Close()
 Sign.Draw('ALP')
 # Draw the y axis title with the correct orientation
 Ylabel = ROOT.TLatex()

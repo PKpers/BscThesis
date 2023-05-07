@@ -7,10 +7,11 @@ check_exit(){
 }
 
 # Set up the testing
-num=12
+num=13
 test="/home/kpapad/UG_thesis/Thesis/Bdt/src/TestSmeared.py"
-dataset="WPhiJets_M200M100300Deltas_Application_Smeared40"
-modelname="WPhiJets_M200M100300Deltas"
+dataset="WPhiJets_M60M5080Deltas_Application_Smeared12"
+#dataset="WPhiJets_M60M5080Deltas_Application"
+modelname="WPhiJets_M60M5080Deltas"
 model="myModel"$modelname"_conf"$num
 
 # Setup plotting

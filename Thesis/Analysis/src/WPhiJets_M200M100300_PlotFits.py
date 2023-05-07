@@ -10,8 +10,8 @@ ROOT.gROOT.SetBatch(True)
 #outFile10,outFile15,outFile25,outFile50
 inPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/"
 inFiles =[
-    inPath + "WPhiJets_M200M100300Deltas_Application_Smeared"+str(p)+"HistFit.root" 
-    for p in [0, 5, 10, 15, 20]
+    inPath + "WPhiJets_M60M5080Deltas_Application_Smeared"+str(p)+"HistFit.root" 
+    for p in [0, 5, 7, 10, 12]
 ]
 
 size = 0.045
@@ -19,25 +19,25 @@ c = ROOT.TCanvas()
 c.SetCanvasSize(800, 800)
 ROOT.gPad.SetLeftMargin(0.15)
 c.cd()
-c.SetLogx(0); c.SetLogy(1)
+c.SetLogx(0); c.SetLogy(0)
 ROOT.gStyle.SetOptStat(0); ROOT.gStyle.SetTextFont(42)
-c.SaveAs("WPhiJets_M200M100300_FitALL.pdf[")
+c.SaveAs("WPhiJets_M60M5080_FitALL.pdf[")
 
 useless = list()
-smear = [n for n in (0, 5, 10, 15, 20) ]
+smear = [n for n in (0, 5, 7, 10, 12) ]
 for i, infile in enumerate(inFiles):
-    legend = ROOT.TLegend(0.6, 0.65, 0.7, 0.8)
+    legend = ROOT.TLegend(0.55, 0.65, 0.65, 0.8)
     myFile = ROOT.TFile.Open(infile, "READ") 
     
     data =myFile.Get("data")
-    data.GetXaxis().SetRangeUser(120, 300)
-    data.GetYaxis().SetRangeUser(0.5, 1000)
+    data.GetXaxis().SetRangeUser(50, 75)
+    data.GetYaxis().SetRangeUser(280, 1000)
     data.GetYaxis().SetLabelSize(size)
     data.GetYaxis().SetTitleSize(size)
     data.GetXaxis().SetLabelSize(size)
     data.GetXaxis().SetTitleSize(size)
     data.GetYaxis().SetTitleOffset(1.5)
-    data.GetXaxis().SetNdivisions(204, ROOT.kFALSE);
+    data.GetXaxis().SetNdivisions(205, ROOT.kFALSE);
 
     set_axes_title(data, " m_{XX} (GeV)", "Counts / Bin")
     
@@ -85,20 +85,21 @@ for i, infile in enumerate(inFiles):
     legend.SetTextSize(0.03)
     legend.Draw('same')
     
-    header = r'Y(200) \rightarrow XX'
+    header = r'Y(60) \rightarrow XX'
     legLabel = ROOT.TLatex()
     legLabel.SetTextSize(0.035)
-    legLabel.DrawLatexNDC(0.60, 0.85, header)
+    legLabel.DrawLatexNDC(0.55, 0.82, header)
 
 
     c.Update()
-    c.SaveAs("WPhiJets_M200M100300_FitALL.pdf")
+    c.SaveAs("WPhiJets_M60M5080_FitALL.pdf")
     myFile.Close()
 # 
-
+c.SaveAs("WPhiJets_M60M5080_FitALL.pdf]")
+exit()
 
 inPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Data/"
-bkgName = "WPhiJets_M200M100300Deltas_Application_BKG_Test.root"
+bkgName = "WPhiJets_M60M5080Deltas_Application_BKG_Test.root"
 
 p = 30 # smearing %
 for p in (30, 40, 50):

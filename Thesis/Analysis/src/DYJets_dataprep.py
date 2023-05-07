@@ -29,11 +29,11 @@ for i, f in enumerate(data_files):
     if i == 0:
         smear = 0.05
         label = 1
-        df = ROOT.RDataFrame("tree", f)#.Range(5000)
+        df = ROOT.RDataFrame("tree", f)#.Range(7000)
     else:
         df = ROOT.RDataFrame("tree", f)#.Range(80000)
     #
-    df = Smear(df, smear)# smear the background by 30%
+    df = Smear(df, smear)# smear the background 
     df = computeMass(df, varNames) # Compute the smeared mass
     df = Deltas(df, varNames) # Transformed the smeared Pts etas and phis to Deltas 
     df = df.AsNumpy()
@@ -66,7 +66,7 @@ vars_dict = define_columns(7, varNames, data)
 
 df_data = ROOT.RDF.MakeNumpyDataFrame(vars_dict)\
     .Filter("PairMass > 50")\
-    .Filter("PairMass < 80")\
+    .Filter("PairMass < 75")\
     .Snapshot("tree", outPath + outName)
 #
 bkg_counts = df_data.Filter("Label == 0").Count().GetValue()
@@ -78,7 +78,7 @@ import sys
 sys.path.insert(0, '/home/kpapad/UG_thesis/Thesis/share/lib')
 from plotslib import create_legend, add_Header 
 data_hist = df_data\
-              .Histo1D(("data_hist", "; m_{\mu\mu} [GeV]", 50, 50, 80), "PairMass")
+              .Histo1D(("data_hist", "; m_{\mu\mu} [GeV]", 50, 50, 75), "PairMass")
 #
 set_axes_title(data_hist, " m_{XX} (GeV)", "Counts / Bin")
 ROOT.gStyle.SetOptStat(0); ROOT.gStyle.SetTextFont(42)
@@ -92,7 +92,7 @@ data_hist.SetLineColor(1)
 data_hist.SetMarkerStyle(8)
 data_hist.SetMarkerSize(0.5)
 data_hist.GetXaxis().SetRangeUser(50, 80)
-data_hist.GetYaxis().SetRangeUser(1400, 5000)
+data_hist.GetYaxis().SetRangeUser(1000, 3500)
 
 data_hist.Draw('PE')
 legend = ROOT.TLegend(0.65, 0.7, 0.75, 0.75)

@@ -11,7 +11,7 @@ test="/home/kpapad/UG_thesis/Thesis/Bdt/src/Testing.py"
 dataset="WPhiJets_M60M5080Deltas"
 #configs=("training_conf1.dict" "training_conf2.dict" "training_conf3.dict" "training_conf5.dict")
 #"training_conf10.dict" "training_conf11.dict" "training_conf12.dict" "training_conf13.dict" "training_conf14.dict" "training_conf15.dict")
-k=12
+k=13
 configs=("training_conf"$k".dict")
 for config in "${configs[@]}"; do
     model="myModel"$dataset"_conf"$k

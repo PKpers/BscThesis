@@ -30,16 +30,17 @@ def Smear(df, percentage):
 
 ## Configure input settings 
 inPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Data/"
-inName = "WPhiJets_M200M100300Deltas_Application_SIG_Test.root"
+inName = "WPhiJets_M60M5080Deltas_Application_SIG_Test.root"
 treeName = 'tree'
 inFile = inPath + inName
 
 ## Configure output settings 
+p = 12
 outPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/"
-outName = "Data/WPhiJets_M200M100300Deltas_Application_Smeared40_SIG_Test.root"
+outName = "Data/WPhiJets_M60M5080Deltas_Application_Smeared{}_SIG_Test.root".format(p)
 outFile = outPath + outName
 #
-outHistName = "Plots/WPhiJets_M200M100300Deltas_Application_SIG_Smeared40_Hist.pdf"
+outHistName = "Plots/WPhiJets_M60M5080Deltas_Application_SIG_Smeared{}_Hist.pdf".format(p)
 outHistFile = outPath + outHistName
 
 ## Smear the data and save the output
@@ -48,7 +49,7 @@ df = ROOT.RDataFrame(treeName, inFile)
 varNames = [
     "Pt1", "Pt2", "DeltaPhi", "DeltaR", "DeltaEta", "PairMass", "Label"
 ]
-df_smeared = Smear(df, 0.40)\
+df_smeared = Smear(df, p/100)\
     .Redefine('PairMass', 'sqrt(2 * Pt1_Smeared * Pt2_Smeared* (cosh(DeltaEta) - cos(DeltaPhi)))')\
     .Redefine("Pt1", "Pt1_Smeared")\
     .Redefine("Pt2", "Pt2_Smeared")\
@@ -60,7 +61,7 @@ c = ROOT.TCanvas()
 c.cd()
 c.SaveAs(outHistFile+"[")
 
-hist = df_smeared.Histo1D(("hist", "; m_{\mu\mu} [GeV]", 50, 20, 119), "PairMass")
+hist = df_smeared.Histo1D(("hist", "; m_{\mu\mu} [GeV]", 50, 50, 75), "PairMass")
 hist.SetMarkerColor(1)
 hist.SetLineColor(1)
 hist.SetMarkerStyle(8)

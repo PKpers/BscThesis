@@ -10,8 +10,8 @@ ROOT.gROOT.SetBatch(True)
 #outFile10,outFile15,outFile25,outFile50
 inPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/"
 inFiles =[
-    inPath + "WPhiJets_M200M100300Deltas_Application_Smeared{}Ada.root".format(n)
-    for n in [0, 5, 10, 15, 20]
+    inPath + "WPhiJets_M60M5080Deltas_Application_Smeared{}Ada.root".format(n)
+    for n in [0, 5, 7, 10, 12]
 ]
 
 c = ROOT.TCanvas()
@@ -20,7 +20,7 @@ ROOT.gPad.SetLeftMargin(0.13)
 c.cd()
 c.SetLogx(0); c.SetLogy(0)
 ROOT.gStyle.SetOptStat(0); ROOT.gStyle.SetTextFont(42)
-#c.SaveAs("WPhiJets_M200M100300_Significance0.pdf[")
+c.SaveAs("WPhiJets_M60M5080_Significance0.pdf[")
 def draw(_graph_, i):
     if i == 0 :
         _graph_.Draw("APl")
@@ -33,12 +33,12 @@ bdt_cut = list()
 sign_cut = list()
 size = 0.045
 legend = ROOT.TLegend(0.6, 0.75, 0.7, 0.8)
-smear = [ "{}%".format(n) for n in (0, 5, 10, 15, 20) ]
+smear = [ "{}%".format(n) for n in (0, 5, 7, 10, 12) ]
 sig_lab = r'\frac{sig}{\sqrt{bkg}}'
 colors = [40, 41, 30, 31]
 #c.SetLogy(1)
 for i, infile in enumerate(inFiles):
-    #if i > 0 : continue
+    if i > 0 : continue
     myFile = ROOT.TFile.Open(infile, "READ") 
     graph=myFile.Get("significance")
     myFile.Close()
@@ -80,18 +80,18 @@ legend.SetTextSize(size)
 legend.Draw('same')
 c.Update()
 
-#c.SaveAs("WPhiJets_M200M100300_Significance0.pdf")
-#c.SaveAs("WPhiJets_M200M100300_Significance0.pdf]")
-#exit()
+c.SaveAs("WPhiJets_M60M5080_Significance0.pdf")
+c.SaveAs("WPhiJets_M60M5080_Significance0.pdf]")
+exit()
 
 sign_cut = np.array(sign_cut).astype(np.float64)
-x= np.array([0, 5, 10, 15, 20]).astype(np.float64)
+x= np.array([0, 5, 7, 10, 12]).astype(np.float64)
 print(x.shape)
 print(sign_cut.shape)
 
 #c.SetLogy(1)
 outPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/"
-outSig=ROOT.TFile(outPath + "WPhiJets_M200M100300Deltas_SigEvolAda.root", "recreate")   
+outSig=ROOT.TFile(outPath + "WPhiJets_M60M5080Deltas_SigEvolAda.root", "recreate")   
 #outSig=ROOT.TFile(outPath + "WPhiJets_M200M100300Deltas_SigEvol.root", "recreate")   
 evol = ROOT.TGraph(x.shape[0],x, sign_cut)
 evol.SetTitle("")
@@ -108,5 +108,7 @@ Ylabel = ROOT.TLatex()
 Ylabel.SetTextSize(0.035)
 Ylabel.DrawLatexNDC(0.01, 0.85, sig_lab)
 
+c.SaveAs("WPhiJets_M60M5080_SignificanceAda.pdf")
+c.SaveAs("WPhiJets_M60M5080_SignificanceAda.pdf]")
 #c.SaveAs("WPhiJets_M200M100300_SignificancesAda.pdf")
 #c.SaveAs("WPhiJets_M200M100300_SignificancesAda.pdf]")

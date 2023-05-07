@@ -41,6 +41,7 @@ np.random.shuffle(background) # shufle the background events
 bkg_len = background.shape[0]
 bkg_size = int(bkg_len / 3) # the size of each bkg part
 bkg_app = background[ tt_size : ] # background component fo the application set
+bkg_app = np.array( [ bkg_app[i] for i in range(0, bkg_app.shape[0], 3) ] )
 bkg_tt = background[ : tt_size ]   # background components of train test sets. Same size as sig_tt
 
 ## group the train test data together 
@@ -92,7 +93,7 @@ for i, data in enumerate(SIG_BKG_TRAIN_TEST):
     df.Snapshot(treeName, Files[i])
     
     #plot the mass histogram 
-    hist=df.Histo1D(("hist", "; m_{\mu\mu} [GeV]", 50, 50, 80), "PairMass")
+    hist=df.Histo1D(("hist", "; m_{\mu\mu} [GeV]", 50, 50, 75), "PairMass")
     hist.SetMarkerColor(1)
     hist.SetLineColor(1)
     hist.SetMarkerStyle(8)
@@ -120,7 +121,7 @@ df.Snapshot(treeName, outPath+outName+"_BKG_Test.root")
 print("application bkg evens: ", df.Count().GetValue())
 
 # Write the app sig using testing sig as well
-sig_app = np.vstack([sig_app, SIG_BKG_TRAIN_TEST[1]]).astype(np.float32)
+#sig_app = np.vstack([sig_app, SIG_BKG_TRAIN_TEST[1]]).astype(np.float32)
 vars_dict = define_columns(6, varNames, sig_app.T)  
 df = ROOT.RDF.MakeNumpyDataFrame(vars_dict)
 df.Snapshot(treeName, outPath+outName+"_SIG_Test.root")

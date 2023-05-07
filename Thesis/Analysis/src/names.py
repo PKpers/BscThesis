@@ -1,13 +1,13 @@
 import ROOT
 
 inPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Data/"
-bkgName = "WPhiJets_M200M100300Deltas_Application_BKG_Test.root"
+bkgName = "WPhiJets_M60M5080Deltas_Application_BKG_Test.root"
 bkgFile = inPath + bkgName 
 
 
 outNames = [
-    "WPhiJets_M200M100300Deltas_Application_Smeared{}_BKG_Test.root".format(n)
-    for n in [30, 40]
+    "WPhiJets_M60M5080Deltas_Application_Smeared{}_BKG_Test.root".format(n)
+    for n in [5, 7, 10, 12]
 ]
 outFiles = [inPath + filename for filename in outNames]
 
