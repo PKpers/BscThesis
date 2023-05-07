@@ -2344,16 +2344,36 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">bibliography.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">gParticles</bcf:citekey>
-    <bcf:citekey order="2">Mehta_2019</bcf:citekey>
-    <bcf:citekey order="3">PatternClassification</bcf:citekey>
-    <bcf:citekey order="4">Chen_2016</bcf:citekey>
-    <bcf:citekey order="5">xgboost</bcf:citekey>
-    <bcf:citekey order="6">gParticles</bcf:citekey>
-    <bcf:citekey order="7">Mehta_2019</bcf:citekey>
-    <bcf:citekey order="8">PatternClassification</bcf:citekey>
-    <bcf:citekey order="9">Chen_2016</bcf:citekey>
-    <bcf:citekey order="10">xgboost</bcf:citekey>
+    <bcf:citekey order="1">thomson_2013</bcf:citekey>
+    <bcf:citekey order="2">gParticles</bcf:citekey>
+    <bcf:citekey order="3">thomson_2013</bcf:citekey>
+    <bcf:citekey order="4">MomentumCMS</bcf:citekey>
+    <bcf:citekey order="5">CMSDetectorOverview</bcf:citekey>
+    <bcf:citekey order="6">MomentumCMS</bcf:citekey>
+    <bcf:citekey order="7">AcceleratorsLecture</bcf:citekey>
+    <bcf:citekey order="8">Chatrchyan:1129810</bcf:citekey>
+    <bcf:citekey order="9">mac-2014</bcf:citekey>
+    <bcf:citekey order="10">Biino_2015</bcf:citekey>
+    <bcf:citekey order="11">HcalLecture</bcf:citekey>
+    <bcf:citekey order="12">CMSDetectingMuons</bcf:citekey>
+    <bcf:citekey order="13">Mehta_2019</bcf:citekey>
+    <bcf:citekey order="14">PatternClassification</bcf:citekey>
+    <bcf:citekey order="15">Chen_2016</bcf:citekey>
+    <bcf:citekey order="16">xgboost</bcf:citekey>
+    <bcf:citekey order="17">thomson_2013</bcf:citekey>
+    <bcf:citekey order="18">gParticles</bcf:citekey>
+    <bcf:citekey order="19">MomentumCMS</bcf:citekey>
+    <bcf:citekey order="20">CMSDetectorOverview</bcf:citekey>
+    <bcf:citekey order="21">AcceleratorsLecture</bcf:citekey>
+    <bcf:citekey order="22">Chatrchyan:1129810</bcf:citekey>
+    <bcf:citekey order="23">mac-2014</bcf:citekey>
+    <bcf:citekey order="24">Biino_2015</bcf:citekey>
+    <bcf:citekey order="25">HcalLecture</bcf:citekey>
+    <bcf:citekey order="26">CMSDetectingMuons</bcf:citekey>
+    <bcf:citekey order="27">Mehta_2019</bcf:citekey>
+    <bcf:citekey order="28">PatternClassification</bcf:citekey>
+    <bcf:citekey order="29">Chen_2016</bcf:citekey>
+    <bcf:citekey order="30">xgboost</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

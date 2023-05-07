@@ -9,7 +9,7 @@
 \contentsline {subsection}{\numberline {2.1}The Large Hadron Collider}{4}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}The Compact Muon Solenoid}{5}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}Overview}{5}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Coordinate convention at the CMS}{6}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2}Coordinate convention at the CMS}{5}{subsubsection.2.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.3}Position tracking and momentum measurements: Silicon Tracker}{6}{subsubsection.2.2.3}%
 \contentsline {subsubsection}{\numberline {2.2.4}Energy Measurements: Calorimeters}{7}{subsubsection.2.2.4}%
 \contentsline {subsubsection}{\numberline {2.2.5}Detecting Muons}{8}{subsubsection.2.2.5}%
