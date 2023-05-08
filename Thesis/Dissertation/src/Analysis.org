@@ -1,4 +1,4 @@
-* Data set and analysis methods
+* Search for heavy \(Y \rightarrow XX\) 
 \label{sec:Dataset_and_analysis_methods}
 ** The \(Y \rightarrow XX\)channel
 \label{sec:The_YtoXX_channel}
@@ -332,5 +332,138 @@ Smearing \%  & No. Sig. Events (fixed window) & No. Bkg.Events (fixed window) & 
 
 
 
+
+
+
+** Results
+So far, in sections \ref{sec:Analysis_method1} and \ref{sec:Analysis_method2}, we have studied how does a multivariate and a singlevariate calssifcation technique responds to energy scale uncertainties, in a signal from background sepparation task. In this chapter, we are going to summarize the results and provide commentary regarding each method, in terms of performance and robustness. Moreover will will draw a comparizon between the two methods.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[page=4,width=0.5\textwidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pdf}
+\caption{ Comparison of the perfomance of the BDT and Fit based analysis, in terms of sifnificance,  as a function of the smearing cases. We can see that BDT based analysis, is more robust.}
+\label{fig:BdtFitSig}
+\end{figure}
+
+Figure \ref{fig:BdtFitSig}, compares the significance yielded by each method, as a function of smearing. 
+Even though, at $0\%$ of smearing, the fit based method, yields a better significance than the BDT method, the bdt is more robust in general. To explain this, on must pay close attention to the feature space used for the training. The classifier learns not only the energy related Pts of the X particles, but also the geometrical features, $\Delta\phi\text{, }\Delta R\text{ and }\Delta\eta$. As discribed in section \ref{sec:Energy_scale_uncertainties}, smearing has an effect only on the Pt variables, while the spatial features remain invariant under such process. That is, the BDT model, learns to classify the signal, using features that do not change through out the smearing process, and is therefore able to deliver a better performance, when compared to the fit based analysis, which only makes use of the invariant mass, a feature that gets heavilly altered by uncertainties on the energy scale as figures \ref{fig:fits} and \ref{fig:extremeSmearings} indicate. 
+
+
+* Search for light \(Y \rightarrow XX \)
+** The light \(Y\rightarrow XX\) channel
+Similar to the previous study, this particular dataset used in this study is composed of a variety of pre-existing Monte Carlo (MC) samples, out of which only generator-level dileptonic final states were selected. The diobject invariant mass is in the range between 50 and 75 GeV, and no further kinematic constraints were placed. Finally, the features of the set are summarized in Table \ref{table:DataSetFeatures}, and the invariant mass spectrum of the current decay is illustrated in figure \ref{fig:LightMassSpectrum}. It should be noted that in the study of such a generic process, there is no clear argument regarding a specific signal-to-background number of events ratio. Thus, the number of background and signal events is selected in a somewhat arbitrary manner, with the only condition being the minimization of statistical fluctuations.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5 \textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/DYJets_M60M5080_MassHist.pdf}
+\caption{The $Y\rightarrow XX$ invariant mass spectrum}
+\label{fig:LightMassSpectrum}
+\end{figure}
+
+** Energy scale uncertainties
+The implementation of energy scale uncertainties in the present dataset is, once again, the same as in the heavy mass study presented in section \ref{sec:Energy_scale_uncertainties}, with the only difference being the percentage of smearing applied. For the particular invariant mass range, the available number of events is significantly lower, and therefore the effect of energy scale uncertainties on the mass is more significant. For that reason, we applied less smearing to the dataset, but nevertheless, we will study cases of mild and extreme smearing. Table \ref{table:LightSmearings} summarizes the cases that will be studied in the following sections.
+\begin{table}[h!]
+\centering
+\begin{tabular}{ |c|  }
+ \hline
+Percentage of smearing \\
+ \hline
+$0\%$\\
+$5\%$\\
+$7\%$\\
+$10\%$\\
+$12\%$\\
+\hline
+\end{tabular}
+\caption{Summary of the smearing cases that will be studied in the light mass search. }
+\label{table:LightSmearings}
+\end{table}
+** Analysis method I: Trining a BDT Classifier
+*** The Train/Test/Application data sets
+The number of training, testing, and application events is summarized in table \ref{table:LighTrainTestAppEvents}. Comparable to  section \ref{sec:Train_test_application_sets}, a part of the testing events was injected into the application set. However, due to a lack of extra signal, no additional events were used for the Training and Testing set.
+\begin{table}[h!]
+\centering
+\begin{tabular}{ |p{3cm}|p{3cm}|p{4cm}|  }
+ \hline
+Data Set & No.Signal Events & No. Background Events \\
+ \hline
+Training & 3638 & 3638 \\
+Testing & 3638 & 3638 \\
+Application & 3638 & 29077 \\
+ \hline
+\end{tabular}
+\caption{Sumarry of the Train Test Application number of events}
+\label{table:LightTrainTestAppEvents}
+\end{table}
+
+*** Training
+The feature space that results in the best model is still that of table \ref{table:TrainFeatures}. An illustration of the current features is shown in figure \ref{fig:LightFeatures}.
+\begin{figure}[h!]
+\centering
+\includegraphics[page=1,width=0.6\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M60M5080DeltasVarsPlots.pdf}
+\includegraphics[page=2,width=0.6\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M60M5080DeltasVarsPlots.pdf}
+\caption{Sumarry of the features used for training }
+\label{fig:LightFeatures}
+\end{figure}
+
+Figure \ref{subfig:LightBdtPlot} illustrates the BDT score of the trained model on the training and testing sets, while the corresponding ROC curves are shown in figure \ref{subfig:LightROCCurves}. The model's performance is assessed using the ROC curve and the AUC score. To evaluate overfitting, the ratio of the number of training events to the number of testing events at a particular BDT score is examined. Looking at figure \ref{subfig:LightBdtPlot}, the ratio of testing and training events fluctuates around one, indicating that the model is not severely overfit. Moreover, the AUC score that this model yields on the training events is 0.90, significantly lower than that of the model that was trained for the classification of the heavy mass dataset.
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.49\textwidth}
+\centering
+\includegraphics[page=5, width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M60M5080DeltasPConf13BDTplot.pdf}
+\caption{}
+\label{subfig:LightBdtPlot}
+\end{subfigure}
+\begin{subfigure}{0.49\textwidth}
+\centering
+\includegraphics[page=3, width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M60M5080DeltasPConf12BDTplot.pdf}
+\caption{}
+\label{subfig:LightROCCurves}
+\end{subfigure}
+\caption{A: The BDT score of the Testing and Training sets. B: The roc curves for the training and testing sets}
+\label{fig:BDTplot}
+\end{figure}
+
+*** Application
+The model's classification performance can be assessed by looking at figure \ref{fig:LightROCSIG}, which illustrates the ROC curves and the corresponding significances as a function of the BDT score, for the smearing cases of table \ref{table:LightSmearings}. It is evident that the model is not outstandingly affected by smearing, and thus, there is no point in selecting any other than the BDT score that yields the best significance. That is, placing the cut at BDT score = 0.98. The significance as a function of smearing, for the given cut can be seen in figure \ref{fig:LightSigEvolBDT}. Table \ref{table:LightNumSIGBKG} summarizes the amount of signal and background events present, for the selected cut.
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.49\textwidth}
+\centering
+\includegraphics[page=1,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M60M5080_ROCs.pdf}
+\caption{}
+\end{subfigure}
+\begin{subfigure}{0.49\textwidth}
+\centering
+\includegraphics[page=1,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M60M5080_Significance.pdf}
+\caption{}
+\end{subfigure}
+\caption{a: Summary of the ROC curves for the performance of the model on the data for each smearing case. b: Significances calculated across the BDT score range for the smearing cases of Table \ref{table:LightSmearings}. It is rather obvious that the perfomance of the classifier is the same for all the cases of smearing. }
+\label{fig:LightROCSIG}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[page=2,width=0.5\textwidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M60M5080_Significance.pdf}
+\caption{Evolution of significance for the smearing cases of table \ref{table:Smearings}. }
+\label{fig:LightSigEvolBDT}
+\end{figure}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|p{2cm}|p{3cm}|p{3cm}|}
+ \hline
+Smearing \%  & No. Sig. Events at BDT cut = 0.96 & No. Bkg.Events at BDT cut = 0.96 \\
+\hline
+0 & 1252 & 371 \\
+5 & 912 & 371 \\
+7 & 1235 & 371 \\
+10 & 1246 & 371 \\
+12 & 1243 & 371 \\
+ \hline
+\end{tabular}
+\caption{Signal and background events at BDT cut 0.96 for different smearing percentages.}
+\label{table:LightNumSIGBKG}
+\end{table}
 
 
