@@ -79,7 +79,7 @@ outHistName = outName+"_Hist.pdf"
 outHistFile = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/" + outHistName
 c = ROOT.TCanvas()
 c.cd()
-c.SaveAs(outHistFile+'[')
+#c.SaveAs(outHistFile+'[')
 
 label=("Test  Signal", "Train Signal", "Test Background", "Train Background")
 for i, data in enumerate(SIG_BKG_TRAIN_TEST):
@@ -90,7 +90,7 @@ for i, data in enumerate(SIG_BKG_TRAIN_TEST):
     vars_dict = define_columns(6, varNames, events)
     
     df = ROOT.RDF.MakeNumpyDataFrame(vars_dict)
-    df.Snapshot(treeName, Files[i])
+    #df.Snapshot(treeName, Files[i])
     
     #plot the mass histogram 
     hist=df.Histo1D(("hist", "; m_{\mu\mu} [GeV]", 50, 50, 75), "PairMass")
@@ -102,11 +102,11 @@ for i, data in enumerate(SIG_BKG_TRAIN_TEST):
     
     header = r'\phi \rightarrow \mu\mu'+str(" ")+str(label[i])
     add_Header(header)
-    c.SaveAs(outHistFile)
+    #c.SaveAs(outHistFile)
 
 
 #
-c.SaveAs(outHistFile+"]")
+#c.SaveAs(outHistFile+"]")
 
 ## Write the application set to root files
 outPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Data/"
@@ -117,12 +117,12 @@ treeName = 'tree'
 bkg_app = np.vstack([bkg_app, SIG_BKG_TRAIN_TEST[-1]]).astype(np.float32)
 vars_dict = define_columns(6, varNames, bkg_app.T)  
 df = ROOT.RDF.MakeNumpyDataFrame(vars_dict)
-df.Snapshot(treeName, outPath+outName+"_BKG_Test.root")
+#df.Snapshot(treeName, outPath+outName+"_BKG_Test.root")
 print("application bkg evens: ", df.Count().GetValue())
 
 # Write the app sig using testing sig as well
 #sig_app = np.vstack([sig_app, SIG_BKG_TRAIN_TEST[1]]).astype(np.float32)
 vars_dict = define_columns(6, varNames, sig_app.T)  
 df = ROOT.RDF.MakeNumpyDataFrame(vars_dict)
-df.Snapshot(treeName, outPath+outName+"_SIG_Test.root")
+#df.Snapshot(treeName, outPath+outName+"_SIG_Test.root")
 print("application sig evens: ", df.Count().GetValue())
