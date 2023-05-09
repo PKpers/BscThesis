@@ -19,7 +19,7 @@ def aliases(df, original_vars, alias_vars):
 
 
 ## Load Data 
-p = 12 # smearing %
+p = 0 # smearing %
 inPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Data/"
 
 sigNameSmeared = "WPhiJets_M60M5080Deltas_Application_Smeared"+str(p)+"_SIG_Test.root"
@@ -36,17 +36,17 @@ outPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/"
 outNameSmeared = "WPhiJets_M60M5080_Application_Smeared"+str(p)+"_MassSpectrum.pdf"
 outNameOriginal = "WPhiJets_M60M5080_Application_MassSpectrum.pdf"
 outName = outNameOriginal if p==0 else outNameSmeared
-outFile = outPath + outName
-
+#outFile = outPath + outName
+outFile = outPath + "WPhiJets_M60M5080_Application_bkgonly_Fit.pdf"
 ## Make the plot 
 c = ROOT.TCanvas()
 ROOT.gPad.SetLeftMargin(0.15)
-ROOT.TGaxis.SetMaxDigits(2)
+#ROOT.TGaxis.SetMaxDigits(2)
 c.SetCanvasSize(800, 800)
 c.cd()
 c.SaveAs(outFile+'[')
-df_data = ROOT.RDataFrame("tree", {sigFile, bkgFile} )
-#df_data = ROOT.RDataFrame("tree", bkgFile)
+#df_data = ROOT.RDataFrame("tree", {sigFile, bkgFile} )
+df_data = ROOT.RDataFrame("tree", bkgFile)
 
 c.SetLogy(0)
 df_data = df_data.Histo1D(("df_data", " ; m_{XX} (GeV)", 50, 50, 75), "PairMass")
@@ -55,7 +55,8 @@ size = 0.045
 set_axes_title(df_data, " m_{XX} (GeV)", "Counts / Bin")
 df_data.GetXaxis().SetRangeUser(50, 75)
 #df_data.GetXaxis().SetRangeUser(120, 300)
-#df_data.GetYaxis().SetRangeUser(0.5, 1000)
+df_data.GetYaxis().SetRangeUser(280, 1000)
+#df_data.GetYaxis().SetMaxDigits(3)
 df_data.GetYaxis().SetLabelSize(size)
 df_data.GetYaxis().SetTitleSize(size)
 df_data.GetXaxis().SetLabelSize(size)
@@ -69,29 +70,24 @@ df_data.SetMarkerSize(1)
 df_data.SetLineWidth(3)
 df_data.Draw('EP')
 
-'''
-xmin = 120
-xmax = 300
+xmin = 50
+xmax = 75
 fb = ROOT.TF1( 'fb',
-                '[0] + [1]/x^( 0.5 ) + [2]/x + [3]/x^1.5',  xmin, xmax)
+               '[0] + [1]*x + [2]*x^2 + [3]*x^3' ,  xmin, xmax)
 
-b0 =  -4.46769e+03
-b1 = 2.09374e+05
-b2 = -3.27745e+06
-b3 = 1.71866e+07
-fb.SetParameter(0, b0)
-fb.SetParameter(1, b1)
-fb.SetParameter(2, b2)
-fb.SetParameter(3, b3)
-fb.SetLineColor(2)
-fb.SetLineStyle(2)
-fb.SetLineWidth(4)
-fb.Draw('same')
-'''
+b0 = -9.07641e+03
+b1 = 5.16090e+02 
+b2 = -9.28067e+00
+b3 = 5.56782e-02
+fb.FixParameter(0, b0)
+fb.FixParameter(1, b1)
+fb.FixParameter(2, b2)
+fb.FixParameter(3, b3)
+fb.Draw('Same')
 
-legend = ROOT.TLegend(0.60, 0.6, 0.7, 0.75)
+legend = ROOT.TLegend(0.50, 0.6, 0.60, 0.75)
 legend.AddEntry(df_data.GetValue(), "Data")
-#legend.AddEntry(fb, "Backgound", "l")
+legend.AddEntry(fb, "Backgound", "l")
 legend.SetFillColor(0)
 legend.SetBorderSize(0)
 legend.SetTextSize(size)
@@ -100,7 +96,7 @@ legend.Draw('same')
 header = r'Y(60) \rightarrow XX'
 legLabel = ROOT.TLatex()
 legLabel.SetTextSize(size)
-legLabel.DrawLatexNDC(0.60, 0.75, header)
+legLabel.DrawLatexNDC(0.50, 0.75, header)
 
 c.SaveAs(outFile)
 c.SaveAs(outFile + ']')
