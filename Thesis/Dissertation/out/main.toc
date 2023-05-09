@@ -39,8 +39,14 @@
 \contentsline {section}{\numberline {5}Search for light \(Y \rightarrow XX\)}{15}{section.5}%
 \contentsline {subsection}{\numberline {5.1}The light \(Y\rightarrow XX\) channel}{15}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Energy scale uncertainties}{15}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Analysis method I: Trining a BDT Classifier}{16}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.3}Analysis method I: Training a BDT Classifier}{16}{subsection.5.3}%
 \contentsline {subsubsection}{\numberline {5.3.1}The Train/Test/Application data sets}{16}{subsubsection.5.3.1}%
 \contentsline {subsubsection}{\numberline {5.3.2}Training}{16}{subsubsection.5.3.2}%
 \contentsline {subsubsection}{\numberline {5.3.3}Application}{16}{subsubsection.5.3.3}%
-\contentsline {section}{\numberline {6}Results}{16}{section.6}%
+\contentsline {subsection}{\numberline {5.4}Analysis Method II: Fit based analysis}{16}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Invariant mass reconstruction}{16}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}Background Fitting}{17}{subsubsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.3}Signal Fitting}{17}{subsubsection.5.4.3}%
+\contentsline {subsubsection}{\numberline {5.4.4}Signal from background separation}{17}{subsubsection.5.4.4}%
+\contentsline {subsection}{\numberline {5.5}Results}{17}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Conclusions}{18}{section.6}%
