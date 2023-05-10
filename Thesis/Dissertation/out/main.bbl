@@ -15628,6 +15628,23 @@
       \verb https://doi.org/10.1145%2F2939672.2939785
       \endverb
     \endentry
+    \entry{CMSDetecorOverview}{online}{}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labeltitlesource}{title}
+      \field{title}{CMS Detector Design | CMS Experiment. (n.d.).}
+      \field{urlday}{15}
+      \field{urlmonth}{4}
+      \field{urlyear}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://cms.cern/news/cms-detector-design
+      \endverb
+      \verb{url}
+      \verb https://cms.cern/news/cms-detector-design
+      \endverb
+      \keyw{CMS Detector}
+    \endentry
     \entry{CMSDetectingMuons}{online}{}
       \field{sortinit}{D}
       \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
@@ -15917,7 +15934,6 @@
       \field{year}{2010}
     \endentry
   \enddatalist
-  \missing{CMSDetectorOverview}
 \endrefsection
 \endinput
 

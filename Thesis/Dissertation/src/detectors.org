@@ -18,8 +18,8 @@ Within the accelerator, a strong magnetic field is accelerating the two counterr
 ** The Compact Muon Solenoid
 The main goal of  the Compact Muon Solenoid (CMS), as a general purpose particle detector, is to  to reconstruct the Feynman diagram associated with any interaction that might happen inside the LHC. The first and foremost interactions that happen are the collisions between the beams, which generate individual interactions known as /events/. Even though most of the particles associated with an event are unstable, their final decay products, are stable enough to reach the detector and be measured. In the rest of the chapter I will give a brief overview of the CMS detector and discus how does it detect particles.
 *** Overview
-The CMS detector consists of 5 compartments, each with unique functionality, that are organised in several coaxial layers. The Silicon Tracker, located in the innermost part of CMS, includes silicon pixel vertex detectors and silicon strip detectors, which trace the position and momentum of charged particles. The Electromagnetic Calorimeter (ECAL), the second layer, is composed of PbWO4 crystals and intended to detect photons and electrons. The Hadronic Calorimeter (HCAL), the third layer, is designed to identify hadrons. The Superconducting Solenoid Magnet, the fourth layer, is an solenoid coil that generates a constant magnetic field of 4 T along the direction of the  beam. Due to the deflection of the trajectories of charged particles by the magnet, it becomes possible to measure their momentum. The final, outer most layer, is responsible for the measurement of muon the tracks. Figure \ref{fig:CMS_detector}\cite{CMSDetectorOverview} provides a sectional view of the CMS detector.
-\begin{figure}[hb]
+The CMS detector consists of 5 compartments, each with unique functionality, that are organised in several coaxial layers. The Silicon Tracker, located in the innermost part of CMS, includes silicon pixel vertex detectors and silicon strip detectors, which trace the position and momentum of charged particles. The Electromagnetic Calorimeter (ECAL), the second layer, is composed of PbWO4 crystals and intended to detect photons and electrons. The Hadronic Calorimeter (HCAL), the third layer, is designed to identify hadrons. The Superconducting Solenoid Magnet, the fourth layer, is an solenoid coil that generates a constant magnetic field of 4 T along the direction of the  beam. Due to the deflection of the trajectories of charged particles by the magnet, it becomes possible to measure their momentum. The final, outer most layer, is responsible for the measurement of muon the tracks. Figure \ref{fig:CMS_detector}\cite{CMSDetecorOverview} provides a sectional view of the CMS detector.
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.8 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_detector.jpg}
 \caption{A cross-sectional perspective of the CMS detector}
@@ -33,7 +33,7 @@ Given the solenoid geometry of the CMS detector, it is more convenient to use a 
 \end{equation}
 Where \(|\vec{P}| = \sqrt{P_{x}^{2} + P_{y}^{2} + P_{z}^{2}}\). The CMS detector, measures the transverse energy\cite{MomentumCMS} of particles, and thus it is useful to work with the transverse momentum \(P_{T}\). The azimuth angle  \(\phi \in \left[0, 2\pi\right) \) coordinate is the angle between \(P_{t}\) and x axis and the polar angle  \(\theta \in \left[0, \pi   \right]\) is the angle between the momentum vector and the z axis.
 
-\begin{figure}[ht]
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.7 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_coords.jpg}
 \caption{CMS coordinates}
@@ -59,7 +59,7 @@ p_{z} = P_{T}\sinh{\eta}\\
 *** Position tracking and momentum measurements: Silicon Tracker
 The Silicon tracker measures the positions of charged particles at a number of points, thus it is able to record their trajectory. Given the radius of curvature of the particle's track(due to the 4T magnetic field of the super conducting solenoid), the tracker provides sufficient information, to reconstruct the momentum of the particle. More over, the geometrical location of the trajectory gives direct information regarding the position of the particle. Therefore, the silicon tracker measurements  provide  information regarding the \(P_{T}\text{, } \eta\text{ and }\phi\) of the particles that it detects.
 
-\begin{figure}[ht]
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.9 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_tracker.jpg }
 \caption{Schemtic illustration of a crossection of the CMS Tracker }
@@ -78,7 +78,7 @@ Apart from measuring position and momentum, determining the energy of particles 
 
 Figure \ref{fig:cms_ecal}\cite{mac-2014}, provides a view of the Electromagnetic calorimeters inside the CMS. The ECAL is composed of lead tungstate (PbWO4) crystals and is designed with a central barrel section (EB) and two endcaps (EE) that cover a range of pseudorapidities up to \(1.48\leq|\eta| \leq 3.0\)\cite{Biino_2015}. The crystals are highly dense and scintillate when high-energy photons or electrons interact with them. When a particle passes through the ECAL, it deposits its energy in the form of electromagnetic showers, which cause the crystals to emit light. The emitted light is then captured and amplified in order to estimate the energy of the incoming particle. The high-density crystals of the ECAL make it possible to accurately measure the energy of photons and electrons with high precision and resolution. 
 
-\begin{figure}[ht]
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.9 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_ecal.jpg }
 \caption{Schemtic illustration of the Ecal parts inside CMS }
@@ -95,7 +95,7 @@ In the outer regions of the CMS detectors, are located the muon chambers. They a
 
  The muon chambers consist of 250 drift tubes (DTs) and 540 cathode strip chambers (CSCs), which track the positions of the particles. Additionally, there are 610 resistive plate chambers (RPCs) and 72 gas electron multiplier chambers (GEMs), making a total of 1400 chamber units . The use of multiple layers of detectors and different types of chambers makes the system robust and able to filter out background noise.
  
-\begin{figure}[ht]
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.9 \textwidth, ext=.png type=png]{/home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_MuonChambers.png }
 \caption{A quarter sectional view of the CMS muon chambers. The beamline is perpendicular to the plane of the page}
