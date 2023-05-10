@@ -46,8 +46,9 @@ def make_variable_names(signal_filename, background_filename):
 
 def make_bar_graph(variables, feat_imp):
     plt.bar(variables, feat_imp)
-    plt.ylabel('Featrue importance')
-    plt.savefig("/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/feature_importance.pdf")
+    plt.ylabel('Featrue importance', fontsize = 15)
+    plt.tick_params(labelsize='large', width=3)
+    plt.savefig("/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/feature_importance_hm.pdf")
     return
 
 def load_data(signal_filename, background_filename):
@@ -138,9 +139,9 @@ if __name__ == "__main__":
     modelFile = outpath +"myModel{}_conf{}.root".format(dataset, modelname)
     #
     print('Training, done')
-    print('Saving model at {}'.format(modelFile))
+    #print('Saving model at {}'.format(modelFile))
     #
-    ROOT.TMVA.Experimental.SaveXGBoost(bdt,"myBDT", modelFile ,  num_inputs=num_all)
-    print('done')
+    #ROOT.TMVA.Experimental.SaveXGBoost(bdt,"myBDT", modelFile ,  num_inputs=num_all)
+    #print('done')
     
     
