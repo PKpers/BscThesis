@@ -1,0 +1,3 @@
+This work presents a study of the interplay between multivariate and single variate classification techniques, and energy scale uncertainties in the search for heavy and light diobject resonances at the LHC. The performance of a Boosted Decision Tree (BDT) model and a fit-based analysis is explored under various cases of energy scale uncertainties.
+
+The study concludes that a multivariate classification method, like the BDT model, is better suited when systematic uncertainties are introduced to the problem, as univariate classification techniques can be challenging in such cases.

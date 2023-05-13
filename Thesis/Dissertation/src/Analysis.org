@@ -393,7 +393,7 @@ Application & 3638 & 29077 \\
 \end{table}
 
 *** Training
-\label{sec:Light:Training}
+\label{sec:LightTraining}
 The feature space that results in the best model is still that of table \ref{table:TrainFeatures}. An illustration of the current features is shown in figure \ref{fig:LightFeatures}.
 \begin{figure}[h]
 \centering
@@ -568,8 +568,7 @@ On the other hand, the performance of the fit model is similar to that of the he
 \label{fig:LightFeatureImportance}
 \end{figure}
 
-
-\begin{figure}[hp]
+\begin{figure}[htbp]
 \centering
 \begin{subfigure}{0.45\textwidth}
 \centering
@@ -601,3 +600,4 @@ On the other hand, the performance of the fit model is similar to that of the he
 \caption{Fits for the following smearing cases a: $0\%$, b: $5\%$, c: $7\%$, d: $10\%$, e: $12\%$}
 \label{fig:Lightfits}
 \end{figure}
+
