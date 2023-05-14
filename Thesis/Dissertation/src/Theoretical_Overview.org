@@ -1,12 +1,7 @@
 #+STARTUP: latexpreview
-#+TITLE:     Name of the thesis
-#+DATE:      
-#+LANGUAGE:  en
-#+OPTIONS:   H:3 num:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t ^:nil _:nil
-#+OPTIONS:   H:3 num:3
 #+STARTUP:   showall
 #+STARTUP:   align
-#+latex_class: article
+#+latex_class: book-noparts
 
 * Theoritical Overview
 ** Units in particle physics

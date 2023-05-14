@@ -1,19 +1,19 @@
-\section{Multi variate and single variate classification techniques}
+\chapter{Multi variate and single variate classification techniques}
 \label{sec:org6d2a2d0}
-\subsection{Multivariate techniqies: Decision trees and Supervised Learning}
+\section{Multivariate techniqies: Decision trees and Supervised Learning}
 \label{sec:orgbbc6149}
 The distinction between different particles, can be regarded as a classification problem where the target, is the prediction of a categorical output variable(i.e. lepton, boson), based on one or more input variables(i.e momenta components). Classification problems in  machine learning can be solved with supervised learning. In such procedure, a training data set is being used for the development(training) of a model that is able to perform the classification task. The output of the model is then beeing tested and evaluated on previously unseen data.
 
 Before presenting any specific method of solving classification problems It is important to present an overview of the key elements in supervised learning.
 
-\subsubsection{Supervised learning}
+\subsection{Supervised learning}
 \label{sec:org0051e97}
 Let us pose the following problem:
 Given a data set \(D= (\vec{X}, \vec{y})\), where \(\vec{X}\) is a matrix of the independet variables and \(\vec{y}\) is a vector of dependent variables, we want to find a model \(f(\vec{x} ; \vec{\theta})\),  that can predict an output from a set of input variables. Moreover, we  want to be able to judge the performance of the model on a given data set. To do that we need to define a cost function \(C(\vec{y}, f(\vec{X}; \vec{\theta}))\), such that the model will have to find the parameters \(\theta\) that minimize the cost function.\cite{Mehta_2019}
 
 This the mathimatical pustulation of a supervised learning problem. I will now, in brief, discuss the role and interpretation of each of the 'ingredients' stated above.
 
-\begin{itemize}
+\begin{enumerate}
 \item Model
 \label{sec:org9267753}
 
@@ -47,9 +47,9 @@ The following figure gives an example of overfitting due to a very complex and v
 \caption{Examples of over fitting and under fitting. The top right model, places too many cuts. Even though it succesfully describes the trend, the splits seem to correspond only on the specific data set, therefore it is overfitted. The bottom left model places too few and impresice cuts. The bottom right model seems to succesfully describe the trend while its simplicity infers that It has not sacrificed its generalization power. }
 \label{fig:ovft}
 \end{figure}
-\end{itemize}
+\end{enumerate}
 
-\subsubsection{Decision Trees}
+\subsection{Decision Trees}
 \label{sec:org266e57e}
 A decision tree is a flowchart-like tree structure, where each internal node represents a feature(or attribute), the branch represents a decision rule, and each leaf node represents the outcome.
 
@@ -67,7 +67,7 @@ where each condition is a tuple of the form (feature, threshold, comparison oper
 \caption{Example of a a decision tree that clasifies fruits}
 \label{fig:decision_tree}
 \end{figure}
-\begin{itemize}
+\begin{enumerate}
 \item Decision Tree Ensembles
 \label{sec:orga38fe01}
 
@@ -120,15 +120,15 @@ h_{i} = \partial^{2}_{\hat{y}_{i}^{(t-1) }} l(y_{i}, \hat{y}_{i}^{(t-1)} ) \\
 \end{equation}
 
 This is the minimization goal for \(f_{t}\) . \cite{xgboost}
-\end{itemize}
+\end{enumerate}
 
 
 
 
-\subsubsection{Signal from background separation using BDT}
+\subsection{Signal from background separation using BDT}
 \label{sec:orga5ba63e}
 When the trained BDT model is applied to a given dataset, it returns the probability (BDT score) for an event to be signal or background. If the returned probability of an event is less than \(50\%\), then the event in question is more "background-like." The predicted results can then be visualized as a histogram, allowing us to determine the number of signal and background events for each BDT score. This information can be used to define a value of the BDT score to place a "cut" and keep all the signal and background events from that value onwards.
-\subsection{Signlevariate Techniques: Fit based classification}
+\section{Signlevariate Techniques: Fit based classification}
 \label{sec:org96f471c}
 A fit-based analysis can be considered as single-feature classification where, signal events  are  separated from  background events, by fitting the mass histogram (mass spectrum) of the two components. 
 
@@ -147,7 +147,7 @@ B &= \int_{I} bkg(x) dx\\
 S &= O - B
 \end{align}
 
-\subsection{Statistical interpretation of the results}
+\section{Statistical interpretation of the results}
 \label{sec:org1cfc88b}
 Usually, once the signal is separated from the background, a specific region is defined (either a BDT score range in case of a BDT-based analysis or a mass range in case of a fit-based analysis), and only the signal and background events falling within the defined region are selected. The question that arises is whether the selected signal is simply a statistical fluctuation of the background or not. In other words, how statistically significant is the signal? Because measurements at CMS are Poissonian in nature, the measured signal is compared to the Poissonian deviation of the background. Therefore, the significance we are interested in is defined as follows:
 \begin{equation}

@@ -1,9 +1,26 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage{subfiles}
+% My Bachelor's thesis
+
+\documentclass[
+11pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+%parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+%consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+]{MastersDoctoralThesis} % The class file specifying the document structure
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
 \usepackage{algorithm}
 \usepackage{minted}
 \usepackage{xcolor}
-\usepackage[utf8]{inputenc}
 \usepackage{gentium}
 \usepackage{graphicx}
 \usepackage{pdfpages}
@@ -21,59 +38,155 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\usepackage[greek, english]{babel}
-\usepackage{multicol}
-\usepackage[framemethod=tikz]{mdframed}
-\usepackage[compact]{titlesec}
 \usepackage{float}
-\usepackage{geometry} % Required for adjusting page dimensions and margins
+%\usepackage[compact]{titlesec}
+%\usepackage{mathpazo} % Use the Palatino font by default
+\usepackage[backend=biber]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+
+\addbibresource{bibliography.bib} % The filename of the bibliography
+
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
 \geometry{
-	paper=a4paper, % Paper size, change to letterpaper for US letter size
-	top=2.5cm, % Top margin
-	bottom=3cm, % Bottom margin
-	left=2.5cm, % Left margin
-	right=2.5cm, % Right margin
-	headheight=14pt, % Header height
-	footskip=1.5cm, % Space from the bottom margin to the baseline of the footer
-	headsep=1.2cm, % Space from the top margin to the baseline of the header
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=2.5cm, % Inner margin
+	outer=3.8cm, % Outer margin
+	bindingoffset=.5cm, % Binding offset
+	top=1.5cm, % Top margin
+	bottom=1.5cm, % Bottom margin
 	%showframe, % Uncomment to show how the type block is set on the page
 }
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{graphicx}
-\usepackage{longtable}
-\usepackage{wrapfig}
-\usepackage{rotating}
-\usepackage[normalem]{ulem}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{capt-of}
-\usepackage{hyperref}
-\usepackage{biblatex}
-\addbibresource{bibliography.bib}
-\setcounter{secnumdepth}{3}
-\author{Konstantinos Papadimos}
-\date{}
-\title{Machine Learning techniques in the searches for resonant signatures at the LHC}
-\hypersetup{
- pdfauthor={Konstantinos Papadimos},
- pdftitle={Machine Learning techniques in the searches for resonant signatures at the LHC},
- pdfkeywords={},
- pdfsubject={},
- pdfcreator={Emacs 28.2 (Org mode 9.5.5)}, 
- pdflang={English}}
 
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
 
+\thesistitle{Machine Learning techniques in the searches for resonant signatures at the LHC} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\supervisor{Dr. Halil Saka} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+%\examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\degree{Physics} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\author{Konstantinos Papadimos} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+
+\subject{Particle Physics} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+\keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{University of Cyprus} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\department{Department of Physics} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+%\group{\href{http://researchgroup.university.com}{Research Group Name}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\faculty{Faculty of Pure and Applyed Sciences} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+}
 
 \begin{document}
-\maketitle
-\subfile{Abstract.tex}
-\tableofcontents
-\subfile{Theoretical_Overview.tex}
-\subfile{detectors.tex}
-\subfile{boosted_trees.tex}
-\subfile{Analysis.tex}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+
+\vspace*{.06\textheight}
+{\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
+\textsc{\Large Bachelor Thesis}\\[0.5cm] % Thesis type
+
+\HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
+\HRule \\[1.5cm] % Horizontal line
+ 
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+\href{http://www.johnsmith.com}{\authorname} % Author name - remove the \href bracket to remove the link
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+\emph{Supervisor:} \\
+\href{http://www.jamessmith.com}{\supname} % Supervisor name - remove the \href bracket to remove the link  
+\end{flushright}
+\end{minipage}\\[3cm]
+ 
+\vfill
+
+\large \textit{A thesis submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
+\textit{in the}\\[0.4cm]
+\facname\\\deptname\\[2cm] % Research group name and department name
+ 
+\vfill
+
+{\large \today}\\[4cm] % Date
+%\includegraphics{Logo} % University/department logo - uncomment to place it
+ 
+\vfill
+\end{center}
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+This work presents a study of the interplay between multivariate and single variate classification techniques, and energy scale uncertainties in the search for heavy and light diobject resonances at the LHC. The performance of a Boosted Decision Tree (BDT) model and a fit-based analysis is explored under various cases of energy scale uncertainties.
+
+The study concludes that a multivariate classification method, like the BDT model, is better suited when systematic uncertainties are introduced to the problem, as univariate classification techniques can be challenging in such cases.\ldots
+\end{abstract}
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Prints the main table of contents
+
+%\listoffigures % Prints the list of figures
+
+%\listoftables % Prints the list of tables
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+\include{Theoretical_Overview}
+\include{detectors}
+\include{boosted_trees}
+\include{Analysis}
 \clearpage
-\subfile{Conclusions.tex}
-\printbibliography
-\end{document}
+\include{Conclusions}
+
+%\include{Chapters/Chapter1}
+%\include{Chapters/Chapter2} 
+%\include{Chapters/Chapter3}
+%\include{Chapters/Chapter4} 
+%\include{Chapters/Chapter5} 
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\printbibliography[heading=bibintoc]
+
+%----------------------------------------------------------------------------------------
+
+\end{document}  
+
+
+
+

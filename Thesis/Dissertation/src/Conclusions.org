@@ -1,3 +1,4 @@
+#+latex_class: book-noparts
 * Conclusion
 In this work, we present a study of the interplay between multivariate and single variate classification techniques, and energy scale uncertainties in the search for both heavy and light diobject resonances at the LHC. Moreover, we consider a plethora of cases of uncertainties in the energy scale, in the analysis of the performance of a BDT model, and a fit-based analysis.
 

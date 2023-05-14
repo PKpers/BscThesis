@@ -1,7 +1,7 @@
-\section{Search for heavy \(Y \rightarrow XX\)}
+\chapter{Search for heavy \(Y \rightarrow XX\)}
 \label{sec:org96b6be0}
 \label{sec:Search_Y_to_XX}
-\subsection{The \(Y \rightarrow XX\)channel}
+\section{The \(Y \rightarrow XX\)channel}
 \label{sec:org0fd1492}
 \label{sec:The_YtoXX_channel}
 The \(Y \rightarrow XX\) dataset is composed of simulated events that represent the generic process of a resonance Y decaying into an XX pair, in the mass range between 100 and 300 GeV. The background consists of 50,839 events, while the signal comprises 5,946 events. The particular set is made up of miscellaneous pre-existing Monte Carlo (MC) samples, and the selected events contain only leptonic final states (one lepton and one antilepton of the same flavor). For the purpose of this study, only generator-level events were used, and given that we are not interested in any particular process, but rather in the most general case, no kinematic constraints were placed in the event selection. It should be noted that despite the fact that the parent MC samples contain lepton pairs in the final states, the resulting set can represent any diobject production in the selected mass range. The following table summarizes the features of the dataset in question:
@@ -38,12 +38,12 @@ The mass spectrum for the \(Y \rightarrow XX\) decay, can be seen in figure \ref
 \label{fig:diX}
 \end{figure}
 
-\subsection{Energy scale uncertainties}
-\label{sec:org337fc49}
+\section{Energy scale uncertainties}
+\label{sec:org37b0e2d}
 \label{sec:Energy_scale_uncertainties}
-Energy scale uncertainties have an effect on the transverse momenta \(P_t\) of the produced \(XX\) pair. Such uncertainties are modeled as random noise (Gaussian smearing) to the signal component. To smear the data by \(x\%\), we iterate over every signal event and multiply the transverse momenta by numbers sampled from a Gaussian distribution of \(\mu = 1\) and \(\sigma = x/100\), where \(x\) is the percentage of smearing (each \(P_t\) is multiplied by a different number).
+Energy scale uncertainties have an effect on the transverse momenta \(P_t\) of the produced \(XX\) pair. Such uncertainties are modeled as random noise (Gaussian smearing) to the signal component. To smear the data by \(x\%\), we iterate over every signal event and multiply the transverse momenta by numbers sampled from a Gaussian distribution of \(\mu = 1\) and \(\sigma = x/100\)(each \(P_t\) is multiplied by a different number).
 
-In the present study, we compare the performance of a Boosted Decision Tree (BDT)-based analysis and a fit-based analysis on a given dataset, for various cases of smearing (various values of \(\sigma\)). Table \ref{table:Smearings} summarizes the smearing percentages used for this analysis. The values are chosen such that we examine both cases of mild noise (\(0-5\%\)) up to extreme noise (\(50\%\)). Nevertheless, it should be noted that what is considered as an extreme case or a mild case of smearing is not defined in an absolute manner but rather is related to the mass range of the data upon which the blur is applied.
+In the present study, we compare the performance of a BDT-based analysis and a fit-based analysis on a given dataset, for various cases of smearing (various values of \(\sigma\)). Table \ref{table:Smearings} summarizes the smearing percentages used for this analysis. The values are chosen such that we examine both cases of mild noise (\(0-5\%\)) up to extreme noise (\(50\%\)). Nevertheless, it should be noted that what is considered as an extreme case or a mild case of smearing is not defined in an absolute manner but rather is related to the mass range of the data upon which the blur is applied.
 
 \begin{table}[h!]
 \centering
@@ -65,11 +65,11 @@ $50\%$\\
 \label{table:Smearings}
 \end{table}
 
-\subsection{Analysis Method I: Training a BDT Classifier}
+\section{Analysis Method I: Training a BDT Classifier}
 \label{sec:org2ab78e2}
 \label{sec:Analysis_method1}
-\subsubsection{The Train/Test/Application data sets}
-\label{sec:orga9b0c3a}
+\subsection{The Train/Test/Application data sets}
+\label{sec:orgdba9d84}
 \label{sec:Train_test_application_sets}
 For the BDT training (and due to the lack of an infinite number of events), the original dataset had to be split into three parts. The training set is used to train the classifier. As the reader may have noticed, the signal events in the original dataset are much less than the background events. This class imbalance makes the training of the model much harder, and for that reason, the training set has been enriched with more (unseen) signal events, so that the two classes have the same number of events. The testing set is used to evaluate the training. For that purpose, the two signal and background classes also have the same number of events. Finally, the application set is used for the analysis. Through trial and error, we noticed that working with smaller statistics enhances the magnitude of statistical fluctuations in the analysis. To avoid such confusion, the application set contains a part of the testing set to ensure large statistics. This doesn't interfere with the training, since the BDT has never seen the testing events during training. Finally, it should be mentioned that in order to have an "apples-to-apples" comparison between the BDT-based analysis and the Fit-based analysis, the application set will be analyzed in both cases. For that reason, the smearing cases that will be discussed for the rest of this chapter will concern only the application set.
 
@@ -89,8 +89,8 @@ Application & 2973 & 20827 \\
 \caption{Sumarry of the Train Test Application number of events}
 \label{table:TrainTestApp}
 \end{table}
-\subsubsection{Training}
-\label{sec:org66689a4}
+\subsection{Training}
+\label{sec:org02a9777}
 \label{sec:Training}
 One of the key aspects of a successful training is the feature space that is being used. Although the Train/Test sets consist of the features described in Table \ref{table:DataSetFeatures}, those features are not optimal for the particular classification problem. The feature space that is found to be optimal for the problem in question consists of five features and is summarized in Table \ref{table:TrainFeatures} and Figure \ref{fig:TrainFeaturesPlot}.
 
@@ -117,8 +117,8 @@ $\Delta R = \sqrt{\Delta\eta^{2} + \Delta\phi^{2}}$ & the separation in the eta-
 
 \begin{figure}[h!]
 \centering
-\includegraphics[page=1,width=0.6\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300Deltas_varsplot.pdf}
-\includegraphics[page=2,width=0.6\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300Deltas_varsplot.pdf}
+\includegraphics[page=1,width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300Deltas_varsplot.pdf}
+\includegraphics[page=2,width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300Deltas_varsplot.pdf}
 \caption{Sumarry of the features used for training }
 \label{fig:TrainFeaturesPlot}
 \end{figure}
@@ -126,7 +126,7 @@ $\Delta R = \sqrt{\Delta\eta^{2} + \Delta\phi^{2}}$ & the separation in the eta-
 To assess the performance of the trained model, the Area Under the Receiver Operating Curve (ROC-AUC) is used as a metric. However, it is important to note that in addition to evaluating the model's performance, we also consider the possibility of overfitting. To quantify overfitting, we examine the ratio of the number of training events to the number of testing events at a particular BDT score. If the model is not overtrained, the performance on the training and testing set will be approximately the same, and therefore, the ratio will fluctuate around 1 across the BDT score range.
 
 Figure \ref{fig:BDTplot} displays the BDT score plot of the training and testing set, as well as the corresponding ROC curves. The performance of the model on the testing set yields an AUC score of 0.98. Looking at the Training/Testing ratios, one can notice that they fluctuate around one. The absence of a profound trend in both signal and background ratios implies that the model is not severely overfitted.
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \begin{subfigure}{0.49\textwidth}
 \centering
@@ -141,8 +141,9 @@ Figure \ref{fig:BDTplot} displays the BDT score plot of the training and testing
 \caption{A: The BDT score of the Testing and Training sets. B: The roc curves for the training and testing sets}
 \label{fig:BDTplot}
 \end{figure}
-\subsubsection{Application}
-\label{sec:org84cd533}
+\newpage
+\subsection{Application}
+\label{sec:orgf09d0f1}
 \label{sec:Application}
 The application of the model to the application set is a rather straightforward process. The data are simply "fed" to the model, and the latter performs the classification. The ROC curves for the performance of the trained model on the data for each of the smearing cases of table \ref{table:Smearings} are illustrated in figure \ref{subfig:SmearingROC}.
 
@@ -169,7 +170,7 @@ Looking at the plot, the cut that gives the best significance is c = 0.98 (the r
 
 The results can be seen in Figure \ref{fig:SigEvolBDT} which compares the evolution, in terms of smearing percentage, of the significance for the cuts c = 0.98 and c = 0.86. Table \ref{table:SigBkgBDT} presents the amount of signal and background events present for the two cuts.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[page=2,width=0.5\textwidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pdf}
 \caption{Evolution of significance for the smearing cases of table \ref{table:Smearings}. }
@@ -196,11 +197,13 @@ Smearing \%  & No. Sig. Events at BDT cut = 0.86 & No. Bkg.Events at BDT cut = 0
 \caption{Signal and background events at BDT cut 0.86 and 0.98 for different smearing percentages.}
 \label{table:SigBkgBDT}
 \end{table}
-\subsection{Analysis Method II: Fit based analysis}
-\label{sec:orgd9440ac}
+\newpage
+\clearpage
+\section{Analysis Method II: Fit based analysis}
+\label{sec:orgb3ebefa}
 \label{sec:Analysis_method2}
-\subsubsection{Invariant mass reconstruction}
-\label{sec:org331ccd5}
+\subsection{Invariant mass reconstruction}
+\label{sec:org2532a44}
 \label{sec:Invariant_mass_reconstruction}
 The invariant mass of the XX pair is calculated using the features in Table \ref{table:DataSetFeatures}. The resulting spectrum is shown in Figure \ref{fig:AppMass}.
 
@@ -212,8 +215,8 @@ The invariant mass of the XX pair is calculated using the features in Table \ref
 \end{figure}
 
 Events with invariant mass \(m_{XX} < 120\text{GeV}\) make the background fit significantly harder without contributing significantly to the analysis. Therefore, such events are excluded from this study, and the working mass spectrum is limited to the range \([120, 300]\text{GeV}\).
-\subsubsection{Background Fitting}
-\label{sec:org72957f3}
+\subsection{Background Fitting}
+\label{sec:org780d746}
 \label{sec:Background_fitting}
 As discussed in previous sections, the applied smearing only affects the signal component of the application set. For this reason, and to simplify the analysis, the background shape is fitted separately and kept constant throughout the signal fits.
 
@@ -230,12 +233,12 @@ The parameters \(\alpha\), \(\beta\), \(\gamma\), and \(\delta\) are free parame
 \caption{The fitted background}
 \label{fig:BKGfit}
 \end{figure}
-\subsubsection{Signal Fitting}
-\label{sec:org158fc8b}
+\subsection{Signal Fitting}
+\label{sec:org3f69715}
 \label{sec:Signal_fitting}
 The signal is fitted using a Gaussian function with \(\sigma\) and magnitude as free parameters, and \(\mu = 200\text{GeV}\) (the mass of the resonance). Figure \ref{fig:fits} shows the fitted invariant mass spectra for smearing percentages of \(0\%\), \(5\%\), \(10\%\), \(15\%\), and \(20\%\). As illustrated in Figure \ref{fig:extremeSmearings}, the signal mass in the extreme cases of \(30\%\text{, }40\%\) and \(50\%\) smearing is indistinguishable from the background. Therefore, attempting to fit those spectra would be a pointless exercise.
-\subsubsection{Signal from background separation}
-\label{sec:orgdd8565c}
+\subsection{Signal from background separation}
+\label{sec:orgec7f99c}
 \label{sec:Signal_from_background_separation}
 As with the BDT method, we want the region of interest that yields the best significance. To do so, we scan various mass windows around the center of the signal. We scanned six different regions (in the \(0\%\) case), beginning from \(\pm 0.5\sigma\) up to \(\pm 3\sigma\) with a step of \(0.5\sigma\). The results can be seen in Figure \ref{fig:Scan0}. It is evident that the region \(\pm 1.5\sigma\) provides the best performance in terms of significance.
 \begin{figure}[h!]
@@ -285,8 +288,8 @@ Smearing \%  & No. Sig. Events (fixed window) & No. Bkg.Events (fixed window) & 
 \label{table:NumSigBkg}
 \end{table}
 
-\subsection{Results}
-\label{sec:org209ee23}
+\section{Results}
+\label{sec:orgacc4269}
 So far, in sections \ref{sec:Analysis_method1} and \ref{sec:Analysis_method2}, we have studied how does a multivariate and a singlevariate calssifcation technique responds to energy scale uncertainties, in a signal from background sepparation task, in the heavy mass region. In this section, we are going to summarize the results and provide commentary regarding each method, in terms of performance and robustness. Moreover will will draw a comparizon between the two methods.
 
 \begin{figure}[h!]
@@ -355,10 +358,10 @@ Even though, at \(0\%\) of smearing, the fit based method, yields a better signi
 \end{figure}
 
 \newpage
-\section{Search for light \(Y \rightarrow XX\)}
+\chapter{Search for light \(Y \rightarrow XX\)}
 \label{sec:org59adc41}
 \label{sec:Light_search_Y_to_XX}
-\subsection{The light \(Y\rightarrow XX\) channel}
+\section{The light \(Y\rightarrow XX\) channel}
 \label{sec:orgabd932d}
 \label{Light_y_to_xx}
 Similar to the previous study, the dataset used in the present analysis, is composed from a variety of pre-existing Monte Carlo (MC) samples, out of which only generator-level dileptonic final states are selected. The diobject invariant mass is in the range between 50 and 75 GeV, and no further kinematic constraints were placed in the event selection. Finally, the features of the set are summarized in Table \ref{table:DataSetFeatures}, and the invariant mass spectrum of the current decay is illustrated in figure \ref{fig:LightMassSpectrum}. It should be noted that in the study of such a generic process, there is no clear argument regarding a specific signal-to-background number of events ratio. Thus, the number of background and signal events is selected in a somewhat arbitrary manner, with the only condition being the minimization of statistical fluctuations.
@@ -369,8 +372,8 @@ Similar to the previous study, the dataset used in the present analysis, is comp
 \label{fig:LightMassSpectrum}
 \end{figure}
 
-\subsection{Energy scale uncertainties}
-\label{sec:org29a151d}
+\section{Energy scale uncertainties}
+\label{sec:orga50049c}
 \label{sec:Light_energy_scale_uncertainties}
 The implementation of energy scale uncertainties in the present dataset is, once again, the same as in the heavy mass study presented in section \ref{sec:Energy_scale_uncertainties}, with the only difference being the percentage of smearing applied. For the particular invariant mass range, the available number of events is significantly lower, and therefore the effect of energy scale uncertainties on the mass is more significant. For that reason, we applied less smearing to the dataset, but nevertheless, we will study cases of mild and extreme smearing. Table \ref{table:LightSmearings} summarizes the cases that will be studied in the following sections.
 \begin{table}[h!]
@@ -389,10 +392,10 @@ $12\%$\\
 \caption{Summary of the smearing cases that will be studied in the light mass search. }
 \label{table:LightSmearings}
 \end{table}
-\subsection{Analysis method I: Training a BDT Classifier}
+\section{Analysis method I: Training a BDT Classifier}
 \label{sec:org6370180}
-\subsubsection{The Train/Test/Application data sets}
-\label{sec:orge70a05c}
+\subsection{The Train/Test/Application data sets}
+\label{sec:org4e2ad68}
 \label{sec:Light_train_test_application}
 The number of training, testing, and application events is summarized in table \ref{table:LightTrainTestAppEvents}. Comparable to  section \ref{sec:Train_test_application_sets}, a part of the testing events was injected into the application set. However, due to a lack of extra signal, no additional events were used for the Training and Testing set.
 \begin{table}[h!]
@@ -410,20 +413,7 @@ Application & 3638 & 29077 \\
 \label{table:LightTrainTestAppEvents}
 \end{table}
 
-\subsubsection{Training}
-\label{sec:orgb1770c2}
-\label{sec:LightTraining}
-The feature space that results in the best model is still that of table \ref{table:TrainFeatures}. An illustration of the current features is shown in figure \ref{fig:LightFeatures}.
-\begin{figure}[h]
-\centering
-\includegraphics[page=1,width=0.6\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M60M5080DeltasVarsPlots.pdf}
-\includegraphics[page=2,width=0.6\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M60M5080DeltasVarsPlots.pdf}
-\caption{Sumarry of the features used for training }
-\label{fig:LightFeatures}
-\end{figure}
-
-Figure \ref{subfig:LightBdtPlot} illustrates the BDT score of the trained model on the training and testing sets, while the corresponding ROC curves are shown in figure \ref{subfig:LightROCCurves}. The model's performance is assessed using the ROC curve and the AUC score. To evaluate overfitting, the ratio of the number of training events to the number of testing events at a particular BDT score is examined. Looking at figure \ref{subfig:LightBdtPlot}, the ratio of testing and training events fluctuates around one, indicating that the model is not severely overfit. Moreover, the AUC score that this model yields on the training events is 0.90, significantly lower than that of the model that was trained for the classification of the heavy mass dataset.
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \begin{subfigure}{0.49\textwidth}
 \centering
@@ -440,8 +430,23 @@ Figure \ref{subfig:LightBdtPlot} illustrates the BDT score of the trained model 
 \caption{A: The BDT score of the Testing and Training sets. B: The roc curves for the training and testing sets}
 \end{figure}
 
-\subsubsection{Application}
-\label{sec:org68301e3}
+\newpage
+\subsection{Training}
+\label{sec:org02d5e1e}
+\label{sec:LightTraining}
+The feature space that results in the best model is still that of table \ref{table:TrainFeatures}. An illustration of the current features is shown in figure \ref{fig:LightFeatures}.
+\begin{figure}[h!]
+\centering
+\includegraphics[page=1,width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M60M5080DeltasVarsPlots.pdf}
+\includegraphics[page=2,width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M60M5080DeltasVarsPlots.pdf}
+\caption{Sumarry of the features used for training }
+\label{fig:LightFeatures}
+\end{figure}
+
+Figure \ref{subfig:LightBdtPlot} illustrates the BDT score of the trained model on the training and testing sets, while the corresponding ROC curves are shown in figure \ref{subfig:LightROCCurves}. The model's performance is assessed using the ROC curve and the AUC score. To evaluate overfitting, the ratio of the number of training events to the number of testing events at a particular BDT score is examined. Looking at figure \ref{subfig:LightBdtPlot}, the ratio of testing and training events fluctuates around one, indicating that the model is not severely overfit. Moreover, the AUC score that this model yields on the training events is 0.90, significantly lower than that of the model that was trained for the classification of the heavy mass dataset.
+
+\subsection{Application}
+\label{sec:orgf98812d}
 \label{sec:Light_application}
 The model's classification performance, on the classification sets, can be assessed by looking at figure \ref{fig:LightROCSIG}, which illustrates the ROC curves and the corresponding significances as a function of the BDT score, for the smearing cases of table \ref{table:LightSmearings}. It is evident that the model is not outstandingly affected by smearing, and thus, there is no point in selecting any other than the BDT score that yields the best significance. That is, placing the cut at BDT score = 0.96. The significance as a function of smearing, for the given cut can be seen in figure \ref{fig:LightSigEvolBDT}. Table \ref{table:LightNumSIGBKG} summarizes the amount of signal and background events present, for the selected cut.
 \begin{figure}[h]
@@ -485,11 +490,11 @@ Smearing \%  & No. Sig. Events at BDT cut = 0.96 & No. Bkg.Events at BDT cut = 0
 \end{figure}
 
 \newpage
-\subsection{Analysis Method II: Fit based analysis}
-\label{sec:org511bdd9}
+\section{Analysis Method II: Fit based analysis}
+\label{sec:orgedb2280}
 \label{sec:LightAnalysis_method2}
-\subsubsection{Invariant mass reconstruction}
-\label{sec:org645b5ad}
+\subsection{Invariant mass reconstruction}
+\label{sec:orgce79419}
 \label{sec:Light_invariant_mass_reconstruction}
  The invariant mass spectrum is shown in Figure \ref{fig:LightAppMass}, and  is calculated using the features in Table \ref{table:DataSetFeatures}. 
 \begin{figure}[h]
@@ -500,8 +505,8 @@ Smearing \%  & No. Sig. Events at BDT cut = 0.96 & No. Bkg.Events at BDT cut = 0
 \end{figure}
 
 The reader may have noticed that the amount of signal present seems rather disproportionate to the amount of background. However, as discussed earlier, smearing has a significant effect on the present dataset due to low statistics. If it were not for the larger signal component, the invariant mass would have been completely smeared, even with very little smearing.
-\subsubsection{Background Fitting}
-\label{sec:org897ae85}
+\subsection{Background Fitting}
+\label{sec:orge8fa574}
 \label{sec:Light_background_fitting}
 We proceed with fitting the mass, using the simplification discussed in section \ref{sec:Background_fitting}. That is, the background shape is fitted separately and kept constant throughout the signal fits.
 
@@ -517,29 +522,32 @@ The parameters \(\alpha\), \(\beta\), \(\gamma\), and \(\delta\) are free parame
 \caption{The fitted background}
 \label{fig:LightBKGfit}
 \end{figure}
-\subsubsection{Signal Fitting}
-\label{sec:org57357d5}
+\subsection{Signal Fitting}
+\label{sec:orgd9ebfef}
 \label{sec:Light_signal_fitting}
 To fit the signal, a Gaussian function with \(\sigma\) and magnitude as free parameters, and \(\mu = 60\text{GeV}\), is used. Figure \ref{fig:Lightfits} shows the fitted invariant mass spectra for smearing percentages of \(0\%\), \(5\%\), \(7\%\), \(10\%\), and \(12\%\). As shown in Figure \ref{fig:Lightfits}, smearing cases above \(12\%\) would completely smear the signal component, and the fit analysis method would have failed.
-\subsubsection{Signal from background separation}
-\label{sec:org598ced4}
+\subsection{Signal from background separation}
+\label{sec:orgb4ae30e}
 \label{sec:Light_signal_from_background_separation}
-The signal from the background separation process in this study is the same as that in section \ref{sec:Signal_from_background_separation}. We scan various mass windows around the center of the signal to find the region that yields the best significance. Moving with a step of \(0.5\sigma\), we scanned six different regions from \(\pm 0.5\sigma\) up to \(\pm 3\sigma\). Looking at the results in figure \ref{fig:LightScan0}, the region \(\pm 1.5\sigma\) provides the best performance in terms of significance.
+The signal from the background separation process in this study is the same as that in section \ref{sec:Signal_from_background_separation}. We scan various mass windows around the center of the signal to find the region that yields the best significance. Moving with a step of \(0.5\sigma\), we scanned six different regions from \(\pm 0.5\sigma\) up to \(\pm 3\sigma\). Looking at the results in figure \ref{subfig:LightScan0}, the region \(\pm 1.5\sigma\) provides the best performance in terms of significance.
 \begin{figure}[h]
 \centering
-\includegraphics[page=1,width=0.5\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_Significance0.pdf}
-\caption{Scan of significance for various values of $\sigma$, in the $0\%$ smearing case. We see that the regrion $\pm 1.5\sigma$ around $\mu=60GeV$, gives the best significance.}
-\label{fig:LightScan0}
-\end{figure}
-
-We study the changes in significance as a function of smearing, in the fixed window and adaptive window interpretations discussed in section \ref{sec:Signal_from_background_separation}. The actual values of \(\sigma\), and the corresponding mass window for the adaptive window search, are summarized in table \ref{table:LightAdaSigmas}. The results are presented in Figure \ref{fig:LightAdaFixedSig}, and Table \ref{table:LightNumSigBkg}, which summarizes the amount of signal and background events present in the region of interest for both studies (fixed and adaptive window).
-\begin{figure}[h]
+\begin{subfigure}{0.45\textwidth}
 \centering
-\includegraphics[page=3,width=0.5\textwidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M60M5080_Significance.pdf}
-\caption{Copmarison of the significance evolution as caclulated in the fixed widow and adaptive window case.} 
-\label{fig:LightAdaFixedSig}
+\includegraphics[page=1,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_Significance0.pdf}
+\caption{}
+\label{subfig:LightScan0}
+\end{subfigure}
+\begin{subfigure}{0.45\textwidth}
+\centering
+\includegraphics[page=3,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M60M5080_Significance.pdf}
+\caption{}
+\label{subfig:LightAdaFixedSig}
+\end{subfigure}
+\caption{a: Scan of significance for various values of $\sigma$, in the $0\%$ smearing case. We see that the regrion $\pm 1.5\sigma$ around $\mu=60GeV$, gives the best significance, b: Copmarison of the significance evolution as caclulated in the fixed widow and adaptive window case.}
 \end{figure}
 
+We study the changes in significance as a function of smearing, in the fixed window and adaptive window interpretations discussed in section \ref{sec:Signal_from_background_separation}. The actual values of \(\sigma\), and the corresponding mass window for the adaptive window search, are summarized in table \ref{table:LightAdaSigmas}. The results are presented in Figure \ref{subfig:LightAdaFixedSig}, and Table \ref{table:LightNumSigBkg}, which summarizes the amount of signal and background events present in the region of interest for both studies (fixed and adaptive window).
 \begin{table}[h]
 \centering
 \begin{tabular}{|p{2cm}|p{2cm}|c|}
@@ -574,8 +582,9 @@ Smearing \%  & No. Sig. Events (fixed window) & No. Bkg.Events (fixed window) & 
 \label{table:LightNumSigBkg}
 \end{table}
 
-\subsection{Results}
-\label{sec:orgc577dab}
+\newpage
+\section{Results}
+\label{sec:org7065c84}
 The study of multivariate and single variate classification techniques in a signal from background separation task, in the lower mass region, returned interesting results, which are going to be discussed in the present section. 
 \begin{figure}[h]
 \centering
