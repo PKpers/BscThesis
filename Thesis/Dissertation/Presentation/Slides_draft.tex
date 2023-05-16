@@ -29,8 +29,8 @@
 \maketitle
 
 \section{Introductory stuff, Detectros and Particle physics}
-\label{sec:org9804ab0}
-\begin{frame}[label={sec:org38a8f7c}]{The CMS Experiment overview}
+\label{sec:org2566cfd}
+\begin{frame}[label={sec:orgb9f212b}]{The CMS Experiment overview}
 The CMS detector at the LHC
 \begin{figure}[hb]
 \centering
@@ -38,7 +38,7 @@ The CMS detector at the LHC
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org87e6f81}]{Coordinates at the CMS}
+\begin{frame}[label={sec:org1a4b38b}]{Coordinates at the CMS}
 Given the solenoid geometry of the CMS detector, it is more convenient to use a spherical type of coordinates\(\left(r, \phi, \theta \right)\).
 \begin{equation}
 \begin{matrix}
@@ -54,7 +54,7 @@ p_{z} = P_{T}\sinh{\eta}\\
 \end{equation}
 \end{frame}
 
-\begin{frame}[label={sec:orga42626a}]{Decays \& Resonances}
+\begin{frame}[label={sec:orgfd1fc63}]{Decays \& Resonances}
 Not every particle can be detected by the CMS detector(i.e neutrinos)
 \begin{columns}
 \begin{column}{0.5\columnwidth}
@@ -77,7 +77,7 @@ Not every particle can be detected by the CMS detector(i.e neutrinos)
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:org2d3dc06}]{Callibration and energy scale uncertainties}
+\begin{frame}[label={sec:org07876bd}]{Callibration and energy scale uncertainties}
 \begin{itemize}
 \item Calibration process adjusts energy scale and resolution to match well-known resonances (Z boson, J/psi meson) in data and simulation,
 \end{itemize}
@@ -89,53 +89,93 @@ Our work will focus on the effects that energy scale uncertainties have, in a tr
 \end{block}
 \end{frame}
 \section{Analysis techniqies}
-\label{sec:org44745d0}
-\begin{frame}[label={sec:orge39b4fa}]{BDT 1}
-Explain what a bdt is. There is a nice example in XGBoost documentation. 
+\label{sec:org51ac986}
+\begin{frame}[label={sec:org38bb7d5}]{BDT 1: Supervised Learning}
+\alert{Supervised learning}:
+\begin{itemize}
+\item The model is trained using training data
+\item The trained model is tested using testing data
+\item If we like the resulting model, we apply it!
+\end{itemize}
+
+\alert{but what is this model?}
+\begin{itemize}
+\item A function that given the input feautres x, it returns the probability x beeing class A
+\item The goal of the training is to minimize the difference between the predicted output \(y_{i} \in [0, 1]\) and the real output \(\hat{y_{i}} = 0\text{ class B, or }\hat{y_{i}} = 1\text{ class A}\)
+\end{itemize}
 \end{frame}
-\begin{frame}[label={sec:orgc2a4e94}]{BDT 2}
-Explain the train->test->Application workflow. 
+\begin{frame}[label={sec:orgc385c77}]{BDT 2a: Boosted decision trees}
+In this study the model of choice is Boosted Decision Trees(BDT).
+\begin{itemize}
+\item It classifies data using decision tree models
+\end{itemize}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85 \textwidth, ext=.png type=png]{/home/kpapad/UG_thesis/Thesis/Dissertation/Presentation/figures/cart.png}
+\end{figure}
 \end{frame}
-\begin{frame}[label={sec:orgd69b9ae}]{BDT 3}
-Talk about the output, explain what the BDT score is and what BDT histogram is. Discuss signal from backgroun separation using bdt
+\begin{frame}[label={sec:orgc6d4bf9}]{BDT 2b: Boosted Decision Trees}
+Usually only one tree is not power full enough --> Use  more trees in additive manner(Boosting)
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85 \textwidth, ext=.png type=png]{/home/kpapad/UG_thesis/Thesis/Dissertation/Presentation/figures/twocart.png}
+\end{figure}
 \end{frame}
-\begin{frame}[label={sec:org597d79b}]{Fit}
+\begin{frame}[label={sec:org18b6268}]{BDT 3a: Signal from Background Separation}
+\alert{In our case}:
+\begin{itemize}
+\item Signal: a resonant decay Y->xx
+\item Background: a non resonant process
+\end{itemize}
+\alert{How to separate them?}
+\begin{itemize}
+\item Plot the number of Signal and Background events per BDT score --> BDT histogram
+\end{itemize}
+\end{frame}
+\begin{frame}[label={sec:orgdf84725}]{BDT 3b: Signal from background separation}
+Where should we place the cut in order to accpet most most of the  signal while rejecting most of background?
+\begin{figure}[hb]
+\centering
+\includegraphics[page=2, width=0.85 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M60M5080DeltasPConf12BDTplot.pdf}
+\end{figure}
+\end{frame}
+\begin{frame}[label={sec:org46d629e}]{Fit}
 Explain fit based signal from backgroun separation
 \end{frame}
-\begin{frame}[label={sec:org2203ef3}]{Statistical interpretation of results}
+\begin{frame}[label={sec:org1e04401}]{Statistical interpretation of results}
 Talk about significance.
 \end{frame}
 \section{Analysis}
-\label{sec:orgfbec8f3}
-\begin{frame}[label={sec:org777bb3b}]{Energy scale uncertainties}
+\label{sec:org98a9a14}
+\begin{frame}[label={sec:orge8bf964}]{Energy scale uncertainties}
 How we implemented the smearing in our data set. How do we proceed from that, how many smearing cases. 
 \end{frame}
-\begin{frame}[label={sec:orgb59b6e5}]{BDT approach 1}
+\begin{frame}[label={sec:orgbd72183}]{BDT approach 1}
 Train Testing application set. Summarize the number of events. Explain that in order to compare apples to apples, we will be analyzing the application set from now on.
 \end{frame}
-\begin{frame}[label={sec:org89e91c5}]{BDT approach 2}
+\begin{frame}[label={sec:org7ca14c4}]{BDT approach 2}
 Application summarize the results 
 \end{frame}
-\begin{frame}[label={sec:org7e4723b}]{Fit based approach 1}
+\begin{frame}[label={sec:org7298663}]{Fit based approach 1}
 Show the mass spectrum that will be fitted 
 \end{frame}
-\begin{frame}[label={sec:orga2ddd25}]{Fit based approach 2}
+\begin{frame}[label={sec:orgc72838e}]{Fit based approach 2}
 discuss bkg fit is kept constnat throughout the analysis. discus signal fitting, show the plots( I will probably need more than one slide) at this part talk about the fact that after \(20\%\) the fit based technique fails. 
 \end{frame}
-\begin{frame}[label={sec:orgb41d5fc}]{Fit based approach 2}
+\begin{frame}[label={sec:org5f5094b}]{Fit based approach 2}
 Present the significances.
 \end{frame}
 \section{Results}
-\label{sec:org96406ef}
-\begin{frame}[label={sec:org58764e7}]{Results 1}
+\label{sec:org88575cc}
+\begin{frame}[label={sec:org61b0e89}]{Results 1}
 Compare the BDT and FIt in terms of significance and robustness. Comment that even though fit based achieves a higher significance in the 0 smearing case, it is not as robust as bdt, it completelly fails at extreme cases of smearing,. BDT is more robust 
 \end{frame}
-\begin{frame}[label={sec:org8e67c7d}]{Results 2}
+\begin{frame}[label={sec:org4ea3f1e}]{Results 2}
 Try to explain that bdt uses not only energy related features (Pts) but also geometrical ones, which do not get affected by smearing. Therefore, more stabillity to smearing. Nevertheless robustness does not mean greateer classification "power"(how many events got classified correctly and how manny didn't) -->Outlooks for better training methods in other to increase classification power.   
 \end{frame}
 \section{Unused stuff}
-\label{sec:orga7db2b1}
-\begin{frame}[label={sec:org1d43604}]{Resonance text}
+\label{sec:org466d1d9}
+\begin{frame}[label={sec:org026d1bb}]{Resonance text}
 and therefore, the invariant mass calculation from the detected particles of such events will not result in a peak at the mass spectrum(Non resonant proces). Even though in decays where  the poducts are detectable particles, the invariant mass calculation leads to a peak in the mass spectrum(resonant decays). In the present work we are interested in the later.
 \end{frame}
 \end{document}
