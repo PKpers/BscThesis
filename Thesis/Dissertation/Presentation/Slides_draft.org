@@ -116,11 +116,41 @@ Usually only one tree is not power full enough --> Use  more trees in additive m
 \centering
 \includegraphics[page=2, width=0.85 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M60M5080DeltasPConf12BDTplot.pdf}
 \end{figure}
-** Fit
-
+** Fit based signal from background separation
+Fit the mass spectrum ...
+\begin{figure}[hb]
+\centering
+\includegraphics[page=2, width=0.5 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_SampleFitWArrows.pdf}
+\end{figure}
+** Fit based signal from background separation
+... and decompose it to a background component ...
+\begin{figure}[hb]
+\centering
+\includegraphics[page=3, width=0.5 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_SampleFitWArrows.pdf}
+\end{figure}
+** Fit based signal from background separation
+... and a signal component
+\begin{figure}[hb]
+\centering
+\includegraphics[page=4, width=0.5 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_SampleFitWArrows.pdf}
+\end{figure}
+** Fit based signal from background separation
+Then we can count the signal and background events, in a region of interest \(I\):
+\begin{align}
+O &= \int_{I} observation(x) dx \\
+B &= \int_{I} bkg(x) dx\\
+S &= O - B
+\end{align}
 ** Statistical interpretation of results
-Talk about significance.
+*Are the signal events we counted, statistically significant?*
+ - We use the following metric:
+\begin{equation}
+\text{Significance} = \frac{Signal}{\sqrt{Background}}
+\end{equation}
+ - The selected regions of interest both in BDT and Fit based analysis, are those that maximize the significance.
+
 * Analysis
+** Searches for \(Y \rightarrow XX\)
 ** Energy scale uncertainties
 How we implemented the smearing in our data set. How do we proceed from that, how many smearing cases. 
 ** BDT approach 1
@@ -139,6 +169,8 @@ Compare the BDT and FIt in terms of significance and robustness. Comment that ev
 ** Results 2
 Try to explain that bdt uses not only energy related features (Pts) but also geometrical ones, which do not get affected by smearing. Therefore, more stabillity to smearing. Nevertheless robustness does not mean greateer classification "power"(how many events got classified correctly and how manny didn't) -->Outlooks for better training methods in other to increase classification power.   
 * Unused stuff
+** Unused stuff
+*Welcome to the backup slides!*
 ** Resonance text
 and therefore, the invariant mass calculation from the detected particles of such events will not result in a peak at the mass spectrum(Non resonant proces). Even though in decays where  the poducts are detectable particles, the invariant mass calculation leads to a peak in the mass spectrum(resonant decays). In the present work we are interested in the later.
 
