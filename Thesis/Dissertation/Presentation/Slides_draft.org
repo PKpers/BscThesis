@@ -149,20 +149,194 @@ S &= O - B
 \end{equation}
  - The selected regions of interest both in BDT and Fit based analysis, are those that maximize the significance.
 
-* Analysis
+* Analysis1: General Stuff
 ** Searches for \(Y \rightarrow XX\)
+*** Search for heavy \(Y \rightarrow XX\)
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+Search for heavy \(Y \rightarrow XX\)
+- Mass range from 100GeV up to 300GeV
+*** Search for light \(Y \rightarrow XX\)
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+Search for light \(Y \rightarrow XX\)
+- Mass range from 50GeV up to 70GeV
+** The \(Y \rightarrow XX\) channel
+  The specific characteristics(mass etc.) of each dataset  is different but the main idea is the same
+  - Use a non resonant process for background
+  - Use a resonant process for signal
+  - Separate signal from background
+  - Apply energy scale uncertainties to signal
+  - Separate again
+  - Compare the nominal case with the smeared cases
+** The \(Y \rightarrow XX\) channel: Background
+- Drell-Yan process
+
+** The \(Y \rightarrow XX\) channel: Signal
+- W \(\Phi\) --> ll
+
 ** Energy scale uncertainties
-How we implemented the smearing in our data set. How do we proceed from that, how many smearing cases. 
-** BDT approach 1
-Train Testing application set. Summarize the number of events. Explain that in order to compare apples to apples, we will be analyzing the application set from now on.
-** BDT approach 2
-Application summarize the results 
-** Fit based approach 1
-Show the mass spectrum that will be fitted 
-** Fit based approach 2
-discuss bkg fit is kept constnat throughout the analysis. discus signal fitting, show the plots( I will probably need more than one slide) at this part talk about the fact that after $20\%$ the fit based technique fails. 
-** Fit based approach 2
-Present the significances.
+To smear the data by $x\%$,
+- iterate over every signal event
+- multiply each \(P_{T}\) by a number sampled from a Gaussian distribution of $\mu = 1$ and $\sigma = x/100$
+* Light mass search
+** Search for light \(Y \rightarrow XX\) 
+We will study the following smearing cases:
+- $0\%$(Nominal case)
+- $5\%$
+- $7\%$
+- $10\%$
+- $12\%$
+The number of events of the application set are quite low --> smearing has a significant effect real quick 
+** Fit based approach: The application set 
+*** Text
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+- Signal events: 3K
+- Background events: 30K
+*** Figrue 
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=1,width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M60M5080_Application_MassSpectrum.pdf}
+\end{figure}
+** Fit based approach: Background Fitting
+*** Text
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+- To simplify things a bit, we fit the background sepratelly
+- The background shape is kept constant throughout the fits
+- Shape: $\alpha + \beta x + \gamma x^2 + \delta x^3$
+*** Figure
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=1,width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M60M5080_Application_bkgonly_Fit.pdf}
+\end{figure}
+
+** Fit based approach: Signal Fitting 
+Then we proceed and fit the signal
+*** Figure 1
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=1,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_FitALL.pdf}
+\end{figure}
+
+*** Figure 2
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=2,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_FitALL.pdf}
+\end{figure}
+
+** Fit based approach: Signal Fitting 
+*** Figure 1
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=3,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_FitALL.pdf}
+\end{figure}
+
+*** Figure 2
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=4,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_FitALL.pdf}
+\end{figure}
+
+** Fit based approach: Signal Fitting 
+Any further smearing will make the signal indistiguishable!
+\begin{figure}[h]
+\centering
+\includegraphics[page=5,width=0.55\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_FitALL.pdf}
+\end{figure}
+
+** Fit based approach: Signal from background separation  
+Working in the nominal case, we find the region that yields the best significance, by scanning the ranges $m=\pm \frac{n}{2}\sigma\text{, }n=1, 2, 3, 4, 5, 6$ 
+\begin{figure}[h]
+\centering
+\includegraphics[page=1,width=0.45\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_Significance0.pdf}
+\end{figure}
+** Fit based approach: Signal from background separation  
+The region of interest that yields the best significance is the $\pm 1.5\sigma$. There are two ways to interpret this.
+*** text
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+- interpret $\sigma$ as the the spread of the nominal case --> fixed window
+- interpret $\sigma$ as the the spread of each  cases --> adaptive window
+*** figure  
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=3,width=0.8\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M60M5080_Significance.pdf}
+\end{figure}
+** BDT approach: Feature space 
+*What features of the dataset are best for the classification task?*
+\begin{figure}[h!]
+\centering
+\includegraphics[page=1,width=0.9\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M60M5080DeltasVarsPlots.pdf}
+\end{figure}
+** BDT approach: Feature space
+\begin{figure}[h!]
+\centering
+\includegraphics[page=2,width=0.9\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M60M5080DeltasVarsPlots.pdf}
+\end{figure}
+
+** BDT approach: The model
+*** Text
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+- Trained with approximately 3K events
+- To examine overfitting we compare the ratio of training events to testing for each bdt score  
+*** Figure
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+  \begin{figure}[h!]
+\centering
+\includegraphics[page=5, width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M60M5080DeltasPConf13BDTplot.pdf}
+\end{figure}
+
+** BDT approach: Application
+Put the bdt histograms 
+*** Figure 1
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=1,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_FitALL.pdf}
+\end{figure}
+*** Figure 2
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=2,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_FitALL.pdf}
+\end{figure}
+
 * Results
 ** Results 1
 Compare the BDT and FIt in terms of significance and robustness. Comment that even though fit based achieves a higher significance in the 0 smearing case, it is not as robust as bdt, it completelly fails at extreme cases of smearing,. BDT is more robust 
