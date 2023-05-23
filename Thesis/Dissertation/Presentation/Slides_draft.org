@@ -182,21 +182,18 @@ To smear the data by $x\%$,
 - iterate over every signal event
 - multiply each \(P_{T}\) by a number sampled from a Gaussian distribution of $\mu = 1$ and $\sigma = x/100$
 * Light mass search
-** Search for light \(Y \rightarrow XX\) 
+** Search for light \(Y \rightarrow XX\)
 We will study the following smearing cases:
+*** Text
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
 - $0\%$(Nominal case)
 - $5\%$
 - $7\%$
 - $10\%$
 - $12\%$
-The number of events of the application set are quite low --> smearing has a significant effect real quick 
-** Fit based approach: The application set 
-*** Text
-:PROPERTIES:
-:BEAMER_col: 0.5
-    :END:
-- Signal events: 3K
-- Background events: 30K
+The working mass range is quite small --> smearing has a significant effect real quick 
 *** Figrue 
 :PROPERTIES:
 :BEAMER_col: 0.5
@@ -205,25 +202,8 @@ The number of events of the application set are quite low --> smearing has a sig
 \centering
 \includegraphics[page=1,width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M60M5080_Application_MassSpectrum.pdf}
 \end{figure}
-** Fit based approach: Background Fitting
-*** Text
-:PROPERTIES:
-:BEAMER_col: 0.5
-    :END:
-- To simplify things a bit, we fit the background sepratelly
-- The background shape is kept constant throughout the fits
-- Shape: $\alpha + \beta x + \gamma x^2 + \delta x^3$
-*** Figure
-:PROPERTIES:
-:BEAMER_col: 0.5
-    :END:
-\begin{figure}[h]
-\centering
-\includegraphics[page=1,width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M60M5080_Application_bkgonly_Fit.pdf}
-\end{figure}
-
-** Fit based approach: Signal Fitting 
-Then we proceed and fit the signal
+** Fit based approach: Fitting 
+Then we proceed with the fits!
 *** Figure 1
 :PROPERTIES:
 :BEAMER_col: 0.5
@@ -242,7 +222,7 @@ Then we proceed and fit the signal
 \includegraphics[page=2,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_FitALL.pdf}
 \end{figure}
 
-** Fit based approach: Signal Fitting 
+** Fit based approach: Fitting 
 *** Figure 1
 :PROPERTIES:
 :BEAMER_col: 0.5
@@ -261,7 +241,7 @@ Then we proceed and fit the signal
 \includegraphics[page=4,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_FitALL.pdf}
 \end{figure}
 
-** Fit based approach: Signal Fitting 
+** Fit based approach: Fitting 
 Any further smearing will make the signal indistiguishable!
 \begin{figure}[h]
 \centering
@@ -319,14 +299,14 @@ The region of interest that yields the best significance is the $\pm 1.5\sigma$.
 \end{figure}
 
 ** BDT approach: Application
-Put the bdt histograms 
+Feed the application set to the BDT --> BDT plots
 *** Figure 1
 :PROPERTIES:
 :BEAMER_col: 0.5
     :END:
 \begin{figure}[h]
 \centering
-\includegraphics[page=1,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_FitALL.pdf}
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M60M5080Deltas_Application13BDTplot.pdf}
 \end{figure}
 *** Figure 2
 :PROPERTIES:
@@ -334,17 +314,447 @@ Put the bdt histograms
     :END:
 \begin{figure}[h]
 \centering
-\includegraphics[page=2,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_FitALL.pdf}
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M60M5080Deltas_Application_Smeared513BDTplot.pdf}
+\end{figure}
+
+** BDT approach: Application
+*** Figure 1
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M60M5080Deltas_Application_Smeared713BDTplot.pdf}
+\end{figure}
+*** Figure 2
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M60M5080Deltas_Application_Smeared1013BDTplot.pdf}
+\end{figure}
+
+** BDT approach: Application
+*** Figure 1
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M60M5080Deltas_Application_Smeared1213BDTplot.pdf}
+\end{figure}
+
+** BDT approach: Signal from background separation
+*Where should we place the cut?*
+*** Text
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+- Same philosophy as in the fit based search
+- We scan the bdt range to find the best region of interest
+- Best cut --> BDT score = 0.96.
+*** Figure
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}
+\centering
+\includegraphics[page=1,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M60M5080_Significance.pdf}
+\end{figure}
+** BDT approach: Signal from background separation
+*** Text
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+- The performance of the BDT remains invariant under energy scale uncertainties!
+*** Figure
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}
+\centering
+\includegraphics[page=2,width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M60M5080_Significance.pdf}
+\end{figure}
+** Synopsis
+*** Light Y to XX
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+- BDT performs better than the fit based
+- Remains invariant under smearing
+- Performance of the fit drops
+*** Light Y to XX
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}
+\centering
+\includegraphics[page=4,width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M60M5080_Significance.pdf}
+\end{figure}
+
+* Heavy mass search
+** Search for heavy \(Y \rightarrow XX\) 
+We will study the following smearing cases:\newline
+
+*** Text
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+Medium to extreme cases 
+- $0\%$(Nominal case)
+- $5\%$
+- $10\%$
+- $15\%$
+- $20\%$
+\newline Plus some really extreme cases
+- $30\%$
+- $40\%$
+- $50\%$
+  
+*** Figrue 
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=1,width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300_Application_MassSpectrum.pdf}
+\end{figure}
+
+** Fit based approach: Signal Fitting 
+Then we proceed and fit the signal
+*** Figure 1
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=1,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\end{figure}
+
+*** Figure 2
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=2,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\end{figure}
+
+** Fit based approach: Signal Fitting 
+*** Figure 1
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=3,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\end{figure}
+
+*** Figure 2
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=4,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\end{figure}
+
+** Fit based approach: Signal Fitting 
+\begin{figure}[h]
+\centering
+\includegraphics[page=5,width=0.55\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\end{figure}
+
+** Fit based approach: Signal Fitting 
+*** Figure 1
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\end{figure}
+
+*** Figure 2
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=7,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\end{figure}
+
+** Fit based approach: Signal Fitting 
+\begin{figure}[h]
+\centering
+\includegraphics[page=8,width=0.55\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\end{figure}
+
+** Fit based approach: Signal from background separation  
+Working in the nominal case, we scan the ranges $m=\pm \frac{n}{2}\sigma\text{, }n=1, 2, 3, 4, 5, 6$ 
+\begin{figure}[h]
+\centering
+\includegraphics[page=1,width=0.45\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_Significance0.pdf}
+\end{figure}
+** Fit based approach: Signal from background separation  
+The best significance is in the $\pm 1.5\sigma$ range. 
+*** text
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+- fixed window
+- adaptive window
+*** figure  
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=3,width=0.9\textwidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pdf}
+\end{figure}
+** BDT approach: Feature space 
+We use the same feature space as with the light mass search
+\begin{figure}[h!]
+\centering
+\includegraphics[page=1,width=0.9\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300Deltas_varsplot.pdf}
+\end{figure}
+** BDT approach: Feature space
+\begin{figure}[h!]
+\centering
+\includegraphics[page=2,width=0.9\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300Deltas_varsplot.pdf}
+\end{figure}
+
+** BDT approach: The model
+*** Text
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+- Trained with approximately 3K events
+- To examine overfitting we compare the ratio of training events to testing for each bdt score  
+*** Figure
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+  \begin{figure}[h!]
+\centering
+\includegraphics[page=5, width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300DeltasPConf12BDTplot.pdf}
+\end{figure}
+
+** BDT approach: Application
+Feed the application set to the BDT --> BDT plots
+*** Figure 1
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application12BDTplot.pdf}
+\end{figure}
+*** Figure 2
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared512BDTplot.pdf}
+\end{figure}
+
+** BDT approach: Application
+*** Figure 1
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared1012BDTplot.pdf}
+\end{figure}
+*** Figure 2
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared1512BDTplot.pdf}
+\end{figure}
+
+** BDT approach: Application
+*** Figure 1
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared2012BDTplot.pdf}
+\end{figure}
+*** Figure 2
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared3012BDTplot.pdf}
+\end{figure}
+
+** BDT approach: Application
+*** Figure 1
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared4012BDTplot.pdf}
+\end{figure}
+*** Figure 2
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared5012BDTplot.pdf}
+\end{figure}
+
+** BDT approach: Signal from background separation
+*Where should we place the cut?*
+*** Text
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+- We scan the whole bdt range to find the best region of interest
+- Best cut --> BDT score = 0.98.
+- This is rather tight, lets see what happens if we place a more relaxed cut at 0.86
+*** Figure
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}
+\centering
+\includegraphics[page=1,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pdf}
+\end{figure}
+** BDT approach: Signal from background separation
+*** Text
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+- The performance of the more relaxed cut is not as good as the best cut
+- The bdt model is rather robust
+*** Figure
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}
+\centering
+\includegraphics[page=2,width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pdf}
+\end{figure}
+** Synopsis
+*** Heavy Y to XX
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+- The perfomance of the BDT and Fit are comparable when smeaing is mild
+- Fit perfomance drops dramatically 
+- BDT is more robust
+
+*** Heavy Y to XX
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}
+\centering
+\includegraphics[page=4,width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pdf}
 \end{figure}
 
 * Results
-** Results 1
-Compare the BDT and FIt in terms of significance and robustness. Comment that even though fit based achieves a higher significance in the 0 smearing case, it is not as robust as bdt, it completelly fails at extreme cases of smearing,. BDT is more robust 
-** Results 2
-Try to explain that bdt uses not only energy related features (Pts) but also geometrical ones, which do not get affected by smearing. Therefore, more stabillity to smearing. Nevertheless robustness does not mean greateer classification "power"(how many events got classified correctly and how manny didn't) -->Outlooks for better training methods in other to increase classification power.   
+** Results 
+*** Light Y to XX
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+- Light $Y \rightarrow XX$
+\begin{figure}
+\centering
+\includegraphics[page=4,width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M60M5080_Significance.pdf}
+\end{figure}
+
+*** Heavy Y to XX
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+- Heavy $Y \rightarrow XX$
+\begin{figure}
+\centering
+\includegraphics[page=4,width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M200M100300_Significance.pdf}
+\end{figure}
+
+** Results 
+Overall, the BDT is more robust as it learns features that do not get affected by energy scale uncertainties\newline
+
+*So is the BDT better?*
+- No: A more carefull event selection can improve the performance of the fit based analysis
+- yes: In the presence of energy scale uncertainties, the fit based analysis reaches a "breaking point"
+ 
 * Unused stuff
 ** Unused stuff
 *Welcome to the backup slides!*
-** Resonance text
-and therefore, the invariant mass calculation from the detected particles of such events will not result in a peak at the mass spectrum(Non resonant proces). Even though in decays where  the poducts are detectable particles, the invariant mass calculation leads to a peak in the mass spectrum(resonant decays). In the present work we are interested in the later.
 
+** Search for light \(Y \rightarrow XX\) 
+We will study the following smearing cases:
+- $0\%$(Nominal case)
+- $5\%$
+- $7\%$
+- $10\%$
+- $12\%$
+The working mass range is quite small --> smearing has a significant effect real quick 
+** Fit based approach: Background Fitting light
+*** Text
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+- To simplify things a bit, we fit the background sepratelly
+- The background shape is kept constant throughout the fits
+- Shape: $\alpha + \beta x + \gamma x^2 + \delta x^3$
+*** Figure
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=1,width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M60M5080_Application_bkgonly_Fit.pdf}
+\end{figure}
+
+** Fit based approach: Background Fitting
+*** Text
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+- The background shape is kept constant 
+- Shape: $\alpha + \beta x^{-1/2} + \gamma x^{-1} + \delta x^{3/2}$
+*** Figure
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=1,width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300_Application_bkgFit.pdf}
+\end{figure}
+
+** Search for heavy \(Y \rightarrow XX\) 
+We will study the following smearing cases:\newline
+*** medium to extreme
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+Medium to extreme cases 
+- $0\%$(Nominal case)
+- $5\%$
+- $10\%$
+- $15\%$
+- $20\%$
+*** extreme extreme 
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+Plus some really extreme cases
+- $30\%$
+- $40\%$
+- $50\%$
