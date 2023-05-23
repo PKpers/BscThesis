@@ -50,7 +50,7 @@ data = [
 nbins = 50
 histRange = (0., 1)
 histOpts = (nbins, histRange)
-ax_labels = ("bdt score", "events")
+ax_labels = ("BDT score", "Events/Bin")
 _Lcolor = (4,1)
 legend_entries = {}
 h_ = []
@@ -117,9 +117,9 @@ for h in h_ :
 
 # Calculate significance sig/sqrt(bkg)
 integrals = np.array(integrals)
-p= infile.split("Smeared")[1].split(".")[0]
-print(p)
+p= infile.split("Smeared")[1].split(".")[0].split("P")[0]
 #p = 0
+print(p)
 
 '''
 print("\nSmearing: ", p,
@@ -227,4 +227,36 @@ legend.SetBorderSize(0)
 legend.SetTextSize(0.03)
 legend.Draw('same')
 c.SaveAs(output)
+
+
+## Remake the BDT histograms in acceptable format
+c.Clear()
+c.SetCanvasSize(800, 800)
+c.SetLogx(0)
+c.SetLogy(1)
+ROOT.gPad.SetLeftMargin(0.14)
+ROOT.gPad.SetRightMargin(0.14)
+Sig, Bkg = [h_[i].GetValue() for i in range(2)]
+Sig.GetYaxis().SetRangeUser(0.5, 20000)
+Sig.GetXaxis().SetTitle("BDT score")
+Sig.GetXaxis().SetLabelSize(0.045)
+Sig.GetXaxis().SetTitleSize(0.045)
+Sig.GetYaxis().SetLabelSize(0.045)
+#Sig.GetYaxis().SetTitleOffset(0.9)
+Sig.GetYaxis().SetTitleSize(0.045)
+Sig.GetXaxis().SetNdivisions(205, ROOT.kFALSE);
+Sig.SetLineWidth(2)
+Bkg.SetLineWidth(2)
+Sig.Draw("")
+Bkg.Draw('same')
+# draw the legend
+Legend = ROOT.TLegend(0.35, 0.67, 0.45, 0.87)
+Legend.AddEntry(Sig.GetName(), "Signal(Smearing: {}%)".format(p), "f")
+Legend.AddEntry(Bkg.GetName(), "Background", "f")
+Legend.SetFillColor(0)
+Legend.SetBorderSize(0)
+Legend.SetTextSize(0.04)
+Legend.Draw('same')
+c.SaveAs(output)
+
 c.SaveAs(output+"]")
