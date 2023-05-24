@@ -1,0 +1,29 @@
+* Introductory stuff, Detectros and Particle physics
+In this talk I will present you a study of multi variate and signle variate methods in the searches of resonant signatures at the LHC
+** The CMS Experiment overview
+I will begin by giving an overview of the CMS detector as it will give meaning our later discussion.
+We see a cross secction of the detector here. The main idea is that the produced particles, interact at first with the silicon trackers where their position is measured. The particles move under the influence of the solenoid magnet and so if they are charged, their trajectory is curved. This way we can measure their position and momentum
+
+Next the particles meet the calorimeters. With light blue we see the electromagnetic calorimeter where electrons and photons deposit their energies and after that it is the hadronic calorimeter where protons pions and other hardons deposit their energy into.
+
+Finally in the outermost regions of the detector we find the muon chambers. Muons are rather heavy and so they do not stop at the ECALs so the final layers are dedicated to energy measurements of the muons.
+
+** Coordinates at the CMS
+At this point introduce the  coordinates used in the CMS. So, the 3 variables used, are the momenta of the particles in the transverse plane, that is a plane perpendicular to the beam axis, the aximuthal angle of the partilces, and finally the pseudorapidity of the particles, which is related to the polar angle angle of the particles.
+
+We see here their relation to the cartesian coordinates. Z axis is parallel to the beam.
+Lastly with the use of thses variables we can represent an event, that is a signle pp colission. So when I will be talking about events latter on, i will be refering to an array of Pts Etas and Phis and mabe some derivative variables, of all the particles of interest, produced in a colision.   
+** Decays & Resonances
+When protons collide, new partilces are beeing created. Usually they are unstable and decay in more stable partilces, like leptons, photons and quarks which we then detect, and the mass of the unstable parent particle. Practically this calculation results into a peak at the mass spectrum, which we call a resonance. A famous one is Z decaing to two leptons.
+
+On the other hand, not every particle can be detected by the CMS detecor, and processes which contain such particles cannot result into a peak in the mass spectrum due to the missing momentum and energy of the undetected particle.
+
+** Calibration and energy scale uncertainties
+Why resonances are important?
+An obvious answer is that they provide a way to probe and study the properties of the particles produced at the LHC.
+More over we use resonances, callibrate the energy scale and resolution of the detector. How do we do that?
+Basically we want the peaks of the J/psi and the Z boson to appear to the correct place, with the expected width in the mass spectrum.
+Now, simulations are not perfect, the detector is not perfect and we end up with dissagrements in simulation and data that manifest as unsertainties in the energy scale in the analysis. 
+
+This beggs the question how do analysis techniques respond to energy scale uncertainties? 
+This is exactly what we are going study. Our work will focus on the effects that energy scale uncertainties have, on a traditional fit-based analysis and a more modern Boosted Decision Tree-based analysis, and we will use the generic diobject production process as the working example.

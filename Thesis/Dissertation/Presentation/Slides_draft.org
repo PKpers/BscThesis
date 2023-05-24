@@ -82,7 +82,14 @@ Not every particle can be detected by the CMS detector(i.e neutrinos)
 *** How do analysis techniques respond to energy scale uncertainties ?
 Our work will focus on the effects that energy scale uncertainties have, on a traditional fit-based analysis and a more modern Boosted Decision Tree-based analysis, using the generic diobject production process as the working example.
 * Analysis techniqies
-** BDT 1: Supervised Learning
+** Classification techniques
+*In our case*:
+- Signal: a resonant decay Y->xx
+- Background: a non resonant process
+*How to separate them?*
+- Boosted Decision Trees
+- Fit based analysis
+** Supervised Learning
 *Supervised learning*:
  - The model is trained using training data
  - The trained model is tested using testing data
@@ -91,56 +98,12 @@ Our work will focus on the effects that energy scale uncertainties have, on a tr
 *but what is this model?*
  - A function that given the input feautres x, it returns the probability x beeing class A
  - The goal of the training is to minimize the difference between the predicted output \(y_{i} \in [0, 1]\) and the real output \(\hat{y_{i}} = 0\text{ class B, or }\hat{y_{i}} = 1\text{ class A}\) 
-** BDT 2a: Boosted decision trees
-In this study the model of choice is Boosted Decision Trees(BDT).
- - It classifies data using decision tree models
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.85 \textwidth, ext=.png type=png]{/home/kpapad/UG_thesis/Thesis/Dissertation/Presentation/figures/cart.png}
-\end{figure}
-** BDT 2b: Boosted Decision Trees
-Usually only one tree is not power full enough --> Use  more trees in additive manner(Boosting)
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.85 \textwidth, ext=.png type=png]{/home/kpapad/UG_thesis/Thesis/Dissertation/Presentation/figures/twocart.png}
-\end{figure}
-** BDT 3a: Signal from Background Separation
-*In our case*:
-- Signal: a resonant decay Y->xx
-- Background: a non resonant process
-*How to separate them?*
-- Plot the number of Signal and Background events per BDT score --> BDT histogram
-** BDT 3b: Signal from background separation
+** BDT 3: Signal from background separation
  Where should we place the cut in order to accpet most most of the  signal while rejecting most of background?
 \begin{figure}[hb]
 \centering
 \includegraphics[page=2, width=0.85 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M60M5080DeltasPConf12BDTplot.pdf}
 \end{figure}
-** Fit based signal from background separation
-Fit the mass spectrum ...
-\begin{figure}[hb]
-\centering
-\includegraphics[page=2, width=0.5 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_SampleFitWArrows.pdf}
-\end{figure}
-** Fit based signal from background separation
-... and decompose it to a background component ...
-\begin{figure}[hb]
-\centering
-\includegraphics[page=3, width=0.5 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_SampleFitWArrows.pdf}
-\end{figure}
-** Fit based signal from background separation
-... and a signal component
-\begin{figure}[hb]
-\centering
-\includegraphics[page=4, width=0.5 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_SampleFitWArrows.pdf}
-\end{figure}
-** Fit based signal from background separation
-Then we can count the signal and background events, in a region of interest \(I\):
-\begin{align}
-O &= \int_{I} observation(x) dx \\
-B &= \int_{I} bkg(x) dx\\
-S &= O - B
-\end{align}
 ** Statistical interpretation of results
 *Are the signal events we counted, statistically significant?*
  - We use the following metric:
@@ -177,10 +140,6 @@ Search for light \(Y \rightarrow XX\)
 ** The \(Y \rightarrow XX\) channel: Signal
 - W \(\Phi\) --> ll
 
-** Energy scale uncertainties
-To smear the data by $x\%$,
-- iterate over every signal event
-- multiply each \(P_{T}\) by a number sampled from a Gaussian distribution of $\mu = 1$ and $\sigma = x/100$
 * Light mass search
 ** Search for light \(Y \rightarrow XX\)
 We will study the following smearing cases:
@@ -697,6 +656,49 @@ Overall, the BDT is more robust as it learns features that do not get affected b
 ** Unused stuff
 *Welcome to the backup slides!*
 
+** BDT 1a: Boosted decision trees
+In this study the model of choice is Boosted Decision Trees(BDT).
+ - It classifies data using decision tree models
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85 \textwidth, ext=.png type=png]{/home/kpapad/UG_thesis/Thesis/Dissertation/Presentation/figures/cart.png}
+\end{figure}
+** BDT 2b: Boosted Decision Trees
+Usually only one tree is not power full enough --> Use  more trees in additive manner(Boosting)
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85 \textwidth, ext=.png type=png]{/home/kpapad/UG_thesis/Thesis/Dissertation/Presentation/figures/twocart.png}
+\end{figure}
+** Fit based signal from background separation
+Fit the mass spectrum ...
+\begin{figure}[hb]
+\centering
+\includegraphics[page=2, width=0.5 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_SampleFitWArrows.pdf}
+\end{figure}
+** Fit based signal from background separation
+... and decompose it to a background component ...
+\begin{figure}[hb]
+\centering
+\includegraphics[page=3, width=0.5 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_SampleFitWArrows.pdf}
+\end{figure}
+** Fit based signal from background separation
+... and a signal component
+\begin{figure}[hb]
+\centering
+\includegraphics[page=4, width=0.5 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_SampleFitWArrows.pdf}
+\end{figure}
+** Fit based signal from background separation
+Then we can count the signal and background events, in a region of interest \(I\):
+\begin{align}
+O &= \int_{I} observation(x) dx \\
+B &= \int_{I} bkg(x) dx\\
+S &= O - B
+\end{align}
+
+** Energy scale uncertainties
+To smear the data by $x\%$,
+- iterate over every signal event
+- multiply each \(P_{T}\) by a number sampled from a Gaussian distribution of $\mu = 1$ and $\sigma = x/100$
 ** Search for light \(Y \rightarrow XX\) 
 We will study the following smearing cases:
 - $0\%$(Nominal case)
@@ -758,3 +760,4 @@ Plus some really extreme cases
 - $30\%$
 - $40\%$
 - $50\%$
+
