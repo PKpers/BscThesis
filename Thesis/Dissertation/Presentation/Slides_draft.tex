@@ -29,16 +29,8 @@
 \maketitle
 
 \section{Introductory stuff, Detectros and Particle physics}
-\label{sec:orgf50dac1}
-\begin{frame}[label={sec:org8749c61}]{The CMS Experiment overview}
-The CMS detector at the LHC
-\begin{figure}[hb]
-\centering
-\includegraphics[width=0.7 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_detector.jpg}
-\end{figure}
-\end{frame}
-
-\begin{frame}[label={sec:org2718a18}]{Coordinates at the CMS}
+\label{sec:org796f270}
+\begin{frame}[label={sec:org1d83681}]{Coordinates at the CMS}
 Given the solenoid geometry of the CMS detector, it is more convenient to use a spherical type of coordinates\(\left(r, \phi, \theta \right)\).
 \begin{equation}
 \begin{matrix}
@@ -54,7 +46,7 @@ p_{z} = P_{T}\sinh{\eta}\\
 \end{equation}
 \end{frame}
 
-\begin{frame}[label={sec:org34fecf9}]{Decays \& Resonances}
+\begin{frame}[label={sec:org400b6e1}]{Decays \& Resonances}
 Not every particle can be detected by the CMS detector(i.e neutrinos)
 \begin{columns}
 \begin{column}{0.5\columnwidth}
@@ -77,7 +69,7 @@ Not every particle can be detected by the CMS detector(i.e neutrinos)
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:org8c346ce}]{Calibration and energy scale uncertainties}
+\begin{frame}[label={sec:org39c61b0}]{Calibration and energy scale uncertainties}
 \begin{itemize}
 \item Calibration process adjusts energy scale and resolution to match well-known resonances (Z boson, J/psi meson) in data and simulation,
 \end{itemize}
@@ -89,8 +81,8 @@ Our work will focus on the effects that energy scale uncertainties have, on a tr
 \end{block}
 \end{frame}
 \section{Analysis techniqies}
-\label{sec:org36c55fb}
-\begin{frame}[label={sec:org818f120}]{Classification techniques}
+\label{sec:orga02cf62}
+\begin{frame}[label={sec:org8b38a66}]{Classification techniques}
 \alert{In our case}:
 \begin{itemize}
 \item Signal: a resonant decay Y->xx
@@ -102,43 +94,9 @@ Our work will focus on the effects that energy scale uncertainties have, on a tr
 \item Fit based analysis
 \end{itemize}
 \end{frame}
-\begin{frame}[label={sec:org5fc6b21}]{Supervised Learning}
-\alert{Supervised learning}:
-\begin{itemize}
-\item The model is trained using training data
-\item The trained model is tested using testing data
-\item If we like the resulting model, we apply it!
-\end{itemize}
-
-\alert{but what is this model?}
-\begin{itemize}
-\item A function that given the input feautres x, it returns the probability x beeing class A
-\item The goal of the training is to minimize the difference between the predicted output \(y_{i} \in [0, 1]\) and the real output \(\hat{y_{i}} = 0\text{ class B, or }\hat{y_{i}} = 1\text{ class A}\)
-\end{itemize}
-\end{frame}
-\begin{frame}[label={sec:org58db467}]{BDT 3: Signal from background separation}
-Where should we place the cut in order to accpet most most of the  signal while rejecting most of background?
-\begin{figure}[hb]
-\centering
-\includegraphics[page=2, width=0.85 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M60M5080DeltasPConf12BDTplot.pdf}
-\end{figure}
-\end{frame}
-\begin{frame}[label={sec:orga087ea0}]{Statistical interpretation of results}
-\alert{Are the signal events we counted, statistically significant?}
-\begin{itemize}
-\item We use the following metric:
-\end{itemize}
-\begin{equation}
-\text{Significance} = \frac{Signal}{\sqrt{Background}}
-\end{equation}
-\begin{itemize}
-\item The selected regions of interest both in BDT and Fit based analysis, are those that maximize the significance.
-\end{itemize}
-\end{frame}
-
-\section{Analysis1: General Stuff}
-\label{sec:orgfcec9b3}
-\begin{frame}[label={sec:org7e15f80}]{Searches for \(Y \rightarrow XX\)}
+\section{Analyis1: General Stuff}
+\label{sec:org8de0410}
+\begin{frame}[label={sec:org4f63ad1}]{Searches for \(Y \rightarrow XX\)}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 Search for heavy \(Y \rightarrow XX\)
@@ -154,32 +112,30 @@ Search for light \(Y \rightarrow XX\)
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}[label={sec:org40ce85a}]{The \(Y \rightarrow XX\) channel}
+\begin{frame}[label={sec:org320386f}]{The \(Y \rightarrow XX\) channel}
 The specific characteristics(mass etc.) of each dataset  is different but the main idea is the same
 \begin{itemize}
-\item Use a non resonant process for background
-\item Use a resonant process for signal
+\item Use a non resonant process for background --> Drell-Yan
+\item Use a resonant process for signal --> \(W\Phi \rightarrow ll\)
 \item Separate signal from background
 \item Apply energy scale uncertainties to signal
 \item Separate again
 \item Compare the nominal case with the smeared cases
 \end{itemize}
 \end{frame}
-\begin{frame}[label={sec:org85ad9d0}]{The \(Y \rightarrow XX\) channel: Background}
+\begin{frame}[label={sec:orgec3da7f}]{Statistical interpretation of results}
+\alert{Are the signal events we counted, statistically significant?}
 \begin{itemize}
-\item Drell-Yan process
+\item We use the following metric:
 \end{itemize}
-\end{frame}
-
-\begin{frame}[label={sec:orgf1dca4b}]{The \(Y \rightarrow XX\) channel: Signal}
-\begin{itemize}
-\item W \(\Phi\) --> ll
-\end{itemize}
+\begin{equation}
+\text{Significance} = \frac{Signal}{\sqrt{Background}}
+\end{equation}
 \end{frame}
 
 \section{Light mass search}
-\label{sec:org118cd51}
-\begin{frame}[label={sec:org3537510}]{Search for light \(Y \rightarrow XX\)}
+\label{sec:org569fb27}
+\begin{frame}[label={sec:org268c4dc}]{Search for light \(Y \rightarrow XX\)}
 We will study the following smearing cases:
 \begin{columns}
 \begin{column}{0.5\columnwidth}
@@ -200,7 +156,7 @@ The working mass range is quite small --> smearing has a significant effect real
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}[label={sec:org91594c6}]{Fit based approach: Fitting}
+\begin{frame}[label={sec:orge0473b7}]{Fit based approach: Fitting}
 Then we proceed with the fits!
 \begin{columns}
 \begin{column}{0.5\columnwidth}
@@ -219,7 +175,7 @@ Then we proceed with the fits!
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:orgce1278d}]{Fit based approach: Fitting}
+\begin{frame}[label={sec:orgb5d941d}]{Fit based approach: Fitting}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{figure}[h]
@@ -237,7 +193,7 @@ Then we proceed with the fits!
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:org37d5ddc}]{Fit based approach: Fitting}
+\begin{frame}[label={sec:orgacc494e}]{Fit based approach: Fitting}
 Any further smearing will make the signal indistiguishable!
 \begin{figure}[h]
 \centering
@@ -245,14 +201,14 @@ Any further smearing will make the signal indistiguishable!
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org6fbad20}]{Fit based approach: Signal from background separation}
+\begin{frame}[label={sec:org3d55f2b}]{Fit based approach: Signal from background separation}
 Working in the nominal case, we find the region that yields the best significance, by scanning the ranges \(m=\pm \frac{n}{2}\sigma\text{, }n=1, 2, 3, 4, 5, 6\) 
 \begin{figure}[h]
 \centering
 \includegraphics[page=1,width=0.45\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_Significance0.pdf}
 \end{figure}
 \end{frame}
-\begin{frame}[label={sec:orgab9b512}]{Fit based approach: Signal from background separation}
+\begin{frame}[label={sec:orgb012711}]{Fit based approach: Signal from background separation}
 The region of interest that yields the best significance is the \(\pm 1.5\sigma\). There are two ways to interpret this.
 \begin{columns}
 \begin{column}{0.5\columnwidth}
@@ -269,21 +225,21 @@ The region of interest that yields the best significance is the \(\pm 1.5\sigma\
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}[label={sec:orgca0a141}]{BDT approach: Feature space}
+\begin{frame}[label={sec:orga2a6a22}]{BDT approach: Feature space}
 \alert{What features of the dataset are best for the classification task?}
 \begin{figure}[h!]
 \centering
 \includegraphics[page=1,width=0.9\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M60M5080DeltasVarsPlots.pdf}
 \end{figure}
 \end{frame}
-\begin{frame}[label={sec:org934b721}]{BDT approach: Feature space}
+\begin{frame}[label={sec:org072c425}]{BDT approach: Feature space}
 \begin{figure}[h!]
 \centering
 \includegraphics[page=2,width=0.9\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M60M5080DeltasVarsPlots.pdf}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org80e2e9f}]{BDT approach: The model}
+\begin{frame}[label={sec:orgb532fec}]{BDT approach: The model}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{itemize}
@@ -300,7 +256,7 @@ The region of interest that yields the best significance is the \(\pm 1.5\sigma\
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:orgc5e79ab}]{BDT approach: Application}
+\begin{frame}[label={sec:org601b92e}]{BDT approach: Application}
 Feed the application set to the BDT --> BDT plots
 \begin{columns}
 \begin{column}{0.5\columnwidth}
@@ -318,7 +274,7 @@ Feed the application set to the BDT --> BDT plots
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:orgf41c0d9}]{BDT approach: Application}
+\begin{frame}[label={sec:orga01a960}]{BDT approach: Application}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{figure}[h]
@@ -335,7 +291,7 @@ Feed the application set to the BDT --> BDT plots
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:orgb6e04e8}]{BDT approach: Application}
+\begin{frame}[label={sec:orgda68968}]{BDT approach: Application}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{figure}[h]
@@ -346,7 +302,7 @@ Feed the application set to the BDT --> BDT plots
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:org8c8687d}]{BDT approach: Signal from background separation}
+\begin{frame}[label={sec:org4dd8c9f}]{BDT approach: Signal from background separation}
 \alert{Where should we place the cut?}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
@@ -364,7 +320,7 @@ Feed the application set to the BDT --> BDT plots
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}[label={sec:org60fa24e}]{BDT approach: Signal from background separation}
+\begin{frame}[label={sec:orgc9bfe49}]{BDT approach: Signal from background separation}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{itemize}
@@ -379,7 +335,7 @@ Feed the application set to the BDT --> BDT plots
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}[label={sec:org6ebc191}]{Synopsis}
+\begin{frame}[label={sec:org14fc6f8}]{Synopsis}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{itemize}
@@ -398,8 +354,8 @@ Feed the application set to the BDT --> BDT plots
 \end{frame}
 
 \section{Heavy mass search}
-\label{sec:orgcc4f58c}
-\begin{frame}[label={sec:orgc654519}]{Search for heavy \(Y \rightarrow XX\)}
+\label{sec:orgda467da}
+\begin{frame}[label={sec:org899fca1}]{Search for heavy \(Y \rightarrow XX\)}
 We will study the following smearing cases:\newline
 
 \begin{columns}
@@ -429,7 +385,7 @@ Medium to extreme cases
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:orgb162188}]{Fit based approach: Signal Fitting}
+\begin{frame}[label={sec:orge654160}]{Fit based approach: Signal Fitting}
 Then we proceed and fit the signal
 \begin{columns}
 \begin{column}{0.5\columnwidth}
@@ -448,7 +404,7 @@ Then we proceed and fit the signal
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:org5dcebdf}]{Fit based approach: Signal Fitting}
+\begin{frame}[label={sec:org3220fb3}]{Fit based approach: Signal Fitting}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{figure}[h]
@@ -466,14 +422,14 @@ Then we proceed and fit the signal
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:org5634b6a}]{Fit based approach: Signal Fitting}
+\begin{frame}[label={sec:orged5a8f6}]{Fit based approach: Signal Fitting}
 \begin{figure}[h]
 \centering
 \includegraphics[page=5,width=0.55\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org008c162}]{Fit based approach: Signal Fitting}
+\begin{frame}[label={sec:org71521c2}]{Fit based approach: Signal Fitting}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{figure}[h]
@@ -491,21 +447,21 @@ Then we proceed and fit the signal
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:orgbee65bd}]{Fit based approach: Signal Fitting}
+\begin{frame}[label={sec:org144a50e}]{Fit based approach: Signal Fitting}
 \begin{figure}[h]
 \centering
 \includegraphics[page=8,width=0.55\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org5ec70e4}]{Fit based approach: Signal from background separation}
+\begin{frame}[label={sec:org47bf5f2}]{Fit based approach: Signal from background separation}
 Working in the nominal case, we scan the ranges \(m=\pm \frac{n}{2}\sigma\text{, }n=1, 2, 3, 4, 5, 6\) 
 \begin{figure}[h]
 \centering
 \includegraphics[page=1,width=0.45\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_Significance0.pdf}
 \end{figure}
 \end{frame}
-\begin{frame}[label={sec:orgd4c5ac0}]{Fit based approach: Signal from background separation}
+\begin{frame}[label={sec:org84d9436}]{Fit based approach: Signal from background separation}
 The best significance is in the \(\pm 1.5\sigma\) range. 
 \begin{columns}
 \begin{column}{0.5\columnwidth}
@@ -522,21 +478,21 @@ The best significance is in the \(\pm 1.5\sigma\) range.
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}[label={sec:org4cf758a}]{BDT approach: Feature space}
+\begin{frame}[label={sec:orge372f3c}]{BDT approach: Feature space}
 We use the same feature space as with the light mass search
 \begin{figure}[h!]
 \centering
 \includegraphics[page=1,width=0.9\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300Deltas_varsplot.pdf}
 \end{figure}
 \end{frame}
-\begin{frame}[label={sec:orga5c7227}]{BDT approach: Feature space}
+\begin{frame}[label={sec:orga9e204d}]{BDT approach: Feature space}
 \begin{figure}[h!]
 \centering
 \includegraphics[page=2,width=0.9\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M200M100300Deltas_varsplot.pdf}
 \end{figure}
 \end{frame}
 
-\begin{frame}[label={sec:org9a93d33}]{BDT approach: The model}
+\begin{frame}[label={sec:orga4ba308}]{BDT approach: The model}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{itemize}
@@ -553,7 +509,7 @@ We use the same feature space as with the light mass search
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:org5408ac2}]{BDT approach: Application}
+\begin{frame}[label={sec:org245c705}]{BDT approach: Application}
 Feed the application set to the BDT --> BDT plots
 \begin{columns}
 \begin{column}{0.5\columnwidth}
@@ -571,7 +527,7 @@ Feed the application set to the BDT --> BDT plots
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:orgbc60040}]{BDT approach: Application}
+\begin{frame}[label={sec:orge85ea32}]{BDT approach: Application}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{figure}[h]
@@ -588,7 +544,7 @@ Feed the application set to the BDT --> BDT plots
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:org9141060}]{BDT approach: Application}
+\begin{frame}[label={sec:org933d433}]{BDT approach: Application}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{figure}[h]
@@ -605,7 +561,7 @@ Feed the application set to the BDT --> BDT plots
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:orgeae3be7}]{BDT approach: Application}
+\begin{frame}[label={sec:org3df8f87}]{BDT approach: Application}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{figure}[h]
@@ -622,7 +578,7 @@ Feed the application set to the BDT --> BDT plots
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:org6c4ae51}]{BDT approach: Signal from background separation}
+\begin{frame}[label={sec:org3f19e6c}]{BDT approach: Signal from background separation}
 \alert{Where should we place the cut?}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
@@ -640,7 +596,7 @@ Feed the application set to the BDT --> BDT plots
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}[label={sec:org6701e01}]{BDT approach: Signal from background separation}
+\begin{frame}[label={sec:org5243d9d}]{BDT approach: Signal from background separation}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{itemize}
@@ -656,7 +612,7 @@ Feed the application set to the BDT --> BDT plots
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}[label={sec:orga9cb714}]{Synopsis}
+\begin{frame}[label={sec:orga81df4e}]{Synopsis}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{itemize}
@@ -676,8 +632,8 @@ Feed the application set to the BDT --> BDT plots
 \end{frame}
 
 \section{Results}
-\label{sec:org716d011}
-\begin{frame}[label={sec:org5553bd2}]{Results}
+\label{sec:org7654677}
+\begin{frame}[label={sec:org2357d4b}]{Results}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{itemize}
@@ -701,7 +657,7 @@ Feed the application set to the BDT --> BDT plots
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:orgb49d4c9}]{Results}
+\begin{frame}[label={sec:org27b3b76}]{Results}
 Overall, the BDT is more robust as it learns features that do not get affected by energy scale uncertainties\newline
 
 \alert{So is the BDT better?}
@@ -712,12 +668,41 @@ Overall, the BDT is more robust as it learns features that do not get affected b
 \end{frame}
 
 \section{Unused stuff}
-\label{sec:org2679490}
-\begin{frame}[label={sec:orgba67c2a}]{Unused stuff}
+\label{sec:orga2fc1cf}
+\begin{frame}[label={sec:org0036d8f}]{Unused stuff}
 \alert{Welcome to the backup slides!}
 \end{frame}
 
-\begin{frame}[label={sec:orge1fe865}]{BDT 1a: Boosted decision trees}
+\begin{frame}[label={sec:org69f0060}]{The CMS Experiment overview}
+The CMS detector at the LHC
+\begin{figure}[hb]
+\centering
+\includegraphics[width=0.7 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_detector.jpg}
+\end{figure}
+\end{frame}
+
+\begin{frame}[label={sec:orgf338327}]{Supervised Learning}
+\alert{Supervised learning}:
+\begin{itemize}
+\item The model is trained using training data
+\item The trained model is tested using testing data
+\item If we like the resulting model, we apply it!
+\end{itemize}
+
+\alert{but what is this model?}
+\begin{itemize}
+\item A function that given the input feautres x, it returns the probability x beeing class A
+\item The goal of the training is to minimize the difference between the predicted output \(y_{i} \in [0, 1]\) and the real output \(\hat{y_{i}} = 0\text{ class B, or }\hat{y_{i}} = 1\text{ class A}\)
+\end{itemize}
+\end{frame}
+\begin{frame}[label={sec:org6665841}]{BDT 3: Signal from background separation}
+Where should we place the cut in order to accpet most most of the  signal while rejecting most of background?
+\begin{figure}[hb]
+\centering
+\includegraphics[page=2, width=0.85 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M60M5080DeltasPConf12BDTplot.pdf}
+\end{figure}
+\end{frame}
+\begin{frame}[label={sec:orgc035812}]{BDT 1a: Boosted decision trees}
 In this study the model of choice is Boosted Decision Trees(BDT).
 \begin{itemize}
 \item It classifies data using decision tree models
@@ -727,35 +712,35 @@ In this study the model of choice is Boosted Decision Trees(BDT).
 \includegraphics[width=0.85 \textwidth, ext=.png type=png]{/home/kpapad/UG_thesis/Thesis/Dissertation/Presentation/figures/cart.png}
 \end{figure}
 \end{frame}
-\begin{frame}[label={sec:orgc50771b}]{BDT 2b: Boosted Decision Trees}
+\begin{frame}[label={sec:orgf1549a0}]{BDT 2b: Boosted Decision Trees}
 Usually only one tree is not power full enough --> Use  more trees in additive manner(Boosting)
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.85 \textwidth, ext=.png type=png]{/home/kpapad/UG_thesis/Thesis/Dissertation/Presentation/figures/twocart.png}
 \end{figure}
 \end{frame}
-\begin{frame}[label={sec:orgc365121}]{Fit based signal from background separation}
+\begin{frame}[label={sec:orge5cd412}]{Fit based signal from background separation}
 Fit the mass spectrum \ldots{}
 \begin{figure}[hb]
 \centering
 \includegraphics[page=2, width=0.5 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_SampleFitWArrows.pdf}
 \end{figure}
 \end{frame}
-\begin{frame}[label={sec:org835c093}]{Fit based signal from background separation}
+\begin{frame}[label={sec:org2ffbfc9}]{Fit based signal from background separation}
 \ldots{} and decompose it to a background component \ldots{}
 \begin{figure}[hb]
 \centering
 \includegraphics[page=3, width=0.5 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_SampleFitWArrows.pdf}
 \end{figure}
 \end{frame}
-\begin{frame}[label={sec:orgbce13a2}]{Fit based signal from background separation}
+\begin{frame}[label={sec:org4c7a6f9}]{Fit based signal from background separation}
 \ldots{} and a signal component
 \begin{figure}[hb]
 \centering
 \includegraphics[page=4, width=0.5 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_SampleFitWArrows.pdf}
 \end{figure}
 \end{frame}
-\begin{frame}[label={sec:org9889fab}]{Fit based signal from background separation}
+\begin{frame}[label={sec:org178ba9f}]{Fit based signal from background separation}
 Then we can count the signal and background events, in a region of interest \(I\):
 \begin{align}
 O &= \int_{I} observation(x) dx \\
@@ -764,14 +749,26 @@ S &= O - B
 \end{align}
 \end{frame}
 
-\begin{frame}[label={sec:org76e02e7}]{Energy scale uncertainties}
+\begin{frame}[label={sec:org55fbc53}]{Energy scale uncertainties}
 To smear the data by \(x\%\),
 \begin{itemize}
 \item iterate over every signal event
 \item multiply each \(P_{T}\) by a number sampled from a Gaussian distribution of \(\mu = 1\) and \(\sigma = x/100\)
 \end{itemize}
 \end{frame}
-\begin{frame}[label={sec:org33aa9dc}]{Search for light \(Y \rightarrow XX\)}
+\begin{frame}[label={sec:orgf3980cb}]{The \(Y \rightarrow XX\) channel: Background}
+\begin{itemize}
+\item Drell-Yan process
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgaa2d4f4}]{The \(Y \rightarrow XX\) channel: Signal}
+\begin{itemize}
+\item W \(\Phi\) --> ll
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgebea367}]{Search for light \(Y \rightarrow XX\)}
 We will study the following smearing cases:
 \begin{itemize}
 \item \(0\%\)(Nominal case)
@@ -782,7 +779,7 @@ We will study the following smearing cases:
 \end{itemize}
 The working mass range is quite small --> smearing has a significant effect real quick 
 \end{frame}
-\begin{frame}[label={sec:org7c8b1f0}]{Fit based approach: Background Fitting light}
+\begin{frame}[label={sec:org40e8aeb}]{Fit based approach: Background Fitting light}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{itemize}
@@ -800,7 +797,7 @@ The working mass range is quite small --> smearing has a significant effect real
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:org8411146}]{Fit based approach: Background Fitting}
+\begin{frame}[label={sec:org9e65609}]{Fit based approach: Background Fitting}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{itemize}
@@ -817,7 +814,7 @@ The working mass range is quite small --> smearing has a significant effect real
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:org5a5d5e6}]{Search for heavy \(Y \rightarrow XX\)}
+\begin{frame}[label={sec:org579beaf}]{Search for heavy \(Y \rightarrow XX\)}
 We will study the following smearing cases:\newline
 \begin{columns}
 \begin{column}{0.5\columnwidth}
