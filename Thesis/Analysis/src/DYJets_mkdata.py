@@ -56,7 +56,7 @@ if __name__=='__main__':
     k = 0
     # Get the simulated mass from dir name. We need it to automatically set the limits of the hist
     Mass=int(inDir.split('-')[1].split('_')[0])
-    muon_mass_hist = ROOT.TH1D("muon_mass_hist", "", 50,0, 1000) 
+    muon_mass_hist = ROOT.TH1D("muon_mass_hist", "", 100,0, 1000) 
     muons = []
     for entry in tree:
         evnt_id = entry.GenPromptParticlePdgId # get the particle ids of each event

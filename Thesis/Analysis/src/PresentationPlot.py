@@ -85,27 +85,6 @@ x_max = data.GetXaxis().GetXmax()
 y_min = data.GetMinimum()
 y_max = data.GetMaximum()
 
-## Plot the fsb arrow
-# Calculate the arrow coordinates relative to the axis range
-arrow_x_start = x_min + 0.15 * (x_max - x_min)
-arrow_x_end = x_min + 0.3 * (x_max - x_min)
-arrow_y_start = y_min + 0.8 * (y_max - y_min)
-arrow_y_end = y_min + 0.6 * (y_max - y_min)
-
-fsbArrow = ROOT.TArrow(arrow_x_start, arrow_y_start, arrow_x_end, arrow_y_end, 0.02,"|>")
-fsbArrow.SetLineWidth(2)
-fsbArrow.SetFillColor(2)
-fsbArrow.DrawClone()
-useless.append(fsbArrow)
-
-# plot the corresponding text
-fsbText = ROOT.TLatex()
-fsbText.SetTextSize(0.035)
-fsbText.DrawLatexNDC(0.2, 0.8, "#color[2]{#splitline{#splitline{Modeled}{Mass}}{Spectrum}}" )
-
-c.Update()
-c.SaveAs(outName)
-
 ## Plot the fb arrow
 # Calculate the arrow coordinates relative to the axis range
 arrow_x_start = x_min + 0.4 * (x_max - x_min)
@@ -143,6 +122,28 @@ fsText.SetTextSize(0.035)
 fsText.DrawLatexNDC(0.55, 0.65, "#color[3]{ #splitline{Modeled}{Signal} } " )
 c.Update()
 c.SaveAs(outName)
+
+## Plot the fsb arrow
+# Calculate the arrow coordinates relative to the axis range
+arrow_x_start = x_min + 0.15 * (x_max - x_min)
+arrow_x_end = x_min + 0.3 * (x_max - x_min)
+arrow_y_start = y_min + 0.8 * (y_max - y_min)
+arrow_y_end = y_min + 0.6 * (y_max - y_min)
+
+fsbArrow = ROOT.TArrow(arrow_x_start, arrow_y_start, arrow_x_end, arrow_y_end, 0.02,"|>")
+fsbArrow.SetLineWidth(2)
+fsbArrow.SetFillColor(2)
+fsbArrow.DrawClone()
+useless.append(fsbArrow)
+
+# plot the corresponding text
+fsbText = ROOT.TLatex()
+fsbText.SetTextSize(0.035)
+fsbText.DrawLatexNDC(0.2, 0.8, "#color[2]{#splitline{#splitline{Modeled}{Mass}}{Spectrum}}" )
+
+c.Update()
+c.SaveAs(outName)
+
 
 c.SaveAs(outName)
 myFile.Close()
