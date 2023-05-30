@@ -1,20 +1,21 @@
 * Introductory stuff, Detectros and Particle physics
-In this talk I will present you a study of multi variate and signle variate methods in the searches of resonant signatures at the LHC
+In this talk I will present you a study of multi variate and signle variate methods in the searches for resonant signatures at the LHC
 ** Coordinates at the CMS
-I will firstly introduce the  coordinates used in the CMS. So, the 3 variables used, are the momenta of the particles in the transverse plane, that is a plane perpendicular to the beam axis, the aximuthal angle of the partilces, and finally the pseudorapidity of the particles, which is related to the polar angle angle of the particles.
-
+I will firstly introduce the  coordinates used in this work. So, the 3 variables we use, are the momenta of the particles in the transverse plane, that is a plane perpendicular to the beam axis, the azimuthal angle of the partilces, and finally the pseudorapidity , which is related to the polar angle angle of the particles.
 We see here their relation to the cartesian coordinates. Z axis is parallel to the beam.
-Lastly with the use of thses variables we can represent an event, that is a signle pp colission. So when I will be talking about events latter on, i will be refering to an array of Pts Etas and Phis and mabe some derivative variables, of all the particles of interest, produced in a colision.   
-** Decays & Resonances
-When protons collide, new partilces are beeing created. Usually they are unstable and decay in more stable partilces, like leptons, photons and quarks which we then detect, and the mass of the unstable parent particle. Practically this calculation results into a peak at the mass spectrum, which we call a resonance. A famous one is Z decaing to two leptons.
 
-On the other hand, not every particle can be detected by the CMS detecor, and processes which contain such particles cannot result into a peak in the mass spectrum due to the missing momentum and energy of the undetected particle.
+Lastly with the use of thsese variables we can represent an event. An event is a signle pp colission. So when I will be talking about events latter on, i will be refering to an array of Pts Etas  Phis and mabe some other derivative variables, of the particles that we are interested in, in a signle colision.   
+** Decays & Resonances
+When protons collide, new partilces are beeing created. Usually they are unstable and decay in more stable partilces, like leptons, photons and quarks which we then detect, and infer the mass of the unstable parent particle. Practically this calculation results into a peak at the mass spectrum, which we call a resonance. A famous one is Z decaing to two leptons.
+
+On the other hand, the invariant mass calculation do not always results into a peak in the mass spectrum such processes are non resonant proceses. 
 
 ** Calibration and energy scale uncertainties
 Why resonances are important?
 An obvious answer is that they provide a way to probe and study the properties of the particles produced at the LHC.
-More over we use resonances, callibrate the energy scale and resolution of the detector. How do we do that?
-Basically we want the peaks of the J/psi and the Z boson to appear to the correct place, with the expected width in the mass spectrum.
+More over we use resonances, to callibrate the energy scale and resolution of the detector. How do we do that?
+Basically we want the peaks of known resonances like  Z boson and the J/Psi meson to appear to the correct place, with the expected width in the mass spectrum.
+
 Now, simulations are not perfect, the detector is not perfect and we end up with dissagrements in simulation and data that manifest as unsertainties in the energy scale in the analysis. 
 
 This beggs the question how do analysis techniques respond to energy scale uncertainties? 
@@ -22,7 +23,7 @@ This is exactly what we are going study. Our work will investigate the effects o
 
 * Method
 ** Searches for Y to XX 
-We will present two searches. One heavy Y to XX where the mass of Y particle is 200GeV, and one lighter Y to xx with the mass of the Y particle beeing 60GeV.
+We will present two searches. One where we search for a particle with mass at 200GeV, and one where  the mass of the  particle will 60GeV.
 ** The Y to XX channel
 So the first step to conduct the study is to prepare the data sets we are going to analyze.
 For background we used the drell yan proces, and for signal we used the W phi to ll. Despite the fact that the final states we worked with were leptons, we treated them as generic x pairs. So the whole search is process agnositic.
@@ -30,4 +31,32 @@ Having the data set, we then proceed and separate signal from background by fitt
 ** Statistical interpretations of reults
  we will be assesing the perfomance of the two models, in terms of statistical significance as defined in poisson statistics, due to the poissonian nature of counting at the CMS detector,
 * Search for light Y to ll
+** search for light y to xx
 Now lets see all these in practice.
+We will begin with the light mass search. We see here the mass spectrum. And here are the smearing cases that we are going to study. In this work we implemented enregy scale uncertainties as random noise, and that is, we itterate over every signal event and multiply the pts of the pear with a number sampled from a gaussian distribution centered at 1 with the spread beeing the smearing persentage.
+Even though on absoslute the precentages of smearing are quite small, they are sufficient to study cases of mild and extreme noise.  
+** Fit based approach: Fitting
+I will begin with the fit based method so that you can get an idea of the effects of smearing on the data set.
+We see here the fits. To simplify things a bit, the background was fitted separatelly and kept constant throuought the fits. We then fitted the signal with a gaussian shape.
+Here is the 12% we see that the all signal is almost gone.
+
+Now that we have the fits, what we want to do is to find a region where the amount of signal is significant and count the signal and backdground events. To do so we work in the nominal case and we scan possible regions from plus minus 0.5 sigma around the center up to plus minus 3 sigma around the center with a step size of 0.5 sigma. So plus minus 0.5 sigma, plus minus one sigma, plus minus 1.5 sigma and so on
+We see here that the best region is at 1.5 sigma. We can then use this in two ways. one can take the nominal case 1.5 sigma region and apply to all the fits, that is a fixed window search, while another one can still search at 1.5 sigma but use the sigma that resulted by each of the fits
+
+We did both of them and here are the results. We see that the performance drops about a factor of 2, as energy scale uncertainties increase in the signal. More over the adaptive window search performs better. That is not trivial given the fact that the wider the region is the more background we are letting in.
+** BDT approach
+Now lets see how the bdt performs. So far we have bee using only one feature to do the analysis. In a BDT based analysis we use more than one feature and so the first step is to decide which variables we are going to use for the separation.
+Now energy scale uncertainties have an effect only on the transverse momenta of the particles, so to create a model that is somewhat resistant to uncertainties on the energy scale our best bet is to train a model that relies not only on pts but also on features that remain invariant under smearing. Through trial and error the best features for the classification fround to be the two pts and 3 geometrical featuers. Delta eta is the difference in pseudorapidity of the pair, delta phi is the difference in azimuthal angle and delta R is the square root of delta eta squared plus delta phi squared.  
+ 
+** the model
+So here is the resulting model. How this works is we feed the bdt the events and we ask it if its signal or background. The model returns a number from 0 to 1 the bdt score. events that get a BDT score closer to 1 are more signal like  while events with a bdt score closer to 0 are background like. The results training and testing data can be seen here in this histogram. The x axis is the bdt score.
+One thing we want to asses before applying the model to the real data is the over training. Over training is when the model learns too much about the training data and cannot generalize to unseen data. We evaluate that by comparing the perfomances on the training and testing set by looking at the training to testing ratios. We want the perfomance on the training and testing set to be similar, so the ratios should fluctuate around 1. We see here that this is the case. For out purpose this is sufficient. We have a consistent model that performs as expected.
+** Application
+So lets feed the real data to the model.
+We see here the BDT histograms for the various cases of smearing. Do you see something weird here? Basically we see that the perfomance of the model doesn't change much. The histograms are quite similar.
+What do we do next? Same philosophy as before. We want to define bdt score range and count the signal and background events in that range. Here we scan the whole range, in the nominal case, to find the range that yields the best significance. We see that the best region is 0,96 to 1. That is the very last bins in the histograms. The resulting significance as a function of smearing is presented here. As we expected from the histogram the model is indeed invarant to energy scale uncertainties.
+Here is the comparizon of the two methods.
+
+* Search for heavy y to xx
+So lets see now the heavy mass case. We see here the mass spectrum. Here we have a wider mass range which allows us to study more cases of smearing. So we will study 5 cases of mild to extreme smearing and 3 more cases of really extreme smearing
+

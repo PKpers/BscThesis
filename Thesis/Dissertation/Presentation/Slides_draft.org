@@ -3,11 +3,11 @@
 #+options: d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
 #+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+options: timestamp:nil title:t toc:nil todo:nil |:t
-#+title: Presentation draft
+#+title: Machine learning Techniques in the Searches for Resonant Signatures at the LHC 
 #+date:  
 #+author: Konstantinos Papadimos
 #+email: dinogreco2000@gmail.com
-#+latex_header: \mode<beamer>{\usetheme{Madrid}}
+#+latex_header: \mode<beamer>{\usetheme{boxes}}
 #+latex_header: \mode<beamer>{\usepackage{amsmath}}
 #+language: en
 #+select_tags: export
@@ -57,7 +57,7 @@ Not every particle can be detected by the CMS detector(i.e neutrinos)
 :PROPERTIES:
 :BEAMER_col: 0.5
     :END:
-- Detectable Decay Products \(\rightarrow\) Resonance
+- Peak in the mass spectrum \(\rightarrow\) Resonance
 #+ATTR_LaTeX: :width 0.8\textwidth
 [[/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/DYJetsM50_MassHist.pdf]]
 
@@ -66,7 +66,7 @@ Not every particle can be detected by the CMS detector(i.e neutrinos)
 :BEAMER_col: 0.5
     :END:
 #+ATTR_LaTeX: :width 0.8\textwidth
-- Non Detectable Decay Products \(\rightarrow\) Not a resonance
+- Not a peak in the mass \(\rightarrow\) Not a resonance
 [[/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/DYJetsM50_MassHist.pdf]]
 
 ** Calibration and energy scale uncertainties
