@@ -21,6 +21,12 @@
 #+COLUMNS: %45ITEM %10BEAMER_env(Env) %10BEAMER_act(Act) %4BEAMER_col(Col) %8BEAMER_opt(Opt)
 
 * Introductory stuff, Detectros and Particle physics
+** The CMS Experiment overview
+\begin{figure}[hb]
+\centering
+\includegraphics[width=\textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_detector.jpg}
+\end{figure}
+
 ** Coordinates at the CMS
 *** Text
 :PROPERTIES:
@@ -51,29 +57,23 @@ p_{z} = P_{T}\sinh{\eta}\\
 \eta \equiv -\ln{\left [ \tan\left (\frac{\theta}{2} \right ) \right]  }
 \end{equation}
 
-** Decays & Resonances
-Not every particle can be detected by the CMS detector(i.e neutrinos)
-*** Resonance
-:PROPERTIES:
-:BEAMER_col: 0.5
-    :END:
-- Peak in the mass spectrum \(\rightarrow\) Resonance
-#+ATTR_LaTeX: :width 0.8\textwidth
-[[/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/DYJetsM50_MassHist.pdf]]
-
-*** Not a resonance
-:PROPERTIES:
-:BEAMER_col: 0.5
-    :END:
-#+ATTR_LaTeX: :width 0.8\textwidth
-- Not a peak in the mass \(\rightarrow\) Not a resonance
-[[/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/DYJetsM50_MassHist.pdf]]
+** Resonances
+\begin{figure}[hb]
+\centering
+\includegraphics[width=0.75\textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Dissertation/resonanceNONresonance.jpg}
+\end{figure}
+** Calibration and energy scale uncertainties
+*** Why are resonances important?
+- They provide a way to probe and study the nature of particles produced at the LHC
+- We can calibrate the energy scale and resonlution of the detector
+*** How do we calibrate the detector?
+  - Calibration process adjusts energy scale and resolution to match well-known resonances (Z boson, J/psi meson) in data and simulation,
+- Imperfect agreement due to subdetector complexities and nonlinear effects
 
 ** Calibration and energy scale uncertainties
-  - Calibration process adjusts energy scale and resolution to match well-known resonances (Z boson, J/psi meson) in data and simulation,
- - Imperfect agreement due to subdetector complexities and nonlinear effects
 *** How do analysis techniques respond to energy scale uncertainties ?
 Our work will focus on the effects that energy scale uncertainties have, on a traditional fit-based analysis and a more modern Boosted Decision Tree-based analysis, using the generic diobject production process as the working example.
+
 * Analysis techniqies
 ** Classification techniques
 *In our case*:
@@ -82,6 +82,7 @@ Our work will focus on the effects that energy scale uncertainties have, on a tr
 *How to separate them?*
 - Boosted Decision Trees
 - Fit based analysis
+
 * Analyis1: General Stuff
 ** Searches for \(Y \rightarrow XX\)
 *** Search for heavy \(Y \rightarrow XX\)
@@ -96,6 +97,15 @@ Search for heavy \(Y \rightarrow XX\)
     :END:
 Search for light \(Y \rightarrow XX\)
 - Mass range from 50GeV up to 70GeV
+** The \(Y \rightarrow XX\) channel
+  The specific characteristics(mass etc.) of each dataset  is different but the main idea is the same
+  - Use a non resonant process for background --> Drell-Yan
+  - Use a resonant process for signal --> $W\Phi \rightarrow ll$ 
+\begin{figure}[hb]
+\centering
+\includegraphics[width=0.7\textwidth, ext=.png]{/home/kpapad/UG_thesis/Thesis/Dissertation/2023-05-30-210442_751x445_scrot.png}
+\end{figure}
+
 ** The \(Y \rightarrow XX\) channel
   The specific characteristics(mass etc.) of each dataset  is different but the main idea is the same
   - Use a non resonant process for background --> Drell-Yan
@@ -132,6 +142,25 @@ The working mass range is quite small --> smearing has a significant effect real
 \centering
 \includegraphics[page=1,width=\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/WPhiJets_M60M5080_Application_MassSpectrum.pdf}
 \end{figure}
+** Fit based signal from background separation
+To fit the mass spectrum we use a background component...
+\begin{figure}[hb]
+\centering
+\includegraphics[page=2, width=0.5 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_SampleFitWArrows.pdf}
+\end{figure}
+** Fit based signal from background separation
+... and a signal component ...
+\begin{figure}[hb]
+\centering
+\includegraphics[page=3, width=0.5 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_SampleFitWArrows.pdf}
+\end{figure}
+** Fit based signal from background separation
+... Signal + Background = Model mass spectrum
+\begin{figure}[hb]
+\centering
+\includegraphics[page=4, width=0.5 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_SampleFitWArrows.pdf}
+\end{figure}
+
 ** Fit based approach: Fitting 
 Then we proceed with the fits!
 *** Figure 1
@@ -185,20 +214,26 @@ Working in the nominal case, we find the region that yields the best significanc
 \includegraphics[page=1,width=0.45\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_Significance0.pdf}
 \end{figure}
 ** Fit based approach: Signal from background separation  
-The region of interest that yields the best significance is the $\pm 1.5\sigma$. There are two ways to interpret this.
-*** text
-:PROPERTIES:
-:BEAMER_col: 0.5
-    :END:
-- interpret $\sigma$ as the the spread of the nominal case --> fixed window
-- interpret $\sigma$ as the the spread of each  cases --> adaptive window
-*** figure  
+*** figure1 
 :PROPERTIES:
 :BEAMER_col: 0.5
     :END:
 \begin{figure}[h]
 \centering
-\includegraphics[page=3,width=0.8\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M60M5080_Significance.pdf}
+\includegraphics[page=3,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_MassWinodwShow.pdf}
+\end{figure}
+*** figure2 
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=3,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_MassWinodwShow2.pdf}
+\end{figure}
+** Fit based approach: Signal from background separation  
+\begin{figure}[h]
+\centering
+\includegraphics[page=3,width=0.6\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/src/WPhiJets_M60M5080_Significance.pdf}
 \end{figure}
 ** BDT approach: Feature space 
 *What features of the dataset are best for the classification task?*
@@ -352,51 +387,7 @@ Medium to extreme cases
 \end{figure}
 
 ** Fit based approach: Signal Fitting 
-Then we proceed and fit the signal
-*** Figure 1
-:PROPERTIES:
-:BEAMER_col: 0.5
-    :END:
-\begin{figure}[h]
-\centering
-\includegraphics[page=1,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
-\end{figure}
-
-*** Figure 2
-:PROPERTIES:
-:BEAMER_col: 0.5
-    :END:
-\begin{figure}[h]
-\centering
-\includegraphics[page=2,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
-\end{figure}
-
-** Fit based approach: Signal Fitting 
-*** Figure 1
-:PROPERTIES:
-:BEAMER_col: 0.5
-    :END:
-\begin{figure}[h]
-\centering
-\includegraphics[page=3,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
-\end{figure}
-
-*** Figure 2
-:PROPERTIES:
-:BEAMER_col: 0.5
-    :END:
-\begin{figure}[h]
-\centering
-\includegraphics[page=4,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
-\end{figure}
-
-** Fit based approach: Signal Fitting 
-\begin{figure}[h]
-\centering
-\includegraphics[page=5,width=0.55\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
-\end{figure}
-
-** Fit based approach: Signal Fitting 
+There is no point in trying to fit the really extreme smearing cases
 *** Figure 1
 :PROPERTIES:
 :BEAMER_col: 0.5
@@ -469,79 +460,6 @@ We use the same feature space as with the light mass search
   \begin{figure}[h!]
 \centering
 \includegraphics[page=5, width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300DeltasPConf12BDTplot.pdf}
-\end{figure}
-
-** BDT approach: Application
-Feed the application set to the BDT --> BDT plots
-*** Figure 1
-:PROPERTIES:
-:BEAMER_col: 0.5
-    :END:
-\begin{figure}[h]
-\centering
-\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application12BDTplot.pdf}
-\end{figure}
-*** Figure 2
-:PROPERTIES:
-:BEAMER_col: 0.5
-    :END:
-\begin{figure}[h]
-\centering
-\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared512BDTplot.pdf}
-\end{figure}
-
-** BDT approach: Application
-*** Figure 1
-:PROPERTIES:
-:BEAMER_col: 0.5
-    :END:
-\begin{figure}[h]
-\centering
-\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared1012BDTplot.pdf}
-\end{figure}
-*** Figure 2
-:PROPERTIES:
-:BEAMER_col: 0.5
-    :END:
-\begin{figure}[h]
-\centering
-\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared1512BDTplot.pdf}
-\end{figure}
-
-** BDT approach: Application
-*** Figure 1
-:PROPERTIES:
-:BEAMER_col: 0.5
-    :END:
-\begin{figure}[h]
-\centering
-\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared2012BDTplot.pdf}
-\end{figure}
-*** Figure 2
-:PROPERTIES:
-:BEAMER_col: 0.5
-    :END:
-\begin{figure}[h]
-\centering
-\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared3012BDTplot.pdf}
-\end{figure}
-
-** BDT approach: Application
-*** Figure 1
-:PROPERTIES:
-:BEAMER_col: 0.5
-    :END:
-\begin{figure}[h]
-\centering
-\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared4012BDTplot.pdf}
-\end{figure}
-*** Figure 2
-:PROPERTIES:
-:BEAMER_col: 0.5
-    :END:
-\begin{figure}[h]
-\centering
-\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared5012BDTplot.pdf}
 \end{figure}
 
 ** BDT approach: Signal from background separation
@@ -627,12 +545,23 @@ Overall, the BDT is more robust as it learns features that do not get affected b
 ** Unused stuff
 *Welcome to the backup slides!*
 
-** The CMS Experiment overview
-The CMS detector at the LHC
-\begin{figure}[hb]
-\centering
-\includegraphics[width=0.7 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Dissertation/src/figures/cms_detector.jpg}
-\end{figure}
+** Decays & Resonances
+Not every particle can be detected by the CMS detector(i.e neutrinos)
+*** Resonance
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+- Peak in the mass spectrum \(\rightarrow\) Resonance
+#+ATTR_LaTeX: :width 0.8\textwidth
+[[/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/DYJetsM50_MassHist.pdf]]
+
+*** Not a resonance
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+#+ATTR_LaTeX: :width 0.8\textwidth
+- Not a peak in the mass \(\rightarrow\) Not a resonance
+[[/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/DYJetsM50_MassHist.pdf]]
 
 ** Supervised Learning
 *Supervised learning*:
@@ -661,24 +590,6 @@ Usually only one tree is not power full enough --> Use  more trees in additive m
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.85 \textwidth, ext=.png type=png]{/home/kpapad/UG_thesis/Thesis/Dissertation/Presentation/figures/twocart.png}
-\end{figure}
-** Fit based signal from background separation
-Fit the mass spectrum ...
-\begin{figure}[hb]
-\centering
-\includegraphics[page=2, width=0.5 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_SampleFitWArrows.pdf}
-\end{figure}
-** Fit based signal from background separation
-... and decompose it to a background component ...
-\begin{figure}[hb]
-\centering
-\includegraphics[page=3, width=0.5 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_SampleFitWArrows.pdf}
-\end{figure}
-** Fit based signal from background separation
-... and a signal component
-\begin{figure}[hb]
-\centering
-\includegraphics[page=4, width=0.5 \textwidth, ext=.png type=jpg]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M60M5080_SampleFitWArrows.pdf}
 \end{figure}
 ** Fit based signal from background separation
 Then we can count the signal and background events, in a region of interest \(I\):
@@ -759,4 +670,125 @@ Plus some really extreme cases
 - $30\%$
 - $40\%$
 - $50\%$
+
+  
+
+** Fit based approach: Signal Fitting 
+Then we proceed and fit the signal
+*** Figure 1
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=1,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\end{figure}
+
+*** Figure 2
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=2,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\end{figure}
+
+** Fit based approach: Signal Fitting 
+*** Figure 1
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=3,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\end{figure}
+
+*** Figure 2
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=4,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\end{figure}
+
+** Fit based approach: Signal Fitting 
+\begin{figure}[h]
+\centering
+\includegraphics[page=5,width=0.55\textwidth]{/home/kpapad/UG_thesis/Thesis/Analysis/src/WPhiJets_M200M100300_FitALL.pdf}
+\end{figure}
+
+
+** BDT approach: Application
+Feed the application set to the BDT --> BDT plots
+*** Figure 1
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application12BDTplot.pdf}
+\end{figure}
+*** Figure 2
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared512BDTplot.pdf}
+\end{figure}
+
+** BDT approach: Application
+*** Figure 1
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared1012BDTplot.pdf}
+\end{figure}
+*** Figure 2
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared1512BDTplot.pdf}
+\end{figure}
+
+** BDT approach: Application
+*** Figure 1
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared2012BDTplot.pdf}
+\end{figure}
+*** Figure 2
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared3012BDTplot.pdf}
+\end{figure}
+
+** BDT approach: Application
+*** Figure 1
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared4012BDTplot.pdf}
+\end{figure}
+*** Figure 2
+:PROPERTIES:
+:BEAMER_col: 0.5
+    :END:
+\begin{figure}[h]
+\centering
+\includegraphics[page=6,width=\linewidth]{/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/WPhiJets_M200M100300Deltas_Application_Smeared5012BDTplot.pdf}
+\end{figure}
 
