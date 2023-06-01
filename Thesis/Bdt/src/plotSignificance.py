@@ -9,10 +9,10 @@ import numpy as np
 ROOT.gROOT.SetBatch(True)
 #outFile10,outFile15,outFile25,outFile50
 inPath = "/home/kpapad/UG_thesis/Thesis/Bdt/out/Plots/"
-inFile = inPath + "WPhiJets_M60M5080Deltas_Application_Smeared0.root" 
+inFile = inPath + "WPhiJets_M200M100300Deltas_Application_Smeared0.root" 
 inFiles =[
-    inPath + "WPhiJets_M60M5080Deltas_Application_Smeared{}Pred13.root".format(n)
-    for n in [5, 7, 10, 12]
+    inPath + "WPhiJets_M200M100300Deltas_Application_Smeared{}Pred12.root".format(n)
+    for n in [5, 10, 15, 20, 30, 40 ,50]
 ]
 
 inFiles = [inFile] + inFiles
@@ -23,7 +23,7 @@ c.SetLogx(0); c.SetLogy(0)
 ROOT.gStyle.SetOptStat(0); ROOT.gStyle.SetTextFont(42)
 ROOT.gPad.SetLeftMargin(0.13)
 ROOT.gPad.SetBottomMargin(0.11)
-c.SaveAs("WPhiJets_M60M5080_Significance.pdf[")
+c.SaveAs("WPhiJets_M200M100300_Significance0bdt.pdf[")
 
 def draw(_graph_, i):
     if i == 0 :
@@ -41,6 +41,7 @@ smear = [ "{}%".format(n) for n in (0, 5, 7, 10, 12) ]
 sig_lab = r'\frac{sig}{\sqrt{bkg}}'
 size = 0.045
 for i, infile in enumerate(inFiles):
+    if i!=0: break
     myFile = ROOT.TFile.Open(infile, "READ") 
     graph=myFile.Get("significance")
     myFile.Close()
@@ -52,7 +53,7 @@ for i, infile in enumerate(inFiles):
     graph_.SetLineWidth(3)
     legend.AddEntry(graph_, '{}'.format(smear[i]), 'l')
     draw(graph_, i)
-    graph_.GetYaxis().SetRangeUser(15, 70)
+    graph_.GetYaxis().SetRangeUser(20, 125)
     if i==0:
         graph_.GetYaxis().SetLabelSize(size)
         graph_.GetYaxis().SetTitleSize(size)
@@ -80,7 +81,10 @@ legend.SetBorderSize(0)
 legend.SetTextSize(0.03)
 legend.Draw('same')
 c.Update()
-c.SaveAs("WPhiJets_M60M5080_Significance.pdf")
+c.SaveAs("WPhiJets_M200M100300_Significance0bdt.pdf")
+c.SaveAs("WPhiJets_M200M100300_Significance0bdt.pdf]")
+exit()
+
 
 ## Get the fit based results 
 inSigPath = "/home/kpapad/UG_thesis/Thesis/Analysis/out/Plots/"
@@ -131,8 +135,7 @@ legend.SetTextSize(0.04)
 legend.Draw('same')
 
 set_axes_title(evol1, 'smearing in %', 'significance')
-c.SaveAs("WPhiJets_M60M5080_Significance.pdf")
-
+c.SaveAs("WPhiJets_M60M5080_Significance0bdt.pdf")
 
 
 
